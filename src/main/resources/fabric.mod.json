@@ -1,33 +1,28 @@
 {
 	"schemaVersion": 1,
-	"id": "modid",
+	"id": "aquaticplus",
 	"version": "${version}",
-	"name": "Example mod",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Aquatic Plus",
+	"description": "Expands Ocean life to include real-life creatures and mythical beasts!",
 	"authors": [
-		"Me!"
+		"SirJain"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+
 	},
 	"license": "CC0-1.0",
-	"icon": "assets/modid/icon.png",
+	"icon": "assets/aquaticplus/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.example.ExampleMod"
+			"com.aquaticplus.AquaticPlusMain"
 		],
 		"client": [
-			"com.example.ExampleModClient"
+			"com.aquaticplus.AquaticPlusClient"
 		]
 	},
 	"mixins": [
-		"modid.mixins.json",
-		{
-			"config": "modid.client.mixins.json",
-			"environment": "client"
-		}
+		"aquaticplus.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.14.21",
