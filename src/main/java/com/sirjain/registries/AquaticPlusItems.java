@@ -12,13 +12,14 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
 public class AquaticPlusItems {
+    public static Item JOHNSON_SPAWN_EGG;
+
     public static void registerItems() {
-        // Register items here
         registerSpawnEggs();
     }
 
     public static void registerSpawnEggs() {
-        // Register spawn eggs here
+        JOHNSON_SPAWN_EGG = registerSpawnEggItem("johnson_spawn_egg", AquaticPlusEntities.JOHNSON_ENTITY, 0x564529, 0x2b2a28, new Item.Settings());
     }
 
     public static void registerBlockItems() {
