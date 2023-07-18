@@ -1,4 +1,4 @@
-package com.aquaticplus.registries;
+package com.sirjain.registries;
 
 public class AquaticPlusEntities {
     public static void registerEntities() {

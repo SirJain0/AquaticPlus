@@ -1,4 +1,4 @@
-package com.aquaticplus.registries;
+package com.sirjain.registries;
 
 public class AquaticPlusRegistryUtil {
     public static void initContent() {

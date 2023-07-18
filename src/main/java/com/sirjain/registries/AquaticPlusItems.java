@@ -1,6 +1,6 @@
-package com.aquaticplus.registries;
+package com.sirjain.registries;
 
-import com.aquaticplus.AquaticPlus;
+import com.sirjain.AquaticPlus;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;

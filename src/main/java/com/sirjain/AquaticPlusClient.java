@@ -1,4 +1,4 @@
-package com.aquaticplus;
+package com.sirjain;
 
 import net.fabricmc.api.ClientModInitializer;
 

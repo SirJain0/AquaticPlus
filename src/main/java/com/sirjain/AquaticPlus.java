@@ -1,7 +1,6 @@
-package com.aquaticplus;
+package com.sirjain;
 
-import com.aquaticplus.registries.AquaticPlusItems;
-import com.aquaticplus.registries.AquaticPlusRegistryUtil;
+import com.sirjain.registries.AquaticPlusRegistryUtil;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
