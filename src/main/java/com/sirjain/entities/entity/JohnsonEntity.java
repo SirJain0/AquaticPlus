@@ -9,6 +9,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
 public class JohnsonEntity extends FishEntity {
@@ -23,9 +24,10 @@ public class JohnsonEntity extends FishEntity {
         this.goalSelector.add(1, new FleeEntityGoal<>(this, PlayerEntity.class, 6.0F, 1.0, 1.3));
     }
 
+    // TODO: Change this to a more generalized flop sound for all fish
     @Override
     protected SoundEvent getFlopSound() {
-        return null;
+        return SoundEvents.ENTITY_COD_FLOP;
     }
 
     @Override
