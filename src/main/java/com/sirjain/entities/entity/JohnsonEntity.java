@@ -1,7 +1,7 @@
 package com.sirjain.entities.entity;
 
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.FleeEntityGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
@@ -20,7 +20,9 @@ public class JohnsonEntity extends FishEntity {
 
     @Override
     protected void initGoals() {
-        super.initGoals();
+        this.goalSelector.add(0, new MoveIntoWaterGoal(this));
+        this.goalSelector.add(0, new SwimAroundGoal(this, 1.0, 10));
+        this.goalSelector.add(4, new LookAroundGoal(this));
         this.goalSelector.add(1, new FleeEntityGoal<>(this, PlayerEntity.class, 6.0F, 1.0, 1.3));
     }
 
@@ -39,6 +41,6 @@ public class JohnsonEntity extends FishEntity {
         return FishEntity
                 .createFishAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 100)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.3f);
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5f);
     }
 }
