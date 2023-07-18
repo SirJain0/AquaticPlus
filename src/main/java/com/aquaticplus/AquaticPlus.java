@@ -1,6 +1,7 @@
 package com.aquaticplus;
 
-import com.aquaticplus.util.AquaticPlusRegistries;
+import com.aquaticplus.registries.AquaticPlusItems;
+import com.aquaticplus.registries.AquaticPlusRegistryUtil;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -13,6 +14,6 @@ public class AquaticPlus implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		LOGGER.info("Initializing Aquatic Plus mod!");
-		AquaticPlusRegistries.initContent();
+		AquaticPlusRegistryUtil.initContent();
 	}
 }
