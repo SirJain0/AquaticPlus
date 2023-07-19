@@ -27,7 +27,7 @@ public class AquaticPlusItems {
     }
 
     public static void registerBucketItems() {
-        SPIRITED_FISH_BUCKET = registerBucketItem("spirited_fish_bucket", AquaticPlusEntities.SPIRITED_FISH_ENTITY, new Item.Settings());
+        SPIRITED_FISH_BUCKET = registerBucketItem("spirited_fish_bucket", AquaticPlusEntities.SPIRITED_FISH_ENTITY, new Item.Settings()); // TODO: Add texture
     }
 
     public static void registerBlockItems() {
