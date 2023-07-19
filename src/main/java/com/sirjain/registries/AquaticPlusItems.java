@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier;
 
 public class AquaticPlusItems {
     public static Item JOHNSON_SPAWN_EGG;
+    public static Item SPIRITED_FISH_SPAWN_EGG;
 
     public static void registerItems() {
         registerSpawnEggs();
@@ -20,6 +21,7 @@ public class AquaticPlusItems {
 
     public static void registerSpawnEggs() {
         JOHNSON_SPAWN_EGG = registerSpawnEggItem("johnson_spawn_egg", AquaticPlusEntities.JOHNSON_ENTITY, 0x564529, 0x2b2a28, new Item.Settings());
+        SPIRITED_FISH_SPAWN_EGG = registerSpawnEggItem("spirited_fish_spawn_egg", AquaticPlusEntities.SPIRITED_FISH_ENTITY, 0xc2c0db, 0xae9bbf, new Item.Settings());// tweak spawn egg colors later
     }
 
     public static void registerBlockItems() {
