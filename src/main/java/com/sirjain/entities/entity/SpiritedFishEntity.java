@@ -29,20 +29,19 @@ public class SpiritedFishEntity extends FishEntity {
         return null;
     }
 
-    // FIXME: Fix exploding in water
     @Override
-    public void tick() {
-        if (!this.isSubmergedInWater()) {
-            boolean isMobExplosionType = this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING);
-            World.ExplosionSourceType destructionType = isMobExplosionType
-                    ? World.ExplosionSourceType.MOB
-                    : World.ExplosionSourceType.NONE;
-            World world = this.getWorld();
+    public void mobTick() {
+        if (isTouchingWaterOrRain()) return;
 
-            if (!world.isClient && this.isAlive()) {
-                world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 1, destructionType);
-                this.kill();
-            }
+        boolean isMobExplosionType = this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING);
+        World.ExplosionSourceType destructionType = isMobExplosionType
+                ? World.ExplosionSourceType.MOB
+                : World.ExplosionSourceType.NONE;
+        World world = this.getWorld();
+
+        if (!world.isClient && this.isAlive()) {
+            world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 1, destructionType);
+            this.kill();
         }
     }
 
