@@ -1,6 +1,8 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.goals.AQSwimAroundGoal;
+import com.sirjain.items.AquaticPlusItemGroup;
+import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.SwimAroundGoal;
@@ -35,7 +37,7 @@ public class SpiritedFishEntity extends FishEntity {
     @Nullable
     @Override
     public ItemStack getBucketItem() {
-        return null;
+        return new ItemStack(AquaticPlusItems.SPIRITED_FISH_BUCKET);
     }
 
     @Override
