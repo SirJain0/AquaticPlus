@@ -1,6 +1,9 @@
 package com.sirjain.entities.entity;
 
+import com.sirjain.entities.goals.AQSwimAroundGoal;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.goal.EscapeDangerGoal;
+import net.minecraft.entity.ai.goal.SwimAroundGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
@@ -14,6 +17,12 @@ import org.jetbrains.annotations.Nullable;
 public class SpiritedFishEntity extends FishEntity {
     public SpiritedFishEntity(EntityType<? extends FishEntity> entityType, World world) {
         super(entityType, world);
+    }
+
+    @Override
+    protected void initGoals() {
+        this.goalSelector.add(0, new AQSwimAroundGoal(this, 1, 2, 12, 3));
+        this.goalSelector.add(0, new EscapeDangerGoal(this, 1.3));
     }
 
     // TODO: Change this to a more generalized flop sound for all fish
@@ -49,6 +58,6 @@ public class SpiritedFishEntity extends FishEntity {
         return FishEntity
                 .createFishAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 6)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4);
     }
 }
