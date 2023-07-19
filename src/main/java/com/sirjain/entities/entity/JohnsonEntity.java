@@ -11,6 +11,7 @@ import net.minecraft.item.Items;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class JohnsonEntity extends FishEntity {
     public JohnsonEntity(EntityType<? extends FishEntity> entityType, World world) {
@@ -32,15 +33,17 @@ public class JohnsonEntity extends FishEntity {
         return SoundEvents.ENTITY_COD_FLOP;
     }
 
+    // TODO: Prevent crash and figure out how to not give fish bucket item
+    @Nullable
     @Override
     public ItemStack getBucketItem() {
-        return Items.WATER_BUCKET.getDefaultStack();
+        return null;
     }
 
     public static DefaultAttributeContainer.Builder createJohnsonAttributes() {
         return FishEntity
                 .createFishAttributes()
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 100)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.5f);
+                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
     }
 }
