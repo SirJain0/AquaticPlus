@@ -29,6 +29,7 @@ public class SpiritedFishEntity extends FishEntity {
         return null;
     }
 
+    // FIXME: Fix exploding in water
     @Override
     public void tick() {
         if (!this.isSubmergedInWater()) {
@@ -38,11 +39,10 @@ public class SpiritedFishEntity extends FishEntity {
                     : World.ExplosionSourceType.NONE;
             World world = this.getWorld();
 
-            if (!world.isClient)
+            if (!world.isClient && this.isAlive()) {
                 world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 1, destructionType);
-
-            if (this.isAlive())
                 this.kill();
+            }
         }
     }
 

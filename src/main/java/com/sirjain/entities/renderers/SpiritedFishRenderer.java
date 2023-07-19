@@ -19,4 +19,6 @@ public class SpiritedFishRenderer extends MobEntityRenderer<SpiritedFishEntity, 
     public Identifier getTexture(SpiritedFishEntity entity) {
         return TEXTURE;
     }
+
+    // TODO: When model implemented, make outer layer translucent
 }
