@@ -1,6 +1,8 @@
 package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
+import com.sirjain.items.DestonifierItem;
+import com.sirjain.items.StonifierItem;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
@@ -12,13 +14,23 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 public class AquaticPlusItems {
-    public static Item JOHNSON_SPAWN_EGG;
-    public static Item SPIRITED_FISH_SPAWN_EGG;
-    public static Item SPIRITED_FISH_BUCKET;
+    public static Item
+            STONIFIER,
+            DESTONIFIER;
+
+    public static Item
+            JOHNSON_SPAWN_EGG,
+            SPIRITED_FISH_SPAWN_EGG;
+
+    public static Item
+            SPIRITED_FISH_BUCKET;
 
     public static void registerItems() {
         registerSpawnEggs();
         registerBucketItems();
+
+        STONIFIER = registerCustomItem("stonifier", new StonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
+        DESTONIFIER = registerCustomItem("destonifier", new DestonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
     }
 
     public static void registerSpawnEggs() {
@@ -35,11 +47,19 @@ public class AquaticPlusItems {
     }
 
     // Helper registry methods
-    public static Item registerItem(String identifier, Item.Settings settings) {
+    public static Item registerBasicItem(String identifier, Item.Settings settings) {
         return Registry.register(
                 Registries.ITEM,
                 new Identifier(AquaticPlus.MOD_ID, identifier),
                 new Item(settings)
+        );
+    }
+
+    public static Item registerCustomItem(String identifier, Item item) {
+        return Registry.register(
+                Registries.ITEM,
+                new Identifier(AquaticPlus.MOD_ID, identifier),
+                item
         );
     }
 
