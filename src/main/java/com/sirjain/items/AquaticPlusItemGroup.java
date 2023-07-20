@@ -24,12 +24,12 @@ public class AquaticPlusItemGroup {
                         .icon(() -> new ItemStack(Items.BEDROCK)) // TODO: Change later
 
                         .entries((displayContext, entries) -> {
-                            // == SPAWN EGGS ==
                             entries.add(AquaticPlusItems.JOHNSON_SPAWN_EGG);
                             entries.add(AquaticPlusItems.SPIRITED_FISH_SPAWN_EGG);
 
-                            // == BUCKETS ==
                             entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
+
+                            entries.add(AquaticPlusItems.STONIFIER);
                         }).build()
         );
     }
