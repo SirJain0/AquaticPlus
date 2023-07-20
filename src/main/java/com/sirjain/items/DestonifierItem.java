@@ -22,8 +22,10 @@ public class DestonifierItem extends Item {
         if (world.getBlockState(breakPos) == Blocks.STONE.getDefaultState())
             world.breakBlock(breakPos, false);
 
-        if (user != null && !user.getAbilities().creativeMode)
+        if (user != null && !user.getAbilities().creativeMode) {
+            user.getStackInHand(user.getActiveHand()).damage(1, user, (p) -> p.sendToolBreakStatus(user.getActiveHand()));
             user.getItemCooldownManager().set(this, 40);
+        }
 
         return super.useOnBlock(context);
     }

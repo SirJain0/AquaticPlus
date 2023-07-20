@@ -29,8 +29,8 @@ public class AquaticPlusItems {
         registerSpawnEggs();
         registerBucketItems();
 
-        STONIFIER = registerCustomItem("stonifier", new StonifierItem(new Item.Settings().maxCount(1)));
-        DESTONIFIER = registerCustomItem("destonifier", new DestonifierItem(new Item.Settings().maxCount(1)));
+        STONIFIER = registerCustomItem("stonifier", new StonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
+        DESTONIFIER = registerCustomItem("destonifier", new DestonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
     }
 
     public static void registerSpawnEggs() {
