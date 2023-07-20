@@ -30,6 +30,7 @@ public class AquaticPlusItemGroup {
                             entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 
                             entries.add(AquaticPlusItems.STONIFIER);
+                            entries.add(AquaticPlusItems.DESTONIFIER);
                         }).build()
         );
     }

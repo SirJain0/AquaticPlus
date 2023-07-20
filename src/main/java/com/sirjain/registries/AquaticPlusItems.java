@@ -1,6 +1,7 @@
 package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
+import com.sirjain.items.DestonifierItem;
 import com.sirjain.items.StonifierItem;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
@@ -14,7 +15,8 @@ import net.minecraft.util.Identifier;
 
 public class AquaticPlusItems {
     public static Item
-            STONIFIER;
+            STONIFIER,
+            DESTONIFIER;
 
     public static Item
             JOHNSON_SPAWN_EGG,
@@ -28,6 +30,7 @@ public class AquaticPlusItems {
         registerBucketItems();
 
         STONIFIER = registerCustomItem("stonifier", new StonifierItem(new Item.Settings().maxCount(1)));
+        DESTONIFIER = registerCustomItem("destonifier", new DestonifierItem(new Item.Settings().maxCount(1)));
     }
 
     public static void registerSpawnEggs() {
