@@ -31,6 +31,7 @@ public class AquaticPlusItemGroup {
 
                             entries.add(AquaticPlusItems.STONIFIER);
                             entries.add(AquaticPlusItems.DESTONIFIER);
+                            entries.add(AquaticPlusItems.DETOXIFYING_ACID);
                         }).build()
         );
     }
