@@ -2,6 +2,7 @@ package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
 import com.sirjain.items.DestonifierItem;
+import com.sirjain.items.DetoxifyingAcidItem;
 import com.sirjain.items.StonifierItem;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
@@ -16,7 +17,8 @@ import net.minecraft.util.Identifier;
 public class AquaticPlusItems {
     public static Item
             STONIFIER,
-            DESTONIFIER;
+            DESTONIFIER,
+            DETOXIFYING_ACID;
 
     public static Item
             JOHNSON_SPAWN_EGG,
@@ -31,6 +33,7 @@ public class AquaticPlusItems {
 
         STONIFIER = registerCustomItem("stonifier", new StonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
         DESTONIFIER = registerCustomItem("destonifier", new DestonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
+        DETOXIFYING_ACID = registerCustomItem("detoxifying_acid", new DetoxifyingAcidItem(new Item.Settings()));
     }
 
     public static void registerSpawnEggs() {
