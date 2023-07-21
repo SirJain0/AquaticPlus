@@ -9,6 +9,8 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -32,11 +34,14 @@ public class JohnsonEntity extends FishEntity {
         return SoundEvents.ENTITY_COD_FLOP;
     }
 
-    // TODO: Prevent crash and figure out how to not give fish bucket item
-    @Nullable
     @Override
     public ItemStack getBucketItem() {
-        return null;
+        return ItemStack.EMPTY;
+    }
+
+    @Override
+    protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+        return ActionResult.PASS;
     }
 
     public static DefaultAttributeContainer.Builder createJohnsonAttributes() {
