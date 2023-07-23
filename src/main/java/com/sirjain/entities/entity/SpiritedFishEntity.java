@@ -33,8 +33,6 @@ public class SpiritedFishEntity extends FishEntity {
         return SoundEvents.ENTITY_COD_FLOP;
     }
 
-    // TODO: Prevent crash and figure out how to not give fish bucket item
-    @Nullable
     @Override
     public ItemStack getBucketItem() {
         return new ItemStack(AquaticPlusItems.SPIRITED_FISH_BUCKET);
