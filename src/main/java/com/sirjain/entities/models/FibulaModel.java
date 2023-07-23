@@ -51,7 +51,7 @@ public class FibulaModel extends EntityModel<FibulaEntity> {
     public void setAngles(FibulaEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
         tailSeg1.yaw = MathHelper.cos(animationProgress * 0.25f) * 0.35f;
         tailSeg2.yaw = MathHelper.cos(-20 + animationProgress * 0.25f) * 0.65f;
-        head.yaw = -(MathHelper.cos(animationProgress * 0.25f)  * 0.08f);
+        head.yaw = -(MathHelper.cos(animationProgress * 0.25f)  * 0.12f);
     }
 
     @Override
