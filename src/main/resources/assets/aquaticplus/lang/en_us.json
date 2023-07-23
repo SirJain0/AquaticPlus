@@ -9,5 +9,9 @@
 
   "item.aquaticplus.stonifier": "Stonifier",
   "item.aquaticplus.destonifier": "Destonifier",
-  "item.aquaticplus.detoxifying_acid": "Detoxifying Acid"
+  "item.aquaticplus.detoxifying_acid": "Detoxifying Acid",
+
+  "entity.aquaticplus.johnson": "Johnson",
+  "entity.aquaticplus.spirited_fish": "Spirited Fish",
+  "entity.aquaticplus.fibula": "Fibula"
 }
