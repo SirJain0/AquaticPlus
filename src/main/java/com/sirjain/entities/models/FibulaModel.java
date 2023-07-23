@@ -37,16 +37,16 @@ public class FibulaModel extends EntityModel<FibulaEntity> {
         ModelPartData side_fin_r_r1 = main.addChild("side_fin_r_r1", ModelPartBuilder.create().uv(24, 0).mirrored().cuboid(-7.0F, 0.0F, -6.0F, 7.0F, 1.0F, 12.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.of(-3.0F, 1.8035F, 0.1464F, 0.0F, 0.0F, -0.1745F));
         ModelPartData side_fin_l_r1 = main.addChild("side_fin_l_r1", ModelPartBuilder.create().uv(24, 0).cuboid(0.0F, 0.0F, -6.0F, 7.0F, 1.0F, 12.0F, new Dilation(0.0F)), ModelTransform.of(3.0F, 1.8035F, 0.1464F, 0.0F, 0.0F, 0.1745F));
         ModelPartData head = main.addChild("head", ModelPartBuilder.create().uv(37, 45).cuboid(-2.5F, -3.0F, -6.25F, 5.0F, 6.0F, 7.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.3035F, -7.8536F));
-        ModelPartData jaw_upper = head.addChild("jaw_upper", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, -0.5F, -6.5F));
-        ModelPartData cube_r1 = jaw_upper.addChild("cube_r1", ModelPartBuilder.create().uv(24, 14).cuboid(-2.0F, -1.5F, -4.5F, 4.0F, 3.0F, 5.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.8727F, 0.0F, 0.0F));
-        ModelPartData jaw_lower = head.addChild("jaw_lower", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 0.5F, -6.5F));
-        ModelPartData cube_r2 = jaw_lower.addChild("cube_r2", ModelPartBuilder.create().uv(24, 14).cuboid(-2.0F, -1.5F, -4.5F, 4.0F, 3.0F, 5.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, -0.8727F, 0.0F, 3.1416F));
+        ModelPartData jaw_upper = head.addChild("jaw_upper", ModelPartBuilder.create().uv(24, 14).cuboid(-2.0F, -1.5F, -4.5F, 4.0F, 3.0F, 5.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -0.5F, -6.5F, -0.8727F, 0.0F, 0.0F));
+        ModelPartData jaw_lower = head.addChild("jaw_lower", ModelPartBuilder.create(), ModelTransform.of(0.0F, 0.5F, -6.5F, 0.8727F, 0.0F, 0.0F));
+        ModelPartData cube_r1 = jaw_lower.addChild("cube_r1", ModelPartBuilder.create().uv(24, 14).cuboid(-2.0F, -1.5F, -4.5F, 4.0F, 3.0F, 5.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.0F, 0.0F, 0.0F, 0.0F, 3.1416F));
         ModelPartData tail_1 = main.addChild("tail_1", ModelPartBuilder.create().uv(0, 36).cuboid(-2.0F, -3.0F, 0.0F, 4.0F, 6.0F, 14.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0535F, 8.1464F));
         ModelPartData tail_2 = tail_1.addChild("tail_2", ModelPartBuilder.create().uv(0, 0).cuboid(0.0F, -6.0F, 0.0F, 0.0F, 12.0F, 23.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -0.5F, 14.0F));
 
         return TexturedModelData.of(modelData, 128, 128);
     }
 
+    // TODO: Change jaw angle based on current attacking state
     @Override
     public void setAngles(FibulaEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
         tailSeg1.yaw = MathHelper.cos(animationProgress * 0.25f) * 0.35f;
