@@ -65,7 +65,7 @@ public class FibulaEntity extends FishEntity {
     public static DefaultAttributeContainer.Builder createFibulaAttributes() {
         return FishEntity
                 .createFishAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 46)
+                .add(EntityAttributes.GENERIC_MAX_HEALTH, 36)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4)
                 .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7);
