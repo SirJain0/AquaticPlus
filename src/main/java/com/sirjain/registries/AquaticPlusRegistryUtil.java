@@ -10,5 +10,6 @@ public class AquaticPlusRegistryUtil {
         AquaticPlusBlocks.registerBlocks();
         AquaticPlusItems.registerBlockItems();
         AquaticPlusItemGroup.registerItemGroup();
+        AquaticPlusStatusEffects.registerModEffects();
     }
 }
