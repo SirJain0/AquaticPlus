@@ -22,7 +22,8 @@ public class AquaticPlusItems {
 
     public static Item
             JOHNSON_SPAWN_EGG,
-            SPIRITED_FISH_SPAWN_EGG;
+            SPIRITED_FISH_SPAWN_EGG,
+            FIBULA_SPAWN_EGG;
 
     public static Item
             SPIRITED_FISH_BUCKET;
@@ -39,6 +40,7 @@ public class AquaticPlusItems {
     public static void registerSpawnEggs() {
         JOHNSON_SPAWN_EGG = registerSpawnEggItem("johnson_spawn_egg", AquaticPlusEntities.JOHNSON_ENTITY, 0x564529, 0x2b2a28, new Item.Settings());
         SPIRITED_FISH_SPAWN_EGG = registerSpawnEggItem("spirited_fish_spawn_egg", AquaticPlusEntities.SPIRITED_FISH_ENTITY, 0xc7cae0, 0xd2c3d3, new Item.Settings());
+        FIBULA_SPAWN_EGG = registerSpawnEggItem("fibula_spawn_egg", AquaticPlusEntities.FIBULA_ENTITY, 0x323334, 0x31948e, new Item.Settings());
     }
 
     public static void registerBucketItems() {
