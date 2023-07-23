@@ -16,9 +16,9 @@ public class NumbingStatusEffect extends StatusEffect {
         Vec3d velocityPriorEffect = entity.getVelocity();
         entity.setVelocity(velocityPriorEffect.x * 0.8f, velocityPriorEffect.y, velocityPriorEffect.z * 0.8f);
 
-        if (entity.handSwinging && entity.getWorld().random.nextInt(9) == 0) {
+        if (entity.handSwingProgress > 0 && entity.getWorld().random.nextInt(45 - (amplifier * 2)) == 0) {
             ItemStack stackInActiveHand = entity.getStackInHand(entity.getActiveHand());
-            entity.dropItem(stackInActiveHand.getItem());
+            entity.dropItem(stackInActiveHand.getItem(), 5);
             stackInActiveHand.decrement(1);
         }
     }
