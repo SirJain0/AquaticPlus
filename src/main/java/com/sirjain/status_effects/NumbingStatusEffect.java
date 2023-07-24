@@ -3,6 +3,8 @@ package com.sirjain.status_effects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.Vec3d;
@@ -15,13 +17,8 @@ public class NumbingStatusEffect extends StatusEffect {
 
     @Override
     public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-        Vec3d velocityPriorEffect = entity.getVelocity();
         World world = entity.getWorld();
-        entity.setVelocity(
-                velocityPriorEffect.x * 0.85f,
-                velocityPriorEffect.y,
-                velocityPriorEffect.z * 0.85f
-        );
+        entity.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 20, amplifier / 2, false, false, false));
 
         if (canDropItemInHand(entity, world, amplifier)) {
             ItemStack stackInActiveHand = entity.getStackInHand(entity.getActiveHand());
