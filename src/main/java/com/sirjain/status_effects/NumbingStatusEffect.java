@@ -1,12 +1,16 @@
 package com.sirjain.status_effects;
 
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.Hand;
+import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 public class NumbingStatusEffect extends StatusEffect {
     public NumbingStatusEffect(StatusEffectCategory category, int color) {
@@ -22,7 +26,7 @@ public class NumbingStatusEffect extends StatusEffect {
         if (canDropItemInHand(entity, world, amplifier)) {
             ItemStack stackInActiveHand = entity.getStackInHand(entity.getActiveHand());
 
-            if (entity instanceof PlayerEntity) ((PlayerEntity) entity).dropItem(stackInActiveHand.copyWithCount(1), true, true);
+            if (entity instanceof PlayerEntity) ((PlayerEntity) entity).dropItem(stackInActiveHand.copyWithCount(1), false, true);
             else entity.dropItem(entity.getStackInHand(entity.getActiveHand()).getItem().asItem());
 
             stackInActiveHand.decrement(1);
@@ -30,7 +34,7 @@ public class NumbingStatusEffect extends StatusEffect {
     }
 
     public boolean canDropItemInHand(LivingEntity entity, World world, int amplifier) {
-        return entity.handSwingProgress > 0.83;
+        return entity.handSwingProgress > 0.83 && !world.isClient;
 //                world.random.nextInt(10 - (amplifier / 2 + 1)) == 0;
     }
 
