@@ -21,10 +21,8 @@ public class NumbingStatusEffect extends StatusEffect {
 
         if (canDropItemInHand(entity, world, amplifier)) {
             ItemStack stackInActiveHand = entity.getStackInHand(entity.getActiveHand());
-//            entity.dropItem(stackInActiveHand.getItem(), 5);
-//            System.out.println(entity.handSwingProgress);
 
-            if (!stackInActiveHand.isEmpty()) {
+            if (!stackInActiveHand.isEmpty() && !world.isClient) {
                 ItemEntity itemEntity = new ItemEntity(world, entity.getX(), entity.getY(), entity.getZ(), stackInActiveHand);
                 Vec3d velocity = itemEntity.getVelocity();
 
@@ -38,13 +36,17 @@ public class NumbingStatusEffect extends StatusEffect {
                 itemEntity.setToDefaultPickupDelay();
                 world.spawnEntity(itemEntity);
             }
+
+            if (world.isClient) {
+                ItemStack stack = entity.getStackInHand(entity.getActiveHand());
+                stack.decrement(1);
+            }
         }
     }
 
     public boolean canDropItemInHand(LivingEntity entity, World world, int amplifier) {
-        return entity.handSwingProgress > 0.83 &&
-                !world.isClient &&
-                world.random.nextInt(10 - (amplifier / 2 + 1)) == 0;
+        return entity.handSwingProgress > 0.83;
+//                world.random.nextInt(10 - (amplifier / 2 + 1)) == 0;
     }
 
     @Override
