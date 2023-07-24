@@ -1,5 +1,6 @@
 package com.sirjain.status_effects;
 
+import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
@@ -18,8 +19,15 @@ public class NumbingStatusEffect extends StatusEffect {
 
         if (canDropItemInHand(entity, amplifier)) {
             ItemStack stackInActiveHand = entity.getStackInHand(entity.getActiveHand());
-            entity.dropItem(stackInActiveHand.getItem(), 5);
+//            entity.dropItem(stackInActiveHand.getItem(), 5);
 //            System.out.println(entity.handSwingProgress);
+
+            if (!stackInActiveHand.isEmpty()) {
+                ItemEntity itemEntity = new ItemEntity(entity.getWorld(), entity.getX(), entity.getY(), entity.getZ(), stackInActiveHand);
+//                itemEntity.setVelocity();
+                itemEntity.setToDefaultPickupDelay();
+                entity.getWorld().spawnEntity(itemEntity);
+            }
         }
     }
 
