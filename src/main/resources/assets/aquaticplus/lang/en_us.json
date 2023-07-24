@@ -7,6 +7,9 @@
 
   "item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 
+  "item.minecraft.potion.effect.numbing_potion": "Numbing Potion",
+  "item.minecraft.splash_potion.effect.numbing_potion": "Numbing Splash Potion",
+  "item.minecraft.lingering_potion.effect.numbing_potion": "Numbing Lingering Potion",
   "item.aquaticplus.stonifier": "Stonifier",
   "item.aquaticplus.destonifier": "Destonifier",
   "item.aquaticplus.detoxifying_acid": "Detoxifying Acid",

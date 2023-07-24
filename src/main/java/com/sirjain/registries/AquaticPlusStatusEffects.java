@@ -12,7 +12,7 @@ public class AquaticPlusStatusEffects {
     public static StatusEffect NUMBING;
 
     public static void registerModEffects() {
-        NUMBING = registerStatusEffect("numbing", new NumbingStatusEffect(StatusEffectCategory.HARMFUL, 0xc8afc0));
+        NUMBING = registerStatusEffect("numbing", new NumbingStatusEffect(StatusEffectCategory.HARMFUL, 0x31948e));
     }
 
     private static StatusEffect registerStatusEffect(String name, StatusEffect statusEffect) {

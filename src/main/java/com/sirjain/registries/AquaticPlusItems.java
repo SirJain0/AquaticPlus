@@ -4,6 +4,7 @@ import com.sirjain.AquaticPlus;
 import com.sirjain.items.DestonifierItem;
 import com.sirjain.items.DetoxifyingAcidItem;
 import com.sirjain.items.StonifierItem;
+import com.sirjain.status_effects.AquaticPlusPotions;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
@@ -35,6 +36,8 @@ public class AquaticPlusItems {
         STONIFIER = registerCustomItem("stonifier", new StonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
         DESTONIFIER = registerCustomItem("destonifier", new DestonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
         DETOXIFYING_ACID = registerCustomItem("detoxifying_acid", new DetoxifyingAcidItem(new Item.Settings()));
+
+        AquaticPlusPotions.registerPotions();
     }
 
     public static void registerSpawnEggs() {
