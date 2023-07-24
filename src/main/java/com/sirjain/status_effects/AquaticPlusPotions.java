@@ -15,6 +15,7 @@ public class AquaticPlusPotions {
     public static Potion NUMBING_POTION;
 
     public static void registerPotions() {
+        // TODO: Add these potions to custom item group, not default group
         NUMBING_POTION = registerPotion("numbing_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 20*10, 0)));
     }
 
