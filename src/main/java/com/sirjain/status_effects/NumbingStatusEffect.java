@@ -4,7 +4,9 @@ import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.stat.Stats;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
@@ -35,11 +37,17 @@ public class NumbingStatusEffect extends StatusEffect {
                 itemEntity.setNoGravity(false);
                 itemEntity.setToDefaultPickupDelay();
                 world.spawnEntity(itemEntity);
+
+                if (entity instanceof PlayerEntity)
+                    ((PlayerEntity) entity).incrementStat(Stats.USED.getOrCreateStat(stackInActiveHand.getItem()));
             }
 
             if (world.isClient) {
                 ItemStack stack = entity.getStackInHand(entity.getActiveHand());
                 stack.decrement(1);
+
+                if (entity instanceof PlayerEntity)
+                    ((PlayerEntity) entity).playerScreenHandler.sendContentUpdates();
             }
         }
     }
