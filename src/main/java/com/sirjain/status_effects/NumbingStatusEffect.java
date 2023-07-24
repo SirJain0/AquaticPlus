@@ -16,11 +16,16 @@ public class NumbingStatusEffect extends StatusEffect {
         Vec3d velocityPriorEffect = entity.getVelocity();
         entity.setVelocity(velocityPriorEffect.x * 0.8f, velocityPriorEffect.y, velocityPriorEffect.z * 0.8f);
 
-        if (entity.handSwingProgress > 0 && entity.getWorld().random.nextInt(45 - (amplifier * 2)) == 0) {
+        if (canDropItemInHand(entity, amplifier)) {
             ItemStack stackInActiveHand = entity.getStackInHand(entity.getActiveHand());
             entity.dropItem(stackInActiveHand.getItem(), 5);
-            stackInActiveHand.decrement(1);
+//            System.out.println(entity.handSwingProgress);
         }
+    }
+
+    public boolean canDropItemInHand(LivingEntity entity, int amplifier) {
+        return entity.handSwingProgress > 0.83 &&
+                entity.getWorld().random.nextInt(10 - (amplifier / 2 + 1)) == 0;
     }
 
     @Override
