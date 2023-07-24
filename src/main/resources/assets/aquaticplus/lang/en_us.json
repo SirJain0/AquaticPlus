@@ -13,5 +13,7 @@
 
   "entity.aquaticplus.johnson": "Johnson",
   "entity.aquaticplus.spirited_fish": "Spirited Fish",
-  "entity.aquaticplus.fibula": "Fibula"
+  "entity.aquaticplus.fibula": "Fibula",
+
+  "effect.aquaticplus.numbing": "Numbing"
 }
