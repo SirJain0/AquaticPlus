@@ -34,8 +34,9 @@ public class NumbingStatusEffect extends StatusEffect {
     }
 
     public boolean canDropItemInHand(LivingEntity entity, World world, int amplifier) {
-        return entity.handSwingProgress > 0.83 && !world.isClient;
-//                world.random.nextInt(10 - (amplifier / 2 + 1)) == 0;
+        return entity.handSwingProgress > 0.83 &&
+                !world.isClient &&
+                world.random.nextInt(7 - (amplifier / 2 + 1)) == 0;
     }
 
     @Override
