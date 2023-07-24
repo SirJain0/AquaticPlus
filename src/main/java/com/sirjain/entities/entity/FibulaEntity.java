@@ -1,6 +1,7 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.goals.APSwimAroundGoal;
+import com.sirjain.registries.AquaticPlusStatusEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -9,6 +10,8 @@ import net.minecraft.entity.ai.goal.AttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -59,7 +62,9 @@ public class FibulaEntity extends FishEntity {
 
     @Override
     public boolean tryAttack(Entity target) {
-        return super.tryAttack(target) && target instanceof LivingEntity;
+        boolean canAttack = super.tryAttack(target) && target instanceof LivingEntity;
+        if (canAttack) ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 6 * 20, 0), this);
+        return canAttack;
     }
 
     public static DefaultAttributeContainer.Builder createFibulaAttributes() {
