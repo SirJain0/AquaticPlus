@@ -4,7 +4,6 @@ import com.sirjain.AquaticPlus;
 import com.sirjain.items.DestonifierItem;
 import com.sirjain.items.DetoxifyingAcidItem;
 import com.sirjain.items.StonifierItem;
-import com.sirjain.status_effects.AquaticPlusPotions;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;

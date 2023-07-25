@@ -1,7 +1,6 @@
 package com.sirjain.registries;
 
 import com.sirjain.items.AquaticPlusItemGroup;
-import com.sirjain.status_effects.AquaticPlusPotions;
 
 public class AquaticPlusRegistryUtil {
     public static void initContent() {
