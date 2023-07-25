@@ -23,10 +23,12 @@ public class AquaticPlusItems {
     public static Item
             JOHNSON_SPAWN_EGG,
             SPIRITED_FISH_SPAWN_EGG,
-            FIBULA_SPAWN_EGG;
+            FIBULA_SPAWN_EGG,
+            PARROTFISH_SPAWN_EGG;
 
     public static Item
-            SPIRITED_FISH_BUCKET;
+            SPIRITED_FISH_BUCKET,
+            PARROTFISH_BUCKET;
 
     public static void registerItems() {
         registerSpawnEggs();
@@ -43,10 +45,12 @@ public class AquaticPlusItems {
         JOHNSON_SPAWN_EGG = registerSpawnEggItem("johnson_spawn_egg", AquaticPlusEntities.JOHNSON_ENTITY, 0x564529, 0x2b2a28, new Item.Settings());
         SPIRITED_FISH_SPAWN_EGG = registerSpawnEggItem("spirited_fish_spawn_egg", AquaticPlusEntities.SPIRITED_FISH_ENTITY, 0xc7cae0, 0xd2c3d3, new Item.Settings());
         FIBULA_SPAWN_EGG = registerSpawnEggItem("fibula_spawn_egg", AquaticPlusEntities.FIBULA_ENTITY, 0x323334, 0x31948e, new Item.Settings());
+        PARROTFISH_SPAWN_EGG = registerSpawnEggItem("parrotfish_spawn_egg", AquaticPlusEntities.PARROTFISH_ENTITY, 0x323334, 0x31948e, new Item.Settings()); // change colors
     }
 
     public static void registerBucketItems() {
         SPIRITED_FISH_BUCKET = registerBucketItem("spirited_fish_bucket", AquaticPlusEntities.SPIRITED_FISH_ENTITY, new Item.Settings());
+        PARROTFISH_BUCKET = registerBucketItem("parrotfish_bucket", AquaticPlusEntities.PARROTFISH_ENTITY, new Item.Settings());
     }
 
     public static void registerBlockItems() {
