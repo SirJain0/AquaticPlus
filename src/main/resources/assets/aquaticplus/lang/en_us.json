@@ -7,11 +7,16 @@
 
   "item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 
+  "item.minecraft.potion.effect.numbing_potion": "Numbing Potion",
+  "item.minecraft.splash_potion.effect.numbing_potion": "Numbing Splash Potion",
+  "item.minecraft.lingering_potion.effect.numbing_potion": "Numbing Lingering Potion",
   "item.aquaticplus.stonifier": "Stonifier",
   "item.aquaticplus.destonifier": "Destonifier",
   "item.aquaticplus.detoxifying_acid": "Detoxifying Acid",
 
   "entity.aquaticplus.johnson": "Johnson",
   "entity.aquaticplus.spirited_fish": "Spirited Fish",
-  "entity.aquaticplus.fibula": "Fibula"
+  "entity.aquaticplus.fibula": "Fibula",
+
+  "effect.aquaticplus.numbing": "Numbing"
 }
