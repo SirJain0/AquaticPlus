@@ -66,6 +66,11 @@ public class FibulaEntity extends FishEntity {
         return canAttack;
     }
 
+    @Override
+    protected boolean isDisallowedInPeaceful() {
+        return true;
+    }
+
     public static DefaultAttributeContainer.Builder createFibulaAttributes() {
         return FishEntity
                 .createFishAttributes()
