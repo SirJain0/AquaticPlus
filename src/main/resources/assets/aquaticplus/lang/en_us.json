@@ -21,5 +21,6 @@
   "entity.aquaticplus.spirited_fish": "Spirited Fish",
   "entity.aquaticplus.fibula": "Fibula",
 
-  "effect.aquaticplus.numbing": "Numbing"
+  "effect.aquaticplus.numbing": "Numbing",
+  "effect.aquaticplus.land_drowning": "Land Drowning"
 }
