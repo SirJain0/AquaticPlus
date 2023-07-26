@@ -10,7 +10,7 @@ import net.minecraft.world.WorldView;
 import java.util.Arrays;
 import java.util.List;
 
-public class APMoveToBlockGoal extends MoveToTargetPosGoal {
+public class MoveToAndBreakBlockGoal extends MoveToTargetPosGoal {
         final List<BlockState> preferredBlocks = Arrays.asList(
                 Blocks.STONE.getDefaultState(),
                 Blocks.GRAVEL.getDefaultState(),
@@ -30,7 +30,7 @@ public class APMoveToBlockGoal extends MoveToTargetPosGoal {
         private final int range;
         private final int maxYDifference;
 
-        public APMoveToBlockGoal(PathAwareEntity mob, double speed, int range, int maxYDifference) {
+        public MoveToAndBreakBlockGoal(PathAwareEntity mob, double speed, int range, int maxYDifference) {
                 super(mob, speed, range);
                 this.range = range;
                 this.maxYDifference = maxYDifference;

@@ -1,6 +1,6 @@
 package com.sirjain.entities.entity;
 
-import com.sirjain.entities.features.APMoveToBlockGoal;
+import com.sirjain.entities.features.MoveToAndBreakBlockGoal;
 import com.sirjain.entities.goals.APSwimAroundGoal;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
@@ -31,7 +31,7 @@ public class ParrotfishEntity extends SchoolingFishEntity {
         protected void initGoals() {
                 this.goalSelector.add(2, new APSwimAroundGoal(this, 1, 1, 10, 4));
                 this.goalSelector.add(0, new EscapeDangerGoal(this, 1.3));
-                this.goalSelector.add(0, new APMoveToBlockGoal(this, 1.3f, 10, 1));
+                this.goalSelector.add(0, new MoveToAndBreakBlockGoal(this, 1.3f, 10, 1));
         }
 
         // TODO: Replace with generic flop sound
