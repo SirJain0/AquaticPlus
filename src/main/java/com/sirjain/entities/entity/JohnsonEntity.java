@@ -1,5 +1,6 @@
 package com.sirjain.entities.entity;
 
+import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
@@ -45,7 +46,7 @@ public class JohnsonEntity extends FishEntity {
 
         @Override
         public ItemStack getBucketItem() {
-                return ItemStack.EMPTY;
+                return AquaticPlusItems.PARROTFISH_SPAWN_EGG.getDefaultStack();
         }
 
         @Override

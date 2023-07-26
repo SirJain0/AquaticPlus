@@ -30,6 +30,7 @@ public class AquaticPlusItemGroup {
                                         entries.add(AquaticPlusItems.PARROTFISH_SPAWN_EGG);
 
                                         entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
+                                        entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
 
                                         entries.add(AquaticPlusItems.STONIFIER);
                                         entries.add(AquaticPlusItems.DESTONIFIER);
