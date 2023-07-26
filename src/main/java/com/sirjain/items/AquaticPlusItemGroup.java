@@ -12,29 +12,29 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class AquaticPlusItemGroup {
-    public static ItemGroup AQUATICPLUS_ITEM_GROUP;
+        public static ItemGroup AQUATICPLUS_ITEM_GROUP;
 
-    public static void registerItemGroup() {
-        AQUATICPLUS_ITEM_GROUP = Registry.register(
-                Registries.ITEM_GROUP,
-                new Identifier(AquaticPlus.MOD_ID, "aquaticplus_item_group"),
+        public static void registerItemGroup() {
+                AQUATICPLUS_ITEM_GROUP = Registry.register(
+                        Registries.ITEM_GROUP,
+                        new Identifier(AquaticPlus.MOD_ID, "aquaticplus_item_group"),
 
-                FabricItemGroup.builder()
-                        .displayName(Text.translatable("itemGroup.aquaticplus"))
-                        .icon(() -> new ItemStack(Items.BEDROCK)) // TODO: Change later
+                        FabricItemGroup.builder()
+                                .displayName(Text.translatable("itemGroup.aquaticplus"))
+                                .icon(() -> new ItemStack(Items.BEDROCK)) // TODO: Change later
 
-                        .entries((displayContext, entries) -> {
-                            entries.add(AquaticPlusItems.JOHNSON_SPAWN_EGG);
-                            entries.add(AquaticPlusItems.SPIRITED_FISH_SPAWN_EGG);
-                            entries.add(AquaticPlusItems.FIBULA_SPAWN_EGG);
-                            entries.add(AquaticPlusItems.PARROTFISH_SPAWN_EGG);
+                                .entries((displayContext, entries) -> {
+                                        entries.add(AquaticPlusItems.JOHNSON_SPAWN_EGG);
+                                        entries.add(AquaticPlusItems.SPIRITED_FISH_SPAWN_EGG);
+                                        entries.add(AquaticPlusItems.FIBULA_SPAWN_EGG);
+                                        entries.add(AquaticPlusItems.PARROTFISH_SPAWN_EGG);
 
-                            entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
+                                        entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 
-                            entries.add(AquaticPlusItems.STONIFIER);
-                            entries.add(AquaticPlusItems.DESTONIFIER);
-                            entries.add(AquaticPlusItems.DETOXIFYING_ACID);
-                        }).build()
-        );
-    }
+                                        entries.add(AquaticPlusItems.STONIFIER);
+                                        entries.add(AquaticPlusItems.DESTONIFIER);
+                                        entries.add(AquaticPlusItems.DETOXIFYING_ACID);
+                                }).build()
+                );
+        }
 }

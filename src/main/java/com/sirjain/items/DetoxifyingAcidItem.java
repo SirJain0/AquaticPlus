@@ -11,34 +11,34 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class DetoxifyingAcidItem extends Item {
-    public DetoxifyingAcidItem(Settings settings) {
-        super(settings);
-    }
-
-    @Override
-    public ActionResult useOnBlock(ItemUsageContext context) {
-        World world = context.getWorld();
-        BlockPos pos = context.getBlockPos();
-        PlayerEntity user = context.getPlayer();
-
-        if (isState(world, pos, Blocks.OXIDIZED_COPPER))
-            world.setBlockState(pos, Blocks.WEATHERED_COPPER.getDefaultState());
-
-        else if (isState(world, pos, Blocks.WEATHERED_COPPER))
-            world.setBlockState(pos, Blocks.EXPOSED_COPPER.getDefaultState());
-
-        else if (isState(world, pos, Blocks.EXPOSED_COPPER))
-            world.setBlockState(pos, Blocks.COPPER_BLOCK.getDefaultState());
-
-        if (user != null && user.getAbilities().creativeMode) {
-            ItemStack stack = user.getStackInHand(user.getActiveHand());
-            stack.decrement(1);
+        public DetoxifyingAcidItem(Settings settings) {
+                super(settings);
         }
 
-        return super.useOnBlock(context);
-    }
+        @Override
+        public ActionResult useOnBlock(ItemUsageContext context) {
+                World world = context.getWorld();
+                BlockPos pos = context.getBlockPos();
+                PlayerEntity user = context.getPlayer();
 
-    public boolean isState(World world, BlockPos pos, Block block) {
-        return world.getBlockState(pos) == block.getDefaultState();
-    }
+                if (isState(world, pos, Blocks.OXIDIZED_COPPER))
+                        world.setBlockState(pos, Blocks.WEATHERED_COPPER.getDefaultState());
+
+                else if (isState(world, pos, Blocks.WEATHERED_COPPER))
+                        world.setBlockState(pos, Blocks.EXPOSED_COPPER.getDefaultState());
+
+                else if (isState(world, pos, Blocks.EXPOSED_COPPER))
+                        world.setBlockState(pos, Blocks.COPPER_BLOCK.getDefaultState());
+
+                if (user != null && user.getAbilities().creativeMode) {
+                        ItemStack stack = user.getStackInHand(user.getActiveHand());
+                        stack.decrement(1);
+                }
+
+                return super.useOnBlock(context);
+        }
+
+        public boolean isState(World world, BlockPos pos, Block block) {
+                return world.getBlockState(pos) == block.getDefaultState();
+        }
 }

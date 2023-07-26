@@ -21,62 +21,64 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 public class FibulaEntity extends FishEntity {
-    public FibulaEntity(EntityType<? extends FishEntity> entityType, World world) {
-        super(entityType, world);
-    }
+        public FibulaEntity(EntityType<? extends FishEntity> entityType, World world) {
+                super(entityType, world);
+        }
 
-    @Override
-    protected void initGoals() {
-        this.goalSelector.add(1, new APSwimAroundGoal(this, 1, 1, 10, 3));
-        this.goalSelector.add(0, new AttackGoal(this));
-        this.initTargetGoals();
-    }
+        public static DefaultAttributeContainer.Builder createFibulaAttributes() {
+                return FishEntity
+                        .createFishAttributes()
+                        .add(EntityAttributes.GENERIC_MAX_HEALTH, 36)
+                        .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4)
+                        .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2)
+                        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7);
+        }
 
-    // TODO: Simplify target selectors to include some sort of iterable array to prevent repetitive code
-    protected void initTargetGoals() {
-        this.targetSelector.add(0, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, SalmonEntity.class, true));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, CodEntity.class, true));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, TropicalFishEntity.class, true));
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, SchoolingFishEntity.class, true));
+        @Override
+        protected void initGoals() {
+                this.goalSelector.add(1, new APSwimAroundGoal(this, 1, 1, 10, 3));
+                this.goalSelector.add(0, new AttackGoal(this));
+                this.initTargetGoals();
+        }
 
-        this.targetSelector.add(1, new RevengeGoal(this));
-    }
+        // TODO: Simplify target selectors to include some sort of iterable array to prevent repetitive code
+        protected void initTargetGoals() {
+                this.targetSelector.add(0, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+                this.targetSelector.add(2, new ActiveTargetGoal<>(this, SalmonEntity.class, true));
+                this.targetSelector.add(2, new ActiveTargetGoal<>(this, CodEntity.class, true));
+                this.targetSelector.add(2, new ActiveTargetGoal<>(this, TropicalFishEntity.class, true));
+                this.targetSelector.add(2, new ActiveTargetGoal<>(this, SchoolingFishEntity.class, true));
 
-    // TODO: Change to generic fish flop sound
-    @Override
-    protected SoundEvent getFlopSound() {
-        return SoundEvents.ENTITY_COD_FLOP;
-    }
+                this.targetSelector.add(1, new RevengeGoal(this));
+        }
 
-    @Override
-    public ItemStack getBucketItem() {
-        return ItemStack.EMPTY;
-    }
+        // TODO: Change to generic fish flop sound
+        @Override
+        protected SoundEvent getFlopSound() {
+                return SoundEvents.ENTITY_COD_FLOP;
+        }
 
-    @Override
-    protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-        return ActionResult.PASS;
-    }
+        @Override
+        public ItemStack getBucketItem() {
+                return ItemStack.EMPTY;
+        }
 
-    @Override
-    public boolean tryAttack(Entity target) {
-        boolean canAttack = super.tryAttack(target) && target instanceof LivingEntity;
-        if (canAttack) ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 6 * 20, 0), this);
-        return canAttack;
-    }
+        @Override
+        protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+                return ActionResult.PASS;
+        }
 
-    @Override
-    protected boolean isDisallowedInPeaceful() {
-        return true;
-    }
+        @Override
+        public boolean tryAttack(Entity target) {
+                boolean canAttack = super.tryAttack(target) && target instanceof LivingEntity;
+                if (canAttack)
+                        ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 6 * 20, 0), this);
 
-    public static DefaultAttributeContainer.Builder createFibulaAttributes() {
-        return FishEntity
-                .createFishAttributes()
-                .add(EntityAttributes.GENERIC_MAX_HEALTH, 36)
-                .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4)
-                .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2)
-                .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7);
-    }
+                return canAttack;
+        }
+
+        @Override
+        protected boolean isDisallowedInPeaceful() {
+                return true;
+        }
 }
