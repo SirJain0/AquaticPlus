@@ -23,11 +23,17 @@ public class APMoveToBlockGoal extends MoveToTargetPosGoal {
     final List<BlockState> preferredBlocks = Arrays.asList(
             Blocks.STONE.getDefaultState(),
             Blocks.GRAVEL.getDefaultState(),
+
+            Blocks.DEAD_TUBE_CORAL_BLOCK.getDefaultState(),
+            Blocks.DEAD_BRAIN_CORAL_BLOCK.getDefaultState(),
+            Blocks.DEAD_BUBBLE_CORAL_BLOCK.getDefaultState(),
+            Blocks.DEAD_HORN_CORAL_BLOCK.getDefaultState(),
             Blocks.DEAD_BRAIN_CORAL.getDefaultState(),
-            Blocks.DEAD_TUBE_CORAL.getDefaultState(),
             Blocks.DEAD_BUBBLE_CORAL.getDefaultState(),
-            Blocks.DEAD_BRAIN_CORAL_FAN.getDefaultState(),
-            Blocks.DEAD_BUBBLE_CORAL_FAN.getDefaultState()
+            Blocks.DEAD_HORN_CORAL.getDefaultState(),
+            Blocks.DEAD_TUBE_CORAL_FAN.getDefaultState(),
+            Blocks.DEAD_HORN_CORAL_FAN.getDefaultState(),
+            Blocks.DEAD_TUBE_CORAL.getDefaultState()
     );
 
     @Override
