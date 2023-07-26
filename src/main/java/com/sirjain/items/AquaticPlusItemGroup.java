@@ -32,6 +32,7 @@ public class AquaticPlusItemGroup {
                                         entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
                                         entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
 
+                                        entries.add(AquaticPlusItems.PARROTFISH);
                                         entries.add(AquaticPlusItems.STONIFIER);
                                         entries.add(AquaticPlusItems.DESTONIFIER);
                                         entries.add(AquaticPlusItems.DETOXIFYING_ACID);

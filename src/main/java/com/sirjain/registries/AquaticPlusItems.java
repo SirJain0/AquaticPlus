@@ -1,6 +1,7 @@
 package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
+import com.sirjain.items.AquaticPlusFoodItems;
 import com.sirjain.items.DestonifierItem;
 import com.sirjain.items.DetoxifyingAcidItem;
 import com.sirjain.items.StonifierItem;
@@ -33,9 +34,13 @@ public class AquaticPlusItems {
                 SPIRITED_FISH_BUCKET,
                 PARROTFISH_BUCKET;
 
+        public static Item
+                PARROTFISH;
+
         public static void registerItems() {
                 registerSpawnEggs();
                 registerBucketItems();
+                registerFoodItems();
 
                 STONIFIER = registerCustomItem("stonifier", new StonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
                 DESTONIFIER = registerCustomItem("destonifier", new DestonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
@@ -54,6 +59,10 @@ public class AquaticPlusItems {
         public static void registerBucketItems() {
                 SPIRITED_FISH_BUCKET = registerBucketItem("spirited_fish_bucket", AquaticPlusEntities.SPIRITED_FISH_ENTITY, new Item.Settings());
                 PARROTFISH_BUCKET = registerBucketItem("parrotfish_bucket", AquaticPlusEntities.PARROTFISH_ENTITY, new Item.Settings());
+        }
+
+        public static void registerFoodItems() {
+                PARROTFISH = registerBasicItem("parrotfish", new Item.Settings().food(AquaticPlusFoodItems.PARROTFISH));
         }
 
         public static void registerBlockItems() {
