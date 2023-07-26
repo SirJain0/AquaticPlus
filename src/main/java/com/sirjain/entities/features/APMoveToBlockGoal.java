@@ -26,6 +26,7 @@ public class APMoveToBlockGoal extends MoveToTargetPosGoal {
                 Blocks.DEAD_HORN_CORAL_FAN.getDefaultState(),
                 Blocks.DEAD_TUBE_CORAL.getDefaultState()
         );
+        
         private final int range;
         private final int maxYDifference;
 
