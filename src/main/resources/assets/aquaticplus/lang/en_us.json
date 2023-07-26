@@ -4,6 +4,7 @@
   "item.aquaticplus.johnson_spawn_egg": "Johnson Spawn Egg",
   "item.aquaticplus.spirited_fish_spawn_egg": "Spirited Fish Spawn Egg",
   "item.aquaticplus.fibula_spawn_egg": "Fibula Spawn Egg",
+  "item.aquaticplus.parrotfish_spawn_egg": "Parrotfish Spawn Egg",
 
   "item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 
@@ -20,6 +21,7 @@
   "entity.aquaticplus.johnson": "Johnson",
   "entity.aquaticplus.spirited_fish": "Spirited Fish",
   "entity.aquaticplus.fibula": "Fibula",
+  "entity.aquaticplus.parrotfish": "Parrotfish",
 
   "effect.aquaticplus.numbing": "Numbing",
   "effect.aquaticplus.land_drowning": "Land Drowning"

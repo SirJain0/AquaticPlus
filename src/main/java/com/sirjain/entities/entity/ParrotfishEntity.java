@@ -12,6 +12,7 @@ import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
@@ -55,7 +56,7 @@ public class ParrotfishEntity extends SchoolingFishEntity {
     // TODO: Replace with generic flop sound
     @Override
     protected SoundEvent getFlopSound() {
-        return null;
+        return SoundEvents.ENTITY_COD_FLOP;
     }
 
     // TODO: Add bucket item
