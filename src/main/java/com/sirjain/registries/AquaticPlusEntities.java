@@ -53,11 +53,21 @@ public class AquaticPlusEntities {
                         .build()
         );
 
+        public static final EntityModelLayer KELP_EEL_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "kelp_eel"), "root");
+        public static final EntityType<KelpEelEntity> KELP_EEL_ENTITY = Registry.register(
+                Registries.ENTITY_TYPE,
+                new Identifier(AquaticPlus.MOD_ID, "kelp_eel"),
+                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, KelpEelEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.7f, 0.8f))
+                        .build()
+        );
+
         public static void registerAttributes() {
                 FabricDefaultAttributeRegistry.register(JOHNSON_ENTITY, JohnsonEntity.createJohnsonAttributes());
                 FabricDefaultAttributeRegistry.register(SPIRITED_FISH_ENTITY, SpiritedFishEntity.createSpiritedFishAttributes());
                 FabricDefaultAttributeRegistry.register(FIBULA_ENTITY, FibulaEntity.createFibulaAttributes());
                 FabricDefaultAttributeRegistry.register(PARROTFISH_ENTITY, ParrotfishEntity.createParrotfishAttributes());
+                FabricDefaultAttributeRegistry.register(KELP_EEL_ENTITY, KelpEelEntity.createKelpEelAttributes());
         }
 
         public static void registerEntityRender() {
@@ -65,10 +75,12 @@ public class AquaticPlusEntities {
                 EntityRendererRegistry.register(SPIRITED_FISH_ENTITY, SpiritedFishRenderer::new);
                 EntityRendererRegistry.register(FIBULA_ENTITY, FibulaRenderer::new);
                 EntityRendererRegistry.register(PARROTFISH_ENTITY, ParrotfishRenderer::new);
+                EntityRendererRegistry.register(KELP_EEL_ENTITY, KelpEelRenderer::new);
 
                 EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(SPIRITED_FISH_LAYER, SpiritedFishModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(FIBULA_LAYER, FibulaModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(PARROTFISH_LAYER, ParrotfishModel::getTexturedModelData);
+                EntityModelLayerRegistry.registerModelLayer(KELP_EEL_LAYER, KelpEelModel::getTexturedModelData);
         }
 }
