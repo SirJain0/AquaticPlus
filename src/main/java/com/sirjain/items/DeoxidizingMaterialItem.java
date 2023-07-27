@@ -15,6 +15,7 @@ public class DeoxidizingMaterialItem extends Item {
                 super(settings);
         }
 
+        // TODO: make this work for other copper blocks too (stairs, slabs, cut blocks) - refactor this code
         @Override
         public ActionResult useOnBlock(ItemUsageContext context) {
                 World world = context.getWorld();
