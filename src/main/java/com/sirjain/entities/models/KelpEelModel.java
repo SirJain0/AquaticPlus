@@ -5,6 +5,7 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 
 public class KelpEelModel extends EntityModel<KelpEelEntity> {
         private final ModelPart root;
@@ -39,7 +40,10 @@ public class KelpEelModel extends EntityModel<KelpEelEntity> {
 
         @Override
         public void setAngles(KelpEelEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-                // TODO: Animate
+                main.pivotX = -MathHelper.sin(animationProgress * 0.25f) * 4;
+                seg1.yaw = MathHelper.sin(-30 + animationProgress * 0.25f) * 0.4f;
+                seg2.yaw = -MathHelper.sin(-60 + animationProgress * 0.25f) * 0.5f;
+                seg3.yaw = MathHelper.sin(-90 + animationProgress * 0.25f) * 0.65f;
         }
 
         @Override
