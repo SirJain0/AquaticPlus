@@ -30,7 +30,7 @@ public class DeoxidizingMaterialItem extends Item {
                 else if (isState(world, pos, Blocks.EXPOSED_COPPER))
                         world.setBlockState(pos, Blocks.COPPER_BLOCK.getDefaultState());
 
-                if (user != null && user.getAbilities().creativeMode) {
+                if (user != null && !user.getAbilities().creativeMode) {
                         ItemStack stack = user.getStackInHand(user.getActiveHand());
                         stack.decrement(1);
                 }
