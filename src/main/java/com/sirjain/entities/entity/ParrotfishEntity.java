@@ -1,6 +1,6 @@
 package com.sirjain.entities.entity;
 
-import com.sirjain.entities.features.MoveToAndBreakBlockGoal;
+import com.sirjain.entities.goals.MoveToAndBreakBlockGoal;
 import com.sirjain.entities.goals.APSwimAroundGoal;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;

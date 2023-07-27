@@ -1,4 +1,4 @@
-package com.sirjain.entities.features;
+package com.sirjain.entities.goals;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
