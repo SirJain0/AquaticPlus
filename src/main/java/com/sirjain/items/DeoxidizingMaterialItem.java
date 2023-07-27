@@ -10,8 +10,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class DetoxifyingAcidItem extends Item {
-        public DetoxifyingAcidItem(Settings settings) {
+public class DeoxidizingMaterialItem extends Item {
+        public DeoxidizingMaterialItem(Settings settings) {
                 super(settings);
         }
 
