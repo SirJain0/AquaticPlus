@@ -1,18 +1,9 @@
 package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
-import com.sirjain.entities.entity.FibulaEntity;
-import com.sirjain.entities.entity.JohnsonEntity;
-import com.sirjain.entities.entity.ParrotfishEntity;
-import com.sirjain.entities.entity.SpiritedFishEntity;
-import com.sirjain.entities.models.FibulaModel;
-import com.sirjain.entities.models.JohnsonModel;
-import com.sirjain.entities.models.ParrotfishModel;
-import com.sirjain.entities.models.SpiritedFishModel;
-import com.sirjain.entities.renderers.FibulaRenderer;
-import com.sirjain.entities.renderers.JohnsonRenderer;
-import com.sirjain.entities.renderers.ParrotfishRenderer;
-import com.sirjain.entities.renderers.SpiritedFishRenderer;
+import com.sirjain.entities.entity.*;
+import com.sirjain.entities.models.*;
+import com.sirjain.entities.renderers.*;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
