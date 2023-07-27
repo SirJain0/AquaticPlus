@@ -4,6 +4,7 @@ import com.sirjain.entities.goals.APSwimAroundGoal;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
+import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
@@ -18,17 +19,18 @@ public class SpiritedFishEntity extends FishEntity {
                 super(entityType, world);
         }
 
+        @Override
+        protected void initGoals() {
+                this.goalSelector.add(0, new MoveIntoWaterGoal(this));
+                this.goalSelector.add(2, new APSwimAroundGoal(this, 1, 2, 12, 3));
+                this.goalSelector.add(1, new EscapeDangerGoal(this, 1.3));
+        }
+
         public static DefaultAttributeContainer.Builder createSpiritedFishAttributes() {
                 return FishEntity
                         .createFishAttributes()
                         .add(EntityAttributes.GENERIC_MAX_HEALTH, 6)
                         .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4);
-        }
-
-        @Override
-        protected void initGoals() {
-                this.goalSelector.add(0, new APSwimAroundGoal(this, 1, 2, 12, 3));
-                this.goalSelector.add(0, new EscapeDangerGoal(this, 1.3));
         }
 
         // TODO: Change this to a more generalized flop sound for all fish

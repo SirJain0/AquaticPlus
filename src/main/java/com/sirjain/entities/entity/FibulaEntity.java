@@ -7,6 +7,7 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.AttackGoal;
+import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -25,19 +26,11 @@ public class FibulaEntity extends FishEntity {
                 super(entityType, world);
         }
 
-        public static DefaultAttributeContainer.Builder createFibulaAttributes() {
-                return FishEntity
-                        .createFishAttributes()
-                        .add(EntityAttributes.GENERIC_MAX_HEALTH, 36)
-                        .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4)
-                        .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2)
-                        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7);
-        }
-
         @Override
         protected void initGoals() {
                 this.goalSelector.add(1, new APSwimAroundGoal(this, 1, 1, 10, 3));
                 this.goalSelector.add(0, new AttackGoal(this));
+                this.goalSelector.add(0, new MoveIntoWaterGoal(this));
                 this.initTargetGoals();
         }
 
@@ -80,5 +73,14 @@ public class FibulaEntity extends FishEntity {
         @Override
         protected boolean isDisallowedInPeaceful() {
                 return true;
+        }
+
+        public static DefaultAttributeContainer.Builder createFibulaAttributes() {
+                return FishEntity
+                        .createFishAttributes()
+                        .add(EntityAttributes.GENERIC_MAX_HEALTH, 36)
+                        .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4)
+                        .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2)
+                        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7);
         }
 }
