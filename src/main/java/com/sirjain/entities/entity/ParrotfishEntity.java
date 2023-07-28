@@ -2,6 +2,7 @@ package com.sirjain.entities.entity;
 
 import com.sirjain.entities.goals.MoveToAndBreakBlockGoal;
 import com.sirjain.entities.goals.APSwimAroundGoal;
+import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
@@ -40,9 +41,8 @@ public class ParrotfishEntity extends SchoolingFishEntity {
                 return SoundEvents.ENTITY_COD_FLOP;
         }
 
-        // TODO: Add bucket item
         @Override
         public ItemStack getBucketItem() {
-                return null;
+                return AquaticPlusItems.PARROTFISH_SPAWN_EGG.getDefaultStack();
         }
 }

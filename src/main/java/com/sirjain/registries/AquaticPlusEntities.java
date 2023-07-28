@@ -18,10 +18,19 @@ import net.minecraft.util.Identifier;
 
 public class AquaticPlusEntities {
         public static final EntityModelLayer JOHNNSON_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "johnson"), "root");
-        public static final EntityType<JohnsonEntity> JOHNSON_ENTITY = Registry.register(
+        public static final EntityType<ShadowSardelEasterEggEntity> JOHNSON_ENTITY = Registry.register(
                 Registries.ENTITY_TYPE,
                 new Identifier(AquaticPlus.MOD_ID, "johnson"),
-                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, JohnsonEntity::new)
+                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, ShadowSardelEasterEggEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
+                        .build()
+        );
+
+        public static final EntityModelLayer MINDINATOR_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "mindinator"), "root");
+        public static final EntityType<ShadowSardelEasterEggEntity> MINDINATOR_ENTITY = Registry.register(
+                Registries.ENTITY_TYPE,
+                new Identifier(AquaticPlus.MOD_ID, "mindinator"),
+                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, ShadowSardelEasterEggEntity::new)
                         .dimensions(EntityDimensions.fixed(0.5f, 0.5f))
                         .build()
         );
@@ -63,7 +72,8 @@ public class AquaticPlusEntities {
         );
 
         public static void registerAttributes() {
-                FabricDefaultAttributeRegistry.register(JOHNSON_ENTITY, JohnsonEntity.createJohnsonAttributes());
+                FabricDefaultAttributeRegistry.register(JOHNSON_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
+                FabricDefaultAttributeRegistry.register(MINDINATOR_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
                 FabricDefaultAttributeRegistry.register(SPIRITED_FISH_ENTITY, SpiritedFishEntity.createSpiritedFishAttributes());
                 FabricDefaultAttributeRegistry.register(FIBULA_ENTITY, FibulaEntity.createFibulaAttributes());
                 FabricDefaultAttributeRegistry.register(PARROTFISH_ENTITY, ParrotfishEntity.createParrotfishAttributes());
@@ -72,12 +82,14 @@ public class AquaticPlusEntities {
 
         public static void registerEntityRender() {
                 EntityRendererRegistry.register(JOHNSON_ENTITY, JohnsonRenderer::new);
+                EntityRendererRegistry.register(MINDINATOR_ENTITY, MindinatorRenderer::new);
                 EntityRendererRegistry.register(SPIRITED_FISH_ENTITY, SpiritedFishRenderer::new);
                 EntityRendererRegistry.register(FIBULA_ENTITY, FibulaRenderer::new);
                 EntityRendererRegistry.register(PARROTFISH_ENTITY, ParrotfishRenderer::new);
                 EntityRendererRegistry.register(KELP_EEL_ENTITY, KelpEelRenderer::new);
 
                 EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
+                EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(SPIRITED_FISH_LAYER, SpiritedFishModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(FIBULA_LAYER, FibulaModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(PARROTFISH_LAYER, ParrotfishModel::getTexturedModelData);

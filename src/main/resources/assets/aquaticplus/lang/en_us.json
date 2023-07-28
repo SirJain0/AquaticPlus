@@ -2,6 +2,7 @@
   "itemGroup.aquaticplus": "Aquatic Plus",
 
   "item.aquaticplus.johnson_spawn_egg": "Johnson Spawn Egg",
+  "item.aquaticplus.mindinator_spawn_egg": "Mindinator Spawn Egg",
   "item.aquaticplus.spirited_fish_spawn_egg": "Spirited Fish Spawn Egg",
   "item.aquaticplus.fibula_spawn_egg": "Fibula Spawn Egg",
   "item.aquaticplus.parrotfish_spawn_egg": "Parrotfish Spawn Egg",
@@ -22,6 +23,7 @@
   "item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
 
   "entity.aquaticplus.johnson": "Johnson",
+  "entity.aquaticplus.mindinator": "Mindinator",
   "entity.aquaticplus.spirited_fish": "Spirited Fish",
   "entity.aquaticplus.fibula": "Fibula",
   "entity.aquaticplus.parrotfish": "Parrotfish",
