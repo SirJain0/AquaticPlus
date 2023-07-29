@@ -71,6 +71,15 @@ public class AquaticPlusEntities {
                         .build()
         );
 
+        public static final EntityModelLayer SHADOW_SARDEL_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "shadow_sardel"), "root");
+        public static final EntityType<ShadowSardelEntity> SHADOW_SARDEL_ENTITY = Registry.register(
+                Registries.ENTITY_TYPE,
+                new Identifier(AquaticPlus.MOD_ID, "shadow_sardel"),
+                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, ShadowSardelEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.7f, 0.8f))
+                        .build()
+        );
+
         public static void registerAttributes() {
                 FabricDefaultAttributeRegistry.register(JOHNSON_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
                 FabricDefaultAttributeRegistry.register(MINDINATOR_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
@@ -78,6 +87,7 @@ public class AquaticPlusEntities {
                 FabricDefaultAttributeRegistry.register(FIBULA_ENTITY, FibulaEntity.createFibulaAttributes());
                 FabricDefaultAttributeRegistry.register(PARROTFISH_ENTITY, ParrotfishEntity.createParrotfishAttributes());
                 FabricDefaultAttributeRegistry.register(KELP_EEL_ENTITY, KelpEelEntity.createKelpEelAttributes());
+                FabricDefaultAttributeRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelEntity.createShadowSardelAttributes());
         }
 
         public static void registerEntityRender() {
@@ -87,6 +97,7 @@ public class AquaticPlusEntities {
                 EntityRendererRegistry.register(FIBULA_ENTITY, FibulaRenderer::new);
                 EntityRendererRegistry.register(PARROTFISH_ENTITY, ParrotfishRenderer::new);
                 EntityRendererRegistry.register(KELP_EEL_ENTITY, KelpEelRenderer::new);
+                EntityRendererRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelRenderer::new);
 
                 EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -94,5 +105,6 @@ public class AquaticPlusEntities {
                 EntityModelLayerRegistry.registerModelLayer(FIBULA_LAYER, FibulaModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(PARROTFISH_LAYER, ParrotfishModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(KELP_EEL_LAYER, KelpEelModel::getTexturedModelData);
+                EntityModelLayerRegistry.registerModelLayer(SHADOW_SARDEL_LAYER, ShadowSardelModel::getTexturedModelData);
         }
 }

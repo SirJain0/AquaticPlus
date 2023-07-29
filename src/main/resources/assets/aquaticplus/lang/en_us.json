@@ -7,6 +7,7 @@
   "item.aquaticplus.fibula_spawn_egg": "Fibula Spawn Egg",
   "item.aquaticplus.parrotfish_spawn_egg": "Parrotfish Spawn Egg",
   "item.aquaticplus.kelp_eel_spawn_egg": "Kelp Eel Spawn Egg",
+  "item.aquaticplus.shadow_sardel_spawn_egg": "Shadow Sardel Spawn Egg",
 
   "item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
   "item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
@@ -28,6 +29,7 @@
   "entity.aquaticplus.fibula": "Fibula",
   "entity.aquaticplus.parrotfish": "Parrotfish",
   "entity.aquaticplus.kelp_eel": "Kelp Eel",
+  "entity.aquaticplus.shadow_sardel": "Shadow Sardel",
 
   "effect.aquaticplus.numbing": "Numbing",
   "effect.aquaticplus.land_drowning": "Land Drowning"
