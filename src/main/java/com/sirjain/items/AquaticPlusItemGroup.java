@@ -2,12 +2,19 @@ package com.sirjain.items;
 
 import com.sirjain.AquaticPlus;
 import com.sirjain.registries.AquaticPlusItems;
+import com.sirjain.registries.AquaticPlusPotions;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionUtil;
+import net.minecraft.potion.Potions;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -38,7 +45,24 @@ public class AquaticPlusItemGroup {
                                         entries.add(AquaticPlusItems.STONIFIER);
                                         entries.add(AquaticPlusItems.DESTONIFIER);
                                         entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
+
+                                        displayContext.lookup().getOptionalWrapper(RegistryKeys.POTION).ifPresent((wrapper) -> {
+                                                addPotions(entries, wrapper, Items.POTION);
+                                                addPotions(entries, wrapper, Items.SPLASH_POTION);
+                                                addPotions(entries, wrapper, Items.LINGERING_POTION);
+                                        });
                                 }).build()
                 );
+        }
+
+        // TODO: Add tipped arrows too.
+        private static void addPotions(ItemGroup.Entries entries, RegistryWrapper<Potion> registryWrapper, Item item) {
+                registryWrapper.streamEntries().filter((entry) -> !entry.matchesKey(Potions.EMPTY_KEY)).filter((entry) -> {
+                        for (var id : AquaticPlusPotions.potionIDs) {
+                                if (entry.matchesId(id)) return true;
+                        }
+
+                        return false;
+                }).map((entry) -> PotionUtil.setPotion(new ItemStack(item), entry.value())).forEach(entries::add);
         }
 }

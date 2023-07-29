@@ -7,11 +7,18 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class AquaticPlusPotions {
         public static Potion NUMBING_POTION;
         public static Potion LAND_DROWNING_POTION;
+        
+        public static List<Identifier> potionIDs = Arrays.asList(
+                buildPotionID("numbing_potion"),
+                buildPotionID("land_drowning_potion")
+        );
 
-        // TODO: Add these potions to custom item group, not default group
         public static void registerPotions() {
                 NUMBING_POTION = registerPotion("numbing_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 20 * 12, 0)));
                 LAND_DROWNING_POTION = registerPotion("land_drowning_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.LAND_DROWNING, 20 * 10, 0)));
@@ -27,5 +34,9 @@ public class AquaticPlusPotions {
 
         public static void registerPotionRecipes() {
                 // TODO: Add numbing potion recipe with fibula and stonefish venom
+        }
+        
+        public static Identifier buildPotionID(String identifier) {
+                return new Identifier(AquaticPlus.MOD_ID, identifier);
         }
 }
