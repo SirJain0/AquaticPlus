@@ -3,7 +3,6 @@ package com.sirjain.entities.renderers;
 import com.sirjain.AquaticPlus;
 import com.sirjain.entities.entity.KelpEelEntity;
 import com.sirjain.entities.models.KelpEelModel;
-import com.sirjain.entities.models.ParrotfishModel;
 import com.sirjain.registries.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;

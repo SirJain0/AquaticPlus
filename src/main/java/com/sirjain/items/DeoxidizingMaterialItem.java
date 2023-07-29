@@ -21,17 +21,26 @@ public class DeoxidizingMaterialItem extends Item {
                 BlockPos pos = context.getBlockPos();
                 PlayerEntity user = context.getPlayer();
 
-                if (isState(world, pos, Blocks.OXIDIZED_COPPER)) world.setBlockState(pos, Blocks.WEATHERED_COPPER.getDefaultState());
-                else if (isState(world, pos, Blocks.WEATHERED_COPPER)) world.setBlockState(pos, Blocks.EXPOSED_COPPER.getDefaultState());
-                else if (isState(world, pos, Blocks.EXPOSED_COPPER)) world.setBlockState(pos, Blocks.COPPER_BLOCK.getDefaultState());
+                if (isState(world, pos, Blocks.OXIDIZED_COPPER))
+                        world.setBlockState(pos, Blocks.WEATHERED_COPPER.getDefaultState());
+                else if (isState(world, pos, Blocks.WEATHERED_COPPER))
+                        world.setBlockState(pos, Blocks.EXPOSED_COPPER.getDefaultState());
+                else if (isState(world, pos, Blocks.EXPOSED_COPPER))
+                        world.setBlockState(pos, Blocks.COPPER_BLOCK.getDefaultState());
 
-                if (isState(world, pos, Blocks.OXIDIZED_CUT_COPPER)) world.setBlockState(pos, Blocks.WEATHERED_CUT_COPPER.getDefaultState());
-                else if (isState(world, pos, Blocks.WEATHERED_CUT_COPPER)) world.setBlockState(pos, Blocks.EXPOSED_CUT_COPPER.getDefaultState());
-                else if (isState(world, pos, Blocks.EXPOSED_CUT_COPPER)) world.setBlockState(pos, Blocks.CUT_COPPER.getDefaultState());
+                if (isState(world, pos, Blocks.OXIDIZED_CUT_COPPER))
+                        world.setBlockState(pos, Blocks.WEATHERED_CUT_COPPER.getDefaultState());
+                else if (isState(world, pos, Blocks.WEATHERED_CUT_COPPER))
+                        world.setBlockState(pos, Blocks.EXPOSED_CUT_COPPER.getDefaultState());
+                else if (isState(world, pos, Blocks.EXPOSED_CUT_COPPER))
+                        world.setBlockState(pos, Blocks.CUT_COPPER.getDefaultState());
 
-                if (isState(world, pos, Blocks.OXIDIZED_CUT_COPPER_SLAB)) world.setBlockState(pos, Blocks.WEATHERED_CUT_COPPER_SLAB.getDefaultState());
-                else if (isState(world, pos, Blocks.WEATHERED_CUT_COPPER_SLAB)) world.setBlockState(pos, Blocks.EXPOSED_CUT_COPPER_SLAB.getDefaultState());
-                else if (isState(world, pos, Blocks.EXPOSED_CUT_COPPER_SLAB)) world.setBlockState(pos, Blocks.CUT_COPPER_SLAB.getDefaultState());
+                if (isState(world, pos, Blocks.OXIDIZED_CUT_COPPER_SLAB))
+                        world.setBlockState(pos, Blocks.WEATHERED_CUT_COPPER_SLAB.getDefaultState());
+                else if (isState(world, pos, Blocks.WEATHERED_CUT_COPPER_SLAB))
+                        world.setBlockState(pos, Blocks.EXPOSED_CUT_COPPER_SLAB.getDefaultState());
+                else if (isState(world, pos, Blocks.EXPOSED_CUT_COPPER_SLAB))
+                        world.setBlockState(pos, Blocks.CUT_COPPER_SLAB.getDefaultState());
 
                 if (user != null && !user.getAbilities().creativeMode) {
                         ItemStack stack = user.getStackInHand(user.getActiveHand());

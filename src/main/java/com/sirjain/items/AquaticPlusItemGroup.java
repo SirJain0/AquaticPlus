@@ -58,7 +58,7 @@ public class AquaticPlusItemGroup {
         // TODO: Add tipped arrows too.
         private static void addPotions(ItemGroup.Entries entries, RegistryWrapper<Potion> registryWrapper, Item item) {
                 registryWrapper.streamEntries().filter((entry) -> !entry.matchesKey(Potions.EMPTY_KEY)).filter((entry) -> {
-                        for (var id : AquaticPlusPotions.potionIDs) {
+                        for (var id : AquaticPlusPotions.POTION_IDS) {
                                 if (entry.matchesId(id)) return true;
                         }
 

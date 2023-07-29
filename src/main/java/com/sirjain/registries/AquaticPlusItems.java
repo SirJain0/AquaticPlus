@@ -2,8 +2,8 @@ package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
 import com.sirjain.items.AquaticPlusFoodItems;
-import com.sirjain.items.DestonifierItem;
 import com.sirjain.items.DeoxidizingMaterialItem;
+import com.sirjain.items.DestonifierItem;
 import com.sirjain.items.StonifierItem;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;

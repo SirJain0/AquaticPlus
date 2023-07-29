@@ -13,8 +13,8 @@ import java.util.List;
 public class AquaticPlusPotions {
         public static Potion NUMBING_POTION;
         public static Potion LAND_DROWNING_POTION;
-        
-        public static List<Identifier> potionIDs = Arrays.asList(
+
+        public static List<Identifier> POTION_IDS = Arrays.asList(
                 buildPotionID("numbing_potion"),
                 buildPotionID("land_drowning_potion")
         );
@@ -35,7 +35,7 @@ public class AquaticPlusPotions {
         public static void registerPotionRecipes() {
                 // TODO: Add numbing potion recipe with fibula and stonefish venom
         }
-        
+
         public static Identifier buildPotionID(String identifier) {
                 return new Identifier(AquaticPlus.MOD_ID, identifier);
         }
