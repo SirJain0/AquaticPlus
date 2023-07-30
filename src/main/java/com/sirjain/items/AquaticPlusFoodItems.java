@@ -16,7 +16,8 @@ public class AquaticPlusFoodItems {
 
                 SHADOW_SARDEL = new FoodComponent.Builder()
                         .hunger(2)
-                        .statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 20*3, 1), 0.7f)
+                        .statusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 20*5, 1), 1)
+                        .statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 20*3, 0), 0.25f)
                         .build();
         }
 }

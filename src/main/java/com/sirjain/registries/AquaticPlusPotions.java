@@ -1,8 +1,10 @@
 package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
+import com.sirjain.mixins.BrewingRecipeRegistryMixin;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.Potions;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -32,8 +34,9 @@ public class AquaticPlusPotions {
                 );
         }
 
+        // TODO: Add numbing potion recipe with fibula and stonefish venom
         public static void registerPotionRecipes() {
-                // TODO: Add numbing potion recipe with fibula and stonefish venom
+                BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, AquaticPlusItems.SHADOW_SARDEL, Potions.SLOWNESS);
         }
 
         public static Identifier buildPotionID(String identifier) {
