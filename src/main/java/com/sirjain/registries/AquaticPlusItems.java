@@ -29,6 +29,7 @@ public class AquaticPlusItems {
                 MINDINATOR_SPAWN_EGG,
                 SPIRITED_FISH_SPAWN_EGG,
                 FIBULA_SPAWN_EGG,
+                SHADOW_SARDEL_SPAWN_EGG,
                 KELP_EEL_SPAWN_EGG,
                 PARROTFISH_SPAWN_EGG;
 
@@ -58,6 +59,7 @@ public class AquaticPlusItems {
                 FIBULA_SPAWN_EGG = registerSpawnEggItem("fibula_spawn_egg", AquaticPlusEntities.FIBULA_ENTITY, 0x323334, 0x31948e, new Item.Settings());
                 PARROTFISH_SPAWN_EGG = registerSpawnEggItem("parrotfish_spawn_egg", AquaticPlusEntities.PARROTFISH_ENTITY, 0x55b3dd, 0x48ff8d, new Item.Settings());
                 KELP_EEL_SPAWN_EGG = registerSpawnEggItem("kelp_eel_spawn_egg", AquaticPlusEntities.KELP_EEL_ENTITY, 0x4a6650, 0x973e36, new Item.Settings());
+                SHADOW_SARDEL_SPAWN_EGG = registerSpawnEggItem("shadow_sardel_spawn_egg", AquaticPlusEntities.SHADOW_SARDEL_ENTITY, 0x34353b, 0x222124, new Item.Settings());
         }
 
         public static void registerBucketItems() {

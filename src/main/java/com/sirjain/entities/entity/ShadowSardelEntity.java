@@ -11,6 +11,7 @@ import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
@@ -29,7 +30,7 @@ public class ShadowSardelEntity extends SchoolingFishEntity {
         // TODO: Add generic flop sound
         @Override
         protected SoundEvent getFlopSound() {
-                return null;
+                return SoundEvents.ENTITY_COD_FLOP;
         }
 
         // TODO: Add bucket item
