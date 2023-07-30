@@ -7,7 +7,6 @@ import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
@@ -16,6 +15,8 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 public class ShadowSardelEntity extends SchoolingFishEntity {
+        public boolean variantSpawned = false;
+
         public ShadowSardelEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
                 super(entityType, world);
         }
@@ -46,19 +47,28 @@ public class ShadowSardelEntity extends SchoolingFishEntity {
                 if (this.hasCustomName()) {
                         Text name = this.getCustomName();
 
-                        if (Text.literal("Johnson").equals(name))
-                                handleVariant(AquaticPlusEntities.JOHNSON_ENTITY);
-                        else if (Text.literal("Mindinator").equals(name))
-                                handleVariant(AquaticPlusEntities.MINDINATOR_ENTITY);
+                        // Check: name is 'Johnson'
+                        if (Text.literal("Johnson").equals(name)) {
+                                handleVariant(AquaticPlusEntities.JOHNSON_ENTITY, variantSpawned);
+                                variantSpawned = true;
+                        }
+
+                        // Check: name is 'Mindinator'
+                        else if (Text.literal("Mindinator").equals(name))  {
+                                handleVariant(AquaticPlusEntities.MINDINATOR_ENTITY, variantSpawned);
+                                variantSpawned = true;
+                        }
                 }
         }
 
-        public void handleVariant(EntityType<ShadowSardelEasterEggEntity> entityType) {
+        public void handleVariant(EntityType<ShadowSardelEasterEggEntity> entityType, boolean variantSpawned) {
                 ShadowSardelEasterEggEntity entity = entityType.create(this.getWorld());
                 if (entity == null) return;
                 entity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), 0.0F);
-                this.getWorld().spawnEntity(entity);
-                this.kill();
+                if (!variantSpawned) this.getWorld().spawnEntity(entity);
+
+                this.discard();
+                this.kill(); // To make sure everything of it is removed.
         }
 
         public static DefaultAttributeContainer.Builder createShadowSardelAttributes() {
