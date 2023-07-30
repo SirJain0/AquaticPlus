@@ -35,7 +35,8 @@ public class AquaticPlusItems {
 
         public static Item
                 SPIRITED_FISH_BUCKET,
-                PARROTFISH_BUCKET;
+                PARROTFISH_BUCKET,
+                SHADOW_SARDEL_BUCKET;
 
         public static Item
                 PARROTFISH;
@@ -65,6 +66,7 @@ public class AquaticPlusItems {
         public static void registerBucketItems() {
                 SPIRITED_FISH_BUCKET = registerBucketItem("spirited_fish_bucket", AquaticPlusEntities.SPIRITED_FISH_ENTITY, new Item.Settings());
                 PARROTFISH_BUCKET = registerBucketItem("parrotfish_bucket", AquaticPlusEntities.PARROTFISH_ENTITY, new Item.Settings());
+                SHADOW_SARDEL_BUCKET = registerBucketItem("shadow_sardel_bucket", AquaticPlusEntities.SHADOW_SARDEL_ENTITY, new Item.Settings());
         }
 
         public static void registerFoodItems() {

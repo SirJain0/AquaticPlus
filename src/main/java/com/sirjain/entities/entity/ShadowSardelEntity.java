@@ -2,6 +2,7 @@ package com.sirjain.entities.entity;
 
 import com.sirjain.entities.goals.APSwimAroundGoal;
 import com.sirjain.registries.AquaticPlusEntities;
+import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
@@ -37,7 +38,7 @@ public class ShadowSardelEntity extends SchoolingFishEntity {
         // TODO: Add bucket item
         @Override
         public ItemStack getBucketItem() {
-                return null;
+                return AquaticPlusItems.SHADOW_SARDEL_BUCKET.getDefaultStack();
         }
 
         @Override

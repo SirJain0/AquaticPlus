@@ -11,6 +11,12 @@
 
   "item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
   "item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
+  "item.aquaticplus.shadow_sardel_bucket": "Shadow Sardel Bucket",
+
+  "item.aquaticplus.parrotfish": "Parrotfish",
+  "item.aquaticplus.stonifier": "Stonifier",
+  "item.aquaticplus.destonifier": "Destonifier",
+  "item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
 
   "item.minecraft.potion.effect.numbing_potion": "Numbing Potion",
   "item.minecraft.splash_potion.effect.numbing_potion": "Numbing Splash Potion",
@@ -18,10 +24,6 @@
   "item.minecraft.potion.effect.land_drowning_potion": "Land Drowning Potion",
   "item.minecraft.splash_potion.effect.land_drowning_potion": "Land Drowning Splash Potion",
   "item.minecraft.lingering_potion.effect.land_drowning_potion": "Land Drowning Lingering Potion",
-  "item.aquaticplus.parrotfish": "Parrotfish",
-  "item.aquaticplus.stonifier": "Stonifier",
-  "item.aquaticplus.destonifier": "Destonifier",
-  "item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
 
   "entity.aquaticplus.johnson": "Johnson",
   "entity.aquaticplus.mindinator": "Mindinator",
