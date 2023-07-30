@@ -36,7 +36,7 @@ public class AquaticPlusPotions {
 
         // TODO: Add numbing potion recipe with fibula and stonefish venom
         public static void registerPotionRecipes() {
-                BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.AWKWARD, AquaticPlusItems.SHADOW_SARDEL, Potions.SLOWNESS);
+                BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(Potions.MUNDANE, AquaticPlusItems.SHADOW_SARDEL, Potions.SLOWNESS);
         }
 
         public static Identifier buildPotionID(String identifier) {
