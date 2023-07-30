@@ -44,6 +44,7 @@ public class AquaticPlusItemGroup {
                                         entries.add(AquaticPlusItems.SHADOW_SARDEL_BUCKET);
 
                                         entries.add(AquaticPlusItems.PARROTFISH);
+                                        entries.add(AquaticPlusItems.SHADOW_SARDEL);
                                         entries.add(AquaticPlusItems.STONIFIER);
                                         entries.add(AquaticPlusItems.DESTONIFIER);
                                         entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);

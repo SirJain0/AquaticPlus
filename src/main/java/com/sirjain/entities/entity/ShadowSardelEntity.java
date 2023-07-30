@@ -35,7 +35,6 @@ public class ShadowSardelEntity extends SchoolingFishEntity {
                 return SoundEvents.ENTITY_COD_FLOP;
         }
 
-        // TODO: Add bucket item
         @Override
         public ItemStack getBucketItem() {
                 return AquaticPlusItems.SHADOW_SARDEL_BUCKET.getDefaultStack();
@@ -49,14 +48,14 @@ public class ShadowSardelEntity extends SchoolingFishEntity {
                         Text name = this.getCustomName();
 
                         // Check: name is 'Johnson'
-                        if (Text.literal("Johnson").equals(name)) {
-                                handleVariant(AquaticPlusEntities.JOHNSON_ENTITY, variantSpawned);
+                        if (Text.literal("Johnson").equals(name) && !variantSpawned) {
+                                handleVariant(AquaticPlusEntities.JOHNSON_ENTITY, false);
                                 variantSpawned = true;
                         }
 
                         // Check: name is 'Mindinator'
-                        else if (Text.literal("Mindinator").equals(name))  {
-                                handleVariant(AquaticPlusEntities.MINDINATOR_ENTITY, variantSpawned);
+                        else if (Text.literal("Mindinator").equals(name) && !variantSpawned)  {
+                                handleVariant(AquaticPlusEntities.MINDINATOR_ENTITY, false);
                                 variantSpawned = true;
                         }
                 }

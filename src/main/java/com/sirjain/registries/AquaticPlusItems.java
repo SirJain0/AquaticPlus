@@ -39,7 +39,8 @@ public class AquaticPlusItems {
                 SHADOW_SARDEL_BUCKET;
 
         public static Item
-                PARROTFISH;
+                PARROTFISH,
+                SHADOW_SARDEL;
 
         public static void registerItems() {
                 registerSpawnEggs();
@@ -71,6 +72,7 @@ public class AquaticPlusItems {
 
         public static void registerFoodItems() {
                 PARROTFISH = registerBasicItem("parrotfish", new Item.Settings().food(AquaticPlusFoodItems.PARROTFISH));
+                SHADOW_SARDEL = registerBasicItem("shadow_sardel", new Item.Settings().food(AquaticPlusFoodItems.SHADOW_SARDEL));
         }
 
         public static void registerBlockItems() {
