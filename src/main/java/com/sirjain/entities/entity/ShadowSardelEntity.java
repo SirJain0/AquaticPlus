@@ -29,6 +29,11 @@ public class ShadowSardelEntity extends SchoolingFishEntity {
                 this.goalSelector.add(1, new EscapeDangerGoal(this, 1.3));
         }
 
+        @Override
+        public boolean shouldRenderName() {
+                return false;
+        }
+
         // TODO: Add generic flop sound
         @Override
         protected SoundEvent getFlopSound() {
