@@ -53,12 +53,12 @@ public class AquaticPlusItemGroup {
                                                 addPotions(entries, wrapper, Items.POTION);
                                                 addPotions(entries, wrapper, Items.SPLASH_POTION);
                                                 addPotions(entries, wrapper, Items.LINGERING_POTION);
+                                                addPotions(entries, wrapper, Items.TIPPED_ARROW);
                                         });
                                 }).build()
                 );
         }
 
-        // TODO: Add tipped arrows too.
         private static void addPotions(ItemGroup.Entries entries, RegistryWrapper<Potion> registryWrapper, Item item) {
                 registryWrapper.streamEntries().filter((entry) -> !entry.matchesKey(Potions.EMPTY_KEY)).filter((entry) -> {
                         for (Identifier id : AquaticPlusPotions.POTION_IDS) {

@@ -14,7 +14,7 @@ public class AquaticPlusStatusEffects {
         public static StatusEffect LAND_DROWNING;
 
         public static void registerModEffects() {
-                NUMBING = registerStatusEffect("numbing", new NumbingStatusEffect(StatusEffectCategory.HARMFUL, 0x31948e));
+                NUMBING = registerStatusEffect("numbing", new NumbingStatusEffect(StatusEffectCategory.HARMFUL, 0xF2F2D2));
                 LAND_DROWNING = registerStatusEffect("land_drowning", new LandDrowningStatusEffect(StatusEffectCategory.HARMFUL, 0x7DC2B6));
         }
 

@@ -12,7 +12,7 @@
   "item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
   "item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
   "item.aquaticplus.shadow_sardel_bucket": "Shadow Sardel Bucket",
-
+  
   "item.aquaticplus.parrotfish": "Parrotfish",
   "item.aquaticplus.shadow_sardel": "Shadow Sardel",
   "item.aquaticplus.stonifier": "Stonifier",
@@ -20,11 +20,29 @@
   "item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
 
   "item.minecraft.potion.effect.numbing_potion": "Numbing Potion",
+  "item.minecraft.potion.effect.numbing_long_potion": "Numbing Potion",
+  "item.minecraft.potion.effect.numbing_strong_potion": "Numbing Potion",
   "item.minecraft.splash_potion.effect.numbing_potion": "Numbing Splash Potion",
+  "item.minecraft.splash_potion.effect.numbing_long_potion": "Numbing Splash Potion",
+  "item.minecraft.splash_potion.effect.numbing_strong_potion": "Numbing Splash Potion",
   "item.minecraft.lingering_potion.effect.numbing_potion": "Numbing Lingering Potion",
+  "item.minecraft.lingering_potion.effect.numbing_long_potion": "Numbing Lingering Potion",
+  "item.minecraft.lingering_potion.effect.numbing_strong_potion": "Numbing Lingering Potion",
   "item.minecraft.potion.effect.land_drowning_potion": "Land Drowning Potion",
+  "item.minecraft.potion.effect.land_drowning_long_potion": "Land Drowning Potion",
+  "item.minecraft.potion.effect.land_drowning_strong_potion": "Land Drowning Potion",
   "item.minecraft.splash_potion.effect.land_drowning_potion": "Land Drowning Splash Potion",
+  "item.minecraft.splash_potion.effect.land_drowning_long_potion": "Land Drowning Splash Potion",
+  "item.minecraft.splash_potion.effect.land_drowning_strong_potion": "Land Drowning Splash Potion",
   "item.minecraft.lingering_potion.effect.land_drowning_potion": "Land Drowning Lingering Potion",
+  "item.minecraft.lingering_potion.effect.land_drowning_long_potion": "Land Drowning Lingering Potion",
+  "item.minecraft.lingering_potion.effect.land_drowning_strong_potion": "Land Drowning Lingering Potion",
+  "item.minecraft.tipped_arrow.effect.numbing_potion": "Arrow of Numbing",
+  "item.minecraft.tipped_arrow.effect.numbing_long_potion": "Arrow of Numbing",
+  "item.minecraft.tipped_arrow.effect.numbing_strong_potion": "Arrow of Numbing",
+  "item.minecraft.tipped_arrow.effect.land_drowning_potion": "Arrow of Land Drowning",
+  "item.minecraft.tipped_arrow.effect.land_drowning_long_potion": "Arrow of Land Drowning",
+  "item.minecraft.tipped_arrow.effect.land_drowning_strong_potion": "Arrow of Land Drowning",
 
   "entity.aquaticplus.johnson": "Johnson",
   "entity.aquaticplus.mindinator": "Mindinator",
@@ -35,5 +53,9 @@
   "entity.aquaticplus.shadow_sardel": "Shadow Sardel",
 
   "effect.aquaticplus.numbing": "Numbing",
-  "effect.aquaticplus.land_drowning": "Land Drowning"
+  "effect.aquaticplus.land_drowning": "Land Drowning",
+
+  "aquaticplus.stonifier.tooltip": "Turn (almost...) any block into stone!",
+  "aquaticplus.destonifier.tooltip": "Break any stone block instantly!",
+  "aquaticplus.deoxidizing_material.tooltip": "Try right clicking a partly or fully oxidized block of copper..."
 }
