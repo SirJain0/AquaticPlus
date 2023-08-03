@@ -21,6 +21,9 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class FibulaEntity extends FishEntity {
         public FibulaEntity(EntityType<? extends FishEntity> entityType, World world) {
                 super(entityType, world);
@@ -34,14 +37,19 @@ public class FibulaEntity extends FishEntity {
                 this.initTargetGoals();
         }
 
-        // TODO: Simplify target selectors to include some sort of iterable array to prevent repetitive code
         protected void initTargetGoals() {
-                this.targetSelector.add(0, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-                this.targetSelector.add(2, new ActiveTargetGoal<>(this, SalmonEntity.class, true));
-                this.targetSelector.add(2, new ActiveTargetGoal<>(this, CodEntity.class, true));
-                this.targetSelector.add(2, new ActiveTargetGoal<>(this, TropicalFishEntity.class, true));
-                this.targetSelector.add(2, new ActiveTargetGoal<>(this, SchoolingFishEntity.class, true));
+                List<Class<? extends LivingEntity>> targets = Arrays.asList(
+                        SalmonEntity.class,
+                        CodEntity.class,
+                        TropicalFishEntity.class,
+                        SchoolingFishEntity.class
+                );
 
+                for (Class<? extends LivingEntity> target : targets) {
+                        this.targetSelector.add(2, new ActiveTargetGoal<>(this, target, true));
+                }
+
+                this.targetSelector.add(0, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
                 this.targetSelector.add(1, new RevengeGoal(this));
         }
 
