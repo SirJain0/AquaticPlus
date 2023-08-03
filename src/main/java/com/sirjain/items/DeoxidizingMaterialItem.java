@@ -2,13 +2,19 @@ package com.sirjain.items;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class DeoxidizingMaterialItem extends Item {
         public DeoxidizingMaterialItem(Settings settings) {
@@ -52,5 +58,11 @@ public class DeoxidizingMaterialItem extends Item {
 
         public boolean isState(World world, BlockPos pos, Block block) {
                 return world.getBlockState(pos) == block.getDefaultState();
+        }
+
+        @Override
+        public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+                tooltip.add(Text.translatable("aquaticplus.deoxidizing_material.tooltip").formatted(Formatting.GREEN));
+                super.appendTooltip(stack, world, tooltip, context);
         }
 }

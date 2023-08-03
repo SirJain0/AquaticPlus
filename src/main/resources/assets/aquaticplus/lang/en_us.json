@@ -49,5 +49,9 @@
   "entity.aquaticplus.kelp_eel": "Kelp Eel",
 
   "effect.aquaticplus.numbing": "Numbing",
-  "effect.aquaticplus.land_drowning": "Land Drowning"
+  "effect.aquaticplus.land_drowning": "Land Drowning",
+
+  "aquaticplus.stonifier.tooltip": "Turn (almost...) any block into stone!",
+  "aquaticplus.destonifier.tooltip": "Break any stone block instantly!",
+  "aquaticplus.deoxidizing_material.tooltip": "Try right clicking a partly or fully oxidized block of copper..."
 }
