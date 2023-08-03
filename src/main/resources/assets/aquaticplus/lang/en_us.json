@@ -17,6 +17,9 @@
   "item.minecraft.potion.effect.land_drowning_potion": "Land Drowning Potion",
   "item.minecraft.splash_potion.effect.land_drowning_potion": "Land Drowning Splash Potion",
   "item.minecraft.lingering_potion.effect.land_drowning_potion": "Land Drowning Lingering Potion",
+  "item.minecraft.tipped_arrow.effect.numbing_potion": "Arrow of Numbing",
+  "item.minecraft.tipped_arrow.effect.land_drowning_potion": "Arrow of Land Drowning",
+
   "item.aquaticplus.parrotfish": "Parrotfish",
   "item.aquaticplus.stonifier": "Stonifier",
   "item.aquaticplus.destonifier": "Destonifier",
