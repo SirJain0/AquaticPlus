@@ -37,11 +37,14 @@ public class AquaticPlusItemGroup {
                                         entries.add(AquaticPlusItems.FIBULA_SPAWN_EGG);
                                         entries.add(AquaticPlusItems.PARROTFISH_SPAWN_EGG);
                                         entries.add(AquaticPlusItems.KELP_EEL_SPAWN_EGG);
+                                        entries.add(AquaticPlusItems.SHADOW_SARDEL_SPAWN_EGG);
 
                                         entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
                                         entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
+                                        entries.add(AquaticPlusItems.SHADOW_SARDEL_BUCKET);
 
                                         entries.add(AquaticPlusItems.PARROTFISH);
+                                        entries.add(AquaticPlusItems.SHADOW_SARDEL);
                                         entries.add(AquaticPlusItems.STONIFIER);
                                         entries.add(AquaticPlusItems.DESTONIFIER);
                                         entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
@@ -58,7 +61,7 @@ public class AquaticPlusItemGroup {
 
         private static void addPotions(ItemGroup.Entries entries, RegistryWrapper<Potion> registryWrapper, Item item) {
                 registryWrapper.streamEntries().filter((entry) -> !entry.matchesKey(Potions.EMPTY_KEY)).filter((entry) -> {
-                        for (var id : AquaticPlusPotions.POTION_IDS) {
+                        for (Identifier id : AquaticPlusPotions.POTION_IDS) {
                                 if (entry.matchesId(id)) return true;
                         }
 

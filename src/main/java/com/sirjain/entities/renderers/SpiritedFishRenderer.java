@@ -22,7 +22,6 @@ public class SpiritedFishRenderer extends MobEntityRenderer<SpiritedFishEntity, 
         @Override
         public Identifier getTexture(SpiritedFishEntity entity) {
                 return switch ((int) entity.getHealth()) {
-                        case 6, 5 -> TEXTURE_FULL;
                         case 4, 3 -> TEXTURE_4;
                         case 2, 1, 0 -> TEXTURE_2;
                         default -> TEXTURE_FULL;

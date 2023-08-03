@@ -29,15 +29,18 @@ public class AquaticPlusItems {
                 MINDINATOR_SPAWN_EGG,
                 SPIRITED_FISH_SPAWN_EGG,
                 FIBULA_SPAWN_EGG,
+                SHADOW_SARDEL_SPAWN_EGG,
                 KELP_EEL_SPAWN_EGG,
                 PARROTFISH_SPAWN_EGG;
 
         public static Item
                 SPIRITED_FISH_BUCKET,
-                PARROTFISH_BUCKET;
+                PARROTFISH_BUCKET,
+                SHADOW_SARDEL_BUCKET;
 
         public static Item
-                PARROTFISH;
+                PARROTFISH,
+                SHADOW_SARDEL;
 
         public static void registerItems() {
                 registerSpawnEggs();
@@ -58,15 +61,18 @@ public class AquaticPlusItems {
                 FIBULA_SPAWN_EGG = registerSpawnEggItem("fibula_spawn_egg", AquaticPlusEntities.FIBULA_ENTITY, 0x323334, 0x31948e, new Item.Settings());
                 PARROTFISH_SPAWN_EGG = registerSpawnEggItem("parrotfish_spawn_egg", AquaticPlusEntities.PARROTFISH_ENTITY, 0x55b3dd, 0x48ff8d, new Item.Settings());
                 KELP_EEL_SPAWN_EGG = registerSpawnEggItem("kelp_eel_spawn_egg", AquaticPlusEntities.KELP_EEL_ENTITY, 0x4a6650, 0x973e36, new Item.Settings());
+                SHADOW_SARDEL_SPAWN_EGG = registerSpawnEggItem("shadow_sardel_spawn_egg", AquaticPlusEntities.SHADOW_SARDEL_ENTITY, 0x34353b, 0x222124, new Item.Settings());
         }
 
         public static void registerBucketItems() {
                 SPIRITED_FISH_BUCKET = registerBucketItem("spirited_fish_bucket", AquaticPlusEntities.SPIRITED_FISH_ENTITY, new Item.Settings());
                 PARROTFISH_BUCKET = registerBucketItem("parrotfish_bucket", AquaticPlusEntities.PARROTFISH_ENTITY, new Item.Settings());
+                SHADOW_SARDEL_BUCKET = registerBucketItem("shadow_sardel_bucket", AquaticPlusEntities.SHADOW_SARDEL_ENTITY, new Item.Settings());
         }
 
         public static void registerFoodItems() {
                 PARROTFISH = registerBasicItem("parrotfish", new Item.Settings().food(AquaticPlusFoodItems.PARROTFISH));
+                SHADOW_SARDEL = registerBasicItem("shadow_sardel", new Item.Settings().food(AquaticPlusFoodItems.SHADOW_SARDEL));
         }
 
         public static void registerBlockItems() {

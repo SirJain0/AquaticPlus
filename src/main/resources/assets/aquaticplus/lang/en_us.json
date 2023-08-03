@@ -7,9 +7,17 @@
   "item.aquaticplus.fibula_spawn_egg": "Fibula Spawn Egg",
   "item.aquaticplus.parrotfish_spawn_egg": "Parrotfish Spawn Egg",
   "item.aquaticplus.kelp_eel_spawn_egg": "Kelp Eel Spawn Egg",
+  "item.aquaticplus.shadow_sardel_spawn_egg": "Shadow Sardel Spawn Egg",
 
   "item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
   "item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
+  "item.aquaticplus.shadow_sardel_bucket": "Shadow Sardel Bucket",
+
+  "item.aquaticplus.parrotfish": "Parrotfish",
+  "item.aquaticplus.shadow_sardel": "Shadow Sardel",
+  "item.aquaticplus.stonifier": "Stonifier",
+  "item.aquaticplus.destonifier": "Destonifier",
+  "item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
 
   "item.minecraft.potion.effect.numbing_potion": "Numbing Potion",
   "item.minecraft.potion.effect.numbing_long_potion": "Numbing Potion",
@@ -36,22 +44,19 @@
   "item.minecraft.tipped_arrow.effect.land_drowning_long_potion": "Arrow of Land Drowning",
   "item.minecraft.tipped_arrow.effect.land_drowning_strong_potion": "Arrow of Land Drowning",
 
-  "item.aquaticplus.parrotfish": "Parrotfish",
-  "item.aquaticplus.stonifier": "Stonifier",
-  "item.aquaticplus.destonifier": "Destonifier",
-  "item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
-
   "entity.aquaticplus.johnson": "Johnson",
   "entity.aquaticplus.mindinator": "Mindinator",
   "entity.aquaticplus.spirited_fish": "Spirited Fish",
   "entity.aquaticplus.fibula": "Fibula",
   "entity.aquaticplus.parrotfish": "Parrotfish",
   "entity.aquaticplus.kelp_eel": "Kelp Eel",
+  "entity.aquaticplus.shadow_sardel": "Shadow Sardel",
 
   "effect.aquaticplus.numbing": "Numbing",
   "effect.aquaticplus.land_drowning": "Land Drowning",
 
   "aquaticplus.stonifier.tooltip": "Turn (almost...) any block into stone!",
   "aquaticplus.destonifier.tooltip": "Break any stone block instantly!",
-  "aquaticplus.deoxidizing_material.tooltip": "Try right clicking a partly or fully oxidized block of copper..."
+  "aquaticplus.deoxidizing_material.tooltip": "Try right clicking a partly",
+  "aquaticplus.deoxidizing_material.tooltip_2": "or fully oxidized block of copper..."
 }
