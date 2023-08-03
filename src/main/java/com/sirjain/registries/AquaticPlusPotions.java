@@ -5,7 +5,6 @@ import com.sirjain.mixins.BrewingRecipeRegistryMixin;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.Potions;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
@@ -44,8 +43,6 @@ public class AquaticPlusPotions {
                         potion
                 );
         }
-
-        // TODO: Add numbing potion recipe with fibula and stonefish venom
         public static void registerPotionRecipes() {
                 registerNumbingRecipes();
                 registerLandDrowningPotions();
