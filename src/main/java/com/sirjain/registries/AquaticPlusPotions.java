@@ -28,8 +28,8 @@ public class AquaticPlusPotions {
 
         public static void registerPotions() {
                 NUMBING_POTION = registerPotion("numbing_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 20 * 35, 0)));
-                NUMBING_LONG_POTION = registerPotion("numbing_long", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 20 * 65, 0)));
-                NUMBING_STRONG_POTION = registerPotion("numbing_strong", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 20 * 18, 1)));
+                NUMBING_LONG_POTION = registerPotion("numbing_long_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 20 * 65, 0)));
+                NUMBING_STRONG_POTION = registerPotion("numbing_strong_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 20 * 18, 1)));
 
                 LAND_DROWNING_POTION = registerPotion("land_drowning_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.LAND_DROWNING, 20 * 16, 0)));
                 LAND_DROWNING_LONG_POTION = registerPotion("land_drowning_long_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.LAND_DROWNING, 20 * 33, 0)));
