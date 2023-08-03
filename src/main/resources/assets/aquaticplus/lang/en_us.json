@@ -12,7 +12,7 @@
   "item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
   "item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
   "item.aquaticplus.shadow_sardel_bucket": "Shadow Sardel Bucket",
-  
+
   "item.aquaticplus.parrotfish": "Parrotfish",
   "item.aquaticplus.shadow_sardel": "Shadow Sardel",
   "item.aquaticplus.stonifier": "Stonifier",
@@ -57,5 +57,6 @@
 
   "aquaticplus.stonifier.tooltip": "Turn (almost...) any block into stone!",
   "aquaticplus.destonifier.tooltip": "Break any stone block instantly!",
-  "aquaticplus.deoxidizing_material.tooltip": "Try right clicking a partly or fully oxidized block of copper..."
+  "aquaticplus.deoxidizing_material.tooltip": "Try right clicking a partly",
+  "aquaticplus.deoxidizing_material.tooltip_2": "or fully oxidized block of copper..."
 }
