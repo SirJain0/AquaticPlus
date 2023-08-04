@@ -22,7 +22,7 @@ public abstract class AbstractEelEntity extends FishEntity {
         @Override
         protected void initGoals() {
                 this.goalSelector.add(0, new MoveIntoWaterGoal(this));
-                this.goalSelector.add(1, new APSwimAroundGoal(this, 1, 1, 10, 5));
+                this.goalSelector.add(5, new APSwimAroundGoal(this, 1, 1, 10, 3));
         }
 
         // TODO: Change to generic fish flop sound
