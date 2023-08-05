@@ -1,9 +1,11 @@
 package com.sirjain.items;
 
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.vehicle.BoatEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
@@ -27,11 +29,13 @@ public class StonifierItem extends Item {
                 World world = context.getWorld();
                 PlayerEntity user = context.getPlayer();
                 BlockPos pos = context.getBlockPos();
+
                 List<BlockState> disallowedBlocks = Arrays.asList(
                         Blocks.END_PORTAL.getDefaultState(),
                         Blocks.BEDROCK.getDefaultState(),
                         Blocks.OBSIDIAN.getDefaultState(),
                         Blocks.CHEST.getDefaultState(),
+                        Blocks.ENDER_CHEST.getDefaultState(),
                         Blocks.SHULKER_BOX.getDefaultState(),
                         Blocks.DRAGON_EGG.getDefaultState(),
                         Blocks.BARRIER.getDefaultState(),
@@ -42,8 +46,20 @@ public class StonifierItem extends Item {
 
                 if (user == null) return ActionResult.PASS;
 
-                if (!disallowedBlocks.contains(world.getBlockState(pos)))
+                if (!disallowedBlocks.contains(world.getBlockState(user.isSneaking() ? pos.up() : pos))) {
                         world.setBlockState(user.isSneaking() ? pos.up() : pos, Blocks.STONE.getDefaultState());
+                } else {
+                        Block block = world.getBlockState(user.isSneaking() ? pos.up() : pos).getBlock();
+                        StringBuilder b = new StringBuilder(getIDFromBlockKey(block));
+                        String formattedID = b
+                                .deleteCharAt(0)
+                                .deleteCharAt(0)
+                                .toString();
+                        String message = "Cannot convert " + formattedID + " into stone.";
+
+                        if (!world.isClient)
+                                user.sendMessage(Text.literal(message));
+                }
 
                 if (!user.getAbilities().creativeMode) {
                         user.getStackInHand(user.getActiveHand()).damage(1, user, (p) -> p.sendToolBreakStatus(user.getActiveHand()));
@@ -51,6 +67,24 @@ public class StonifierItem extends Item {
                 }
 
                 return super.useOnBlock(context);
+        }
+
+        private static String getIDFromBlockKey(Block block) {
+                String fullID = block.getTranslationKey();
+                String arrayID = Arrays.toString(fullID.split("block.minecraft."));
+                String withoutLastChar = removeLastChar(arrayID);
+
+                return removeFirstChar(withoutLastChar);
+        }
+
+        private static String removeLastChar(String s) {
+                StringBuilder builder = new StringBuilder(s);
+                return builder.deleteCharAt(s.length() - 1).toString();
+        }
+
+        private static String removeFirstChar(String s) {
+                StringBuilder builder = new StringBuilder(s);
+                return builder.deleteCharAt(0).toString();
         }
 
         @Override
