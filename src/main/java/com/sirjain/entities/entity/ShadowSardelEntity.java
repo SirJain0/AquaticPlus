@@ -1,10 +1,8 @@
 package com.sirjain.entities.entity;
 
-import com.sirjain.entities.goals.APSwimAroundGoal;
 import com.sirjain.registries.AquaticPlusEntities;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -24,9 +22,8 @@ public class ShadowSardelEntity extends SchoolingFishEntity {
 
         @Override
         protected void initGoals() {
+                super.initGoals();
                 this.goalSelector.add(0, new MoveIntoWaterGoal(this));
-                this.goalSelector.add(2, new APSwimAroundGoal(this, 1, 2, 12, 3));
-                this.goalSelector.add(1, new EscapeDangerGoal(this, 1.3));
         }
 
         @Override

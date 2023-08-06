@@ -1,11 +1,8 @@
 package com.sirjain.entities.entity;
 
-import com.sirjain.entities.goals.APSwimAroundGoal;
 import com.sirjain.entities.goals.MoveToAndBreakBlockGoal;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.goal.EscapeDangerGoal;
-import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
@@ -22,9 +19,7 @@ public class ParrotfishEntity extends SchoolingFishEntity {
 
         @Override
         protected void initGoals() {
-                this.goalSelector.add(0, new MoveIntoWaterGoal(this));
-                this.goalSelector.add(2, new APSwimAroundGoal(this, 1, 1, 10, 4));
-                this.goalSelector.add(0, new EscapeDangerGoal(this, 1.3));
+                super.initGoals();
                 this.goalSelector.add(1, new MoveToAndBreakBlockGoal(this, 1.3f, 10, 1));
         }
 
