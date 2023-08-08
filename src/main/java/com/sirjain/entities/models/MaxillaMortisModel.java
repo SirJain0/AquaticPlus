@@ -1,13 +1,13 @@
 package com.sirjain.entities.models;
 
-import com.sirjain.entities.entity.FibulaEntity;
+import com.sirjain.entities.entity.MaxillaMortisEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
-public class FibulaModel extends EntityModel<FibulaEntity> {
+public class MaxillaMortisModel extends EntityModel<MaxillaMortisEntity> {
         private final ModelPart root;
         private final ModelPart main;
         private final ModelPart head;
@@ -16,7 +16,7 @@ public class FibulaModel extends EntityModel<FibulaEntity> {
         private final ModelPart tailSeg1;
         private final ModelPart tailSeg2;
 
-        public FibulaModel(ModelPart part) {
+        public MaxillaMortisModel(ModelPart part) {
                 root = part;
                 main = root.getChild("main");
 
@@ -48,7 +48,7 @@ public class FibulaModel extends EntityModel<FibulaEntity> {
 
         // TODO: Change jaw angle based on current attacking state
         @Override
-        public void setAngles(FibulaEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+        public void setAngles(MaxillaMortisEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
                 tailSeg1.yaw = MathHelper.cos(animationProgress * 0.25f) * 0.35f;
                 tailSeg2.yaw = MathHelper.cos(-20 + animationProgress * 0.25f) * 0.65f;
                 head.yaw = -(MathHelper.cos(animationProgress * 0.25f) * 0.12f);

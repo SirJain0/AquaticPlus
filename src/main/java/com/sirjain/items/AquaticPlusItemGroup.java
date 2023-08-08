@@ -34,7 +34,7 @@ public class AquaticPlusItemGroup {
                                         entries.add(AquaticPlusItems.JOHNSON_SPAWN_EGG);
                                         entries.add(AquaticPlusItems.MINDINATOR_SPAWN_EGG);
                                         entries.add(AquaticPlusItems.SPIRITED_FISH_SPAWN_EGG);
-                                        entries.add(AquaticPlusItems.FIBULA_SPAWN_EGG);
+                                        entries.add(AquaticPlusItems.MAXILLA_MORTIS_SPAWN_EGG);
                                         entries.add(AquaticPlusItems.PARROTFISH_SPAWN_EGG);
                                         entries.add(AquaticPlusItems.KELP_EEL_SPAWN_EGG);
                                         entries.add(AquaticPlusItems.SHADOW_SARDEL_SPAWN_EGG);

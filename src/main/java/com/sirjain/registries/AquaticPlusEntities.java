@@ -12,7 +12,6 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -49,11 +48,11 @@ public class AquaticPlusEntities {
                         .build()
         );
 
-        public static final EntityModelLayer FIBULA_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "fibula"), "root");
-        public static final EntityType<FibulaEntity> FIBULA_ENTITY = Registry.register(
+        public static final EntityModelLayer MAXILLA_MORTIS_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "maxilla_mortis"), "root");
+        public static final EntityType<MaxillaMortisEntity> MAXILLA_MORTIS_ENTITY = Registry.register(
                 Registries.ENTITY_TYPE,
-                new Identifier(AquaticPlus.MOD_ID, "fibula"),
-                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, FibulaEntity::new)
+                new Identifier(AquaticPlus.MOD_ID, "maxilla_mortis"),
+                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, MaxillaMortisEntity::new)
                         .dimensions(EntityDimensions.fixed(0.7f, 0.8f))
                         .build()
         );
@@ -119,7 +118,7 @@ public class AquaticPlusEntities {
                 FabricDefaultAttributeRegistry.register(JOHNSON_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
                 FabricDefaultAttributeRegistry.register(MINDINATOR_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
                 FabricDefaultAttributeRegistry.register(SPIRITED_FISH_ENTITY, SpiritedFishEntity.createSpiritedFishAttributes());
-                FabricDefaultAttributeRegistry.register(FIBULA_ENTITY, FibulaEntity.createFibulaAttributes());
+                FabricDefaultAttributeRegistry.register(MAXILLA_MORTIS_ENTITY, MaxillaMortisEntity.createMaxillaMortisAttributes());
                 FabricDefaultAttributeRegistry.register(PARROTFISH_ENTITY, ParrotfishEntity.createParrotfishAttributes());
                 FabricDefaultAttributeRegistry.register(KELP_EEL_ENTITY, KelpEelEntity.createKelpEelAttributes());
                 FabricDefaultAttributeRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelEntity.createShadowSardelAttributes());
@@ -129,7 +128,7 @@ public class AquaticPlusEntities {
                 EntityRendererRegistry.register(JOHNSON_ENTITY, JohnsonRenderer::new);
                 EntityRendererRegistry.register(MINDINATOR_ENTITY, MindinatorRenderer::new);
                 EntityRendererRegistry.register(SPIRITED_FISH_ENTITY, SpiritedFishRenderer::new);
-                EntityRendererRegistry.register(FIBULA_ENTITY, FibulaRenderer::new);
+                EntityRendererRegistry.register(MAXILLA_MORTIS_ENTITY, MaxillaMortisRenderer::new);
                 EntityRendererRegistry.register(PARROTFISH_ENTITY, ParrotfishRenderer::new);
                 EntityRendererRegistry.register(KELP_EEL_ENTITY, KelpEelRenderer::new);
                 EntityRendererRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelRenderer::new);
@@ -142,7 +141,7 @@ public class AquaticPlusEntities {
                 EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(SPIRITED_FISH_LAYER, SpiritedFishModel::getTexturedModelData);
-                EntityModelLayerRegistry.registerModelLayer(FIBULA_LAYER, FibulaModel::getTexturedModelData);
+                EntityModelLayerRegistry.registerModelLayer(MAXILLA_MORTIS_LAYER, MaxillaMortisModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(PARROTFISH_LAYER, ParrotfishModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(KELP_EEL_LAYER, KelpEelModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(SHADOW_SARDEL_LAYER, ShadowSardelModel::getTexturedModelData);

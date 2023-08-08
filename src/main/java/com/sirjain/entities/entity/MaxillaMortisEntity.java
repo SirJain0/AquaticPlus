@@ -24,8 +24,8 @@ import net.minecraft.world.World;
 import java.util.Arrays;
 import java.util.List;
 
-public class FibulaEntity extends FishEntity {
-        public FibulaEntity(EntityType<? extends FishEntity> entityType, World world) {
+public class MaxillaMortisEntity extends FishEntity {
+        public MaxillaMortisEntity(EntityType<? extends FishEntity> entityType, World world) {
                 super(entityType, world);
         }
 
@@ -83,7 +83,7 @@ public class FibulaEntity extends FishEntity {
                 return true;
         }
 
-        public static DefaultAttributeContainer.Builder createFibulaAttributes() {
+        public static DefaultAttributeContainer.Builder createMaxillaMortisAttributes() {
                 return FishEntity
                         .createFishAttributes()
                         .add(EntityAttributes.GENERIC_MAX_HEALTH, 36)
