@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "aquaticplus:item/misc/land_drowning_aquatic_star"
+  }
+}
