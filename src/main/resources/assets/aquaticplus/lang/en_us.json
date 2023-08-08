@@ -54,6 +54,9 @@
   "entity.aquaticplus.parrotfish": "Parrotfish",
   "entity.aquaticplus.kelp_eel": "Kelp Eel",
   "entity.aquaticplus.shadow_sardel": "Shadow Sardel",
+  "entity.aquaticplus.aquatic_star": "Aquatic Star",
+  "entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
+  "entity.aquaticplus.numbing_aquatic_star": "Numbing Aquatic Star",
 
   "effect.aquaticplus.numbing": "Numbing",
   "effect.aquaticplus.land_drowning": "Land Drowning",
