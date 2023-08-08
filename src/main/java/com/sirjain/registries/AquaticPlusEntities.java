@@ -7,6 +7,7 @@ import com.sirjain.entities.entity.projectile.LandDrowningAquaticStarEntity;
 import com.sirjain.entities.entity.projectile.NumbingAquaticStarEntity;
 import com.sirjain.entities.models.*;
 import com.sirjain.entities.renderers.*;
+import com.sirjain.entities.renderers.projectile.AquaticStarRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -134,9 +135,9 @@ public class AquaticPlusEntities {
                 EntityRendererRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelRenderer::new);
 
                 // Projectiles
-                EntityRendererRegistry.register(AQUATIC_STAR_ENTITY, FlyingItemEntityRenderer::new);
-                EntityRendererRegistry.register(NUMBING_AQUATIC_STAR_ENTITY, FlyingItemEntityRenderer::new);
-                EntityRendererRegistry.register(LAND_DROWNING_AQUATIC_STAR_ENTITY, FlyingItemEntityRenderer::new);
+                EntityRendererRegistry.register(AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
+                EntityRendererRegistry.register(NUMBING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
+                EntityRendererRegistry.register(LAND_DROWNING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
 
                 EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
