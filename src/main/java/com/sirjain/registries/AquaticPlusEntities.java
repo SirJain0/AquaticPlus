@@ -2,12 +2,17 @@ package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
 import com.sirjain.entities.entity.*;
+import com.sirjain.entities.entity.projectile.AquaticStarEntity;
+import com.sirjain.entities.entity.projectile.LandDrowningAquaticStarEntity;
+import com.sirjain.entities.entity.projectile.NumbingAquaticStarEntity;
 import com.sirjain.entities.models.*;
 import com.sirjain.entities.renderers.*;
+import com.sirjain.entities.renderers.projectile.AquaticStarRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -80,6 +85,36 @@ public class AquaticPlusEntities {
                         .build()
         );
 
+        public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
+                Registries.ENTITY_TYPE,
+                new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
+                FabricEntityTypeBuilder.<AquaticStarEntity>create(SpawnGroup.MISC, AquaticStarEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+                        .trackRangeBlocks(16)
+                        .trackedUpdateRate(10)
+                        .build()
+        );
+
+        public static final EntityType<NumbingAquaticStarEntity> NUMBING_AQUATIC_STAR_ENTITY = Registry.register(
+                Registries.ENTITY_TYPE,
+                new Identifier(AquaticPlus.MOD_ID, "numbing_aquatic_star"),
+                FabricEntityTypeBuilder.<NumbingAquaticStarEntity>create(SpawnGroup.MISC, NumbingAquaticStarEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+                        .trackRangeBlocks(16)
+                        .trackedUpdateRate(10)
+                        .build()
+        );
+
+        public static final EntityType<LandDrowningAquaticStarEntity> LAND_DROWNING_AQUATIC_STAR_ENTITY = Registry.register(
+                Registries.ENTITY_TYPE,
+                new Identifier(AquaticPlus.MOD_ID, "land_drowning_aquatic_star"),
+                FabricEntityTypeBuilder.<LandDrowningAquaticStarEntity>create(SpawnGroup.MISC, LandDrowningAquaticStarEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+                        .trackRangeBlocks(16)
+                        .trackedUpdateRate(10)
+                        .build()
+        );
+
         public static void registerAttributes() {
                 FabricDefaultAttributeRegistry.register(JOHNSON_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
                 FabricDefaultAttributeRegistry.register(MINDINATOR_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
@@ -98,6 +133,11 @@ public class AquaticPlusEntities {
                 EntityRendererRegistry.register(PARROTFISH_ENTITY, ParrotfishRenderer::new);
                 EntityRendererRegistry.register(KELP_EEL_ENTITY, KelpEelRenderer::new);
                 EntityRendererRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelRenderer::new);
+
+                // Projectiles
+                EntityRendererRegistry.register(AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
+                EntityRendererRegistry.register(NUMBING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
+                EntityRendererRegistry.register(LAND_DROWNING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
 
                 EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
