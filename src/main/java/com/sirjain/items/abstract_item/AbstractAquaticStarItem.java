@@ -26,7 +26,7 @@ public class AbstractAquaticStarItem extends Item {
 //			if (entity == null) return TypedActionResult.pass(itemStack);
 
 			entity.setItem(itemStack);
-			entity.setVelocity(user, user.getPitch(), user.getYaw(), 0, 0.9F, 0);
+			entity.setVelocity(user, user.getPitch(), user.getYaw(), 0, 0.75F, 0);
 			world.spawnEntity(entity);
 
 			user.incrementStat(Stats.USED.getOrCreateStat(this));

@@ -46,6 +46,14 @@ public abstract class AbstractAquaticStarEntity extends ThrownItemEntity {
 	}
 
 	@Override
+	public void tick() {
+		final boolean hasStoppedMoving = this.getVelocity().x == 0 || this.getVelocity().y == 0 || this.getVelocity().z == 0;
+		final boolean isIdle = hasStoppedMoving && this.age > 5;
+		if (isIdle) this.kill();
+		super.tick();
+	}
+
+	@Override
 	protected void tickInVoid() {
 		this.kill();
 	}
