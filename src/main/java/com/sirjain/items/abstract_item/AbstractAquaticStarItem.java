@@ -2,7 +2,6 @@ package com.sirjain.items.abstract_item;
 
 import com.sirjain.entities.entity.template.AbstractAquaticStarEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
@@ -23,8 +22,6 @@ public class AbstractAquaticStarItem extends Item {
 
 		if (!world.isClient) {
 			AbstractAquaticStarEntity entity = getEntity(world, user);
-//			if (entity == null) return TypedActionResult.pass(itemStack);
-
 			entity.setItem(itemStack);
 			entity.setVelocity(user, user.getPitch(), user.getYaw(), 0, 0.75F, 0);
 			world.spawnEntity(entity);

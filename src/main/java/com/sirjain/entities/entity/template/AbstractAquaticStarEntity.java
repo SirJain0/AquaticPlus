@@ -9,6 +9,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public abstract class AbstractAquaticStarEntity extends ThrownItemEntity {
@@ -49,7 +50,15 @@ public abstract class AbstractAquaticStarEntity extends ThrownItemEntity {
 	public void tick() {
 		final boolean hasStoppedMoving = this.getVelocity().x == 0 || this.getVelocity().y == 0 || this.getVelocity().z == 0;
 		final boolean isIdle = hasStoppedMoving && this.age > 5;
-		if (isIdle) this.kill();
+
+		if (isIdle)
+			this.kill();
+
+		if (this.isSubmergedInWater()) {
+			Vec3d prevVelocity = this.getVelocity();
+			this.setVelocity(prevVelocity.x * (1 / 0.8), prevVelocity.y * (1 / 0.8), prevVelocity.z * (1 / 0.8));
+		}
+
 		super.tick();
 	}
 

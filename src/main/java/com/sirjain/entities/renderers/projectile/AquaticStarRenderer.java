@@ -11,7 +11,6 @@ import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.RotationAxis;
 
 public class AquaticStarRenderer extends FlyingItemEntityRenderer<AbstractAquaticStarEntity> {
