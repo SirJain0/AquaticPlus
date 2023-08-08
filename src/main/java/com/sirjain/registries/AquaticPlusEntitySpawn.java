@@ -11,7 +11,7 @@ import net.minecraft.world.biome.BiomeKeys;
 public class AquaticPlusEntitySpawn {
 	public static void initEntitySpawns() {
 		initLocations();
-		initRestrictiona();
+		initRestrictions();
 	}
 
 	public static void initLocations() {
@@ -23,7 +23,7 @@ public class AquaticPlusEntitySpawn {
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FROZEN_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.COLD_OCEAN, BiomeKeys.DEEP_COLD_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.SPIRITED_FISH_ENTITY, 30, 3, 6);
 	}
 
-	public static void initRestrictiona() {
+	public static void initRestrictions() {
 		SpawnRestriction.register(AquaticPlusEntities.FIBULA_ENTITY, SpawnRestriction.Location.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, FishEntity::canMobSpawn);
 		SpawnRestriction.register(AquaticPlusEntities.KELP_EEL_ENTITY, SpawnRestriction.Location.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, FishEntity::canMobSpawn);
 		SpawnRestriction.register(AquaticPlusEntities.PARROTFISH_ENTITY, SpawnRestriction.Location.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, FishEntity::canMobSpawn);
