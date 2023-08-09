@@ -122,7 +122,7 @@ public class AquaticPlusEntities {
                 FabricEntityTypeBuilder.<FrostedSnowballProjectileEntity>create(SpawnGroup.MISC, FrostedSnowballProjectileEntity::new)
                         .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
                         .trackRangeBlocks(16)
-                        .trackedUpdateRate(10)
+                        .trackedUpdateRate(20)
                         .build()
         );
 

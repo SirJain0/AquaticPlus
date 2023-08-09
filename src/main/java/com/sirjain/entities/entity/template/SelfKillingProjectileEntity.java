@@ -6,7 +6,7 @@ import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class SelfKillingProjectileEntity extends ThrownItemEntity {
+public abstract class SelfKillingProjectileEntity extends ThrownItemEntity {
 	public SelfKillingProjectileEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
 		super(entityType, world);
 	}

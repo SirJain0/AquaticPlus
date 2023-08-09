@@ -6,8 +6,11 @@ import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
@@ -29,17 +32,39 @@ public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity
 	@Override
 	protected void onEntityHit(EntityHitResult entityHitResult) {
 		super.onEntityHit(entityHitResult);
-		Entity entity = entityHitResult.getEntity();
 
-		if (entity instanceof LivingEntity target && target.canFreeze() && !target.isDead()) {
-			if (target.isFrozen() && target.age % 40 == 0) {
+		Entity entity = entityHitResult.getEntity();
+		LivingEntity target = ((LivingEntity) entity);
+		if (target == null) return;
+
+		boolean canDamage = !this.getWorld().isClient && !target.isDead();
+		if (canDamage) {
+			if (target.canFreeze()) {
+				target.setFrozenTicks(target.getMinFreezeDamageTicks());
 				target.damage(target.getDamageSources().freeze(), 2);
-			} else {
-				target.setFrozenTicks(Math.min(target.getMinFreezeDamageTicks(), target.getFrozenTicks() + 1));
 			}
+
+			target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 20*6, 3, false, false, false));
 		}
 
-		this.kill();
+		if (getWorld().isClient) {
+			for (int x = 0; x < 8; x++) {
+				int xRand = getWorld().random.nextInt(2);
+				int yRand = getWorld().random.nextInt(4);
+				int zRand = getWorld().random.nextInt(2);
+				int negativeDecider = getWorld().random.nextInt(1);
+
+				this.getWorld().addParticle(
+					ParticleTypes.SNOWFLAKE,
+					target.getX(),
+					target.getRandomBodyY(),
+					target.getZ(),
+					negativeDecider == 0 ? xRand / 10f : -(xRand / 10f),
+					yRand / 10f,
+					negativeDecider == 0 ? zRand / 10f : -(zRand / 10f)
+				);
+			}
+		}
 	}
 
 	@Override
@@ -50,6 +75,6 @@ public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity
 
 	@Override
 	protected float getGravity() {
-		return 0;
+		return 0.3f;
 	}
 }
