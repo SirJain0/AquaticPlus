@@ -11,7 +11,7 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public class AbstractAquaticStarItem extends Item {
+public abstract class AbstractAquaticStarItem extends Item {
 	public AbstractAquaticStarItem(Settings settings) {
 		super(settings);
 	}

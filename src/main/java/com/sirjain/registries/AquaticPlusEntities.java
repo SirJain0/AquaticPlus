@@ -3,6 +3,7 @@ package com.sirjain.registries;
 import com.sirjain.AquaticPlus;
 import com.sirjain.entities.entity.*;
 import com.sirjain.entities.entity.projectile.AquaticStarEntity;
+import com.sirjain.entities.entity.projectile.FrostedSnowballProjectileEntity;
 import com.sirjain.entities.entity.projectile.LandDrowningAquaticStarEntity;
 import com.sirjain.entities.entity.projectile.NumbingAquaticStarEntity;
 import com.sirjain.entities.models.*;
@@ -12,6 +13,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -98,16 +100,26 @@ public class AquaticPlusEntities {
                 Registries.ENTITY_TYPE,
                 new Identifier(AquaticPlus.MOD_ID, "numbing_aquatic_star"),
                 FabricEntityTypeBuilder.<NumbingAquaticStarEntity>create(SpawnGroup.MISC, NumbingAquaticStarEntity::new)
-                        .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
                         .trackRangeBlocks(16)
                         .trackedUpdateRate(10)
-                        .build()
+                        .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+                     .build()
         );
 
         public static final EntityType<LandDrowningAquaticStarEntity> LAND_DROWNING_AQUATIC_STAR_ENTITY = Registry.register(
                 Registries.ENTITY_TYPE,
                 new Identifier(AquaticPlus.MOD_ID, "land_drowning_aquatic_star"),
                 FabricEntityTypeBuilder.<LandDrowningAquaticStarEntity>create(SpawnGroup.MISC, LandDrowningAquaticStarEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+                        .trackRangeBlocks(16)
+                        .trackedUpdateRate(10)
+                        .build()
+        );
+
+        public static final EntityType<FrostedSnowballProjectileEntity> FROSTED_SNOWBALL_PROJECTILE_ENTITY = Registry.register(
+                Registries.ENTITY_TYPE,
+                new Identifier(AquaticPlus.MOD_ID, "frosted_snowball"),
+                FabricEntityTypeBuilder.<FrostedSnowballProjectileEntity>create(SpawnGroup.MISC, FrostedSnowballProjectileEntity::new)
                         .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
                         .trackRangeBlocks(16)
                         .trackedUpdateRate(10)
@@ -137,6 +149,7 @@ public class AquaticPlusEntities {
                 EntityRendererRegistry.register(AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
                 EntityRendererRegistry.register(NUMBING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
                 EntityRendererRegistry.register(LAND_DROWNING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
+                EntityRendererRegistry.register(FROSTED_SNOWBALL_PROJECTILE_ENTITY, FlyingItemEntityRenderer::new);
 
                 EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);

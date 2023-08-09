@@ -5,7 +5,9 @@ import com.sirjain.items.AquaticPlusFoodItems;
 import com.sirjain.items.DeoxidizingMaterialItem;
 import com.sirjain.items.DestonifierItem;
 import com.sirjain.items.StonifierItem;
+import com.sirjain.items.abstract_item.AbstractStaffItem;
 import com.sirjain.items.projectile.AquaticStarItem;
+import com.sirjain.items.projectile.FrostingStaffItem;
 import com.sirjain.items.projectile.LandDrowningAquaticStarItem;
 import com.sirjain.items.projectile.NumbingAquaticStarItem;
 import net.minecraft.block.Block;
@@ -28,7 +30,9 @@ public class AquaticPlusItems {
                 AQUATIC_STAR,
                 NUMBING_AQUATIC_STAR,
                 LAND_DROWNING_AQUATIC_STAR,
-                DEOXIDIZING_MATERIAL;
+                FROSTED_SNOWBALL,
+                DEOXIDIZING_MATERIAL,
+                FROSTING_SPECTRE;
 
         public static Item
                 JOHNSON_SPAWN_EGG,
@@ -58,7 +62,9 @@ public class AquaticPlusItems {
                 AQUATIC_STAR = registerCustomItem("aquatic_star", new AquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
                 NUMBING_AQUATIC_STAR = registerCustomItem("numbing_aquatic_star", new NumbingAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
                 LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
+                FROSTED_SNOWBALL = registerCustomItem("frost_snowball", new Item(new Item.Settings().maxCount(1).maxCount(16)));
                 DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
+                FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingStaffItem(new Item.Settings()));
 
                 AquaticPlusPotions.registerPotions();
         }

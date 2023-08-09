@@ -50,7 +50,9 @@ public class AquaticPlusItemGroup {
                                         entries.add(AquaticPlusItems.LAND_DROWNING_AQUATIC_STAR);
                                         entries.add(AquaticPlusItems.STONIFIER);
                                         entries.add(AquaticPlusItems.DESTONIFIER);
+                                        entries.add(AquaticPlusItems.FROSTED_SNOWBALL);
                                         entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
+                                        entries.add(AquaticPlusItems.FROSTING_SPECTRE);
 
                                         displayContext.lookup().getOptionalWrapper(RegistryKeys.POTION).ifPresent((wrapper) -> {
                                                 addPotions(entries, wrapper, Items.POTION);

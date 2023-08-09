@@ -12,13 +12,13 @@ import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public abstract class AbstractAquaticStarEntity extends ThrownItemEntity {
+public abstract class AbstractAquaticStarEntity extends SelfKillingProjectileEntity {
 	public AbstractAquaticStarEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
 	public AbstractAquaticStarEntity(EntityType<? extends ThrownItemEntity> entityType, World world, LivingEntity owner) {
-		super(entityType, owner, world);
+		super(entityType, world, owner);
 	}
 
 	@Override
@@ -48,18 +48,12 @@ public abstract class AbstractAquaticStarEntity extends ThrownItemEntity {
 
 	@Override
 	public void tick() {
-		final boolean hasStoppedMoving = this.getVelocity().x == 0 || this.getVelocity().y == 0 || this.getVelocity().z == 0;
-		final boolean isIdle = hasStoppedMoving && this.age > 5;
-
-		if (isIdle)
-			this.kill();
+		super.tick();
 
 		if (this.isSubmergedInWater()) {
 			Vec3d prevVelocity = this.getVelocity();
 			this.setVelocity(prevVelocity.x * (1 / 0.8), prevVelocity.y * (1 / 0.8), prevVelocity.z * (1 / 0.8));
 		}
-
-		super.tick();
 	}
 
 	@Override
