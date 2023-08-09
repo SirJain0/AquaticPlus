@@ -48,10 +48,10 @@ public class AquaticPlusItemGroup {
                                         entries.add(AquaticPlusItems.AQUATIC_STAR);
                                         entries.add(AquaticPlusItems.NUMBING_AQUATIC_STAR);
                                         entries.add(AquaticPlusItems.LAND_DROWNING_AQUATIC_STAR);
-                                        entries.add(AquaticPlusItems.STONIFIER);
-                                        entries.add(AquaticPlusItems.DESTONIFIER);
                                         entries.add(AquaticPlusItems.FROSTED_SNOWBALL);
                                         entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
+                                        entries.add(AquaticPlusItems.STONIFIER);
+                                        entries.add(AquaticPlusItems.DESTONIFIER);
                                         entries.add(AquaticPlusItems.FROSTING_SPECTRE);
 
                                         displayContext.lookup().getOptionalWrapper(RegistryKeys.POTION).ifPresent((wrapper) -> {
