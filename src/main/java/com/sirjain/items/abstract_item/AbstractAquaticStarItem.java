@@ -32,7 +32,7 @@ public abstract class AbstractAquaticStarItem extends Item {
 			world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 1F);
 
 			if (!user.getAbilities().creativeMode) {
-				(itemStack).decrement(1);
+				itemStack.decrement(1);
 				user.getItemCooldownManager().set(this, 5);
 			}
 
