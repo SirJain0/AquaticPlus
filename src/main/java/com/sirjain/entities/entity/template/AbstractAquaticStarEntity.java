@@ -27,17 +27,15 @@ public abstract class AbstractAquaticStarEntity extends SelfKillingProjectileEnt
 
 		Entity entity = entityHitResult.getEntity();
 
-		if (!this.getWorld().isClient) {
-			if (entity instanceof LivingEntity target) {
-				if (target.hasStatusEffect(StatusEffects.WATER_BREATHING))
-					target.removeStatusEffect(StatusEffects.WATER_BREATHING);
+		if (!this.getWorld().isClient && entity instanceof LivingEntity target) {
+			if (target.hasStatusEffect(StatusEffects.WATER_BREATHING))
+				target.removeStatusEffect(StatusEffects.WATER_BREATHING);
 
-				target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 20*8, 0));
-				target.damage(target.getDamageSources().magic(), 4);
+			target.addStatusEffect(new StatusEffectInstance(StatusEffects.WEAKNESS, 20*8, 0));
+			target.damage(target.getDamageSources().magic(), 4);
 
-				if (this.getConditionalEffect() != null)
-					target.addStatusEffect(new StatusEffectInstance(getConditionalEffect(), 20*6, 0));
-			}
+			if (this.getConditionalEffect() != null)
+				target.addStatusEffect(new StatusEffectInstance(getConditionalEffect(), 20*6, 0));
 		}
 	}
 
