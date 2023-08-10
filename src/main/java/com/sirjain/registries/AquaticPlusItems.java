@@ -6,7 +6,7 @@ import com.sirjain.items.DeoxidizingMaterialItem;
 import com.sirjain.items.DestonifierItem;
 import com.sirjain.items.StonifierItem;
 import com.sirjain.items.projectile.AquaticStarItem;
-import com.sirjain.items.combat.FrostingStaffItem;
+import com.sirjain.items.combat.FrostingSpectreItem;
 import com.sirjain.items.projectile.LandDrowningAquaticStarItem;
 import com.sirjain.items.projectile.NumbingAquaticStarItem;
 import net.minecraft.block.Block;
@@ -63,7 +63,7 @@ public class AquaticPlusItems {
                 LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
                 FROSTED_SNOWBALL = registerCustomItem("frost_snowball", new Item(new Item.Settings().maxCount(1).maxCount(16)));
                 DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
-                FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingStaffItem(new Item.Settings()));
+                FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings()));
 
                 AquaticPlusPotions.registerPotions();
         }

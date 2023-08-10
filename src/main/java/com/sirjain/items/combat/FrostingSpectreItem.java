@@ -14,8 +14,8 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class FrostingStaffItem extends AbstractStaffItem {
-	public FrostingStaffItem(Settings settings) {
+public class FrostingSpectreItem extends AbstractStaffItem {
+	public FrostingSpectreItem(Settings settings) {
 		super(settings, 2, 1.1f, AquaticPlusItems.FROSTED_SNOWBALL, 4);
 	}
 

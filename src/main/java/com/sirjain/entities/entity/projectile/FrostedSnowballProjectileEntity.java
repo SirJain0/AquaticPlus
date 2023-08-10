@@ -55,7 +55,7 @@ public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity
 				int negativeDecider = getWorld().random.nextInt(1);
 
 				this.getWorld().addParticle(
-					ParticleTypes.ITEM_SNOWBALL,
+					ParticleTypes.SNOWFLAKE,
 					target.getX(),
 					target.getRandomBodyY(),
 					target.getZ(),
