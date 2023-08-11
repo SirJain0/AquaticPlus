@@ -10,6 +10,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleType;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
@@ -76,5 +78,26 @@ public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity
 	@Override
 	protected float getGravity() {
 		return 0;
+	}
+
+	public static void summonParticle(ParticleEffect particle, World world, int numParticles, LivingEntity target) {
+		if (world.isClient) {
+			for (int x = 0; x < numParticles; x++) {
+				int xRand = world.random.nextInt(2);
+				int yRand = world.random.nextInt(4);
+				int zRand = world.random.nextInt(2);
+				int negativeDecider = world.random.nextInt(1);
+
+				world.addParticle(
+					particle,
+					target.getX(),
+					target.getRandomBodyY(),
+					target.getZ(),
+					negativeDecider == 0 ? xRand / 10f : -(xRand / 10f),
+					yRand / 10f,
+					negativeDecider == 0 ? zRand / 10f : -(zRand / 10f)
+				);
+			}
+		}
 	}
 }
