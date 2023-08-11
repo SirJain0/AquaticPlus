@@ -49,24 +49,7 @@ public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity
 			target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 20*6, 3, false, false, false));
 		}
 
-		if (getWorld().isClient) {
-			for (int x = 0; x < 8; x++) {
-				int xRand = getWorld().random.nextInt(2);
-				int yRand = getWorld().random.nextInt(4);
-				int zRand = getWorld().random.nextInt(2);
-				int negativeDecider = getWorld().random.nextInt(1);
-
-				this.getWorld().addParticle(
-					ParticleTypes.SNOWFLAKE,
-					target.getX(),
-					target.getRandomBodyY(),
-					target.getZ(),
-					negativeDecider == 0 ? xRand / 10f : -(xRand / 10f),
-					yRand / 10f,
-					negativeDecider == 0 ? zRand / 10f : -(zRand / 10f)
-				);
-			}
-		}
+		summonParticle(ParticleTypes.SNOWFLAKE, entity.getWorld(), 8, target);
 	}
 
 	@Override
