@@ -75,6 +75,6 @@ public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity
 
 	@Override
 	protected float getGravity() {
-		return 0.3f;
+		return 0;
 	}
 }
