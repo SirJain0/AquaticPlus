@@ -1,5 +1,6 @@
 package com.sirjain.entities.entity;
 
+import com.sirjain.entities.entity.template.NoBucketFishEntity;
 import com.sirjain.entities.goals.APSwimAroundGoal;
 import com.sirjain.registries.AquaticPlusStatusEffects;
 import net.minecraft.entity.Entity;
@@ -24,7 +25,7 @@ import net.minecraft.world.World;
 import java.util.Arrays;
 import java.util.List;
 
-public class MaxillaMortisEntity extends FishEntity {
+public class MaxillaMortisEntity extends NoBucketFishEntity {
         public MaxillaMortisEntity(EntityType<? extends FishEntity> entityType, World world) {
                 super(entityType, world);
         }
@@ -57,16 +58,6 @@ public class MaxillaMortisEntity extends FishEntity {
         @Override
         protected SoundEvent getFlopSound() {
                 return SoundEvents.ENTITY_COD_FLOP;
-        }
-
-        @Override
-        public ItemStack getBucketItem() {
-                return ItemStack.EMPTY;
-        }
-
-        @Override
-        protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-                return ActionResult.PASS;
         }
 
         @Override

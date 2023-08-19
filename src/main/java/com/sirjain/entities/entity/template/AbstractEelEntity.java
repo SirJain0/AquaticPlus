@@ -14,7 +14,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public abstract class AbstractEelEntity extends FishEntity {
+public abstract class AbstractEelEntity extends NoBucketFishEntity {
         public AbstractEelEntity(EntityType<? extends FishEntity> entityType, World world) {
                 super(entityType, world);
         }
@@ -29,16 +29,6 @@ public abstract class AbstractEelEntity extends FishEntity {
         @Override
         protected SoundEvent getFlopSound() {
                 return SoundEvents.ENTITY_COD_FLOP;
-        }
-
-        @Override
-        public ItemStack getBucketItem() {
-                return ItemStack.EMPTY;
-        }
-
-        @Override
-        protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-                return ActionResult.PASS;
         }
 
         public static DefaultAttributeContainer.Builder createGenericEelAttributes() {

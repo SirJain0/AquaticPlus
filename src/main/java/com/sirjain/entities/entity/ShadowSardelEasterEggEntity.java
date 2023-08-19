@@ -1,5 +1,6 @@
 package com.sirjain.entities.entity;
 
+import com.sirjain.entities.entity.template.NoBucketFishEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
@@ -16,7 +17,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class ShadowSardelEasterEggEntity extends FishEntity {
+public class ShadowSardelEasterEggEntity extends NoBucketFishEntity {
         public ShadowSardelEasterEggEntity(EntityType<? extends FishEntity> entityType, World world) {
                 super(entityType, world);
                 this.experiencePoints = 20;
@@ -44,18 +45,8 @@ public class ShadowSardelEasterEggEntity extends FishEntity {
         }
 
         @Override
-        public ItemStack getBucketItem() {
-                return ItemStack.EMPTY;
-        }
-
-        @Override
         public void tick() {
                 super.tick();
                 if (this.age % 60 == 0) this.heal(1);
-        }
-
-        @Override
-        protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-                return ActionResult.PASS;
         }
 }
