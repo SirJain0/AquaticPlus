@@ -10,6 +10,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -31,14 +32,19 @@ public class FrostingSpectreItem extends AbstractStaffItem {
 
 	@Override
 	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+		ServerWorld world = (ServerWorld) target.getWorld();
 
-		// TODO: Figure out why these particles are not showing
-		FrostedSnowballProjectileEntity.summonParticle(ParticleTypes.CLOUD, target.getWorld(), 8, target);
+		world.spawnParticles(
+			ParticleTypes.CLOUD,
+			target.getX(), target.getY(), target.getZ(),
+			5, 0.5, 0.2, 0.5, 0.02
+		);
+
 		sendInAir(2,  target);
 
 		if (attacker instanceof PlayerEntity player && !player.getAbilities().creativeMode) {
 			Hand hand = player.getActiveHand();
-			player.getStackInHand(hand).damage(1, player, (p) -> p.sendToolBreakStatus(player.getActiveHand()));
+			player.getStackInHand(hand).damage(1, player, (p) -> p.sendToolBreakStatus(hand));
 		}
 
 		return super.postHit(stack, target, attacker);
