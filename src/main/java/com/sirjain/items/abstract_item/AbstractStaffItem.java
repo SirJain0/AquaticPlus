@@ -27,7 +27,8 @@ public abstract class AbstractStaffItem extends Item {
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 		ItemStack stack = ammo.getDefaultStack();
 
-		if (world.isClient) return TypedActionResult.pass(user.getStackInHand(hand));
+		if (world.isClient)
+			return TypedActionResult.pass(user.getStackInHand(hand));
 
 		if (!user.getAbilities().creativeMode) {
 			int slotWithShockBolt = user.getInventory().getSlotWithStack(stack);
@@ -37,7 +38,6 @@ public abstract class AbstractStaffItem extends Item {
 			user.getStackInHand(hand).damage(1, user, (p) -> p.sendToolBreakStatus(user.getActiveHand()));
 			user.getItemCooldownManager().set(this, 10);
 		}
-
 
 		for (int i = 0; i < numProjectiles; i++) {
 			ThrownItemEntity projectile = getEntity(world, user);
