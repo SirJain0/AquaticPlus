@@ -54,7 +54,7 @@ public class FrostingSpectreItem extends AbstractStaffItem {
 
 	@Override
 	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-		tooltip.add(Text.translatable("aquaticplus.frosting_spectre.tooltip").formatted(Formatting.AQUA));
+		tooltip.add(Text.translatable("aquaticplus.frosting_spectre.tooltip").formatted(Formatting.BLUE));
 		super.appendTooltip(stack, world, tooltip, context);
 	}
 }

@@ -62,9 +62,7 @@ public class DeoxidizingMaterialItem extends Item {
 
         @Override
         public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-                tooltip.add(Text.translatable("aquaticplus.deoxidizing_material.tooltip").formatted(Formatting.GREEN));
-                tooltip.add(Text.translatable("aquaticplus.deoxidizing_material.tooltip_2").formatted(Formatting.GREEN));
-          
+                tooltip.add(Text.translatable("aquaticplus.deoxidizing_material.tooltip").formatted(Formatting.BLUE));
                 super.appendTooltip(stack, world, tooltip, context);
         }
 }

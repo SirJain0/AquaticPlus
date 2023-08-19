@@ -25,7 +25,7 @@ public class AquaticStarItem extends AbstractAquaticStarItem {
 
 	@Override
 	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-		tooltip.add(Text.translatable("aquaticplus.aquatic_star.tooltip").formatted(Formatting.WHITE));
+		tooltip.add(Text.translatable("aquaticplus.aquatic_star.tooltip").formatted(Formatting.BLUE));
 		super.appendTooltip(stack, world, tooltip, context);
 	}
 }

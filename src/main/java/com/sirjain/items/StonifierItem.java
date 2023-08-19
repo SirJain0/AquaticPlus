@@ -89,7 +89,7 @@ public class StonifierItem extends Item {
 
         @Override
         public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-                tooltip.add(Text.translatable("aquaticplus.stonifier.tooltip").formatted(Formatting.GRAY));
+                tooltip.add(Text.translatable("aquaticplus.stonifier.tooltip").formatted(Formatting.BLUE));
                 super.appendTooltip(stack, world, tooltip, context);
         }
 }
