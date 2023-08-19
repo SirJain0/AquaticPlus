@@ -52,7 +52,7 @@ public class AquaticPlusItems {
                 AQUATIC_STAR,
                 NUMBING_AQUATIC_STAR,
                 LAND_DROWNING_AQUATIC_STAR,
-                FROSTED_SNOWBALL,
+                FROSTED_BALL,
                 DEOXIDIZING_MATERIAL,
                 FROSTING_SPECTRE;
 
@@ -75,7 +75,7 @@ public class AquaticPlusItems {
                 AQUATIC_STAR = registerCustomItem("aquatic_star", new AquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
                 NUMBING_AQUATIC_STAR = registerCustomItem("numbing_aquatic_star", new NumbingAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
                 LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
-                FROSTED_SNOWBALL = registerCustomItem("frosted_snowball", new Item(new Item.Settings().maxCount(1).maxCount(16)));
+                FROSTED_BALL = registerCustomItem("frosted_ball", new Item(new Item.Settings().maxCount(1).maxCount(16)));
                 DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
                 FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
         }

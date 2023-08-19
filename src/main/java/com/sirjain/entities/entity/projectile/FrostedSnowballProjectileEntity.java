@@ -27,7 +27,7 @@ public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity
 
 	@Override
 	protected Item getDefaultItem() {
-		return AquaticPlusItems.FROSTED_SNOWBALL;
+		return AquaticPlusItems.FROSTED_BALL;
 	}
 
 	@Override

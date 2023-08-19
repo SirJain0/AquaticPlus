@@ -21,7 +21,7 @@ import java.util.List;
 
 public class FrostingSpectreItem extends AbstractStaffItem {
 	public FrostingSpectreItem(Settings settings) {
-		super(settings, 2, 1.1f, AquaticPlusItems.FROSTED_SNOWBALL, 4);
+		super(settings, 2, 1.1f, AquaticPlusItems.FROSTED_BALL, 4);
 	}
 
 	@Override
