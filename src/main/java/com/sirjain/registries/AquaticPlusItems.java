@@ -6,6 +6,7 @@ import com.sirjain.items.DeoxidizingMaterialItem;
 import com.sirjain.items.DestonifierItem;
 import com.sirjain.items.StonifierItem;
 import com.sirjain.items.projectile.AquaticStarItem;
+import com.sirjain.items.combat.FrostingSpectreItem;
 import com.sirjain.items.projectile.LandDrowningAquaticStarItem;
 import com.sirjain.items.projectile.NumbingAquaticStarItem;
 import net.minecraft.block.Block;
@@ -22,14 +23,8 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 public class AquaticPlusItems {
-        public static Item
-                STONIFIER,
-                DESTONIFIER,
-                AQUATIC_STAR,
-                NUMBING_AQUATIC_STAR,
-                LAND_DROWNING_AQUATIC_STAR,
-                DEOXIDIZING_MATERIAL;
 
+        // Spawn Eggs
         public static Item
                 JOHNSON_SPAWN_EGG,
                 MINDINATOR_SPAWN_EGG,
@@ -39,28 +34,59 @@ public class AquaticPlusItems {
                 KELP_EEL_SPAWN_EGG,
                 PARROTFISH_SPAWN_EGG;
 
+        // Buckets
         public static Item
                 SPIRITED_FISH_BUCKET,
                 PARROTFISH_BUCKET,
                 SHADOW_SARDEL_BUCKET;
 
+        // Food Items
         public static Item
                 PARROTFISH,
                 SHADOW_SARDEL;
+
+        // Advanced
+        public static Item
+                STONIFIER,
+                DESTONIFIER,
+                AQUATIC_STAR,
+                NUMBING_AQUATIC_STAR,
+                LAND_DROWNING_AQUATIC_STAR,
+                FROSTED_BALL,
+                DEOXIDIZING_MATERIAL,
+                FROSTING_SPECTRE;
+
+        // Basic items
+        public static Item
+                FROST_SHARDS;
 
         public static void registerItems() {
                 registerSpawnEggs();
                 registerBucketItems();
                 registerFoodItems();
+                registerAdvancedItems();
+                registerBasicItems();
+                AquaticPlusPotions.registerPotions();
+        }
 
+        public static void registerAdvancedItems() {
                 STONIFIER = registerCustomItem("stonifier", new StonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
                 DESTONIFIER = registerCustomItem("destonifier", new DestonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
                 AQUATIC_STAR = registerCustomItem("aquatic_star", new AquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
                 NUMBING_AQUATIC_STAR = registerCustomItem("numbing_aquatic_star", new NumbingAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
                 LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
+                FROSTED_BALL = registerCustomItem("frosted_ball", new Item(new Item.Settings().maxCount(1).maxCount(16)));
                 DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
+                FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
+        }
 
-                AquaticPlusPotions.registerPotions();
+        public static void registerBasicItems() {
+                FROST_SHARDS = registerBasicItem("frost_shards", new Item.Settings());
+        }
+
+        public static void registerFoodItems() {
+                PARROTFISH = registerBasicItem("parrotfish", new Item.Settings().food(AquaticPlusFoodItems.PARROTFISH));
+                SHADOW_SARDEL = registerBasicItem("shadow_sardel", new Item.Settings().food(AquaticPlusFoodItems.SHADOW_SARDEL));
         }
 
         public static void registerSpawnEggs() {
@@ -77,11 +103,6 @@ public class AquaticPlusItems {
                 SPIRITED_FISH_BUCKET = registerBucketItem("spirited_fish_bucket", AquaticPlusEntities.SPIRITED_FISH_ENTITY, new Item.Settings());
                 PARROTFISH_BUCKET = registerBucketItem("parrotfish_bucket", AquaticPlusEntities.PARROTFISH_ENTITY, new Item.Settings());
                 SHADOW_SARDEL_BUCKET = registerBucketItem("shadow_sardel_bucket", AquaticPlusEntities.SHADOW_SARDEL_ENTITY, new Item.Settings());
-        }
-
-        public static void registerFoodItems() {
-                PARROTFISH = registerBasicItem("parrotfish", new Item.Settings().food(AquaticPlusFoodItems.PARROTFISH));
-                SHADOW_SARDEL = registerBasicItem("shadow_sardel", new Item.Settings().food(AquaticPlusFoodItems.SHADOW_SARDEL));
         }
 
         public static void registerBlockItems() {

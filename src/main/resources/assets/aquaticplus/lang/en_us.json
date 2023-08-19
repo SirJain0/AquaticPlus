@@ -15,12 +15,15 @@
 
   "item.aquaticplus.parrotfish": "Parrotfish",
   "item.aquaticplus.shadow_sardel": "Shadow Sardel",
+  "item.aquaticplus.frost_shards": "Frost Shards",
   "item.aquaticplus.stonifier": "Stonifier",
   "item.aquaticplus.destonifier": "Destonifier",
   "item.aquaticplus.aquatic_star": "Aquatic Star",
   "item.aquaticplus.numbing_aquatic_star": "Numbing Aquatic Star",
   "item.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
+  "item.aquaticplus.frosted_ball": "Frosted Ball",
   "item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
+  "item.aquaticplus.frosting_spectre": "Frosting Spectre",
 
   "item.minecraft.potion.effect.numbing_potion": "Numbing Potion",
   "item.minecraft.potion.effect.numbing_long_potion": "Numbing Potion",
@@ -64,5 +67,9 @@
   "aquaticplus.stonifier.tooltip": "Turn (almost...) any block into stone!",
   "aquaticplus.destonifier.tooltip": "Break any stone block instantly!",
   "aquaticplus.deoxidizing_material.tooltip": "Try right clicking a partly",
-  "aquaticplus.deoxidizing_material.tooltip_2": "or fully oxidized block of copper..."
+  "aquaticplus.deoxidizing_material.tooltip_2": "or fully oxidized block of copper...",
+  "aquaticplus.aquatic_star.tooltip": "Harness the best of both power and speed...",
+  "aquaticplus.land_drowning_aquatic_star.tooltip": "Drown your enemies... no matter the location",
+  "aquaticplus.numbing_aquatic_star.tooltip": "Make your enemies drop their own weapons...",
+  "aquaticplus.frosting_spectre.tooltip": "Packs a cold punch..."
 }
