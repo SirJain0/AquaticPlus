@@ -12,22 +12,30 @@ import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class MaxillaMortisEntity extends NoBucketFishEntity {
+        public static final TrackedData<Boolean> HAS_ACTIVE_TARGET = DataTracker.registerData(MaxillaMortisEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+
         public MaxillaMortisEntity(EntityType<? extends FishEntity> entityType, World world) {
                 super(entityType, world);
+                this.dataTracker.set(HAS_ACTIVE_TARGET, false);
         }
 
         @Override
@@ -36,6 +44,24 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
                 this.goalSelector.add(0, new AttackGoal(this));
                 this.goalSelector.add(0, new MoveIntoWaterGoal(this));
                 this.initTargetGoals();
+        }
+
+        @Override
+        protected void initDataTracker() {
+                super.initDataTracker();
+                this.dataTracker.startTracking(HAS_ACTIVE_TARGET, false);
+        }
+
+        @Override
+        public void writeCustomDataToNbt(NbtCompound nbt) {
+                super.writeCustomDataToNbt(nbt);
+                nbt.putBoolean("has_active_target", this.dataTracker.get(HAS_ACTIVE_TARGET));
+        }
+
+        @Override
+        public void readCustomDataFromNbt(NbtCompound nbt) {
+                super.readCustomDataFromNbt(nbt);
+                this.dataTracker.set(HAS_ACTIVE_TARGET, nbt.getBoolean("has_active_target"));
         }
 
         protected void initTargetGoals() {
@@ -61,12 +87,19 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
         }
 
         @Override
-        public boolean tryAttack(Entity target) {
-                boolean canAttack = super.tryAttack(target) && target instanceof LivingEntity;
+        public boolean tryAttack(Entity entity) {
+                boolean canAttack = super.tryAttack(entity) && entity instanceof LivingEntity;
                 if (canAttack)
-                        ((LivingEntity) target).addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 6 * 20, 0), this);
+                        ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 6 * 20, 0), this);
 
                 return canAttack;
+        }
+
+        @Override
+        public void setTarget(@Nullable LivingEntity target) {
+                super.setTarget(target);
+                if (this.getTarget() != null) this.dataTracker.set(HAS_ACTIVE_TARGET, true);
+                else this.dataTracker.set(HAS_ACTIVE_TARGET, false);
         }
 
         @Override
