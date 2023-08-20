@@ -58,12 +58,14 @@ public class MaxillaMortisModel extends EntityModel<MaxillaMortisEntity> {
                 head.yaw = -(MathHelper.cos(animationProgress * 0.25f) * 0.12f);
 
                 if (hasTarget) {
-                        upperJaw.pitch = 75;
-                        lowerJaw.pitch = -75;
+                        upperJaw.pitch = -1;
+                        lowerJaw.pitch = 1;
                 } else {
-                        upperJaw.pitch = 50;
-                        lowerJaw.pitch = -50;
+                        upperJaw.pitch = (float) -0.6727;
+                        lowerJaw.pitch = (float) 0.6728;
                 }
+
+                System.out.println("Upper = " + upperJaw.pitch + ", Lower = "+ lowerJaw.pitch);
         }
 
         @Override
