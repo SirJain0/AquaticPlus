@@ -7,6 +7,8 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
+import static com.sirjain.entities.entity.MaxillaMortisEntity.HAS_ACTIVE_TARGET;
+
 public class MaxillaMortisModel extends EntityModel<MaxillaMortisEntity> {
         private final ModelPart root;
         private final ModelPart main;
@@ -49,9 +51,19 @@ public class MaxillaMortisModel extends EntityModel<MaxillaMortisEntity> {
         // TODO: Change jaw angle based on current attacking state
         @Override
         public void setAngles(MaxillaMortisEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
+                final boolean hasTarget = entity.getDataTracker().get(HAS_ACTIVE_TARGET);
+
                 tailSeg1.yaw = MathHelper.cos(animationProgress * 0.25f) * 0.35f;
                 tailSeg2.yaw = MathHelper.cos(-20 + animationProgress * 0.25f) * 0.65f;
                 head.yaw = -(MathHelper.cos(animationProgress * 0.25f) * 0.12f);
+
+                if (hasTarget) {
+                        upperJaw.pitch = 75;
+                        lowerJaw.pitch = -75;
+                } else {
+                        upperJaw.pitch = 50;
+                        lowerJaw.pitch = -50;
+                }
         }
 
         @Override
