@@ -48,7 +48,6 @@ public class MaxillaMortisModel extends EntityModel<MaxillaMortisEntity> {
                 return TexturedModelData.of(modelData, 128, 128);
         }
 
-        // TODO: Change jaw angle based on current attacking state
         @Override
         public void setAngles(MaxillaMortisEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
                 final boolean hasTarget = entity.getDataTracker().get(HAS_ACTIVE_TARGET);
@@ -64,8 +63,6 @@ public class MaxillaMortisModel extends EntityModel<MaxillaMortisEntity> {
                         upperJaw.pitch = (float) -0.6727;
                         lowerJaw.pitch = (float) 0.6728;
                 }
-
-                System.out.println("Upper = " + upperJaw.pitch + ", Lower = "+ lowerJaw.pitch);
         }
 
         @Override
