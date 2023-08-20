@@ -43,6 +43,7 @@ public class AquaticPlusPotions {
                         potion
                 );
         }
+
         public static void registerPotionRecipes() {
                 registerNumbingRecipes();
                 registerLandDrowningPotions();

@@ -12,35 +12,35 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public abstract class AbstractAquaticStarItem extends Item {
-	public AbstractAquaticStarItem(Settings settings) {
-		super(settings);
-	}
+        public AbstractAquaticStarItem(Settings settings) {
+                super(settings);
+        }
 
-	@Override
-	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-		final ItemStack stackInHand = user.getStackInHand(hand);
+        @Override
+        public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+                final ItemStack stackInHand = user.getStackInHand(hand);
 
-		if (world.isClient)
-			return TypedActionResult.pass(stackInHand);
+                if (world.isClient)
+                        return TypedActionResult.pass(stackInHand);
 
-		AbstractAquaticStarEntity star = getEntity(world, user);
-		star.setItem(stackInHand);
-		star.setVelocity(user, user.getPitch(), user.getYaw(), 0, 0.75F, 0);
-		world.spawnEntity(star);
+                AbstractAquaticStarEntity star = getEntity(world, user);
+                star.setItem(stackInHand);
+                star.setVelocity(user, user.getPitch(), user.getYaw(), 0, 0.75F, 0);
+                world.spawnEntity(star);
 
-		if (!user.getAbilities().creativeMode) {
-			stackInHand.decrement(1);
-			user.getItemCooldownManager().set(this, 5);
-		}
+                if (!user.getAbilities().creativeMode) {
+                        stackInHand.decrement(1);
+                        user.getItemCooldownManager().set(this, 5);
+                }
 
-		// TODO: Change to custom sound
-		world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 1F);
-		user.incrementStat(Stats.USED.getOrCreateStat(this));
+                // TODO: Change to custom sound
+                world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 1F);
+                user.incrementStat(Stats.USED.getOrCreateStat(this));
 
-		return TypedActionResult.success(stackInHand);
-	}
+                return TypedActionResult.success(stackInHand);
+        }
 
-	public AbstractAquaticStarEntity getEntity(World world, PlayerEntity user) {
-		return null;
-	}
+        public AbstractAquaticStarEntity getEntity(World world, PlayerEntity user) {
+                return null;
+        }
 }

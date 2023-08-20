@@ -10,16 +10,16 @@ import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
 public class AquaticStarEntity extends AbstractAquaticStarEntity {
-	public AquaticStarEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
-		super(entityType, world);
-	}
+        public AquaticStarEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
+                super(entityType, world);
+        }
 
-	public AquaticStarEntity(World world, PlayerEntity player) {
-		super(AquaticPlusEntities.AQUATIC_STAR_ENTITY, world, player);
-	}
+        public AquaticStarEntity(World world, PlayerEntity player) {
+                super(AquaticPlusEntities.AQUATIC_STAR_ENTITY, world, player);
+        }
 
-	@Override
-	protected Item getDefaultItem() {
-		return AquaticPlusItems.AQUATIC_STAR;
-	}
+        @Override
+        protected Item getDefaultItem() {
+                return AquaticPlusItems.AQUATIC_STAR;
+        }
 }

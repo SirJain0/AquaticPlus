@@ -103,7 +103,7 @@ public class AquaticPlusEntities {
                         .trackRangeBlocks(16)
                         .trackedUpdateRate(10)
                         .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
-                     .build()
+                        .build()
         );
 
         public static final EntityType<LandDrowningAquaticStarEntity> LAND_DROWNING_AQUATIC_STAR_ENTITY = Registry.register(

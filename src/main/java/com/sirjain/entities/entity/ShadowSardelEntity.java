@@ -56,7 +56,7 @@ public class ShadowSardelEntity extends SchoolingFishEntity {
                         }
 
                         // Check: name is 'Mindinator'
-                        else if (Text.literal("Mindinator").equals(name) && !variantSpawned)  {
+                        else if (Text.literal("Mindinator").equals(name) && !variantSpawned) {
                                 handleVariant(AquaticPlusEntities.MINDINATOR_ENTITY, false);
                                 variantSpawned = true;
                         }

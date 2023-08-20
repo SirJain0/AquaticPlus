@@ -18,12 +18,9 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -46,6 +43,22 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
                 this.initTargetGoals();
         }
 
+        protected void initTargetGoals() {
+                List<Class<? extends LivingEntity>> targets = Arrays.asList(
+                        SalmonEntity.class,
+                        CodEntity.class,
+                        TropicalFishEntity.class,
+                        SchoolingFishEntity.class
+                );
+
+                for (Class<? extends LivingEntity> target : targets) {
+                        this.targetSelector.add(2, new ActiveTargetGoal<>(this, target, true));
+                }
+
+                this.targetSelector.add(0, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+                this.targetSelector.add(1, new RevengeGoal(this));
+        }
+
         @Override
         protected void initDataTracker() {
                 super.initDataTracker();
@@ -62,22 +75,6 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
         public void readCustomDataFromNbt(NbtCompound nbt) {
                 super.readCustomDataFromNbt(nbt);
                 this.dataTracker.set(HAS_ACTIVE_TARGET, nbt.getBoolean("has_active_target"));
-        }
-
-        protected void initTargetGoals() {
-                List<Class<? extends LivingEntity>> targets = Arrays.asList(
-                        SalmonEntity.class,
-                        CodEntity.class,
-                        TropicalFishEntity.class,
-                        SchoolingFishEntity.class
-                );
-
-                for (Class<? extends LivingEntity> target : targets) {
-                        this.targetSelector.add(2, new ActiveTargetGoal<>(this, target, true));
-                }
-
-                this.targetSelector.add(0, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-                this.targetSelector.add(1, new RevengeGoal(this));
         }
 
         // TODO: Change to generic fish flop sound
