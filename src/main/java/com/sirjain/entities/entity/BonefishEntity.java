@@ -1,7 +1,9 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
+import com.sirjain.entities.models.SpiritedFishModel;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.SchoolingFishEntity;
@@ -12,6 +14,12 @@ import net.minecraft.world.World;
 public class BonefishEntity extends NoBucketSchoolingFishEntity {
         public BonefishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
                 super(entityType, world);
+        }
+
+        @Override
+        protected void initGoals() {
+                super.initGoals();
+                this.goalSelector.add(3, new FleeEntityGoal<>(this, SpiritedFishEntity.class, 6.0F, 1.0, 1.2));
         }
 
         // TODO: Replace with better flop sound
