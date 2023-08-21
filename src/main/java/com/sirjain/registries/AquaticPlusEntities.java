@@ -86,6 +86,24 @@ public class AquaticPlusEntities {
                         .build()
         );
 
+        public static final EntityModelLayer BONEFISH_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "bonefish"), "root");
+        public static final EntityType<BonefishEntity> BONEFISH_ENTITY = Registry.register(
+                Registries.ENTITY_TYPE,
+                new Identifier(AquaticPlus.MOD_ID, "bonefish"),
+                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, BonefishEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.7f, 0.8f))
+                        .build()
+        );
+
+        public static final EntityModelLayer LONG_BONEFISH_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "long_bonefish"), "root");
+        public static final EntityType<LongBonefishEntity> LONG_BONEFISH_ENTITY = Registry.register(
+                Registries.ENTITY_TYPE,
+                new Identifier(AquaticPlus.MOD_ID, "long_bonefish"),
+                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, LongBonefishEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.7f, 0.8f))
+                        .build()
+        );
+
         public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
                 Registries.ENTITY_TYPE,
                 new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -134,9 +152,13 @@ public class AquaticPlusEntities {
                 FabricDefaultAttributeRegistry.register(PARROTFISH_ENTITY, ParrotfishEntity.createParrotfishAttributes());
                 FabricDefaultAttributeRegistry.register(KELP_EEL_ENTITY, KelpEelEntity.createKelpEelAttributes());
                 FabricDefaultAttributeRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelEntity.createShadowSardelAttributes());
+                FabricDefaultAttributeRegistry.register(BONEFISH_ENTITY, BonefishEntity.createBonefishAttributes());
+                FabricDefaultAttributeRegistry.register(LONG_BONEFISH_ENTITY, LongBonefishEntity.createLongBonefishAttributes());
         }
 
-        public static void registerEntityRender() {
+        public static void registerEntityRenderers() {
+                registerProjectileRenderers();
+
                 EntityRendererRegistry.register(JOHNSON_ENTITY, JohnsonRenderer::new);
                 EntityRendererRegistry.register(MINDINATOR_ENTITY, MindinatorRenderer::new);
                 EntityRendererRegistry.register(SPIRITED_FISH_ENTITY, SpiritedFishRenderer::new);
@@ -144,12 +166,8 @@ public class AquaticPlusEntities {
                 EntityRendererRegistry.register(PARROTFISH_ENTITY, ParrotfishRenderer::new);
                 EntityRendererRegistry.register(KELP_EEL_ENTITY, KelpEelRenderer::new);
                 EntityRendererRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelRenderer::new);
-
-                // Projectiles
-                EntityRendererRegistry.register(AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
-                EntityRendererRegistry.register(NUMBING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
-                EntityRendererRegistry.register(LAND_DROWNING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
-                EntityRendererRegistry.register(FROSTED_SNOWBALL_PROJECTILE_ENTITY, FlyingItemEntityRenderer::new);
+                EntityRendererRegistry.register(BONEFISH_ENTITY, BonefishRenderer::new);
+                EntityRendererRegistry.register(LONG_BONEFISH_ENTITY, BonefishRenderer::new);
 
                 EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -158,5 +176,14 @@ public class AquaticPlusEntities {
                 EntityModelLayerRegistry.registerModelLayer(PARROTFISH_LAYER, ParrotfishModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(KELP_EEL_LAYER, KelpEelModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(SHADOW_SARDEL_LAYER, ShadowSardelModel::getTexturedModelData);
+                EntityModelLayerRegistry.registerModelLayer(BONEFISH_LAYER, BonefishModel::getTexturedModelData);
+                EntityModelLayerRegistry.registerModelLayer(LONG_BONEFISH_LAYER, LongBonefishModel::getTexturedModelData);
+        }
+
+        public static void registerProjectileRenderers() {
+                EntityRendererRegistry.register(AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
+                EntityRendererRegistry.register(NUMBING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
+                EntityRendererRegistry.register(LAND_DROWNING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
+                EntityRendererRegistry.register(FROSTED_SNOWBALL_PROJECTILE_ENTITY, FlyingItemEntityRenderer::new);
         }
 }

@@ -6,7 +6,7 @@ import com.sirjain.items.AquaticPlusItemGroup;
 public class AquaticPlusRegistryUtil {
         public static void initContent() {
                 AquaticPlusEntities.registerAttributes();
-                AquaticPlusEntities.registerEntityRender();
+                AquaticPlusEntities.registerEntityRenderers();
                 AquaticPlusStatusEffects.registerModEffects();
                 AquaticPlusFoodItems.registerFoodComponents();
                 AquaticPlusItems.registerItems();
