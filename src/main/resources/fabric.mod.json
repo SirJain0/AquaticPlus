@@ -4,18 +4,14 @@
 	"version": "${version}",
 	"name": "Aquatic Plus",
 	"description": "Expands Ocean life to include real-life creatures and mythical beasts!",
-
 	"authors": [
 		"SirJain"
 	],
-
 	"contact": {
 	},
-
 	"license": "CC0-1.0",
 	"icon": "assets/aquaticplus/icon.png",
 	"environment": "*",
-
 	"entrypoints": {
 		"main": [
 			"com.sirjain.AquaticPlus"
@@ -24,18 +20,15 @@
 			"com.sirjain.AquaticPlusClient"
 		]
 	},
-
 	"mixins": [
 		"aquaticplus.mixins.json"
 	],
-
 	"depends": {
 		"fabricloader": ">=0.14.21",
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*"
 	},
-
 	"suggests": {
 		"another-mod": "*"
 	}
