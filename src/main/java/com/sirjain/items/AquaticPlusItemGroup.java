@@ -38,6 +38,8 @@ public class AquaticPlusItemGroup {
                                         entries.add(AquaticPlusItems.PARROTFISH_SPAWN_EGG);
                                         entries.add(AquaticPlusItems.KELP_EEL_SPAWN_EGG);
                                         entries.add(AquaticPlusItems.SHADOW_SARDEL_SPAWN_EGG);
+                                        entries.add(AquaticPlusItems.BONEFISH_SPAWN_EGG);
+                                        entries.add(AquaticPlusItems.LONG_BONEFISH_SPAWN_EGG);
 
                                         entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
                                         entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
