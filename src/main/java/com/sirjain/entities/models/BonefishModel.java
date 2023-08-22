@@ -33,8 +33,8 @@ public class BonefishModel extends EntityModel<BonefishEntity> {
 
         @Override
         public void setAngles(BonefishEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-                tail.yaw = -MathHelper.sin(-40 + animationProgress * 0.8f) * 0.35f;
-                main.pivotX = -MathHelper.sin(-40 + animationProgress * 0.8f) * 0.35f;
+                tail.yaw = -MathHelper.sin(-40 + animationProgress * 0.4f) * 0.35f;
+                main.pivotX = -MathHelper.sin(-40 + animationProgress * 0.4f) * 0.35f;
         }
 
         @Override
