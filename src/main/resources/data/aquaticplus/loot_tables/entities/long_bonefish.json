@@ -6,13 +6,13 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "minecraft:kelp",
+					"name": "minecraft:bone",
 					"functions": [
 						{
 							"function": "minecraft:set_count",
 							"count": {
 								"min": 2,
-								"max": 3
+								"max": 4
 							}
 						}
 					],

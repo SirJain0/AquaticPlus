@@ -1,48 +1,48 @@
 {
-  "type": "minecraft:generic",
-  "pools": [
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:wither_rose",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": {
-                "min": -3,
-                "max": 1
-              }
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:killed_by_player"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "aquaticplus:shadow_sardel",
-          "functions": [
-            {
-              "function": "minecraft:set_count",
-              "count": 1
-            }
-          ],
-          "conditions": [
-            {
-              "condition": "minecraft:killed_by_player"
-            }
-          ]
-        }
-      ]
-    }
-  ]
+	"type": "minecraft:generic",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:wither_rose",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": -3,
+								"max": 1
+							}
+						}
+					],
+					"conditions": [
+						{
+							"condition": "minecraft:killed_by_player"
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "aquaticplus:shadow_sardel",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": 1
+						}
+					],
+					"conditions": [
+						{
+							"condition": "minecraft:killed_by_player"
+						}
+					]
+				}
+			]
+		}
+	]
 }
