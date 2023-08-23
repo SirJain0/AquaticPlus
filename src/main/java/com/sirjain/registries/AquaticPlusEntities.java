@@ -104,6 +104,15 @@ public class AquaticPlusEntities {
                         .build()
         );
 
+        public static final EntityModelLayer OCULI_MAGNI_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "oculi_magni"), "root");
+        public static final EntityType<OculiMagniEntity> OCULI_MAGNI_ENTITY = Registry.register(
+                Registries.ENTITY_TYPE,
+                new Identifier(AquaticPlus.MOD_ID, "oculi_magni"),
+                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, OculiMagniEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.7f, 0.8f))
+                        .build()
+        );
+
         public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
                 Registries.ENTITY_TYPE,
                 new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -154,6 +163,7 @@ public class AquaticPlusEntities {
                 FabricDefaultAttributeRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelEntity.createShadowSardelAttributes());
                 FabricDefaultAttributeRegistry.register(BONEFISH_ENTITY, BonefishEntity.createBonefishAttributes());
                 FabricDefaultAttributeRegistry.register(LONG_BONEFISH_ENTITY, LongBonefishEntity.createLongBonefishAttributes());
+                FabricDefaultAttributeRegistry.register(OCULI_MAGNI_ENTITY, OculiMagniEntity.createOculiMagniAttributes());
         }
 
         public static void registerEntityRenderers() {
@@ -168,6 +178,7 @@ public class AquaticPlusEntities {
                 EntityRendererRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelRenderer::new);
                 EntityRendererRegistry.register(BONEFISH_ENTITY, BonefishRenderer::new);
                 EntityRendererRegistry.register(LONG_BONEFISH_ENTITY, BonefishRenderer::new);
+                EntityRendererRegistry.register(OCULI_MAGNI_ENTITY, OculiMagniRenderer::new);
 
                 EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -178,6 +189,7 @@ public class AquaticPlusEntities {
                 EntityModelLayerRegistry.registerModelLayer(SHADOW_SARDEL_LAYER, ShadowSardelModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(BONEFISH_LAYER, BonefishModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(LONG_BONEFISH_LAYER, LongBonefishModel::getTexturedModelData);
+                EntityModelLayerRegistry.registerModelLayer(OCULI_MAGNI_LAYER, OculiMagniModel::getTexturedModelData);
         }
 
         public static void registerProjectileRenderers() {

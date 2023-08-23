@@ -35,6 +35,7 @@ public class AquaticPlusItems {
                 KELP_EEL_SPAWN_EGG,
                 BONEFISH_SPAWN_EGG,
                 LONG_BONEFISH_SPAWN_EGG,
+                OCULI_MAGNI_SPAWN_EGG,
                 PARROTFISH_SPAWN_EGG;
 
         // Buckets
@@ -102,6 +103,7 @@ public class AquaticPlusItems {
                 SHADOW_SARDEL_SPAWN_EGG = registerSpawnEggItem("shadow_sardel_spawn_egg", AquaticPlusEntities.SHADOW_SARDEL_ENTITY, 0x34353b, 0x222124, new Item.Settings());
                 BONEFISH_SPAWN_EGG = registerSpawnEggItem("bonefish_spawn_egg", AquaticPlusEntities.BONEFISH_ENTITY, 0xd3d3d3, 0x989898, new Item.Settings());
                 LONG_BONEFISH_SPAWN_EGG = registerSpawnEggItem("long_bonefish_spawn_egg", AquaticPlusEntities.LONG_BONEFISH_ENTITY, 0xd3d3d3, 0x989898, new Item.Settings());
+                OCULI_MAGNI_SPAWN_EGG = registerSpawnEggItem("oculi_magni_spawn_egg", AquaticPlusEntities.OCULI_MAGNI_ENTITY, 0x2f2f2f, 0x3d5456, new Item.Settings());
         }
 
         public static void registerBucketItems() {
