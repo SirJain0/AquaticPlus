@@ -44,7 +44,7 @@ public class JohnsonModel extends EntityModel<ShadowSardelEasterEggEntity> {
         @Override
         public void setAngles(ShadowSardelEasterEggEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
                 backFin.yaw = -MathHelper.sin(-40 + animationProgress * 0.5f) * 0.5f;
-                head.yaw = -MathHelper.sin(animationProgress * 0.5f) * 0.15f;
-                body.pivotX = -MathHelper.sin(-40 + animationProgress * 0.5f) * 0.5f;
+                head.yaw = -MathHelper.sin(-20 + animationProgress * 0.5f) * 0.15f;
+                body.pivotX = -MathHelper.sin(animationProgress * 0.5f) * 0.5f;
         }
 }
