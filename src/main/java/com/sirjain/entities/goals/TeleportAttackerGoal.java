@@ -49,17 +49,29 @@ public class TeleportAttackerGoal extends Goal {
                 while (!locatedTopBlock) {
                         BlockPos attackerBlockPos = attacker.getBlockPos();
                         yCounter++;
-                        boolean isCorrectBlock = world.getBlockState(attackerBlockPos.up(yCounter)).isOf(Blocks.AIR)
-                                || world.getBlockState(attackerBlockPos.up(yCounter)).isOf(Blocks.WATER);
+                        boolean isCorrectBlock = isAirBlock(world, attackerBlockPos, yCounter) || isWaterBlock(world, attackerBlockPos, yCounter);
 
                         if (isCorrectBlock) {
                                 locatedTopBlock = true;
+                                yCounter = 0;
                                 yPos = attackerBlockPos.up(yCounter).getY();
                         }
                 }
 
                 attacker.teleport(attackerPos.x - randX, yPos, attackerPos.z - randZ);
                 oculiMagni.getDataTracker().set(HAS_TELEPORTED_ATTACKER, true);
+        }
+
+        private boolean isBlock(World world, BlockPos attackerBlockPos, int yCounter, Block block) {
+                return world.getBlockState(attackerBlockPos.up(yCounter)).isOf(block);
+        }
+
+        private boolean isAirBlock(World world, BlockPos attackerBlockPos, int yCounter) {
+                return isBlock(world, attackerBlockPos, yCounter, Blocks.AIR);
+        }
+
+        private boolean isWaterBlock(World world, BlockPos attackerBlockPos, int yCounter) {
+                return isBlock(world, attackerBlockPos, yCounter, Blocks.WATER);
         }
 
         @Override
