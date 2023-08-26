@@ -17,10 +17,15 @@ import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class AquaticPlusEntities {
         public static final EntityModelLayer JOHNNSON_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "johnson"), "root");
@@ -151,6 +156,19 @@ public class AquaticPlusEntities {
                         .trackRangeBlocks(16)
                         .trackedUpdateRate(20)
                         .build()
+        );
+
+        public static final List<EntityType<? extends FishEntity>> MOD_ENTITIES = Arrays.asList(
+                JOHNSON_ENTITY,
+                MINDINATOR_ENTITY,
+                SPIRITED_FISH_ENTITY,
+                MAXILLA_MORTIS_ENTITY,
+                PARROTFISH_ENTITY,
+                KELP_EEL_ENTITY,
+                SHADOW_SARDEL_ENTITY,
+                BONEFISH_ENTITY,
+                LONG_BONEFISH_ENTITY,
+                OCULI_MAGNI_ENTITY
         );
 
         public static void registerAttributes() {
