@@ -58,6 +58,7 @@ public class TeleportAttackerGoal extends Goal {
                         }
                 }
 
+                // TODO: Add sound and particles when teleportation happens
                 attacker.teleport(attackerPos.x - randX, yPos, attackerPos.z - randZ);
                 oculiMagni.setTeleportationTracker(true);
         }
