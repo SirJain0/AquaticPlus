@@ -59,7 +59,7 @@ public class TeleportAttackerGoal extends Goal {
                 }
 
                 attacker.teleport(attackerPos.x - randX, yPos, attackerPos.z - randZ);
-                oculiMagni.getDataTracker().set(HAS_TELEPORTED_ATTACKER, true);
+                oculiMagni.setTeleportationTracker(true);
         }
 
         private boolean isBlock(World world, BlockPos attackerBlockPos, int yCounter, Block block) {
