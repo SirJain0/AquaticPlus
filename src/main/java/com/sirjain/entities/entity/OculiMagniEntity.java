@@ -71,7 +71,7 @@ public class OculiMagniEntity extends NoBucketSchoolingFishEntity {
         public static DefaultAttributeContainer.Builder createOculiMagniAttributes() {
                 return FishEntity
                         .createFishAttributes()
-                        .add(EntityAttributes.GENERIC_MAX_HEALTH, 6)
+                        .add(EntityAttributes.GENERIC_MAX_HEALTH, 7)
                         .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 2);
         }
 }
