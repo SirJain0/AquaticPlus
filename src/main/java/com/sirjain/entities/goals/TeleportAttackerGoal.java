@@ -49,7 +49,8 @@ public class TeleportAttackerGoal extends Goal {
                 while (!locatedTopBlock) {
                         BlockPos attackerBlockPos = attacker.getBlockPos();
                         yCounter++;
-                        boolean isCorrectBlock = isAirBlock(world, attackerBlockPos, yCounter) || isWaterBlock(world, attackerBlockPos, yCounter);
+                        boolean isCorrectBlock = isAirBlock(world, attackerBlockPos, yCounter)
+                                || isWaterBlock(world, attackerBlockPos, yCounter);
 
                         if (isCorrectBlock) {
                                 locatedTopBlock = true;
