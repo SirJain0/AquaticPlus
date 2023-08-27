@@ -17,7 +17,6 @@ import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.registry.Registries;
@@ -195,7 +194,7 @@ public class AquaticPlusEntities {
                 EntityRendererRegistry.register(KELP_EEL_ENTITY, KelpEelRenderer::new);
                 EntityRendererRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelRenderer::new);
                 EntityRendererRegistry.register(BONEFISH_ENTITY, BonefishRenderer::new);
-                EntityRendererRegistry.register(LONG_BONEFISH_ENTITY, BonefishRenderer::new);
+                EntityRendererRegistry.register(LONG_BONEFISH_ENTITY, LongBonefishRenderer::new);
                 EntityRendererRegistry.register(OCULI_MAGNI_ENTITY, OculiMagniRenderer::new);
 
                 EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
