@@ -18,9 +18,13 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class AquaticPlusEntities {
         public static final EntityModelLayer JOHNNSON_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "johnson"), "root");
@@ -104,6 +108,15 @@ public class AquaticPlusEntities {
                         .build()
         );
 
+        public static final EntityModelLayer OCULI_MAGNI_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "oculi_magni"), "root");
+        public static final EntityType<OculiMagniEntity> OCULI_MAGNI_ENTITY = Registry.register(
+                Registries.ENTITY_TYPE,
+                new Identifier(AquaticPlus.MOD_ID, "oculi_magni"),
+                FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, OculiMagniEntity::new)
+                        .dimensions(EntityDimensions.fixed(0.7f, 0.8f))
+                        .build()
+        );
+
         public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
                 Registries.ENTITY_TYPE,
                 new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -144,6 +157,19 @@ public class AquaticPlusEntities {
                         .build()
         );
 
+        public static final List<EntityType<? extends FishEntity>> MOD_ENTITIES = Arrays.asList(
+                JOHNSON_ENTITY,
+                MINDINATOR_ENTITY,
+                SPIRITED_FISH_ENTITY,
+                MAXILLA_MORTIS_ENTITY,
+                PARROTFISH_ENTITY,
+                KELP_EEL_ENTITY,
+                SHADOW_SARDEL_ENTITY,
+                BONEFISH_ENTITY,
+                LONG_BONEFISH_ENTITY,
+                OCULI_MAGNI_ENTITY
+        );
+
         public static void registerAttributes() {
                 FabricDefaultAttributeRegistry.register(JOHNSON_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
                 FabricDefaultAttributeRegistry.register(MINDINATOR_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
@@ -154,6 +180,7 @@ public class AquaticPlusEntities {
                 FabricDefaultAttributeRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelEntity.createShadowSardelAttributes());
                 FabricDefaultAttributeRegistry.register(BONEFISH_ENTITY, BonefishEntity.createBonefishAttributes());
                 FabricDefaultAttributeRegistry.register(LONG_BONEFISH_ENTITY, LongBonefishEntity.createLongBonefishAttributes());
+                FabricDefaultAttributeRegistry.register(OCULI_MAGNI_ENTITY, OculiMagniEntity.createOculiMagniAttributes());
         }
 
         public static void registerEntityRenderers() {
@@ -167,7 +194,8 @@ public class AquaticPlusEntities {
                 EntityRendererRegistry.register(KELP_EEL_ENTITY, KelpEelRenderer::new);
                 EntityRendererRegistry.register(SHADOW_SARDEL_ENTITY, ShadowSardelRenderer::new);
                 EntityRendererRegistry.register(BONEFISH_ENTITY, BonefishRenderer::new);
-                EntityRendererRegistry.register(LONG_BONEFISH_ENTITY, BonefishRenderer::new);
+                EntityRendererRegistry.register(LONG_BONEFISH_ENTITY, LongBonefishRenderer::new);
+                EntityRendererRegistry.register(OCULI_MAGNI_ENTITY, OculiMagniRenderer::new);
 
                 EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -178,6 +206,7 @@ public class AquaticPlusEntities {
                 EntityModelLayerRegistry.registerModelLayer(SHADOW_SARDEL_LAYER, ShadowSardelModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(BONEFISH_LAYER, BonefishModel::getTexturedModelData);
                 EntityModelLayerRegistry.registerModelLayer(LONG_BONEFISH_LAYER, LongBonefishModel::getTexturedModelData);
+                EntityModelLayerRegistry.registerModelLayer(OCULI_MAGNI_LAYER, OculiMagniModel::getTexturedModelData);
         }
 
         public static void registerProjectileRenderers() {

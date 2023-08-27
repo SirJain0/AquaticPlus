@@ -32,7 +32,7 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 
         public MaxillaMortisEntity(EntityType<? extends FishEntity> entityType, World world) {
                 super(entityType, world);
-                this.dataTracker.set(HAS_ACTIVE_TARGET, false);
+                setTargetState(false);
         }
 
         @Override
@@ -74,7 +74,7 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
         @Override
         public void readCustomDataFromNbt(NbtCompound nbt) {
                 super.readCustomDataFromNbt(nbt);
-                this.dataTracker.set(HAS_ACTIVE_TARGET, nbt.getBoolean("has_active_target"));
+                setTargetState(nbt.getBoolean("has_active_target"));
         }
 
         // TODO: Change to generic fish flop sound
@@ -95,13 +95,17 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
         @Override
         public void setTarget(@Nullable LivingEntity target) {
                 super.setTarget(target);
-                if (this.getTarget() != null) this.dataTracker.set(HAS_ACTIVE_TARGET, true);
-                else this.dataTracker.set(HAS_ACTIVE_TARGET, false);
+                if (this.getTarget() != null) setTargetState(true);
+                else setTargetState(false);
         }
 
         @Override
         protected boolean isDisallowedInPeaceful() {
                 return true;
+        }
+
+        public void setTargetState(boolean value) {
+                this.dataTracker.set(HAS_ACTIVE_TARGET, value);
         }
 
         public static DefaultAttributeContainer.Builder createMaxillaMortisAttributes() {

@@ -16,4 +16,9 @@ public class LongBonefishEntity extends BonefishEntity {
                         .createFishAttributes()
                         .add(EntityAttributes.GENERIC_MAX_HEALTH, 13);
         }
+
+        @Override
+        public boolean isScaredOfSpiritedFish() {
+                return false;
+        }
 }

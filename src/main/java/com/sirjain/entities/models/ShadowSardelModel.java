@@ -38,7 +38,7 @@ public class ShadowSardelModel extends EntityModel<ShadowSardelEntity> {
         public void setAngles(ShadowSardelEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
                 backFin.yaw = -MathHelper.sin(-40 + animationProgress * 0.5f) * 0.58f;
                 head.yaw = -MathHelper.sin(animationProgress * 0.5f) * 0.22f;
-                body.pivotX = -MathHelper.sin(-40 + animationProgress * 0.5f) * 0.58f;
+                body.pivotX = -MathHelper.sin(animationProgress * 0.5f) * 0.58f;
         }
 
         @Override

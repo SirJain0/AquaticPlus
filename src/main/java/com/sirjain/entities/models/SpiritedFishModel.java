@@ -27,13 +27,16 @@ public class SpiritedFishModel extends EntityModel<SpiritedFishEntity> {
                 ModelData modelData = new ModelData();
                 ModelPartData modelPartData = modelData.getRoot();
 
-                ModelPartData body = modelPartData.addChild("body", ModelPartBuilder.create().uv(18, 0).cuboid(-1.5F, -1.5F, -2.875F, 3.0F, 3.0F, 4.0F, new Dilation(0.0F))
-                        .uv(0, 0).cuboid(-2.0F, -2.5F, -4.125F, 4.0F, 5.0F, 10.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 19.5F, 0.125F));
-                ModelPartData head = body.addChild("head", ModelPartBuilder.create().uv(16, 15).cuboid(-1.5F, -1.5F, -4.0F, 3.0F, 3.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.5F, -4.125F));
-                ModelPartData top_fin = body.addChild("top_fin", ModelPartBuilder.create().uv(0, 14).cuboid(0.0F, -3.0F, -4.0F, 0.0F, 3.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.5F, -2.5F, 0.875F));
-                ModelPartData back_fin = body.addChild("back_fin", ModelPartBuilder.create().uv(0, 7).cuboid(0.0F, -3.0F, 0.0F, 0.0F, 7.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.5F, -0.5F, 5.875F));
+                ModelPartData body = modelPartData.addChild("body", ModelPartBuilder.create().uv(0, 0).cuboid(-2.5F, -2.5F, -4.25F, 5.0F, 5.0F, 10.0F, new Dilation(0.0F))
+                        .uv(11, 23).cuboid(-1.5F, -1.5F, -3.25F, 3.0F, 3.0F, 5.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 20.5F, -1.75F));
+                ModelPartData head = body.addChild("head", ModelPartBuilder.create().uv(24, 19).cuboid(-2.0F, -1.5F, -4.0F, 4.0F, 3.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.5F, -4.25F));
+                ModelPartData top_fin = body.addChild("top_fin", ModelPartBuilder.create().uv(0, 5).cuboid(0.0F, -2.0F, -5.0F, 0.0F, 2.0F, 10.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -2.5F, 0.75F));
+                ModelPartData back_fin = body.addChild("back_fin", ModelPartBuilder.create().uv(12, 15).cuboid(-2.0F, -2.0F, 0.0F, 4.0F, 0.0F, 8.0F, new Dilation(0.0F))
+                        .uv(12, 0).cuboid(-2.0F, 2.0F, 0.0F, 4.0F, 0.0F, 8.0F, new Dilation(0.0F))
+                        .uv(0, 13).cuboid(2.0F, -2.0F, 0.0F, 0.0F, 4.0F, 8.0F, new Dilation(0.0F))
+                        .uv(0, 9).cuboid(-2.0F, -2.0F, 0.0F, 0.0F, 4.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 5.75F));
 
-                return TexturedModelData.of(modelData, 32, 32);
+                return TexturedModelData.of(modelData, 64, 64);
         }
 
         @Override
@@ -45,8 +48,8 @@ public class SpiritedFishModel extends EntityModel<SpiritedFishEntity> {
 
         @Override
         public void setAngles(SpiritedFishEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-                backFin.yaw = -MathHelper.sin(-40 + animationProgress * 0.6f) * 0.35f;
+                backFin.yaw = -MathHelper.sin(-40 + animationProgress * 0.6f) * 0.1f;
                 head.yaw = -MathHelper.sin(animationProgress * 0.6f) * 0.15f;
-                body.pivotX = -MathHelper.sin(-40 + animationProgress * 0.6f) * 0.35f;
+                body.pivotX = -MathHelper.sin(animationProgress * 0.6f) * 0.35f;
         }
 }

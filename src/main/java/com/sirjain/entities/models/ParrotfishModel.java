@@ -42,7 +42,7 @@ public class ParrotfishModel extends EntityModel<ParrotfishEntity> {
         @Override
         public void setAngles(ParrotfishEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
                 tail.yaw = -MathHelper.sin(-40 + animationProgress * 0.6f) * 0.35f;
-                parrotfish.pivotX = -MathHelper.sin(-40 + animationProgress * 0.6f) * 0.35f;
+                parrotfish.pivotX = -MathHelper.sin(animationProgress * 0.6f) * 0.35f;
         }
 
         @Override
