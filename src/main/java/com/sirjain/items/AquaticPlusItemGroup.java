@@ -19,63 +19,63 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class AquaticPlusItemGroup {
-        public static ItemGroup AQUATICPLUS_ITEM_GROUP;
+	public static ItemGroup AQUATICPLUS_ITEM_GROUP;
 
-        public static void registerItemGroup() {
-                AQUATICPLUS_ITEM_GROUP = Registry.register(
-                        Registries.ITEM_GROUP,
-                        new Identifier(AquaticPlus.MOD_ID, "aquaticplus_item_group"),
+	public static void registerItemGroup() {
+		AQUATICPLUS_ITEM_GROUP = Registry.register(
+			Registries.ITEM_GROUP,
+			new Identifier(AquaticPlus.MOD_ID, "aquaticplus_item_group"),
 
-                        FabricItemGroup.builder()
-                                .displayName(Text.translatable("itemGroup.aquaticplus"))
-                                .icon(() -> new ItemStack(Items.BEDROCK)) // TODO: Change later
+			FabricItemGroup.builder()
+				.displayName(Text.translatable("itemGroup.aquaticplus"))
+				.icon(() -> new ItemStack(Items.BEDROCK)) // TODO: Change later
 
-                                .entries((displayContext, entries) -> {
-                                        entries.add(AquaticPlusItems.JOHNSON_SPAWN_EGG);
-                                        entries.add(AquaticPlusItems.MINDINATOR_SPAWN_EGG);
-                                        entries.add(AquaticPlusItems.SPIRITED_FISH_SPAWN_EGG);
-                                        entries.add(AquaticPlusItems.MAXILLA_MORTIS_SPAWN_EGG);
-                                        entries.add(AquaticPlusItems.PARROTFISH_SPAWN_EGG);
-                                        entries.add(AquaticPlusItems.KELP_EEL_SPAWN_EGG);
-                                        entries.add(AquaticPlusItems.SHADOW_SARDEL_SPAWN_EGG);
-                                        entries.add(AquaticPlusItems.BONEFISH_SPAWN_EGG);
-                                        entries.add(AquaticPlusItems.LONG_BONEFISH_SPAWN_EGG);
-                                        entries.add(AquaticPlusItems.OCULI_MAGNI_SPAWN_EGG);
+				.entries((displayContext, entries) -> {
+					entries.add(AquaticPlusItems.JOHNSON_SPAWN_EGG);
+					entries.add(AquaticPlusItems.MINDINATOR_SPAWN_EGG);
+					entries.add(AquaticPlusItems.SPIRITED_FISH_SPAWN_EGG);
+					entries.add(AquaticPlusItems.MAXILLA_MORTIS_SPAWN_EGG);
+					entries.add(AquaticPlusItems.PARROTFISH_SPAWN_EGG);
+					entries.add(AquaticPlusItems.KELP_EEL_SPAWN_EGG);
+					entries.add(AquaticPlusItems.SHADOW_SARDEL_SPAWN_EGG);
+					entries.add(AquaticPlusItems.BONEFISH_SPAWN_EGG);
+					entries.add(AquaticPlusItems.LONG_BONEFISH_SPAWN_EGG);
+					entries.add(AquaticPlusItems.OCULI_MAGNI_SPAWN_EGG);
 
-                                        entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
-                                        entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
-                                        entries.add(AquaticPlusItems.SHADOW_SARDEL_BUCKET);
+					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
+					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
+					entries.add(AquaticPlusItems.SHADOW_SARDEL_BUCKET);
 
-                                        entries.add(AquaticPlusItems.PARROTFISH);
-                                        entries.add(AquaticPlusItems.SHADOW_SARDEL);
-                                        entries.add(AquaticPlusItems.FROST_SHARDS);
+					entries.add(AquaticPlusItems.PARROTFISH);
+					entries.add(AquaticPlusItems.SHADOW_SARDEL);
+					entries.add(AquaticPlusItems.FROST_SHARDS);
 
-                                        entries.add(AquaticPlusItems.AQUATIC_STAR);
-                                        entries.add(AquaticPlusItems.NUMBING_AQUATIC_STAR);
-                                        entries.add(AquaticPlusItems.LAND_DROWNING_AQUATIC_STAR);
-                                        entries.add(AquaticPlusItems.FROSTED_BALL);
-                                        entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
-                                        entries.add(AquaticPlusItems.STONIFIER);
-                                        entries.add(AquaticPlusItems.DESTONIFIER);
-                                        entries.add(AquaticPlusItems.FROSTING_SPECTRE);
+					entries.add(AquaticPlusItems.AQUATIC_STAR);
+					entries.add(AquaticPlusItems.NUMBING_AQUATIC_STAR);
+					entries.add(AquaticPlusItems.LAND_DROWNING_AQUATIC_STAR);
+					entries.add(AquaticPlusItems.FROSTED_BALL);
+					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
+					entries.add(AquaticPlusItems.STONIFIER);
+					entries.add(AquaticPlusItems.DESTONIFIER);
+					entries.add(AquaticPlusItems.FROSTING_SPECTRE);
 
-                                        displayContext.lookup().getOptionalWrapper(RegistryKeys.POTION).ifPresent((wrapper) -> {
-                                                addPotions(entries, wrapper, Items.POTION);
-                                                addPotions(entries, wrapper, Items.SPLASH_POTION);
-                                                addPotions(entries, wrapper, Items.LINGERING_POTION);
-                                                addPotions(entries, wrapper, Items.TIPPED_ARROW);
-                                        });
-                                }).build()
-                );
-        }
+					displayContext.lookup().getOptionalWrapper(RegistryKeys.POTION).ifPresent((wrapper) -> {
+						addPotions(entries, wrapper, Items.POTION);
+						addPotions(entries, wrapper, Items.SPLASH_POTION);
+						addPotions(entries, wrapper, Items.LINGERING_POTION);
+						addPotions(entries, wrapper, Items.TIPPED_ARROW);
+					});
+				}).build()
+		);
+	}
 
-        private static void addPotions(ItemGroup.Entries entries, RegistryWrapper<Potion> registryWrapper, Item item) {
-                registryWrapper.streamEntries().filter((entry) -> !entry.matchesKey(Potions.EMPTY_KEY)).filter((entry) -> {
-                        for (Identifier id : AquaticPlusPotions.POTION_IDS) {
-                                if (entry.matchesId(id)) return true;
-                        }
+	private static void addPotions(ItemGroup.Entries entries, RegistryWrapper<Potion> registryWrapper, Item item) {
+		registryWrapper.streamEntries().filter((entry) -> !entry.matchesKey(Potions.EMPTY_KEY)).filter((entry) -> {
+			for (Identifier id : AquaticPlusPotions.POTION_IDS) {
+				if (entry.matchesId(id)) return true;
+			}
 
-                        return false;
-                }).map((entry) -> PotionUtil.setPotion(new ItemStack(item), entry.value())).forEach(entries::add);
-        }
+			return false;
+		}).map((entry) -> PotionUtil.setPotion(new ItemStack(item), entry.value())).forEach(entries::add);
+	}
 }

@@ -15,63 +15,63 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
 public class OculiMagniEntity extends NoBucketSchoolingFishEntity {
-        public static final TrackedData<Boolean> HAS_TELEPORTED_ATTACKER = DataTracker.registerData(OculiMagniEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	public static final TrackedData<Boolean> HAS_TELEPORTED_ATTACKER = DataTracker.registerData(OculiMagniEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
-        public OculiMagniEntity(EntityType<? extends NoBucketSchoolingFishEntity> entityType, World world) {
-                super(entityType, world);
-                
-                setTeleportationTracker(false);
-                this.experiencePoints = 40;
-        }
+	public OculiMagniEntity(EntityType<? extends NoBucketSchoolingFishEntity> entityType, World world) {
+		super(entityType, world);
 
-        @Override
-        protected void initGoals() {
-                super.initGoals();
-                this.goalSelector.add(4, new TeleportAttackerGoal(this, 8, 3, 8));
-        }
+		setTeleportationTracker(false);
+		this.experiencePoints = 40;
+	}
 
-        // TODO: Change to generic flop sound
-        @Override
-        protected SoundEvent getFlopSound() {
-                return SoundEvents.ENTITY_COD_FLOP;
-        }
+	@Override
+	protected void initGoals() {
+		super.initGoals();
+		this.goalSelector.add(4, new TeleportAttackerGoal(this, 8, 3, 8));
+	}
 
-        @Override
-        protected void initDataTracker() {
-                super.initDataTracker();
-                this.dataTracker.startTracking(HAS_TELEPORTED_ATTACKER, false);
-        }
+	// TODO: Change to generic flop sound
+	@Override
+	protected SoundEvent getFlopSound() {
+		return SoundEvents.ENTITY_COD_FLOP;
+	}
 
-        @Override
-        public void writeCustomDataToNbt(NbtCompound nbt) {
-                super.writeCustomDataToNbt(nbt);
-                nbt.putBoolean("has_teleported_attacker", this.dataTracker.get(HAS_TELEPORTED_ATTACKER));
-        }
+	@Override
+	protected void initDataTracker() {
+		super.initDataTracker();
+		this.dataTracker.startTracking(HAS_TELEPORTED_ATTACKER, false);
+	}
 
-        @Override
-        public void readCustomDataFromNbt(NbtCompound nbt) {
-                super.readCustomDataFromNbt(nbt);
-                this.dataTracker.set(HAS_TELEPORTED_ATTACKER, nbt.getBoolean("has_teleported_attacker"));
-        }
+	@Override
+	public void writeCustomDataToNbt(NbtCompound nbt) {
+		super.writeCustomDataToNbt(nbt);
+		nbt.putBoolean("has_teleported_attacker", this.dataTracker.get(HAS_TELEPORTED_ATTACKER));
+	}
 
-        @Override
-        public void tick() {
-                super.tick();
-                if (canResetTeleportationTracker()) setTeleportationTracker(false);
-        }
+	@Override
+	public void readCustomDataFromNbt(NbtCompound nbt) {
+		super.readCustomDataFromNbt(nbt);
+		this.dataTracker.set(HAS_TELEPORTED_ATTACKER, nbt.getBoolean("has_teleported_attacker"));
+	}
 
-        public boolean canResetTeleportationTracker() {
-                return this.age % 110 == 0 && this.dataTracker.get(HAS_TELEPORTED_ATTACKER);
-        }
+	@Override
+	public void tick() {
+		super.tick();
+		if (canResetTeleportationTracker()) setTeleportationTracker(false);
+	}
 
-        public void setTeleportationTracker(boolean value) {
-                this.dataTracker.set(HAS_TELEPORTED_ATTACKER, value);
-        }
+	public boolean canResetTeleportationTracker() {
+		return this.age % 110 == 0 && this.dataTracker.get(HAS_TELEPORTED_ATTACKER);
+	}
 
-        public static DefaultAttributeContainer.Builder createOculiMagniAttributes() {
-                return FishEntity
-                        .createFishAttributes()
-                        .add(EntityAttributes.GENERIC_MAX_HEALTH, 7)
-                        .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 2);
-        }
+	public void setTeleportationTracker(boolean value) {
+		this.dataTracker.set(HAS_TELEPORTED_ATTACKER, value);
+	}
+
+	public static DefaultAttributeContainer.Builder createOculiMagniAttributes() {
+		return FishEntity
+			.createFishAttributes()
+			.add(EntityAttributes.GENERIC_MAX_HEALTH, 7)
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 2);
+	}
 }
