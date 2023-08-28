@@ -24,45 +24,34 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 public class AquaticPlusItems {
+        public static Item STONIFIER;
+        public static Item DESTONIFIER;
+        public static Item AQUATIC_STAR;
+        public static Item NUMBING_AQUATIC_STAR;
+        public static Item LAND_DROWNING_AQUATIC_STAR;
+        public static Item FROSTED_BALL;
+        public static Item DEOXIDIZING_MATERIAL;
+        public static Item FROSTING_SPECTRE;
 
-        // Spawn Eggs
-        public static Item
-                JOHNSON_SPAWN_EGG,
-                MINDINATOR_SPAWN_EGG,
-                SPIRITED_FISH_SPAWN_EGG,
-                MAXILLA_MORTIS_SPAWN_EGG,
-                SHADOW_SARDEL_SPAWN_EGG,
-                KELP_EEL_SPAWN_EGG,
-                BONEFISH_SPAWN_EGG,
-                LONG_BONEFISH_SPAWN_EGG,
-                OCULI_MAGNI_SPAWN_EGG,
-                PARROTFISH_SPAWN_EGG;
+        public static Item FROST_SHARDS;
 
-        // Buckets
-        public static Item
-                SPIRITED_FISH_BUCKET,
-                PARROTFISH_BUCKET,
-                SHADOW_SARDEL_BUCKET;
+        public static Item PARROTFISH;
+        public static Item SHADOW_SARDEL;
 
-        // Food Items
-        public static Item
-                PARROTFISH,
-                SHADOW_SARDEL;
+        public static Item JOHNSON_SPAWN_EGG;
+        public static Item MINDINATOR_SPAWN_EGG;
+        public static Item SPIRITED_FISH_SPAWN_EGG;
+        public static Item MAXILLA_MORTIS_SPAWN_EGG;
+        public static Item PARROTFISH_SPAWN_EGG;
+        public static Item KELP_EEL_SPAWN_EGG;
+        public static Item SHADOW_SARDEL_SPAWN_EGG;
+        public static Item BONEFISH_SPAWN_EGG;
+        public static Item LONG_BONEFISH_SPAWN_EGG;
+        public static Item OCULI_MAGNI_SPAWN_EGG;
 
-        // Advanced
-        public static Item
-                STONIFIER,
-                DESTONIFIER,
-                AQUATIC_STAR,
-                NUMBING_AQUATIC_STAR,
-                LAND_DROWNING_AQUATIC_STAR,
-                FROSTED_BALL,
-                DEOXIDIZING_MATERIAL,
-                FROSTING_SPECTRE;
-
-        // Basic items
-        public static Item
-                FROST_SHARDS;
+        public static Item SPIRITED_FISH_BUCKET;
+        public static Item PARROTFISH_BUCKET;
+        public static Item SHADOW_SARDEL_BUCKET;
 
         public static void registerItems() {
                 registerSpawnEggs();
