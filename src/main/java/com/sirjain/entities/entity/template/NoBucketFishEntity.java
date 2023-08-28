@@ -11,22 +11,22 @@ import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
 public abstract class NoBucketFishEntity extends FishEntity {
-        public NoBucketFishEntity(EntityType<? extends FishEntity> entityType, World world) {
-                super(entityType, world);
-        }
+	public NoBucketFishEntity(EntityType<? extends FishEntity> entityType, World world) {
+		super(entityType, world);
+	}
 
-        @Override
-        protected SoundEvent getFlopSound() {
-                return SoundEvents.ENTITY_COD_FLOP;
-        }
+	@Override
+	protected SoundEvent getFlopSound() {
+		return SoundEvents.ENTITY_COD_FLOP;
+	}
 
-        @Override
-        public ItemStack getBucketItem() {
-                return ItemStack.EMPTY;
-        }
+	@Override
+	public ItemStack getBucketItem() {
+		return ItemStack.EMPTY;
+	}
 
-        @Override
-        protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-                return ActionResult.PASS;
-        }
+	@Override
+	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+		return ActionResult.PASS;
+	}
 }

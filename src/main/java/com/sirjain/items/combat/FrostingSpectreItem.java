@@ -21,46 +21,46 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class FrostingSpectreItem extends AbstractStaffItem {
-        public FrostingSpectreItem(Settings settings) {
-                super(settings, 2, 1.1f, AquaticPlusItems.FROSTED_BALL, 4);
-        }
+	public FrostingSpectreItem(Settings settings) {
+		super(settings, 2, 1.1f, AquaticPlusItems.FROSTED_BALL, 4);
+	}
 
-        @Override
-        public ThrownItemEntity getEntity(World world, LivingEntity user) {
-                return new FrostedSnowballProjectileEntity(world, user);
-        }
+	@Override
+	public ThrownItemEntity getEntity(World world, LivingEntity user) {
+		return new FrostedSnowballProjectileEntity(world, user);
+	}
 
-        @Override
-        public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-                ServerWorld world = (ServerWorld) target.getWorld();
+	@Override
+	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+		ServerWorld world = (ServerWorld) target.getWorld();
 
-                world.spawnParticles(
-                        ParticleTypes.CLOUD,
-                        target.getX(), target.getY(), target.getZ(),
-                        5, 0.5, 0.2, 0.5, 0.02
-                );
+		world.spawnParticles(
+			ParticleTypes.CLOUD,
+			target.getX(), target.getY(), target.getZ(),
+			5, 0.5, 0.2, 0.5, 0.02
+		);
 
-                sendInAir(2, target);
+		sendInAir(2, target);
 
-                if (attacker instanceof PlayerEntity player && !player.getAbilities().creativeMode) {
-                        Hand hand = player.getActiveHand();
-                        player.getStackInHand(hand).damage(1, player, (p) -> p.sendToolBreakStatus(hand));
-                }
+		if (attacker instanceof PlayerEntity player && !player.getAbilities().creativeMode) {
+			Hand hand = player.getActiveHand();
+			player.getStackInHand(hand).damage(1, player, (p) -> p.sendToolBreakStatus(hand));
+		}
 
-                return super.postHit(stack, target, attacker);
-        }
+		return super.postHit(stack, target, attacker);
+	}
 
-        public void sendInAir(double yVel, LivingEntity entity) {
-                yVel *= 1.0 - (entity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE) / 2);
-                if (yVel <= 0) return;
+	public void sendInAir(double yVel, LivingEntity entity) {
+		yVel *= 1.0 - (entity.getAttributeValue(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE) / 2);
+		if (yVel <= 0) return;
 
-                Vec3d prevVelocity = entity.getVelocity();
-                entity.setVelocity(prevVelocity.x, prevVelocity.y * yVel, prevVelocity.z);
-        }
+		Vec3d prevVelocity = entity.getVelocity();
+		entity.setVelocity(prevVelocity.x, prevVelocity.y * yVel, prevVelocity.z);
+	}
 
-        @Override
-        public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-                tooltip.add(Text.translatable("aquaticplus.frosting_spectre.tooltip").formatted(Formatting.BLUE));
-                super.appendTooltip(stack, world, tooltip, context);
-        }
+	@Override
+	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+		tooltip.add(Text.translatable("aquaticplus.frosting_spectre.tooltip").formatted(Formatting.BLUE));
+		super.appendTooltip(stack, world, tooltip, context);
+	}
 }

@@ -11,14 +11,14 @@ import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
 public class APEmissiveTextureFeature<T extends Entity, M extends EntityModel<T>> extends EyesFeatureRenderer<T, M> {
-        private final Identifier emissiveTexture;
+	private final Identifier emissiveTexture;
 
-        public APEmissiveTextureFeature(FeatureRendererContext<T, M> featureRendererContext, Identifier emissiveTexture) {
-                super(featureRendererContext);
-                this.emissiveTexture = emissiveTexture;
-        }
+	public APEmissiveTextureFeature(FeatureRendererContext<T, M> featureRendererContext, Identifier emissiveTexture) {
+		super(featureRendererContext);
+		this.emissiveTexture = emissiveTexture;
+	}
 
-        public RenderLayer getEyesTexture() {
-                return RenderLayer.getEyes(emissiveTexture);
-        }
+	public RenderLayer getEyesTexture() {
+		return RenderLayer.getEyes(emissiveTexture);
+	}
 }

@@ -17,52 +17,52 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class DeoxidizingMaterialItem extends Item {
-        public DeoxidizingMaterialItem(Settings settings) {
-                super(settings);
-        }
+	public DeoxidizingMaterialItem(Settings settings) {
+		super(settings);
+	}
 
-        @Override
-        public ActionResult useOnBlock(ItemUsageContext context) {
-                World world = context.getWorld();
-                BlockPos pos = context.getBlockPos();
-                PlayerEntity user = context.getPlayer();
+	@Override
+	public ActionResult useOnBlock(ItemUsageContext context) {
+		World world = context.getWorld();
+		BlockPos pos = context.getBlockPos();
+		PlayerEntity user = context.getPlayer();
 
-                if (isState(world, pos, Blocks.OXIDIZED_COPPER))
-                        world.setBlockState(pos, Blocks.WEATHERED_COPPER.getDefaultState());
-                else if (isState(world, pos, Blocks.WEATHERED_COPPER))
-                        world.setBlockState(pos, Blocks.EXPOSED_COPPER.getDefaultState());
-                else if (isState(world, pos, Blocks.EXPOSED_COPPER))
-                        world.setBlockState(pos, Blocks.COPPER_BLOCK.getDefaultState());
+		if (isState(world, pos, Blocks.OXIDIZED_COPPER))
+			world.setBlockState(pos, Blocks.WEATHERED_COPPER.getDefaultState());
+		else if (isState(world, pos, Blocks.WEATHERED_COPPER))
+			world.setBlockState(pos, Blocks.EXPOSED_COPPER.getDefaultState());
+		else if (isState(world, pos, Blocks.EXPOSED_COPPER))
+			world.setBlockState(pos, Blocks.COPPER_BLOCK.getDefaultState());
 
-                if (isState(world, pos, Blocks.OXIDIZED_CUT_COPPER))
-                        world.setBlockState(pos, Blocks.WEATHERED_CUT_COPPER.getDefaultState());
-                else if (isState(world, pos, Blocks.WEATHERED_CUT_COPPER))
-                        world.setBlockState(pos, Blocks.EXPOSED_CUT_COPPER.getDefaultState());
-                else if (isState(world, pos, Blocks.EXPOSED_CUT_COPPER))
-                        world.setBlockState(pos, Blocks.CUT_COPPER.getDefaultState());
+		if (isState(world, pos, Blocks.OXIDIZED_CUT_COPPER))
+			world.setBlockState(pos, Blocks.WEATHERED_CUT_COPPER.getDefaultState());
+		else if (isState(world, pos, Blocks.WEATHERED_CUT_COPPER))
+			world.setBlockState(pos, Blocks.EXPOSED_CUT_COPPER.getDefaultState());
+		else if (isState(world, pos, Blocks.EXPOSED_CUT_COPPER))
+			world.setBlockState(pos, Blocks.CUT_COPPER.getDefaultState());
 
-                if (isState(world, pos, Blocks.OXIDIZED_CUT_COPPER_SLAB))
-                        world.setBlockState(pos, Blocks.WEATHERED_CUT_COPPER_SLAB.getDefaultState());
-                else if (isState(world, pos, Blocks.WEATHERED_CUT_COPPER_SLAB))
-                        world.setBlockState(pos, Blocks.EXPOSED_CUT_COPPER_SLAB.getDefaultState());
-                else if (isState(world, pos, Blocks.EXPOSED_CUT_COPPER_SLAB))
-                        world.setBlockState(pos, Blocks.CUT_COPPER_SLAB.getDefaultState());
+		if (isState(world, pos, Blocks.OXIDIZED_CUT_COPPER_SLAB))
+			world.setBlockState(pos, Blocks.WEATHERED_CUT_COPPER_SLAB.getDefaultState());
+		else if (isState(world, pos, Blocks.WEATHERED_CUT_COPPER_SLAB))
+			world.setBlockState(pos, Blocks.EXPOSED_CUT_COPPER_SLAB.getDefaultState());
+		else if (isState(world, pos, Blocks.EXPOSED_CUT_COPPER_SLAB))
+			world.setBlockState(pos, Blocks.CUT_COPPER_SLAB.getDefaultState());
 
-                if (user != null && !user.getAbilities().creativeMode) {
-                        ItemStack stack = user.getStackInHand(user.getActiveHand());
-                        stack.decrement(1);
-                }
+		if (user != null && !user.getAbilities().creativeMode) {
+			ItemStack stack = user.getStackInHand(user.getActiveHand());
+			stack.decrement(1);
+		}
 
-                return super.useOnBlock(context);
-        }
+		return super.useOnBlock(context);
+	}
 
-        public boolean isState(World world, BlockPos pos, Block block) {
-                return world.getBlockState(pos) == block.getDefaultState();
-        }
+	public boolean isState(World world, BlockPos pos, Block block) {
+		return world.getBlockState(pos) == block.getDefaultState();
+	}
 
-        @Override
-        public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-                tooltip.add(Text.translatable("aquaticplus.deoxidizing_material.tooltip").formatted(Formatting.BLUE));
-                super.appendTooltip(stack, world, tooltip, context);
-        }
+	@Override
+	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+		tooltip.add(Text.translatable("aquaticplus.deoxidizing_material.tooltip").formatted(Formatting.BLUE));
+		super.appendTooltip(stack, world, tooltip, context);
+	}
 }

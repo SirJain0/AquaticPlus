@@ -28,92 +28,91 @@ import java.util.Arrays;
 import java.util.List;
 
 public class MaxillaMortisEntity extends NoBucketFishEntity {
-        public static final TrackedData<Boolean> HAS_ACTIVE_TARGET = DataTracker.registerData(MaxillaMortisEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	public static final TrackedData<Boolean> HAS_ACTIVE_TARGET = DataTracker.registerData(MaxillaMortisEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
-        public MaxillaMortisEntity(EntityType<? extends FishEntity> entityType, World world) {
-                super(entityType, world);
-                setTargetState(false);
-        }
+	public MaxillaMortisEntity(EntityType<? extends FishEntity> entityType, World world) {
+		super(entityType, world);
+		setTargetState(false);
+	}
 
-        @Override
-        protected void initGoals() {
-                this.goalSelector.add(1, new APSwimAroundGoal(this, 1, 1, 10, 3));
-                this.goalSelector.add(0, new AttackGoal(this));
-                this.goalSelector.add(0, new MoveIntoWaterGoal(this));
-                this.initTargetGoals();
-        }
+	@Override
+	protected void initGoals() {
+		this.goalSelector.add(1, new APSwimAroundGoal(this, 1, 1, 10, 3));
+		this.goalSelector.add(0, new AttackGoal(this));
+		this.goalSelector.add(0, new MoveIntoWaterGoal(this));
+		this.initTargetGoals();
+	}
 
-        protected void initTargetGoals() {
-                List<Class<? extends LivingEntity>> targets = Arrays.asList(
-                        SalmonEntity.class,
-                        CodEntity.class,
-                        TropicalFishEntity.class,
-                        SchoolingFishEntity.class
-                );
+	protected void initTargetGoals() {
+		List<Class<? extends LivingEntity>> targets = Arrays.asList(
+			SalmonEntity.class,
+			CodEntity.class,
+			TropicalFishEntity.class,
+			SchoolingFishEntity.class
+		);
 
-                for (Class<? extends LivingEntity> target : targets) {
-                        this.targetSelector.add(2, new ActiveTargetGoal<>(this, target, true));
-                }
+		for (Class<? extends LivingEntity> target : targets) {
+			this.targetSelector.add(2, new ActiveTargetGoal<>(this, target, true));
+		}
 
-                this.targetSelector.add(0, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
-                this.targetSelector.add(1, new RevengeGoal(this));
-        }
+		this.targetSelector.add(0, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
+		this.targetSelector.add(1, new RevengeGoal(this));
+	}
 
-        @Override
-        protected void initDataTracker() {
-                super.initDataTracker();
-                this.dataTracker.startTracking(HAS_ACTIVE_TARGET, false);
-        }
+	@Override
+	protected void initDataTracker() {
+		super.initDataTracker();
+		this.dataTracker.startTracking(HAS_ACTIVE_TARGET, false);
+	}
 
-        @Override
-        public void writeCustomDataToNbt(NbtCompound nbt) {
-                super.writeCustomDataToNbt(nbt);
-                nbt.putBoolean("has_active_target", this.dataTracker.get(HAS_ACTIVE_TARGET));
-        }
+	@Override
+	public void writeCustomDataToNbt(NbtCompound nbt) {
+		super.writeCustomDataToNbt(nbt);
+		nbt.putBoolean("has_active_target", this.dataTracker.get(HAS_ACTIVE_TARGET));
+	}
 
-        @Override
-        public void readCustomDataFromNbt(NbtCompound nbt) {
-                super.readCustomDataFromNbt(nbt);
-                setTargetState(nbt.getBoolean("has_active_target"));
-        }
+	@Override
+	public void readCustomDataFromNbt(NbtCompound nbt) {
+		super.readCustomDataFromNbt(nbt);
+		setTargetState(nbt.getBoolean("has_active_target"));
+	}
 
-        // TODO: Change to generic fish flop sound
-        @Override
-        protected SoundEvent getFlopSound() {
-                return SoundEvents.ENTITY_COD_FLOP;
-        }
+	// TODO: Change to generic fish flop sound
+	@Override
+	protected SoundEvent getFlopSound() {
+		return SoundEvents.ENTITY_COD_FLOP;
+	}
 
-        @Override
-        public boolean tryAttack(Entity entity) {
-                boolean canAttack = super.tryAttack(entity) && entity instanceof LivingEntity;
-                if (canAttack)
-                        ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 6 * 20, 0), this);
+	@Override
+	public boolean tryAttack(Entity entity) {
+		boolean canAttack = super.tryAttack(entity) && entity instanceof LivingEntity;
+		if (canAttack)
+			((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 6 * 20, 0), this);
 
-                return canAttack;
-        }
+		return canAttack;
+	}
 
-        @Override
-        public void setTarget(@Nullable LivingEntity target) {
-                super.setTarget(target);
-                if (this.getTarget() != null) setTargetState(true);
-                else setTargetState(false);
-        }
+	@Override
+	public void setTarget(@Nullable LivingEntity target) {
+		super.setTarget(target);
+                setTargetState(this.getTarget() != null);
+	}
 
-        @Override
-        protected boolean isDisallowedInPeaceful() {
-                return true;
-        }
+	@Override
+	protected boolean isDisallowedInPeaceful() {
+		return true;
+	}
 
-        public void setTargetState(boolean value) {
-                this.dataTracker.set(HAS_ACTIVE_TARGET, value);
-        }
+	public void setTargetState(boolean value) {
+		this.dataTracker.set(HAS_ACTIVE_TARGET, value);
+	}
 
-        public static DefaultAttributeContainer.Builder createMaxillaMortisAttributes() {
-                return FishEntity
-                        .createFishAttributes()
-                        .add(EntityAttributes.GENERIC_MAX_HEALTH, 36)
-                        .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4)
-                        .add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2)
-                        .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7);
-        }
+	public static DefaultAttributeContainer.Builder createMaxillaMortisAttributes() {
+		return FishEntity
+			.createFishAttributes()
+			.add(EntityAttributes.GENERIC_MAX_HEALTH, 36)
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4)
+			.add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2)
+			.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7);
+	}
 }

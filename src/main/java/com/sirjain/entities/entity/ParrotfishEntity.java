@@ -13,31 +13,31 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
 public class ParrotfishEntity extends SchoolingFishEntity {
-        public ParrotfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
-                super(entityType, world);
-        }
+	public ParrotfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
+		super(entityType, world);
+	}
 
-        @Override
-        protected void initGoals() {
-                super.initGoals();
-                this.goalSelector.add(1, new MoveToAndBreakBlockGoal(this, 1.3f, 10, 1));
-        }
+	@Override
+	protected void initGoals() {
+		super.initGoals();
+		this.goalSelector.add(1, new MoveToAndBreakBlockGoal(this, 1.3f, 10, 1));
+	}
 
-        public static DefaultAttributeContainer.Builder createParrotfishAttributes() {
-                return FishEntity
-                        .createFishAttributes()
-                        .add(EntityAttributes.GENERIC_MAX_HEALTH, 8)
-                        .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 3);
-        }
+	public static DefaultAttributeContainer.Builder createParrotfishAttributes() {
+		return FishEntity
+			.createFishAttributes()
+			.add(EntityAttributes.GENERIC_MAX_HEALTH, 8)
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 3);
+	}
 
-        // TODO: Replace with generic flop sound
-        @Override
-        protected SoundEvent getFlopSound() {
-                return SoundEvents.ENTITY_COD_FLOP;
-        }
+	// TODO: Replace with generic flop sound
+	@Override
+	protected SoundEvent getFlopSound() {
+		return SoundEvents.ENTITY_COD_FLOP;
+	}
 
-        @Override
-        public ItemStack getBucketItem() {
-                return AquaticPlusItems.PARROTFISH_SPAWN_EGG.getDefaultStack();
-        }
+	@Override
+	public ItemStack getBucketItem() {
+		return AquaticPlusItems.PARROTFISH_SPAWN_EGG.getDefaultStack();
+	}
 }
