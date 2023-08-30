@@ -1,5 +1,6 @@
-package com.sirjain.registries;
+package com.sirjain.entities;
 
+import com.sirjain.registries.AquaticPlusEntities;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.entity.EntityType;

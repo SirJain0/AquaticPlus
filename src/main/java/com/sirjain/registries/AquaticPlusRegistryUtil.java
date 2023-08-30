@@ -1,5 +1,6 @@
 package com.sirjain.registries;
 
+import com.sirjain.entities.AquaticPlusEntitySpawn;
 import com.sirjain.items.AquaticPlusFoodItems;
 import com.sirjain.items.AquaticPlusItemGroup;
 

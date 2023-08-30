@@ -3,7 +3,6 @@
 	"package": "com.sirjain.mixins",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"BrewingRecipeRegistryMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
