@@ -9,7 +9,7 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 
 public class ParrotfishRenderer extends MobEntityRenderer<ParrotfishEntity, ParrotfishModel> {
-	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entities/parrotfish/parrotfish.png");
+	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/parrotfish/parrotfish.png");
 
 	public ParrotfishRenderer(EntityRendererFactory.Context context) {
 		super(context, new ParrotfishModel(context.getPart(AquaticPlusEntities.PARROTFISH_LAYER)), 0.5f);

@@ -11,9 +11,9 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 public class SpiritedFishRenderer extends MobEntityRenderer<SpiritedFishEntity, SpiritedFishModel> {
-	public static final Identifier TEXTURE_FULL = new Identifier(AquaticPlus.MOD_ID, "textures/entities/spirited_fish/spirited_fish_full.png");
-	public static final Identifier TEXTURE_4 = new Identifier(AquaticPlus.MOD_ID, "textures/entities/spirited_fish/spirited_fish_4.png");
-	public static final Identifier TEXTURE_2 = new Identifier(AquaticPlus.MOD_ID, "textures/entities/spirited_fish/spirited_fish_2.png");
+	public static final Identifier TEXTURE_FULL = new Identifier(AquaticPlus.MOD_ID, "textures/entity/spirited_fish/spirited_fish_full.png");
+	public static final Identifier TEXTURE_4 = new Identifier(AquaticPlus.MOD_ID, "textures/entity/spirited_fish/spirited_fish_4.png");
+	public static final Identifier TEXTURE_2 = new Identifier(AquaticPlus.MOD_ID, "textures/entity/spirited_fish/spirited_fish_2.png");
 
 	public SpiritedFishRenderer(EntityRendererFactory.Context context) {
 		super(context, new SpiritedFishModel(context.getPart(AquaticPlusEntities.SPIRITED_FISH_LAYER)), 0.5f);
