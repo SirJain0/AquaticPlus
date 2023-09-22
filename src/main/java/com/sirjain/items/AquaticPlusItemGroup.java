@@ -48,12 +48,13 @@ public class AquaticPlusItemGroup {
 
 					entries.add(AquaticPlusItems.PARROTFISH);
 					entries.add(AquaticPlusItems.SHADOW_SARDEL);
-					entries.add(AquaticPlusItems.FROST_SHARDS);
 
 					entries.add(AquaticPlusItems.AQUATIC_STAR);
 					entries.add(AquaticPlusItems.NUMBING_AQUATIC_STAR);
 					entries.add(AquaticPlusItems.LAND_DROWNING_AQUATIC_STAR);
 					entries.add(AquaticPlusItems.FROSTED_BALL);
+					entries.add(AquaticPlusItems.FROST_SHARDS);
+					entries.add(AquaticPlusItems.STONE_ESSENCE);
 					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
 					entries.add(AquaticPlusItems.STONIFIER);
 					entries.add(AquaticPlusItems.DESTONIFIER);

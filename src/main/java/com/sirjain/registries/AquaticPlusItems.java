@@ -33,6 +33,7 @@ public class AquaticPlusItems {
 	public static Item FROSTING_SPECTRE;
 
 	public static Item FROST_SHARDS;
+	public static Item STONE_ESSENCE;
 
 	public static Item PARROTFISH;
 	public static Item SHADOW_SARDEL;
@@ -67,13 +68,14 @@ public class AquaticPlusItems {
 		AQUATIC_STAR = registerCustomItem("aquatic_star", new AquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
 		NUMBING_AQUATIC_STAR = registerCustomItem("numbing_aquatic_star", new NumbingAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
-		FROSTED_BALL = registerCustomItem("frosted_ball", new Item(new Item.Settings().maxCount(1).maxCount(16)));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
 	}
 
 	public static void registerBasicItems() {
+		FROSTED_BALL = registerCustomItem("frosted_ball", new Item(new Item.Settings().maxCount(1).maxCount(16)));
 		FROST_SHARDS = registerBasicItem("frost_shards", new Item.Settings());
+		STONE_ESSENCE = registerBasicItem("stone_essence", new Item.Settings());
 	}
 
 	public static void registerFoodItems() {
