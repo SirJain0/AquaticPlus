@@ -73,7 +73,7 @@ public class AquaticPlusItems {
 	}
 
 	public static void registerBasicItems() {
-		FROSTED_BALL = registerCustomItem("frosted_ball", new Item(new Item.Settings().maxCount(1).maxCount(16)));
+		FROSTED_BALL = registerBasicItem("frosted_ball", new Item.Settings().maxCount(1).maxCount(16));
 		FROST_SHARDS = registerBasicItem("frost_shards", new Item.Settings());
 		STONE_ESSENCE = registerBasicItem("stone_essence", new Item.Settings());
 	}
