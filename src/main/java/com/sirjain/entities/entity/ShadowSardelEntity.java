@@ -14,7 +14,6 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 public class ShadowSardelEntity extends SchoolingFishEntity {
-	// TODO: Don't use this system. Check death ticks
 	public boolean variantSpawned = false;
 
 	public ShadowSardelEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
