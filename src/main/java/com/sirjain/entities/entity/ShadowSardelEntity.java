@@ -27,7 +27,6 @@ public class ShadowSardelEntity extends SchoolingFishEntity {
 		this.goalSelector.add(0, new MoveIntoWaterGoal(this));
 	}
 
-	// TODO: make it only be false if name is Johnson or Mindinator
 	@Override
 	public boolean shouldRenderName() {
 		return false;
@@ -53,23 +52,23 @@ public class ShadowSardelEntity extends SchoolingFishEntity {
 
 			// Check: name is 'Johnson'
 			if (Text.literal("Johnson").equals(name) && !variantSpawned) {
-				handleVariant(AquaticPlusEntities.JOHNSON_ENTITY, false);
+				handleVariant(AquaticPlusEntities.JOHNSON_ENTITY);
 				variantSpawned = true;
 			}
 
 			// Check: name is 'Mindinator'
 			else if (Text.literal("Mindinator").equals(name) && !variantSpawned) {
-				handleVariant(AquaticPlusEntities.MINDINATOR_ENTITY, false);
+				handleVariant(AquaticPlusEntities.MINDINATOR_ENTITY);
 				variantSpawned = true;
 			}
 		}
 	}
 
-	public void handleVariant(EntityType<ShadowSardelEasterEggEntity> entityType, boolean variantSpawned) {
+	public void handleVariant(EntityType<ShadowSardelEasterEggEntity> entityType) {
 		ShadowSardelEasterEggEntity entity = entityType.create(this.getWorld());
 		if (entity == null) return;
 		entity.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), 0.0F);
-		if (!variantSpawned) this.getWorld().spawnEntity(entity);
+		this.getWorld().spawnEntity(entity);
 
 		this.discard();
 		this.kill(); // To make sure everything of it is removed.
