@@ -48,6 +48,7 @@ public class AquaticPlusItems {
 	public static Item BONEFISH_SPAWN_EGG;
 	public static Item LONG_BONEFISH_SPAWN_EGG;
 	public static Item OCULI_MAGNI_SPAWN_EGG;
+	public static Item VIPERFISH_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -94,6 +95,7 @@ public class AquaticPlusItems {
 		BONEFISH_SPAWN_EGG = registerSpawnEggItem("bonefish_spawn_egg", AquaticPlusEntities.BONEFISH_ENTITY, 0xd3d3d3, 0x989898);
 		LONG_BONEFISH_SPAWN_EGG = registerSpawnEggItem("long_bonefish_spawn_egg", AquaticPlusEntities.LONG_BONEFISH_ENTITY, 0xd3d3d3, 0x989898);
 		OCULI_MAGNI_SPAWN_EGG = registerSpawnEggItem("oculi_magni_spawn_egg", AquaticPlusEntities.OCULI_MAGNI_ENTITY, 0x2f2f2f, 0x3d5456);
+		VIPERFISH_SPAWN_EGG = registerSpawnEggItem("viperfish_spawn_egg", AquaticPlusEntities.VIPERFISH_ENTITY, 0x263641, 0xdfe18e);
 	}
 
 	public static void registerBucketItems() {
