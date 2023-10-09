@@ -18,6 +18,7 @@ public class APEmissiveTextureFeature<T extends Entity, M extends EntityModel<T>
 		this.emissiveTexture = emissiveTexture;
 	}
 
+	@Override
 	public RenderLayer getEyesTexture() {
 		return RenderLayer.getEyes(emissiveTexture);
 	}

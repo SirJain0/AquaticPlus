@@ -11,6 +11,8 @@
 	"item.aquaticplus.bonefish_spawn_egg": "Bonefish Spawn Egg",
 	"item.aquaticplus.long_bonefish_spawn_egg": "Long Bonefish Spawn Egg",
 	"item.aquaticplus.oculi_magni_spawn_egg": "Oculi Magni Spawn Egg",
+	"item.aquaticplus.viperfish_spawn_egg": "Viperfish Spawn Egg",
+
 	"item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 	"item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
 	"item.aquaticplus.shadow_sardel_bucket": "Shadow Sardel Bucket",
@@ -63,6 +65,7 @@
 	"entity.aquaticplus.bonefish": "Bonefish",
 	"entity.aquaticplus.long_bonefish": "Long Bonefish",
 	"entity.aquaticplus.oculi_magni": "Oculi Magni",
+	"entity.aquaticplus.viperfish": "Viperfish",
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
 	"entity.aquaticplus.numbing_aquatic_star": "Numbing Aquatic Star",

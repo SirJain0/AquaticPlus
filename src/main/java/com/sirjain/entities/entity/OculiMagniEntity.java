@@ -27,6 +27,7 @@ public class OculiMagniEntity extends NoBucketSchoolingFishEntity {
 	@Override
 	protected void initGoals() {
 		super.initGoals();
+		// TODO: Refactor this goal to use vanilla method
 		this.goalSelector.add(4, new TeleportAttackerGoal(this, 8, 3, 8));
 	}
 
