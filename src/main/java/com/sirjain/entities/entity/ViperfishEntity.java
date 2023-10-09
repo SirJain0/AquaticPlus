@@ -63,7 +63,9 @@ public class ViperfishEntity extends NoBucketFishEntity {
 	@Override
 	public void tick() {
 		super.tick();
-		this.setShouldIlluminate(this.getWorld().getBrightness(BlockPos.ofFloored(this.getPos())) <= 0.5);
+
+		if (this.getWorld().isClient)
+			this.setShouldIlluminate(this.getWorld().getBrightness(BlockPos.ofFloored(this.getPos())) <= 0.5);
 	}
 
 	// TODO: Change to generic sound flop
