@@ -14,6 +14,7 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
 public class ShadowSardelEntity extends SchoolingFishEntity {
+	// TODO: Don't use this system. Check death ticks
 	public boolean variantSpawned = false;
 
 	public ShadowSardelEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
@@ -26,6 +27,7 @@ public class ShadowSardelEntity extends SchoolingFishEntity {
 		this.goalSelector.add(0, new MoveIntoWaterGoal(this));
 	}
 
+	// TODO: make it only be false if name is Johnson or Mindinator
 	@Override
 	public boolean shouldRenderName() {
 		return false;
