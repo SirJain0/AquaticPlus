@@ -9,8 +9,11 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 
+import static com.sirjain.entities.entity.MaxillaMortisEntity.CAN_RECOLOR;
+
 public class MaxillaMortisRenderer extends MobEntityRenderer<MaxillaMortisEntity, MaxillaMortisModel> {
 	private static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/maxilla_mortis/maxilla_mortis.png");
+	private static final Identifier PURPLE_TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/maxilla_mortis/maxilla_mortis_purple.png");
 	private static final Identifier EMISSIVE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/maxilla_mortis/maxilla_mortis_e.png");
 
 	public MaxillaMortisRenderer(EntityRendererFactory.Context context) {
@@ -20,6 +23,6 @@ public class MaxillaMortisRenderer extends MobEntityRenderer<MaxillaMortisEntity
 
 	@Override
 	public Identifier getTexture(MaxillaMortisEntity entity) {
-		return TEXTURE;
+		return entity.getDataTracker().get(CAN_RECOLOR) ? PURPLE_TEXTURE : TEXTURE;
 	}
 }

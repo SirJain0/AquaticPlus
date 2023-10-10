@@ -21,6 +21,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -29,6 +30,7 @@ import java.util.List;
 
 public class MaxillaMortisEntity extends NoBucketFishEntity {
 	public static final TrackedData<Boolean> HAS_ACTIVE_TARGET = DataTracker.registerData(MaxillaMortisEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	public static final TrackedData<Boolean> CAN_RECOLOR = DataTracker.registerData(MaxillaMortisEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
 	public MaxillaMortisEntity(EntityType<? extends FishEntity> entityType, World world) {
 		super(entityType, world);
@@ -63,18 +65,29 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 	protected void initDataTracker() {
 		super.initDataTracker();
 		this.dataTracker.startTracking(HAS_ACTIVE_TARGET, false);
+		this.dataTracker.startTracking(CAN_RECOLOR, false);
 	}
 
 	@Override
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
 		nbt.putBoolean("has_active_target", this.dataTracker.get(HAS_ACTIVE_TARGET));
+		nbt.putBoolean("can_recolor", this.dataTracker.get(CAN_RECOLOR));
 	}
 
 	@Override
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
 		setTargetState(nbt.getBoolean("has_active_target"));
+		setTargetState(nbt.getBoolean("can_recolor"));
+	}
+
+	@Override
+	public void setCustomName(@Nullable Text name) {
+		super.setCustomName(name);
+
+		if (name != null && name.equals(Text.literal("Fibula")))
+			this.setCanBeRecolored(true);
 	}
 
 	// TODO: Change to generic fish flop sound
@@ -105,6 +118,15 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 
 	public void setTargetState(boolean value) {
 		this.dataTracker.set(HAS_ACTIVE_TARGET, value);
+	}
+
+	public void setCanBeRecolored(boolean value) {
+		this.dataTracker.set(CAN_RECOLOR, value);
+	}
+
+	@Override
+	public boolean shouldRenderName() {
+		return false;
 	}
 
 	public static DefaultAttributeContainer.Builder createMaxillaMortisAttributes() {
