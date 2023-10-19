@@ -26,6 +26,9 @@ import net.minecraft.util.Identifier;
 import java.util.Arrays;
 import java.util.List;
 
+// TODO: Check all hitboxes
+// TODO: Refactor system?
+
 public class AquaticPlusEntities {
 	public static final EntityModelLayer JOHNNSON_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "johnson"), "root");
 	public static final EntityType<ShadowSardelEasterEggEntity> JOHNSON_ENTITY = Registry.register(
@@ -126,6 +129,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer MANTA_RAY_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "manta_ray"), "root");
+	public static final EntityType<MantaRayEntity> MANTA_RAY_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "manta_ray"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, MantaRayEntity::new)
+			.dimensions(EntityDimensions.fixed(1.1f, 0.9f))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -177,6 +189,7 @@ public class AquaticPlusEntities {
 		BONEFISH_ENTITY,
 		LONG_BONEFISH_ENTITY,
 		OCULI_MAGNI_ENTITY,
+		MANTA_RAY_ENTITY,
 		VIPERFISH_ENTITY
 	);
 
@@ -192,6 +205,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(LONG_BONEFISH_ENTITY, LongBonefishEntity.createLongBonefishAttributes());
 		FabricDefaultAttributeRegistry.register(OCULI_MAGNI_ENTITY, OculiMagniEntity.createOculiMagniAttributes());
 		FabricDefaultAttributeRegistry.register(VIPERFISH_ENTITY, ViperfishEntity.createViperfishAttributes());
+		FabricDefaultAttributeRegistry.register(MANTA_RAY_ENTITY, MantaRayEntity.createMantaRayAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -208,6 +222,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(LONG_BONEFISH_ENTITY, LongBonefishRenderer::new);
 		EntityRendererRegistry.register(OCULI_MAGNI_ENTITY, OculiMagniRenderer::new);
 		EntityRendererRegistry.register(VIPERFISH_ENTITY, ViperfishRenderer::new);
+		EntityRendererRegistry.register(MANTA_RAY_ENTITY, MantaRayRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -220,6 +235,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(LONG_BONEFISH_LAYER, LongBonefishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(OCULI_MAGNI_LAYER, OculiMagniModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(VIPERFISH_LAYER, ViperfishModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(MANTA_RAY_LAYER, MantaRayModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {
