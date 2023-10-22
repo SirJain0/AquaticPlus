@@ -95,11 +95,11 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		this.dataTracker.set(MANTA_RAY_TYPE, mantaRayType.id);
 	}
 
-	// == SADDLE SHIT ==
 	public MantaRayEntity.MantaRayType getVariant() {
 		return MantaRayEntity.MantaRayType.byId(this.dataTracker.get(MANTA_RAY_TYPE));
 	}
 
+	// == SADDLE SHIT ==
 	@Override
 	public boolean canBeSaddled() {
 		return !this.isBaby() && this.isAlive();

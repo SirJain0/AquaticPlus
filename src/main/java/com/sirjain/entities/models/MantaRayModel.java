@@ -14,6 +14,7 @@ public class MantaRayModel extends EntityModel<MantaRayEntity> {
 	public ModelPart tail;
 	public ModelPart leftWing;
 	public ModelPart rightWing;
+	private final ModelPart saddle;
 
 	public MantaRayModel(ModelPart part) {
 		root = part;
@@ -23,6 +24,7 @@ public class MantaRayModel extends EntityModel<MantaRayEntity> {
 		tail = main.getChild("tail");
 		leftWing = main.getChild("left_wing");
 		rightWing = main.getChild("right_wing");
+		saddle = main.getChild("saddle");
 	}
 
 	public static TexturedModelData getTexturedModelData() {
@@ -42,7 +44,7 @@ public class MantaRayModel extends EntityModel<MantaRayEntity> {
 
 	@Override
 	public void setAngles(MantaRayEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-		// TODO: Animate
+		this.saddle.visible = entity.isSaddled();
 	}
 
 	@Override
