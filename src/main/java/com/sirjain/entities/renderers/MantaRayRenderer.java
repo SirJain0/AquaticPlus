@@ -5,10 +5,10 @@ import com.sirjain.entities.entity.MantaRayEntity;
 import com.sirjain.entities.models.MantaRayModel;
 import com.sirjain.registries.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.entity.LivingEntityRenderer;
+import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 
-public class MantaRayRenderer extends LivingEntityRenderer<MantaRayEntity, MantaRayModel> {
+public class MantaRayRenderer extends MobEntityRenderer<MantaRayEntity, MantaRayModel> {
 	private static final Identifier DARK_TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/manta_ray/manta_ray_dark.png");
 	private static final Identifier DARK_SPOTTED_TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/manta_ray/manta_ray_dark_spotted.png");
 	private static final Identifier BLUE_TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/manta_ray/manta_ray_blue.png");
