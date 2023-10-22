@@ -40,7 +40,7 @@ Todo list:
 - Render saddle on model
  */
 
-public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddleable, ItemSteerable {
+public class MantaRayEntity extends NoBucketSchoolingFishEntity {
 	private static final TrackedData<Integer> MANTA_RAY_TYPE = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.BOOLEAN);;
 	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -105,129 +105,6 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 
 	public MantaRayEntity.MantaRayType getVariant() {
 		return MantaRayEntity.MantaRayType.byId(this.dataTracker.get(MANTA_RAY_TYPE));
-	}
-
-	@Override
-	public ActionResult interactMob(PlayerEntity player, Hand hand) {
-		if (this.isSaddled() && !this.hasPassengers() && !player.shouldCancelInteraction()) {
-			if (!this.getWorld().isClient) {
-				player.startRiding(this);
-			}
-
-			return ActionResult.success(this.getWorld().isClient);
-		} else {
-			ActionResult actionResult = super.interactMob(player, hand);
-
-			if (!actionResult.isAccepted()) {
-				ItemStack itemStack = player.getStackInHand(hand);
-				return itemStack.isOf(Items.SADDLE) ? itemStack.useOnEntity(player, this, hand) : ActionResult.PASS;
-			} else {
-				return actionResult;
-			}
-		}
-	}
-
-	@Override
-	public boolean canBeSaddled() {
-		return this.isAlive() && !this.isBaby();
-	}
-
-	@Override
-	protected void dropInventory() {
-		super.dropInventory();
-
-		if (this.isSaddled())
-			this.dropItem(Items.SADDLE);
-	}
-
-	@Override
-	public void saddle(@Nullable SoundCategory sound) {
-		this.saddledComponent.setSaddled(true);
-		this.getWorld().playSoundFromEntity(null, this, SoundEvents.ENTITY_PIG_SADDLE, sound, 0.5F, 1.0F);
-	}
-
-	@Override
-	public boolean isSaddled() {
-		return this.saddledComponent.isSaddled();
-	}
-
-	@Override
-	public boolean consumeOnAStickItem() {
-		return this.saddledComponent.boost(this.getRandom());
-	}
-
-	@Override
-	public Vec3d updatePassengerForDismount(LivingEntity passenger) {
-		Direction direction = this.getMovementDirection();
-		if (direction.getAxis() == Direction.Axis.Y) {
-			return super.updatePassengerForDismount(passenger);
-		} else {
-			int[][] is = Dismounting.getDismountOffsets(direction);
-			BlockPos blockPos = this.getBlockPos();
-			BlockPos.Mutable mutable = new BlockPos.Mutable();
-
-			for (EntityPose entityPose : passenger.getPoses()) {
-				Box box = passenger.getBoundingBox(entityPose);
-
-				for (int[] js : is) {
-					mutable.set(blockPos.getX() + js[0], blockPos.getY(), blockPos.getZ() + js[1]);
-					double d = this.getWorld().getDismountHeight(mutable);
-					if (Dismounting.canDismountInBlock(d)) {
-						Vec3d vec3d = Vec3d.ofCenter(mutable, d);
-						if (Dismounting.canPlaceEntityAt(this.getWorld(), passenger, box.offset(vec3d))) {
-							passenger.setPose(entityPose);
-							return vec3d;
-						}
-					}
-				}
-			}
-
-			return super.updatePassengerForDismount(passenger);
-		}
-	}
-
-	@Override
-	protected void tickControlled(PlayerEntity controllingPlayer, Vec3d movementInput) {
-		super.tickControlled(controllingPlayer, movementInput);
-		this.setRotation(controllingPlayer.getYaw(), controllingPlayer.getPitch() * 0.5F);
-		this.prevYaw = this.bodyYaw = this.headYaw = this.getYaw();
-		this.saddledComponent.tickBoost();
-	}
-
-	@Override
-	protected Vec3d getControlledMovementInput(PlayerEntity controllingPlayer, Vec3d movementInput) {
-		return new Vec3d(0.0, 0.0, 1.0);
-	}
-
-	@Override
-	protected float getSaddledSpeed(PlayerEntity controllingPlayer) {
-		float speed = (float)(this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED) * 10 * (double)this.saddledComponent.getMovementSpeedMultiplier());
-		System.out.println(speed);
-		return speed;
-	}
-
-	@Nullable
-	@Override
-	public LivingEntity getControllingPassenger() {
-		if (this.isSaddled()) {
-			Entity passenger = this.getFirstPassenger();
-
-			if (passenger instanceof PlayerEntity playerEntity) {
-				if (playerEntity.getMainHandStack().isOf(Items.CARROT_ON_A_STICK) || playerEntity.getOffHandStack().isOf(Items.CARROT_ON_A_STICK)) {
-					return playerEntity;
-				}
-			}
-		}
-
-		return null;
-	}
-
-	public void onTrackedDataSet(TrackedData<?> data) {
-		if (BOOST_TIME.equals(data) && this.getWorld().isClient) {
-			this.saddledComponent.boost();
-		}
-
-		super.onTrackedDataSet(data);
 	}
 
 	public enum MantaRayType implements StringIdentifiable {
