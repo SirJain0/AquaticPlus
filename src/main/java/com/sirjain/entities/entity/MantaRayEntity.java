@@ -2,6 +2,7 @@ package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import com.sirjain.entities.goals.APSwimAroundGoal;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -10,12 +11,19 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.SchoolingFishEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.ServerAdvancementLoader;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.function.ValueLists;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -32,7 +40,7 @@ Todo list:
 - Render saddle on model
  */
 
-public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddleable {
+public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Integer> MANTA_RAY_TYPE = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -50,12 +58,126 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		this.goalSelector.add(1, new APSwimAroundGoal(this, 1, 1, 2, 10));
 	}
 
+//	@Override
+//	public void travel(Vec3d movementInput) {
+//		if (this.canMoveVoluntarily() && this.isTouchingWater()) {
+//			if (!this.isAlive()) return;
+//
+//			if (!this.hasPassengers()) {
+//				this.updateVelocity(this.getMovementSpeed(), movementInput);
+//				this.move(MovementType.SELF, this.getVelocity());
+//				this.setVelocity(this.getVelocity().multiply(0.9));
+//				return;
+//			}
+//
+//			LivingEntity passenger = (LivingEntity) this.getFirstPassenger();
+//			if (passenger == null) return;
+//
+//			this.setYaw(passenger.getYaw());
+//			this.prevYaw = this.getYaw();
+//			this.setPitch(passenger.getPitch() * 0.5f);
+//			this.setRotation(this.getYaw(), this.getPitch());
+//			this.headYaw = this.bodyYaw = this.getYaw();
+//
+//			float passengerSpeed = passenger.forwardSpeed;
+//			if (passengerSpeed <= 0) passengerSpeed *= 0.25f;
+//
+////			if (this.isLogicalSideForUpdatingMovement())
+////				this.move(MovementType.SELF, this.getRotationVector().multiply(passengerSpeed));
+////			else if (passenger instanceof PlayerEntity)
+////				this.setVelocity(Vec3d.ZERO);
+////
+////			this.updateLimbs(false);
+////			this.tryCheckBlockCollision();
+//
+//			if (this.isLogicalSideForUpdatingMovement()) {
+//				float newSpeed = (float)this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
+//
+//				if (MinecraftClient.getInstance().options.sprintKey.isPressed()) {
+//					newSpeed *= 1.5f;
+//				}
+//
+//				this.setMovementSpeed(newSpeed);
+//				super.travel(new Vec3d(passengerSpeed, movementInput.y, passenger.sidewaysSpeed));
+//			}
+//		} else {
+//			super.travel(movementInput);
+//		}
+//	}
+
+	@Override
+	public void travel(Vec3d movementInput) {
+		if(this.hasPassengers() && getControllingPassenger() instanceof PlayerEntity) {
+			LivingEntity livingentity = this.getControllingPassenger();
+			this.setYaw(livingentity.getYaw());
+			this.prevYaw = this.getYaw();
+			this.setPitch(livingentity.getPitch() * 0.5F);
+			this.setRotation(this.getYaw(), this.getPitch());
+			this.bodyYaw = this.getYaw();
+			this.headYaw = this.bodyYaw;
+			float f = livingentity.sidewaysSpeed * 0.5F;
+			float f1 = livingentity.forwardSpeed;
+			if (f1 <= 0.0F) {
+				f1 *= 0.25F;
+			}
+
+			if (this.isLogicalSideForUpdatingMovement()) {
+				float newSpeed = (float)this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
+
+				if (MinecraftClient.getInstance().options.sprintKey.isPressed()) {
+					newSpeed *= 1.5f; // Change this to ~1.5 or so
+				}
+
+				this.setMovementSpeed(newSpeed);
+				super.travel(new Vec3d(f, movementInput.y, f1));
+			}
+		} else {
+			super.travel(movementInput);
+		}
+	}
+
+	@Override
+	public Vec3d updatePassengerForDismount(LivingEntity passenger) {
+		Direction direction = this.getMovementDirection();
+
+		if (direction.getAxis() == Direction.Axis.Y) {
+			return super.updatePassengerForDismount(passenger);
+		}
+
+		int[][] is = Dismounting.getDismountOffsets(direction);
+		BlockPos blockPos = this.getBlockPos();
+		BlockPos.Mutable mutable = new BlockPos.Mutable();
+		for (EntityPose entityPose : passenger.getPoses()) {
+			Box box = passenger.getBoundingBox(entityPose);
+
+			for (int[] js : is) {
+				mutable.set(blockPos.getX() + js[0], blockPos.getY(), blockPos.getZ() + js[1]);
+				double d = this.getWorld().getDismountHeight(mutable);
+
+				if (!Dismounting.canDismountInBlock(d)) continue;
+				Vec3d vec3d = Vec3d.ofCenter(mutable, d);
+				if (!Dismounting.canPlaceEntityAt(this.getWorld(), passenger, box.offset(vec3d))) continue;
+				passenger.setPose(entityPose);
+
+				return vec3d;
+			}
+		}
+
+		return super.updatePassengerForDismount(passenger);
+	}
+
 	@Nullable
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
 		this.initVariant();
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
 	}
+
+//	@Override
+//	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+//		if (this.isSaddled()) player.startRiding(this);
+//		return ActionResult.SUCCESS;
+//	}
 
 	protected void initDataTracker() {
 		super.initDataTracker();
@@ -88,7 +210,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		return SchoolingFishEntity
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 22)
-			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 5f);
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 3f);
 	}
 
 	public void setVariant(MantaRayType mantaRayType) {
@@ -97,6 +219,29 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 
 	public MantaRayEntity.MantaRayType getVariant() {
 		return MantaRayEntity.MantaRayType.byId(this.dataTracker.get(MANTA_RAY_TYPE));
+	}
+
+	// == RIDABLE SHIT ==
+	@Nullable
+	@Override
+	public LivingEntity getControllingPassenger() {
+		return (LivingEntity) this.getFirstPassenger();
+	}
+
+	private void setRiding(PlayerEntity pPlayer) {
+		pPlayer.setYaw(this.getYaw());
+		pPlayer.setPitch(this.getPitch());
+		pPlayer.startRiding(this);
+	}
+
+	@Override
+	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+		if (hand == Hand.MAIN_HAND && this.isSaddled()) {
+			this.setRiding(player);
+			return ActionResult.SUCCESS;
+		}
+
+		return super.interactMob(player, hand);
 	}
 
 	// == SADDLE SHIT ==
