@@ -10,20 +10,12 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.SchoolingFishEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.ServerAdvancementLoader;
 import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.function.ValueLists;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -40,9 +32,9 @@ Todo list:
 - Render saddle on model
  */
 
-public class MantaRayEntity extends NoBucketSchoolingFishEntity {
+public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddleable {
 	private static final TrackedData<Integer> MANTA_RAY_TYPE = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
-	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.BOOLEAN);;
+	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
 	private final SaddledComponent saddledComponent;
@@ -72,14 +64,6 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity {
 		this.dataTracker.startTracking(BOOST_TIME, 0);
 	}
 
-	protected void initVariant() {
-		int textureID = this.random.nextInt(3);
-
-		if (textureID == 0) this.setVariant(MantaRayType.DARK);
-		else if (textureID == 1) this.setVariant(MantaRayType.DARK_SPOTTED);
-		else if (textureID == 2) this.setVariant(MantaRayType.BLUE);
-	}
-
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
 		nbt.putInt("MantaRayType", this.getVariant().id);
@@ -90,6 +74,14 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity {
 		super.readCustomDataFromNbt(nbt);
 		this.setVariant(MantaRayEntity.MantaRayType.byId(nbt.getInt("MantaRayType")));
 		this.saddledComponent.readNbt(nbt);
+	}
+
+	protected void initVariant() {
+		int textureID = this.random.nextInt(3);
+
+		if (textureID == 0) this.setVariant(MantaRayType.DARK);
+		else if (textureID == 1) this.setVariant(MantaRayType.DARK_SPOTTED);
+		else if (textureID == 2) this.setVariant(MantaRayType.BLUE);
 	}
 
 	public static DefaultAttributeContainer.Builder createMantaRayAttributes() {
@@ -103,8 +95,32 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity {
 		this.dataTracker.set(MANTA_RAY_TYPE, mantaRayType.id);
 	}
 
+	// == SADDLE SHIT ==
 	public MantaRayEntity.MantaRayType getVariant() {
 		return MantaRayEntity.MantaRayType.byId(this.dataTracker.get(MANTA_RAY_TYPE));
+	}
+
+	@Override
+	public boolean canBeSaddled() {
+		return !this.isBaby() && this.isAlive();
+	}
+
+	@Override
+	public void saddle(@Nullable SoundCategory sound) {
+		this.saddledComponent.setSaddled(true);
+	}
+
+	@Override
+	public boolean isSaddled() {
+		return this.saddledComponent.isSaddled();
+	}
+
+	@Override
+	protected void dropInventory() {
+		super.dropInventory();
+
+		if (this.isSaddled())
+			this.dropItem(Items.SADDLE);
 	}
 
 	public enum MantaRayType implements StringIdentifiable {

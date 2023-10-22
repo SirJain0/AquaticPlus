@@ -28,7 +28,6 @@ public class MantaRayModel extends EntityModel<MantaRayEntity> {
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
-
 		ModelPartData mantaray = modelPartData.addChild("mantaray", ModelPartBuilder.create().uv(0, 0).cuboid(-4.25F, -2.25F, -4.25F, 14.0F, 4.0F, 20.0F, new Dilation(0.0F))
 			.uv(0, 0).cuboid(-4.25F, -1.25F, -7.25F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F)), ModelTransform.pivot(-2.75F, 20.25F, -12.0F));
 		ModelPartData left_pincer = mantaray.addChild("left_pincer", ModelPartBuilder.create().uv(0, 0).cuboid(-1.5F, -1.5F, -3.0F, 3.0F, 3.0F, 3.0F, new Dilation(0.0F)), ModelTransform.pivot(8.25F, 0.25F, -4.25F));
@@ -36,6 +35,7 @@ public class MantaRayModel extends EntityModel<MantaRayEntity> {
 		ModelPartData tail = mantaray.addChild("tail", ModelPartBuilder.create().uv(0, 24).cuboid(-1.0F, 0.0F, 0.0F, 2.0F, 0.0F, 27.0F, new Dilation(0.0F)), ModelTransform.pivot(2.75F, -2.25F, 15.75F));
 		ModelPartData left_wing = mantaray.addChild("left_wing", ModelPartBuilder.create().uv(31, 24).cuboid(0.0F, -1.0F, -7.0F, 15.0F, 2.0F, 14.0F, new Dilation(0.0F)), ModelTransform.pivot(9.75F, -1.25F, 6.75F));
 		ModelPartData right_wing = mantaray.addChild("right_wing", ModelPartBuilder.create().uv(31, 24).mirrored().cuboid(-15.0F, -1.0F, -7.0F, 15.0F, 2.0F, 14.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.pivot(-4.25F, -1.25F, 6.75F));
+		ModelPartData saddle = mantaray.addChild("saddle", ModelPartBuilder.create().uv(0, 55).cuboid(-4.25F, -2.25F, -4.25F, 14.0F, 4.0F, 20.0F, new Dilation(0.2F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
 
 		return TexturedModelData.of(modelData, 128, 128);
 	}
