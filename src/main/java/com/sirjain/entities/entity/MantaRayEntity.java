@@ -1,6 +1,5 @@
 package com.sirjain.entities.entity;
 
-import com.google.common.collect.UnmodifiableIterator;
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import com.sirjain.entities.goals.APSwimAroundGoal;
 import net.minecraft.entity.*;
@@ -29,9 +28,17 @@ import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import org.spongepowered.asm.mixin.injection.Coerce;
 
 import java.util.function.IntFunction;
+
+/*
+Todo list:
+- Remove boosts
+- Add jumping
+- Add animations
+- Improve pathfinding AI
+- Render saddle on model
+ */
 
 public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddleable, ItemSteerable {
 	private static final TrackedData<Integer> MANTA_RAY_TYPE = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -194,7 +201,9 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 
 	@Override
 	protected float getSaddledSpeed(PlayerEntity controllingPlayer) {
-		return (float)(this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED) * 0.225 * (double)this.saddledComponent.getMovementSpeedMultiplier());
+		float speed = (float)(this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED) * 10 * (double)this.saddledComponent.getMovementSpeedMultiplier());
+		System.out.println(speed);
+		return speed;
 	}
 
 	@Nullable
