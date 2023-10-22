@@ -123,6 +123,14 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 			this.dropItem(Items.SADDLE);
 	}
 
+	@Override
+	public void tick() {
+		super.tick();
+
+		if (this.isSaddled()) System.out.println("Saddled!");
+		else System.out.println("Not Saddled!");
+	}
+
 	public enum MantaRayType implements StringIdentifiable {
 		DARK(0, "dark"),
 		DARK_SPOTTED(1, "dark_spotted"),
