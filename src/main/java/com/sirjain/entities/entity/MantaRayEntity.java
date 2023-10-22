@@ -1,18 +1,24 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
+import net.minecraft.client.MinecraftClient;
+import net.minecraft.entity.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.SchoolingFishEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.function.ValueLists;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -20,7 +26,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
 
-public class MantaRayEntity extends NoBucketSchoolingFishEntity {
+public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Mount {
 	private static final TrackedData<Integer> MANTA_RAY_TYPE = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
 	public MantaRayEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
@@ -70,6 +76,79 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity {
 
 	public MantaRayEntity.MantaRayType getVariant() {
 		return MantaRayEntity.MantaRayType.byId(this.dataTracker.get(MANTA_RAY_TYPE));
+	}
+
+	@Override
+	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+		this.setRiding(player);
+		return ActionResult.SUCCESS;
+	}
+
+	@Nullable
+	@Override
+	public LivingEntity getControllingPassenger() {
+		return (LivingEntity) this.getFirstPassenger();
+	}
+
+	private void setRiding(PlayerEntity pPlayer) {
+		pPlayer.setYaw(this.getYaw());
+		pPlayer.setPitch(this.getPitch());
+		pPlayer.startRiding(this);
+	}
+
+	@Override
+	public void travel(Vec3d movementInput) {
+		if (this.hasPassengers() && getControllingPassenger() instanceof PlayerEntity) {
+			LivingEntity livingentity = this.getControllingPassenger();
+			this.setYaw(livingentity.getYaw());
+			this.prevYaw = this.getYaw();
+			this.setPitch(livingentity.getPitch() * 0.5F);
+			this.setRotation(this.getYaw(), this.getPitch());
+			this.bodyYaw = this.getYaw();
+			this.headYaw = this.bodyYaw;
+			float f = livingentity.sidewaysSpeed * 0.5F;
+			float f1 = livingentity.forwardSpeed;
+			if (f1 <= 0.0F) {
+				f1 *= 0.25F;
+			}
+
+			if (this.isLogicalSideForUpdatingMovement()) {
+				float newSpeed = (float) this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
+
+				if (MinecraftClient.getInstance().options.sprintKey.isPressed()) {
+					newSpeed *= 1.4f; // Change this to ~1.5 or so
+				}
+
+				this.setMovementSpeed(newSpeed);
+				super.travel(new Vec3d(f, movementInput.y, f1));
+			}
+		} else {
+			super.travel(movementInput);
+		}
+	}
+
+	@Override
+	public Vec3d updatePassengerForDismount(LivingEntity passenger) {
+		Direction direction = this.getMovementDirection();
+		if (direction.getAxis() == Direction.Axis.Y) {
+			return super.updatePassengerForDismount(passenger);
+		}
+		int[][] is = Dismounting.getDismountOffsets(direction);
+		BlockPos blockPos = this.getBlockPos();
+		BlockPos.Mutable mutable = new BlockPos.Mutable();
+		for (EntityPose entityPose : passenger.getPoses()) {
+			Box box = passenger.getBoundingBox(entityPose);
+			for (int[] js : is) {
+				mutable.set(blockPos.getX() + js[0], blockPos.getY(), blockPos.getZ() + js[1]);
+				double d = this.getWorld().getDismountHeight(mutable);
+				if (!Dismounting.canDismountInBlock(d)) continue;
+				Vec3d vec3d = Vec3d.ofCenter(mutable, d);
+				if (!Dismounting.canPlaceEntityAt(this.getWorld(), passenger, box.offset(vec3d))) continue;
+				passenger.setPose(entityPose);
+				return vec3d;
+			}
+		}
+		return super.updatePassengerForDismount(passenger);
 	}
 
 	public enum MantaRayType implements StringIdentifiable {
