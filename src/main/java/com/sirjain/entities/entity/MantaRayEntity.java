@@ -108,28 +108,28 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 	@Override
 	public void travel(Vec3d movementInput) {
 		if (this.hasPassengers() && getControllingPassenger() instanceof PlayerEntity) {
-			LivingEntity livingentity = this.getControllingPassenger();
+			LivingEntity rider = this.getControllingPassenger();
 
-			this.setYaw(livingentity.getYaw());
+			this.setYaw(rider.getYaw());
 			this.prevYaw = this.getYaw();
-			this.setPitch(livingentity.getPitch() * 0.5F);
+			this.setPitch(rider.getPitch() * 0.5F);
 			this.setRotation(this.getYaw(), this.getPitch());
 			this.bodyYaw = this.getYaw();
 			this.headYaw = this.bodyYaw;
-			float sidewaysSpeed = livingentity.sidewaysSpeed * 0.5F;
-			float forwardSpeed = livingentity.forwardSpeed;
+			float sidewaysSpeed = rider.sidewaysSpeed * 0.5F;
+			float forwardSpeed = rider.forwardSpeed;
 
 			if (forwardSpeed <= 0.0F)
 				forwardSpeed *= 0.25F;
 
 			if (this.isLogicalSideForUpdatingMovement()) {
-				float newSpeed = (float)this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
+				this.setMovementSpeed((float) this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED));
+				this.move(MovementType.SELF, this.getRotationVector().multiply(
+					MinecraftClient.getInstance().options.sprintKey.isPressed()
+						? forwardSpeed / 1.5f
+						: forwardSpeed / 2.5f
+				));
 
-				if (MinecraftClient.getInstance().options.sprintKey.isPressed()) {
-					newSpeed *= 1.5f;
-				}
-
-				this.setMovementSpeed(newSpeed);
 				super.travel(new Vec3d(sidewaysSpeed, movementInput.y, forwardSpeed));
 			}
 		} else {
@@ -173,13 +173,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		this.initVariant();
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
 	}
-
-//	@Override
-//	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-//		if (this.isSaddled()) player.startRiding(this);
-//		return ActionResult.SUCCESS;
-//	}
-
+	
 	protected void initDataTracker() {
 		super.initDataTracker();
 		this.dataTracker.startTracking(MANTA_RAY_TYPE, MantaRayType.DARK.id);
@@ -211,7 +205,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		return SchoolingFishEntity
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 22)
-			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 3f);
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1);
 	}
 
 	public void setVariant(MantaRayType mantaRayType) {
