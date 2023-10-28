@@ -168,7 +168,6 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		return MantaRayEntity.MantaRayType.byId(this.dataTracker.get(MANTA_RAY_TYPE));
 	}
 
-	// == RIDABLE SHIT ==
 	@Nullable
 	@Override
 	public LivingEntity getControllingPassenger() {
@@ -191,7 +190,6 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		return super.interactMob(player, hand);
 	}
 
-	// == SADDLE SHIT ==
 	@Override
 	public boolean canBeSaddled() {
 		return !this.isBaby() && this.isAlive();
