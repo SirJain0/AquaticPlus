@@ -82,24 +82,24 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 //			float passengerSpeed = passenger.forwardSpeed;
 //			if (passengerSpeed <= 0) passengerSpeed *= 0.25f;
 //
-////			if (this.isLogicalSideForUpdatingMovement())
-////				this.move(MovementType.SELF, this.getRotationVector().multiply(passengerSpeed));
-////			else if (passenger instanceof PlayerEntity)
-////				this.setVelocity(Vec3d.ZERO);
+//			if (this.isLogicalSideForUpdatingMovement())
+//				this.move(MovementType.SELF, this.getRotationVector().multiply(passengerSpeed));
+//			else if (passenger instanceof PlayerEntity)
+//				this.setVelocity(new Vec3d(2, 2, 2));
+//
+//			this.updateLimbs(false);
+//			this.tryCheckBlockCollision();
+//
+////			if (this.isLogicalSideForUpdatingMovement()) {
+////				float newSpeed = (float)this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
 ////
-////			this.updateLimbs(false);
-////			this.tryCheckBlockCollision();
-//
-//			if (this.isLogicalSideForUpdatingMovement()) {
-//				float newSpeed = (float)this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
-//
-//				if (MinecraftClient.getInstance().options.sprintKey.isPressed()) {
-//					newSpeed *= 1.5f;
-//				}
-//
-//				this.setMovementSpeed(newSpeed);
-//				super.travel(new Vec3d(passengerSpeed, movementInput.y, passenger.sidewaysSpeed));
-//			}
+////				if (MinecraftClient.getInstance().options.sprintKey.isPressed()) {
+////					newSpeed *= 1.5f;
+////				}
+////
+////				this.setMovementSpeed(newSpeed);
+////				super.travel(new Vec3d(passengerSpeed, movementInput.y, passenger.sidewaysSpeed));
+////			}
 //		} else {
 //			super.travel(movementInput);
 //		}
@@ -107,29 +107,30 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 
 	@Override
 	public void travel(Vec3d movementInput) {
-		if(this.hasPassengers() && getControllingPassenger() instanceof PlayerEntity) {
+		if (this.hasPassengers() && getControllingPassenger() instanceof PlayerEntity) {
 			LivingEntity livingentity = this.getControllingPassenger();
+
 			this.setYaw(livingentity.getYaw());
 			this.prevYaw = this.getYaw();
 			this.setPitch(livingentity.getPitch() * 0.5F);
 			this.setRotation(this.getYaw(), this.getPitch());
 			this.bodyYaw = this.getYaw();
 			this.headYaw = this.bodyYaw;
-			float f = livingentity.sidewaysSpeed * 0.5F;
-			float f1 = livingentity.forwardSpeed;
-			if (f1 <= 0.0F) {
-				f1 *= 0.25F;
-			}
+			float sidewaysSpeed = livingentity.sidewaysSpeed * 0.5F;
+			float forwardSpeed = livingentity.forwardSpeed;
+
+			if (forwardSpeed <= 0.0F)
+				forwardSpeed *= 0.25F;
 
 			if (this.isLogicalSideForUpdatingMovement()) {
 				float newSpeed = (float)this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
 
 				if (MinecraftClient.getInstance().options.sprintKey.isPressed()) {
-					newSpeed *= 1.5f; // Change this to ~1.5 or so
+					newSpeed *= 1.5f;
 				}
 
 				this.setMovementSpeed(newSpeed);
-				super.travel(new Vec3d(f, movementInput.y, f1));
+				super.travel(new Vec3d(sidewaysSpeed, movementInput.y, forwardSpeed));
 			}
 		} else {
 			super.travel(movementInput);
