@@ -34,10 +34,9 @@ import java.util.function.IntFunction;
 /*
 Todo list:
 - Remove boosts
-- Add jumping
 - Add animations
 - Improve pathfinding AI
-- Render saddle on model
+- Improve saddle model
  */
 
 public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
@@ -55,55 +54,8 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 	@Override
 	protected void initGoals() {
 		this.goalSelector.add(0, new EscapeDangerGoal(this, 1.4f));
-		this.goalSelector.add(1, new APSwimAroundGoal(this, 1, 1, 2, 10));
+		this.goalSelector.add(1, new APSwimAroundGoal(this, 2, 1, 12, 2));
 	}
-
-//	@Override
-//	public void travel(Vec3d movementInput) {
-//		if (this.canMoveVoluntarily() && this.isTouchingWater()) {
-//			if (!this.isAlive()) return;
-//
-//			if (!this.hasPassengers()) {
-//				this.updateVelocity(this.getMovementSpeed(), movementInput);
-//				this.move(MovementType.SELF, this.getVelocity());
-//				this.setVelocity(this.getVelocity().multiply(0.9));
-//				return;
-//			}
-//
-//			LivingEntity passenger = (LivingEntity) this.getFirstPassenger();
-//			if (passenger == null) return;
-//
-//			this.setYaw(passenger.getYaw());
-//			this.prevYaw = this.getYaw();
-//			this.setPitch(passenger.getPitch() * 0.5f);
-//			this.setRotation(this.getYaw(), this.getPitch());
-//			this.headYaw = this.bodyYaw = this.getYaw();
-//
-//			float passengerSpeed = passenger.forwardSpeed;
-//			if (passengerSpeed <= 0) passengerSpeed *= 0.25f;
-//
-//			if (this.isLogicalSideForUpdatingMovement())
-//				this.move(MovementType.SELF, this.getRotationVector().multiply(passengerSpeed));
-//			else if (passenger instanceof PlayerEntity)
-//				this.setVelocity(new Vec3d(2, 2, 2));
-//
-//			this.updateLimbs(false);
-//			this.tryCheckBlockCollision();
-//
-////			if (this.isLogicalSideForUpdatingMovement()) {
-////				float newSpeed = (float)this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
-////
-////				if (MinecraftClient.getInstance().options.sprintKey.isPressed()) {
-////					newSpeed *= 1.5f;
-////				}
-////
-////				this.setMovementSpeed(newSpeed);
-////				super.travel(new Vec3d(passengerSpeed, movementInput.y, passenger.sidewaysSpeed));
-////			}
-//		} else {
-//			super.travel(movementInput);
-//		}
-//	}
 
 	@Override
 	public void travel(Vec3d movementInput) {
@@ -173,7 +125,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		this.initVariant();
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
 	}
-	
+
 	protected void initDataTracker() {
 		super.initDataTracker();
 		this.dataTracker.startTracking(MANTA_RAY_TYPE, MantaRayType.DARK.id);
