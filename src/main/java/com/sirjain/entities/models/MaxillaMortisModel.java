@@ -53,15 +53,13 @@ public class MaxillaMortisModel extends EntityModel<MaxillaMortisEntity> {
 
 	@Override
 	public void setAngles(MaxillaMortisEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-		final boolean hasTarget = entity.getDataTracker().get(HAS_ACTIVE_TARGET);
-
 		tailSeg1.yaw = MathHelper.cos(animationProgress * 0.2f) * 0.25f;
 		tailSeg2.yaw = MathHelper.cos(-20 + animationProgress * 0.2f) * 0.32f;
 		tailSeg3.yaw = MathHelper.cos(-40 + animationProgress * 0.2f) * 0.34f;
 		head.yaw = -(MathHelper.cos(animationProgress * 0.2f) * 0.12f);
 		main.pivotX = -(MathHelper.cos(animationProgress * 0.2f) * 1);
 
-		if (hasTarget) {
+		if (entity.hasActiveTarget()) {
 			upperJaw.pitch = -1;
 			lowerJaw.pitch = 1;
 		} else {

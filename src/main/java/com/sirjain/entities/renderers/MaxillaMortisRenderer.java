@@ -23,6 +23,6 @@ public class MaxillaMortisRenderer extends MobEntityRenderer<MaxillaMortisEntity
 
 	@Override
 	public Identifier getTexture(MaxillaMortisEntity entity) {
-		return entity.getDataTracker().get(CAN_RECOLOR) ? PURPLE_TEXTURE : TEXTURE;
+		return entity.canRecolor() ? PURPLE_TEXTURE : TEXTURE;
 	}
 }

@@ -6,6 +6,7 @@ import com.sirjain.registries.AquaticPlusStatusEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.MovementType;
 import net.minecraft.entity.ai.control.AquaticMoveControl;
 import net.minecraft.entity.ai.control.YawAdjustingLookControl;
 import net.minecraft.entity.ai.goal.*;
@@ -23,6 +24,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -73,6 +75,7 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
+
 		this.dataTracker.startTracking(HAS_ACTIVE_TARGET, false);
 		this.dataTracker.startTracking(CAN_RECOLOR, false);
 	}
@@ -80,15 +83,25 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 	@Override
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
-		nbt.putBoolean("has_active_target", this.dataTracker.get(HAS_ACTIVE_TARGET));
-		nbt.putBoolean("can_recolor", this.dataTracker.get(CAN_RECOLOR));
+
+		nbt.putBoolean("has_active_target", this.hasActiveTarget());
+		nbt.putBoolean("can_recolor", this.canRecolor());
 	}
 
 	@Override
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
+
 		setTargetState(nbt.getBoolean("has_active_target"));
 		setTargetState(nbt.getBoolean("can_recolor"));
+	}
+
+	@Override
+	public void travel(Vec3d movementInput) {
+		super.travel(movementInput);
+
+		if (this.hasActiveTarget() && this.isLogicalSideForUpdatingMovement())
+			this.move(MovementType.SELF, this.getRotationVector().multiply(0.16f));
 	}
 
 	@Override
@@ -117,7 +130,7 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 	@Override
 	public void setTarget(@Nullable LivingEntity target) {
 		super.setTarget(target);
-                setTargetState(this.getTarget() != null);
+                this.setTargetState(this.getTarget() != null);
 	}
 
 	@Override
@@ -129,8 +142,16 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 		this.dataTracker.set(HAS_ACTIVE_TARGET, value);
 	}
 
+	public boolean hasActiveTarget() {
+		return this.dataTracker.get(HAS_ACTIVE_TARGET);
+	}
+
 	public void setCanBeRecolored(boolean value) {
 		this.dataTracker.set(CAN_RECOLOR, value);
+	}
+
+	public boolean canRecolor() {
+		return this.dataTracker.get(CAN_RECOLOR);
 	}
 
 	@Override
