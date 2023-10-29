@@ -5,6 +5,7 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 
 public class MantaRayModel extends EntityModel<MantaRayEntity> {
 	public ModelPart root;
@@ -44,7 +45,11 @@ public class MantaRayModel extends EntityModel<MantaRayEntity> {
 
 	@Override
 	public void setAngles(MantaRayEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-		this.saddle.visible = entity.isSaddled();
+		saddle.visible = entity.isSaddled();
+
+		main.pivotY = MathHelper.sin(animationProgress * 0.15f);
+		leftWing.roll = MathHelper.sin(-40 + animationProgress * 0.15f) * 0.3f;
+		rightWing.roll = -MathHelper.sin(-40 + animationProgress * 0.15f) * 0.3f;
 	}
 
 	@Override
