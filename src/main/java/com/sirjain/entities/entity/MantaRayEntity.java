@@ -64,9 +64,38 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
 	}
 
+	@Nullable
+	@Override
+	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+		this.initVariant();
+		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+	}
+
 	@Override
 	protected EntityNavigation createNavigation(World world) {
 		return new SwimNavigation(this, world);
+	}
+
+	protected void initDataTracker() {
+		super.initDataTracker();
+
+		this.dataTracker.startTracking(MANTA_RAY_TYPE, MantaRayType.DARK.id);
+		this.dataTracker.startTracking(SADDLED, false);
+		this.dataTracker.startTracking(BOOST_TIME, 0);
+	}
+
+	public void writeCustomDataToNbt(NbtCompound nbt) {
+		super.writeCustomDataToNbt(nbt);
+
+		nbt.putInt("MantaRayType", this.getVariant().id);
+		this.saddledComponent.writeNbt(nbt);
+	}
+
+	public void readCustomDataFromNbt(NbtCompound nbt) {
+		super.readCustomDataFromNbt(nbt);
+
+		this.setVariant(MantaRayEntity.MantaRayType.byId(nbt.getInt("MantaRayType")));
+		this.saddledComponent.readNbt(nbt);
 	}
 
 	@Override
@@ -97,7 +126,6 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 				super.travel(new Vec3d(sidewaysSpeed, movementInput.y, forwardSpeed));
 			}
 		} else {
-//			this.move(MovementType.SELF, this.getRotationVector().multiply(0.2f));
 			super.travel(movementInput.multiply(3f));
 		}
 	}
@@ -132,48 +160,12 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		return super.updatePassengerForDismount(passenger);
 	}
 
-	@Nullable
-	@Override
-	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-		this.initVariant();
-		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
-	}
-
-	protected void initDataTracker() {
-		super.initDataTracker();
-
-		this.dataTracker.startTracking(MANTA_RAY_TYPE, MantaRayType.DARK.id);
-		this.dataTracker.startTracking(SADDLED, false);
-		this.dataTracker.startTracking(BOOST_TIME, 0);
-	}
-
-	public void writeCustomDataToNbt(NbtCompound nbt) {
-		super.writeCustomDataToNbt(nbt);
-
-		nbt.putInt("MantaRayType", this.getVariant().id);
-		this.saddledComponent.writeNbt(nbt);
-	}
-
-	public void readCustomDataFromNbt(NbtCompound nbt) {
-		super.readCustomDataFromNbt(nbt);
-
-		this.setVariant(MantaRayEntity.MantaRayType.byId(nbt.getInt("MantaRayType")));
-		this.saddledComponent.readNbt(nbt);
-	}
-
 	protected void initVariant() {
 		int textureID = this.random.nextInt(3);
 
 		if (textureID == 0) this.setVariant(MantaRayType.DARK);
 		else if (textureID == 1) this.setVariant(MantaRayType.DARK_SPOTTED);
 		else if (textureID == 2) this.setVariant(MantaRayType.BLUE);
-	}
-
-	public static DefaultAttributeContainer.Builder createMantaRayAttributes() {
-		return SchoolingFishEntity
-			.createFishAttributes()
-			.add(EntityAttributes.GENERIC_MAX_HEALTH, 22)
-			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 3);
 	}
 
 	public void setVariant(MantaRayType mantaRayType) {
@@ -225,6 +217,13 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 	protected void dropInventory() {
 		super.dropInventory();
 		if (this.isSaddled()) this.dropItem(Items.SADDLE);
+	}
+
+	public static DefaultAttributeContainer.Builder createMantaRayAttributes() {
+		return SchoolingFishEntity
+			.createFishAttributes()
+			.add(EntityAttributes.GENERIC_MAX_HEALTH, 22)
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 3);
 	}
 
 	public enum MantaRayType implements StringIdentifiable {
