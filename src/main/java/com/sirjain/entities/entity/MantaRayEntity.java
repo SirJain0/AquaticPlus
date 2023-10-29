@@ -126,6 +126,9 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 				super.travel(new Vec3d(sidewaysSpeed, movementInput.y, forwardSpeed));
 			}
 		} else {
+			if (this.isLogicalSideForUpdatingMovement())
+				this.move(MovementType.SELF, this.getRotationVector().multiply(0.28f));
+
 			super.travel(movementInput.multiply(3f));
 		}
 	}
