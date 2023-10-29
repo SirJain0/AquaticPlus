@@ -39,7 +39,6 @@ import java.util.function.IntFunction;
 /*
 Todo list:
 - Improve saddle model
-- Increase speed?
  */
 
 public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
