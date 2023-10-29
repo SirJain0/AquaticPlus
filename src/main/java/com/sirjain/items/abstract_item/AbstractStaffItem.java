@@ -25,10 +25,9 @@ public abstract class AbstractStaffItem extends Item {
 
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-		ItemStack stack = ammo.getDefaultStack();
+		ItemStack stack = ammo.getDefaultStack(); // TODO; Figure out why this crashes
 
-		if (world.isClient)
-			return TypedActionResult.pass(user.getStackInHand(hand));
+		if (world.isClient) return TypedActionResult.pass(user.getStackInHand(hand));
 
 		if (!user.getAbilities().creativeMode) {
 			int slotWithShockBolt = user.getInventory().getSlotWithStack(stack);

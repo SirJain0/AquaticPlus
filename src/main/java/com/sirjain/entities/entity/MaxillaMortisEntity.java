@@ -6,10 +6,11 @@ import com.sirjain.registries.AquaticPlusStatusEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.ai.goal.ActiveTargetGoal;
-import net.minecraft.entity.ai.goal.AttackGoal;
-import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
-import net.minecraft.entity.ai.goal.RevengeGoal;
+import net.minecraft.entity.ai.control.AquaticMoveControl;
+import net.minecraft.entity.ai.control.YawAdjustingLookControl;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.pathing.EntityNavigation;
+import net.minecraft.entity.ai.pathing.SwimNavigation;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -34,13 +35,16 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 
 	public MaxillaMortisEntity(EntityType<? extends FishEntity> entityType, World world) {
 		super(entityType, world);
-		setTargetState(false);
+		this.setTargetState(false);
+		this.moveControl = new AquaticMoveControl(this, 20, 10, 1, 0.04F, true);
+		this.lookControl = new YawAdjustingLookControl(this, 10);
 	}
 
 	@Override
 	protected void initGoals() {
-		this.goalSelector.add(1, new APSwimAroundGoal(this, 1, 1, 10, 3));
-		this.goalSelector.add(0, new AttackGoal(this));
+		this.goalSelector.add(1, new SwimAroundGoal(this, 1.0, 10));
+		this.goalSelector.add(2, new LookAroundGoal(this));
+		this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));		this.goalSelector.add(0, new AttackGoal(this));
 		this.goalSelector.add(0, new MoveIntoWaterGoal(this));
 		this.initTargetGoals();
 	}
@@ -59,6 +63,11 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 
 		this.targetSelector.add(0, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
 		this.targetSelector.add(1, new RevengeGoal(this));
+	}
+
+	@Override
+	protected EntityNavigation createNavigation(World world) {
+		return new SwimNavigation(this, world);
 	}
 
 	@Override
