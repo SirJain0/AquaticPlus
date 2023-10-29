@@ -10,27 +10,16 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public abstract class AbstractStaffItem extends Item {
-	private final int numProjectiles;
-	private final float projectileVelocity;
-	private final Item ammo;
-	private final int divergence;
-
-	public AbstractStaffItem(Settings settings, int numProjectiles, float projectileVelocity, Item ammo, int divergence) {
+	public AbstractStaffItem(Settings settings) {
 		super(settings);
-		this.numProjectiles = numProjectiles;
-		this.projectileVelocity = projectileVelocity;
-		this.ammo = ammo;
-		this.divergence = divergence;
 	}
 
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-		ItemStack stack = ammo.getDefaultStack(); // TODO; Figure out why this crashes
-
 		if (world.isClient) return TypedActionResult.pass(user.getStackInHand(hand));
 
 		if (!user.getAbilities().creativeMode) {
-			int slotWithShockBolt = user.getInventory().getSlotWithStack(stack);
+			int slotWithShockBolt = user.getInventory().getSlotWithStack(getAmmoItem());
 			if (slotWithShockBolt < 0) return TypedActionResult.pass(user.getStackInHand(hand));
 
 			user.getInventory().getStack(slotWithShockBolt).decrement(1);
@@ -38,10 +27,10 @@ public abstract class AbstractStaffItem extends Item {
 			user.getItemCooldownManager().set(this, 10);
 		}
 
-		for (int i = 0; i < numProjectiles; i++) {
+		for (int i = 0; i < getNumProjectiles(); i++) {
 			ThrownItemEntity projectile = getEntity(world, user);
-			projectile.setItem(stack);
-			projectile.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, projectileVelocity, world.random.nextInt(divergence));
+			projectile.setItem(getAmmoItem());
+			projectile.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, getProjectileVelocity(), world.random.nextInt(getDivergence()));
 
 			world.spawnEntity(projectile);
 		}
@@ -52,7 +41,13 @@ public abstract class AbstractStaffItem extends Item {
 		return super.use(world, user, hand);
 	}
 
-	public ThrownItemEntity getEntity(World world, LivingEntity user) {
-		return null;
-	}
+	abstract public ThrownItemEntity getEntity(World world, LivingEntity user);
+
+	abstract public ItemStack getAmmoItem();
+
+	abstract public float getProjectileVelocity();
+
+	abstract public int getNumProjectiles();
+
+	abstract public int getDivergence();
 }

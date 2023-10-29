@@ -22,12 +22,32 @@ import java.util.List;
 
 public class FrostingSpectreItem extends AbstractStaffItem {
 	public FrostingSpectreItem(Settings settings) {
-		super(settings, 2, 1.1f, AquaticPlusItems.FROSTED_BALL, 4);
+		super(settings);
 	}
 
 	@Override
 	public ThrownItemEntity getEntity(World world, LivingEntity user) {
 		return new FrostedSnowballProjectileEntity(world, user);
+	}
+
+	@Override
+	public ItemStack getAmmoItem() {
+		return new ItemStack(AquaticPlusItems.FROSTED_BALL);
+	}
+
+	@Override
+	public float getProjectileVelocity() {
+		return 1.1f;
+	}
+
+	@Override
+	public int getNumProjectiles() {
+		return 2;
+	}
+
+	@Override
+	public int getDivergence() {
+		return 4;
 	}
 
 	@Override
