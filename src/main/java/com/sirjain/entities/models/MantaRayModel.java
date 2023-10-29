@@ -50,6 +50,7 @@ public class MantaRayModel extends EntityModel<MantaRayEntity> {
 		main.pivotY = MathHelper.sin(animationProgress * 0.15f);
 		leftWing.roll = MathHelper.sin(-40 + animationProgress * 0.15f) * 0.3f;
 		rightWing.roll = -MathHelper.sin(-40 + animationProgress * 0.15f) * 0.3f;
+		tail.pitch = -MathHelper.sin(-40 + animationProgress * 0.15f) * 0.1f;
 	}
 
 	@Override
