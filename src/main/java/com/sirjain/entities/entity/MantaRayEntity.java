@@ -36,11 +36,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
 
-/*
-Todo list:
-- Improve saddle model
- */
-
 public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Integer> MANTA_RAY_TYPE = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
