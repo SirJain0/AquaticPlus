@@ -23,6 +23,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 public class AquaticPlusItems {
+	// TODO: Go through these variables and make them in order of the registries.
 	public static Item STONIFIER;
 	public static Item DESTONIFIER;
 	public static Item AQUATIC_STAR;
@@ -49,6 +50,7 @@ public class AquaticPlusItems {
 	public static Item LONG_BONEFISH_SPAWN_EGG;
 	public static Item OCULI_MAGNI_SPAWN_EGG;
 	public static Item VIPERFISH_SPAWN_EGG;
+	public static Item MANTA_RAY_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -96,6 +98,7 @@ public class AquaticPlusItems {
 		LONG_BONEFISH_SPAWN_EGG = registerSpawnEggItem("long_bonefish_spawn_egg", AquaticPlusEntities.LONG_BONEFISH_ENTITY, 0xd3d3d3, 0x989898);
 		OCULI_MAGNI_SPAWN_EGG = registerSpawnEggItem("oculi_magni_spawn_egg", AquaticPlusEntities.OCULI_MAGNI_ENTITY, 0x2f2f2f, 0x3d5456);
 		VIPERFISH_SPAWN_EGG = registerSpawnEggItem("viperfish_spawn_egg", AquaticPlusEntities.VIPERFISH_ENTITY, 0x263641, 0xdfe18e);
+		MANTA_RAY_SPAWN_EGG = registerSpawnEggItem("manta_ray_spawn_egg", AquaticPlusEntities.MANTA_RAY_ENTITY, 0x282a34, 0x999daa);
 	}
 
 	public static void registerBucketItems() {
