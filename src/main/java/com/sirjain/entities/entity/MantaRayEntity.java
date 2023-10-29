@@ -126,7 +126,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 			}
 		} else {
 			if (this.isLogicalSideForUpdatingMovement())
-				this.move(MovementType.SELF, this.getRotationVector().multiply(0.28f));
+				this.move(MovementType.SELF, this.getRotationVector().multiply(0.26f));
 
 			super.travel(movementInput.multiply(3f));
 		}
@@ -160,6 +160,11 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		}
 
 		return super.updatePassengerForDismount(passenger);
+	}
+
+	@Override
+	public double getMountedHeightOffset() {
+		return 1.45;
 	}
 
 	protected void initVariant() {
