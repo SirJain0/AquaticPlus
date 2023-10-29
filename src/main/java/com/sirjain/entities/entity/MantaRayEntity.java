@@ -130,6 +130,9 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 
 			super.travel(movementInput.multiply(3f));
 		}
+
+		if (!this.isSubmergedInWater() && this.isLogicalSideForUpdatingMovement())
+			this.setVelocity(this.getVelocity().x, -0.7f, this.getVelocity().x);
 	}
 
 	@Override
