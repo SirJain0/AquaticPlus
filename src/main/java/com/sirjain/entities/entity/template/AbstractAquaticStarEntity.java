@@ -65,7 +65,5 @@ public abstract class AbstractAquaticStarEntity extends SelfKillingProjectileEnt
 		this.kill();
 	}
 
-	public StatusEffect getConditionalEffect() {
-		return null;
-	}
+	abstract public StatusEffect getConditionalEffect();
 }

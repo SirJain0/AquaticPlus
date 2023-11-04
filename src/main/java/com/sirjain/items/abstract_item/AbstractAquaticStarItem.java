@@ -20,8 +20,7 @@ public abstract class AbstractAquaticStarItem extends Item {
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 		final ItemStack stackInHand = user.getStackInHand(hand);
 
-		if (world.isClient)
-			return TypedActionResult.pass(stackInHand);
+		if (world.isClient) return TypedActionResult.pass(stackInHand);
 
 		AbstractAquaticStarEntity star = getEntity(world, user);
 		star.setItem(stackInHand);
@@ -40,7 +39,5 @@ public abstract class AbstractAquaticStarItem extends Item {
 		return TypedActionResult.success(stackInHand);
 	}
 
-	public AbstractAquaticStarEntity getEntity(World world, PlayerEntity user) {
-		return null;
-	}
+	abstract public AbstractAquaticStarEntity getEntity(World world, PlayerEntity user);
 }
