@@ -35,6 +35,7 @@ public class AquaticPlusItems {
 
 	public static Item FROST_SHARDS;
 	public static Item STONE_ESSENCE;
+	public static Item MAXILLA_MORTIS_TOOTH;
 
 	public static Item PARROTFISH;
 	public static Item SHADOW_SARDEL;
@@ -79,6 +80,7 @@ public class AquaticPlusItems {
 		FROSTED_BALL = registerBasicItem("frosted_ball", new Item.Settings().maxCount(1).maxCount(16));
 		FROST_SHARDS = registerBasicItem("frost_shards", new Item.Settings());
 		STONE_ESSENCE = registerBasicItem("stone_essence", new Item.Settings());
+		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth", new Item.Settings());
 	}
 
 	public static void registerFoodItems() {

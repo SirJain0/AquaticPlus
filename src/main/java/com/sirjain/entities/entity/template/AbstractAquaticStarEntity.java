@@ -50,7 +50,13 @@ public abstract class AbstractAquaticStarEntity extends SelfKillingProjectileEnt
 
 		if (this.isSubmergedInWater()) {
 			Vec3d prevVelocity = this.getVelocity();
-			this.setVelocity(prevVelocity.x * (1 / 0.8), prevVelocity.y * (1 / 0.8), prevVelocity.z * (1 / 0.8));
+			double multiplier = 1 / 0.8;
+
+			this.setVelocity(
+				prevVelocity.x * multiplier,
+				prevVelocity.y * multiplier,
+				prevVelocity.z * multiplier
+			);
 		}
 	}
 

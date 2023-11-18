@@ -57,6 +57,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.FROSTED_BALL);
 					entries.add(AquaticPlusItems.FROST_SHARDS);
 					entries.add(AquaticPlusItems.STONE_ESSENCE);
+					entries.add(AquaticPlusItems.MAXILLA_MORTIS_TOOTH);
 					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
 					entries.add(AquaticPlusItems.STONIFIER);
 					entries.add(AquaticPlusItems.DESTONIFIER);
@@ -74,9 +75,8 @@ public class AquaticPlusItemGroup {
 
 	private static void addPotions(ItemGroup.Entries entries, RegistryWrapper<Potion> registryWrapper, Item item) {
 		registryWrapper.streamEntries().filter((entry) -> !entry.matchesKey(Potions.EMPTY_KEY)).filter((entry) -> {
-			for (Identifier id : AquaticPlusPotions.POTION_IDS) {
+			for (Identifier id : AquaticPlusPotions.POTION_IDS)
 				if (entry.matchesId(id)) return true;
-			}
 
 			return false;
 		}).map((entry) -> PotionUtil.setPotion(new ItemStack(item), entry.value())).forEach(entries::add);
