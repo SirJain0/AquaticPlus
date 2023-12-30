@@ -29,10 +29,10 @@ public class AquaticPlusItems {
 	public static Item AQUATIC_STAR;
 	public static Item NUMBING_AQUATIC_STAR;
 	public static Item LAND_DROWNING_AQUATIC_STAR;
-	public static Item FROSTED_BALL;
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
 
+	public static Item FROSTED_BALL;
 	public static Item FROST_SHARDS;
 	public static Item STONE_ESSENCE;
 	public static Item MAXILLA_MORTIS_TOOTH;
