@@ -23,7 +23,6 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 
 public class AquaticPlusItems {
-	// TODO: Go through these variables and make them in order of the registries.
 	public static Item STONIFIER;
 	public static Item DESTONIFIER;
 	public static Item AQUATIC_STAR;
