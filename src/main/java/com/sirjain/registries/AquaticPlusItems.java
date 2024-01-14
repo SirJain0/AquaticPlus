@@ -52,6 +52,7 @@ public class AquaticPlusItems {
 	public static Item OCULI_MAGNI_SPAWN_EGG;
 	public static Item VIPERFISH_SPAWN_EGG;
 	public static Item MANTA_RAY_SPAWN_EGG;
+	public static Item DUMBO_BLOB_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -102,6 +103,7 @@ public class AquaticPlusItems {
 		OCULI_MAGNI_SPAWN_EGG = registerSpawnEggItem("oculi_magni_spawn_egg", AquaticPlusEntities.OCULI_MAGNI_ENTITY, 0x2f2f2f, 0x3d5456);
 		VIPERFISH_SPAWN_EGG = registerSpawnEggItem("viperfish_spawn_egg", AquaticPlusEntities.VIPERFISH_ENTITY, 0x263641, 0xdfe18e);
 		MANTA_RAY_SPAWN_EGG = registerSpawnEggItem("manta_ray_spawn_egg", AquaticPlusEntities.MANTA_RAY_ENTITY, 0x282a34, 0x999daa);
+		DUMBO_BLOB_SPAWN_EGG = registerSpawnEggItem("dumbo_blob_spawn_egg", AquaticPlusEntities.DUMBO_BLOB_ENTITY, 0x3981d2, 0xc36afa);
 	}
 
 	public static void registerBucketItems() {

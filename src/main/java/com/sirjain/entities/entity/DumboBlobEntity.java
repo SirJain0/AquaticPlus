@@ -37,15 +37,14 @@ public class DumboBlobEntity extends FishEntity {
 
 	public DumboBlobEntity(EntityType<? extends FishEntity> entityType, World world) {
 		super(entityType, world);
-		this.moveControl = new AquaticMoveControl(this, 10, 90, 1, 0.04F, true);
+		this.moveControl = new AquaticMoveControl(this, 10, 30, 1, 0.04F, true);
 		this.lookControl = new YawAdjustingLookControl(this, 80);
 	}
 
 	@Override
 	protected void initGoals() {
-		this.goalSelector.add(1, new SwimAroundGoal(this, 1.0, 10));
+		this.goalSelector.add(1, new SwimAroundGoal(this, 0.8f, 1));
 		this.goalSelector.add(2, new LookAroundGoal(this));
-		this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
 	}
 
 	@Override
@@ -84,6 +83,21 @@ public class DumboBlobEntity extends FishEntity {
 		else if (textureID == 3) this.setVariant(DumboBlobType.ORANGE_YELLOW);
 	}
 
+	protected void initDataTracker() {
+		super.initDataTracker();
+		this.dataTracker.startTracking(DUMBO_BLOB_TYPE, DumboBlobType.BLUE_PURPLE.id);
+	}
+
+	public void writeCustomDataToNbt(NbtCompound nbt) {
+		super.writeCustomDataToNbt(nbt);
+		nbt.putInt("DumboBlobType", this.getVariant().id);
+	}
+
+	public void readCustomDataFromNbt(NbtCompound nbt) {
+		super.readCustomDataFromNbt(nbt);
+		this.setVariant(DumboBlobType.byId(nbt.getInt("DumboBlobType")));
+	}
+
 	public void setVariant(DumboBlobType type) {
 		this.dataTracker.set(DUMBO_BLOB_TYPE, type.id);
 	}
@@ -92,11 +106,11 @@ public class DumboBlobEntity extends FishEntity {
 		return DumboBlobType.byId(this.dataTracker.get(DUMBO_BLOB_TYPE));
 	}
 
-	public static DefaultAttributeContainer.Builder createMantaRayAttributes() {
+	public static DefaultAttributeContainer.Builder createDumboBlobAttributes() {
 		return FishEntity
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 4)
-			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 2);
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
 	}
 
 	public enum DumboBlobType implements StringIdentifiable {
