@@ -32,6 +32,13 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
 
+/*
+- Make them float to the surface when players ride them
+- Bucketable?
+- Maybe some sort of cute spin animation?
+- Animations
+- Explodes/"pops" if out of water for too long
+ */
 public class DumboBlobEntity extends FishEntity {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
