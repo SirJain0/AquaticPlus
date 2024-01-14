@@ -138,6 +138,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer DUMBO_BLOB_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "dumbo_blob"), "root");
+	public static final EntityType<DumboBlobEntity> DUMBO_BLOB_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "dumbo_blob"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, DumboBlobEntity::new)
+			.dimensions(EntityDimensions.fixed(2, 2))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
