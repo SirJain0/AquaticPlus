@@ -38,6 +38,7 @@ import java.util.function.IntFunction;
 - Maybe some sort of cute spin animation?
 - Animations
 - Explodes/"pops" if out of water for too long
+- Gives night vision when fed something
  */
 public class DumboBlobEntity extends FishEntity {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
