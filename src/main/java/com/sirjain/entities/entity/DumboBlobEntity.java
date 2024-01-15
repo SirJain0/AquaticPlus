@@ -187,7 +187,6 @@ public class DumboBlobEntity extends FishEntity {
 			this.decrementBurstTicks();
 		}
 
-		System.out.println(getBurstTicks());
 		super.mobTick();
 	}
 
