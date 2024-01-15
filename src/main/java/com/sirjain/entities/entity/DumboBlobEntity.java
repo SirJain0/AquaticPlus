@@ -15,10 +15,14 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -38,7 +42,6 @@ import java.util.function.IntFunction;
 - Maybe some sort of cute spin animation?
 - Animations
 - Explodes/"pops" if out of water for too long
-- Gives night vision when fed something
  */
 public class DumboBlobEntity extends FishEntity {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -72,7 +75,22 @@ public class DumboBlobEntity extends FishEntity {
 
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+		// TODO: Change to proper plant item
+		if (player.getStackInHand(hand).getItem() == Items.WHEAT_SEEDS) {
+			this.summonHeartParticles();
+			player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 10*20, 0));
+
+			return ActionResult.SUCCESS;
+		}
+
 		return ActionResult.PASS;
+	}
+
+	public void summonHeartParticles() {
+		if (getWorld().isClient) {
+			getWorld().addParticle(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 0, 0.1f, 0);
+			getWorld().addParticle(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 0, 0.1f, 0);
+		}
 	}
 
 	@Nullable
