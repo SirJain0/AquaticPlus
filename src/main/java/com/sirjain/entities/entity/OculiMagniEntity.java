@@ -45,7 +45,7 @@ public class OculiMagniEntity extends NoBucketSchoolingFishEntity {
 	@Override
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
-		nbt.putBoolean("has_teleported_attacker", this.dataTracker.get(HAS_TELEPORTED_ATTACKER));
+		nbt.putBoolean("has_teleported_attacker", this.hasTeleportedAttacker());
 	}
 
 	@Override
@@ -61,7 +61,11 @@ public class OculiMagniEntity extends NoBucketSchoolingFishEntity {
 	}
 
 	public boolean canResetTeleportationTracker() {
-		return this.age % 110 == 0 && this.dataTracker.get(HAS_TELEPORTED_ATTACKER);
+		return this.age % 110 == 0 && this.hasTeleportedAttacker();
+	}
+
+	public boolean hasTeleportedAttacker() {
+		return this.dataTracker.get(HAS_TELEPORTED_ATTACKER);
 	}
 
 	public void setTeleportationTracker(boolean value) {

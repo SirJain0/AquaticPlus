@@ -6,7 +6,6 @@ import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.control.AquaticMoveControl;
 import net.minecraft.entity.ai.control.YawAdjustingLookControl;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
 import net.minecraft.entity.ai.goal.SwimAroundGoal;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.SwimNavigation;
@@ -29,6 +28,7 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.function.ValueLists;
+import net.minecraft.world.GameRules;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -39,17 +39,17 @@ import java.util.function.IntFunction;
 /*
 - Make them float to the surface when players ride them
 - Bucketable?
-- Maybe some sort of cute spin animation?
-- Animations
-- Explodes/"pops" if out of water for too long
+- Maybe some sort of cute spin animation when fed?
+- Animations - swimming, bobbing, exploding
  */
 public class DumboBlobEntity extends FishEntity {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
+	private static final TrackedData<Integer> BURST_TICKER = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
 	public DumboBlobEntity(EntityType<? extends FishEntity> entityType, World world) {
 		super(entityType, world);
 		this.moveControl = new AquaticMoveControl(this, 10, 30, 1, 0.04F, true);
-		this.lookControl = new YawAdjustingLookControl(this, 80);
+		this.lookControl = new YawAdjustingLookControl(this, 70);
 	}
 
 	@Override
@@ -111,17 +111,23 @@ public class DumboBlobEntity extends FishEntity {
 
 	protected void initDataTracker() {
 		super.initDataTracker();
+
 		this.dataTracker.startTracking(DUMBO_BLOB_TYPE, DumboBlobType.BLUE_PURPLE.id);
+		this.dataTracker.startTracking(BURST_TICKER, 0);
 	}
 
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
-		nbt.putInt("DumboBlobType", this.getVariant().id);
+
+		nbt.putInt("dumbo_blob_type", this.getVariant().id);
+		nbt.putInt("burst_ticker", this.dataTracker.get(BURST_TICKER));
 	}
 
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
-		this.setVariant(DumboBlobType.byId(nbt.getInt("DumboBlobType")));
+
+		this.setVariant(DumboBlobType.byId(nbt.getInt("dumbo_blob_type")));
+		this.dataTracker.set(BURST_TICKER, nbt.getInt("burst_ticker"));
 	}
 
 	public void setVariant(DumboBlobType type) {
@@ -137,6 +143,52 @@ public class DumboBlobEntity extends FishEntity {
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 4)
 			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
+	}
+
+	public int getBurstTicks() {
+		return this.dataTracker.get(BURST_TICKER);
+	}
+
+	public boolean canBurst() {
+		return this.dataTracker.get(BURST_TICKER) == 20*4;
+	}
+
+	public void setBurstTicks(int value) {
+		this.dataTracker.set(BURST_TICKER, value);
+	}
+
+	public void incrementBurstTicks() {
+		this.setBurstTicks(this.getBurstTicks() + 1);
+	}
+
+	public void decrementBurstTicks() {
+		this.setBurstTicks(this.getBurstTicks() - 1);
+	}
+
+	@Override
+	protected void mobTick() {
+		if (!this.isSubmergedInWater()) {
+			if (this.canBurst()) {
+				boolean isMobExplosionType = this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING);
+				World world = this.getWorld();
+
+				World.ExplosionSourceType destructionType = isMobExplosionType
+					? World.ExplosionSourceType.MOB
+					: World.ExplosionSourceType.NONE;
+
+				if (!world.isClient && this.isAlive()) {
+					world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 0, destructionType);
+					this.kill();
+				}
+			} else {
+				this.incrementBurstTicks();
+			}
+		} else if (this.getBurstTicks() != 0) {
+			this.decrementBurstTicks();
+		}
+
+		System.out.println(getBurstTicks());
+		super.mobTick();
 	}
 
 	public enum DumboBlobType implements StringIdentifiable {

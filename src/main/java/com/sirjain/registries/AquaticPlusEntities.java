@@ -143,7 +143,7 @@ public class AquaticPlusEntities {
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "dumbo_blob"),
 		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, DumboBlobEntity::new)
-			.dimensions(EntityDimensions.fixed(2, 2))
+			.dimensions(EntityDimensions.fixed(1, 1))
 			.build()
 	);
 
