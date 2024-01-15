@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 import static com.sirjain.entities.entity.MaxillaMortisEntity.CAN_RECOLOR;
 
 public class MaxillaMortisRenderer extends MobEntityRenderer<MaxillaMortisEntity, MaxillaMortisModel> {
+	// TODO: Retexture
 	private static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/maxilla_mortis/maxilla_mortis.png");
 	private static final Identifier PURPLE_TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/maxilla_mortis/maxilla_mortis_purple.png");
 	private static final Identifier EMISSIVE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/maxilla_mortis/maxilla_mortis_e.png");
