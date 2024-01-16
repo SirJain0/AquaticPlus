@@ -40,7 +40,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.IntFunction;
 
 /*
-- Make them float to the surface when players ride them
 - Bucketable?
 - Maybe some sort of cute spin animation when fed?
 - Animations - swimming, bobbing, exploding
@@ -229,14 +228,11 @@ public class DumboBlobEntity extends FishEntity implements Mount {
 	@Override
 	public void travel(Vec3d movementInput) {
 		if (this.hasPassengers()) {
-			// Check if block above is air
-			// If it is, dismount passenger
-			// If not, go up
-
 			BlockPos posAbove = this.getBlockPos().up();
 
-			if (this.getWorld().getBlockState(posAbove).isOf(Blocks.AIR)) {
+			if (this.getWorld().getBlockState(posAbove).isAir()) {
 				// TODO: Show colorful particles coming out of the death here
+				// TODO: Figure out why it doesn't die
 				this.dismountPassenger(this.getControllingPassenger());
 				this.kill();
 			} else {
@@ -254,7 +250,7 @@ public class DumboBlobEntity extends FishEntity implements Mount {
 
 	@Override
 	public double getMountedHeightOffset() {
-		return 1;
+		return -0.1;
 	}
 
 	@Nullable
