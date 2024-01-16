@@ -188,10 +188,10 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		return (LivingEntity) this.getFirstPassenger();
 	}
 
-	private void setRiding(PlayerEntity pPlayer) {
-		pPlayer.setYaw(this.getYaw());
-		pPlayer.setPitch(this.getPitch());
-		pPlayer.startRiding(this);
+	private void setRiding(PlayerEntity player) {
+		player.setYaw(this.getYaw());
+		player.setPitch(this.getPitch());
+		player.startRiding(this);
 	}
 
 	@Override
@@ -201,7 +201,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 			return ActionResult.SUCCESS;
 		}
 
-		return super.interactMob(player, hand);
+		return ActionResult.PASS;
 	}
 
 	@Override

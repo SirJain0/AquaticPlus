@@ -42,6 +42,7 @@ public class DumboBlobModel extends EntityModel<DumboBlobEntity> {
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
+		matrices.translate(0, 1, 0);
 		matrices.scale(0.6f, 0.6f, 0.6f);
 		root.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();

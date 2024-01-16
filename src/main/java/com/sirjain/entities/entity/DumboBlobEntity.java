@@ -1,8 +1,7 @@
 package com.sirjain.entities.entity;
 
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.SpawnReason;
+import net.minecraft.block.Blocks;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.control.AquaticMoveControl;
 import net.minecraft.entity.ai.control.YawAdjustingLookControl;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
@@ -28,6 +27,10 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.function.ValueLists;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
@@ -42,7 +45,7 @@ import java.util.function.IntFunction;
 - Maybe some sort of cute spin animation when fed?
 - Animations - swimming, bobbing, exploding
  */
-public class DumboBlobEntity extends FishEntity {
+public class DumboBlobEntity extends FishEntity implements Mount {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> BURST_TICKER = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
@@ -80,6 +83,9 @@ public class DumboBlobEntity extends FishEntity {
 			this.summonHeartParticles();
 			player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 10*20, 0));
 
+			return ActionResult.SUCCESS;
+		} else if (hand == Hand.MAIN_HAND) {
+			this.setRiding(player);
 			return ActionResult.SUCCESS;
 		}
 
@@ -167,7 +173,7 @@ public class DumboBlobEntity extends FishEntity {
 
 	@Override
 	protected void mobTick() {
-		if (!this.isSubmergedInWater()) {
+		if (!this.isTouchingWater()) {
 			if (this.canBurst()) {
 				boolean isMobExplosionType = this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING);
 				World world = this.getWorld();
@@ -188,6 +194,83 @@ public class DumboBlobEntity extends FishEntity {
 		}
 
 		super.mobTick();
+	}
+
+	@Override
+	public Vec3d updatePassengerForDismount(LivingEntity passenger) {
+		Direction direction = this.getMovementDirection();
+
+		if (direction.getAxis() == Direction.Axis.Y) {
+			return super.updatePassengerForDismount(passenger);
+		}
+
+		int[][] is = Dismounting.getDismountOffsets(direction);
+		BlockPos blockPos = this.getBlockPos();
+		BlockPos.Mutable mutable = new BlockPos.Mutable();
+		for (EntityPose entityPose : passenger.getPoses()) {
+			Box box = passenger.getBoundingBox(entityPose);
+
+			for (int[] js : is) {
+				mutable.set(blockPos.getX() + js[0], blockPos.getY(), blockPos.getZ() + js[1]);
+				double d = this.getWorld().getDismountHeight(mutable);
+
+				if (!Dismounting.canDismountInBlock(d)) continue;
+				Vec3d vec3d = Vec3d.ofCenter(mutable, d);
+				if (!Dismounting.canPlaceEntityAt(this.getWorld(), passenger, box.offset(vec3d))) continue;
+				passenger.setPose(entityPose);
+
+				return vec3d;
+			}
+		}
+
+		return super.updatePassengerForDismount(passenger);
+	}
+
+	@Override
+	public void travel(Vec3d movementInput) {
+		if (this.hasPassengers()) {
+			// Check if block above is air
+			// If it is, dismount passenger
+			// If not, go up
+
+			BlockPos posAbove = this.getBlockPos().up();
+
+			if (this.getWorld().getBlockState(posAbove).isOf(Blocks.AIR)) {
+				// TODO: Show colorful particles coming out of the death here
+				this.dismountPassenger(this.getControllingPassenger());
+				this.kill();
+			} else {
+				if (this.isLogicalSideForUpdatingMovement()) {
+					this.setMovementSpeed((float) this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED));
+					this.setVelocity(0, 0.1f, 0);
+
+					super.travel(new Vec3d(0, movementInput.y, forwardSpeed));
+				}
+			}
+		}
+
+		super.travel(movementInput);
+	}
+
+	@Override
+	public double getMountedHeightOffset() {
+		return 1;
+	}
+
+	@Nullable
+	@Override
+	public LivingEntity getControllingPassenger() {
+		return (LivingEntity) this.getFirstPassenger();
+	}
+
+	private void setRiding(LivingEntity passenger) {
+		passenger.setYaw(this.getYaw());
+		passenger.setPitch(this.getPitch());
+		passenger.startRiding(this);
+	}
+
+	private void dismountPassenger(LivingEntity passenger) {
+		passenger.stopRiding();
 	}
 
 	public enum DumboBlobType implements StringIdentifiable {
