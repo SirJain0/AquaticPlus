@@ -48,6 +48,10 @@ public class DumboBlobEntity extends FishEntity implements Mount {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> BURST_TICKER = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
+	public final AnimationState bobAnimationState = new AnimationState();
+	public final AnimationState swimAnimationState = new AnimationState();
+	private int idleAnimationTimeout = 0;
+
 	public DumboBlobEntity(EntityType<? extends FishEntity> entityType, World world) {
 		super(entityType, world);
 		this.moveControl = new AquaticMoveControl(this, 10, 30, 1, 0.04F, true);

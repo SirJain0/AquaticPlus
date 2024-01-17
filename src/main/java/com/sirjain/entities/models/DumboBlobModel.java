@@ -3,22 +3,33 @@ package com.sirjain.entities.models;
 import com.sirjain.entities.entity.DumboBlobEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
+import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 
-public class DumboBlobModel extends EntityModel<DumboBlobEntity> {
+public class DumboBlobModel extends SinglePartEntityModel<DumboBlobEntity> {
 	private final ModelPart root;
+	private final ModelPart blob;
+	private final ModelPart head;
+	private final ModelPart leg1;
+	private final ModelPart leg2;
+	private final ModelPart leg3;
+	private final ModelPart leg4;
 
 	public DumboBlobModel(ModelPart part) {
 		root = part;
-		//
+		blob = root.getChild("blob");
+		head = blob.getChild("head");
+		leg1 = blob.getChild("leg1");
+		leg2 = blob.getChild("leg2");
+		leg3 = blob.getChild("leg3");
+		leg4 = blob.getChild("leg4");
 	}
 
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
 
-		ModelPartData root = modelPartData.addChild("root", ModelPartBuilder.create().uv(0, 16).cuboid(-2.0025F, -2.225F, -2.0025F, 4.005F, 4.45F, 4.005F, new Dilation(0.0F)), ModelTransform.pivot(0.25F, 11.985F, 0.0F));
+		ModelPartData root = modelPartData.addChild("blob", ModelPartBuilder.create().uv(0, 16).cuboid(-2.0025F, -2.225F, -2.0025F, 4.005F, 4.45F, 4.005F, new Dilation(0.0F)), ModelTransform.pivot(0.25F, 11.985F, 0.0F));
 		ModelPartData head = root.addChild("head", ModelPartBuilder.create().uv(0, 0).cuboid(-4.0F, -4.0F, -4.0F, 8.0F, 8.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(-0.2175F, 0.005F, 0.2175F));
 		ModelPartData ear_left = head.addChild("ear_left", ModelPartBuilder.create().uv(16, 16).cuboid(-0.5F, -4.0F, -2.0F, 3.0F, 6.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(3.28F, -1.45F, -0.22F));
 		ModelPartData ear_right = head.addChild("ear_right", ModelPartBuilder.create().uv(16, 16).mirrored().cuboid(-2.5F, -4.0F, -2.0F, 3.0F, 6.0F, 4.0F, new Dilation(0.0F)).mirrored(false), ModelTransform.pivot(-2.845F, -1.45F, -0.22F));
@@ -34,6 +45,10 @@ public class DumboBlobModel extends EntityModel<DumboBlobEntity> {
 		return TexturedModelData.of(modelData, 64, 64);
 	}
 
+	public ModelPart getRoot() {
+		return root;
+	}
+
 	@Override
 	public void setAngles(DumboBlobEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 		// Animate
@@ -46,5 +61,10 @@ public class DumboBlobModel extends EntityModel<DumboBlobEntity> {
 		matrices.scale(0.6f, 0.6f, 0.6f);
 		root.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
+	}
+
+	@Override
+	public ModelPart getPart() {
+		return blob;
 	}
 }
