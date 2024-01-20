@@ -1,6 +1,6 @@
 package com.sirjain.entities.entity;
 
-import net.minecraft.block.Blocks;
+import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.control.AquaticMoveControl;
 import net.minecraft.entity.ai.control.YawAdjustingLookControl;
@@ -47,6 +47,7 @@ import java.util.function.IntFunction;
 public class DumboBlobEntity extends FishEntity implements Mount {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> BURST_TICKER = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
+	public static final String BUCKET_VARIANT_TAG_KEY = "BucketVariantTag";
 
 	public final AnimationState bobAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
@@ -75,7 +76,7 @@ public class DumboBlobEntity extends FishEntity implements Mount {
 
 	@Override
 	public ItemStack getBucketItem() {
-		return ItemStack.EMPTY;
+		return AquaticPlusItems.DUMBO_BLOB_BUCKET.getDefaultStack();
 	}
 
 	@Override
@@ -86,17 +87,23 @@ public class DumboBlobEntity extends FishEntity implements Mount {
 			player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 10*20, 0));
 
 			return ActionResult.SUCCESS;
-		} else if (hand == Hand.MAIN_HAND) {
+		} else if (hand == Hand.MAIN_HAND && player.getStackInHand(hand).getItem() != Items.WATER_BUCKET) {
 			this.setRiding(player);
 			return ActionResult.SUCCESS;
 		}
 
-		return ActionResult.PASS;
+		return super.interactMob(player, hand);
+	}
+
+	public void copyDataToStack(ItemStack stack) {
+		super.copyDataToStack(stack);
+		NbtCompound nbtCompound = stack.getOrCreateNbt();
+		nbtCompound.putInt("BucketVariantTag", this.getVariant().id);
 	}
 
 	public void summonHeartParticles() {
 		World world = this.getWorld();
-		
+
 		if (world.isClient) {
 			world.addParticle(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 0, 0.1f, 0);
 			world.addParticle(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 0, 0.1f, 0);
@@ -127,6 +134,11 @@ public class DumboBlobEntity extends FishEntity implements Mount {
 	@Nullable
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+		if (spawnReason == SpawnReason.BUCKET && entityNbt != null && entityNbt.contains("BucketVariantTag", 3)) {
+			this.setVariant(DumboBlobType.byId(entityNbt.getInt("BucketVariantTag")));
+			return entityData;
+		}
+
 		this.initVariant();
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
 	}

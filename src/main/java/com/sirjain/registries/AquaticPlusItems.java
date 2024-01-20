@@ -57,6 +57,7 @@ public class AquaticPlusItems {
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
 	public static Item SHADOW_SARDEL_BUCKET;
+	public static Item DUMBO_BLOB_BUCKET;
 
 	public static void registerItems() {
 		registerSpawnEggs();
@@ -110,6 +111,7 @@ public class AquaticPlusItems {
 		SPIRITED_FISH_BUCKET = registerBucketItem("spirited_fish_bucket", AquaticPlusEntities.SPIRITED_FISH_ENTITY);
 		PARROTFISH_BUCKET = registerBucketItem("parrotfish_bucket", AquaticPlusEntities.PARROTFISH_ENTITY);
 		SHADOW_SARDEL_BUCKET = registerBucketItem("shadow_sardel_bucket", AquaticPlusEntities.SHADOW_SARDEL_ENTITY);
+		DUMBO_BLOB_BUCKET = registerBucketItem("dumbo_blob_bucket", AquaticPlusEntities.DUMBO_BLOB_ENTITY);
 	}
 
 	public static void registerBlockItems() {
