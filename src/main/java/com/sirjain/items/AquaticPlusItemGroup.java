@@ -48,6 +48,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
 					entries.add(AquaticPlusItems.SHADOW_SARDEL_BUCKET);
+					entries.add(AquaticPlusItems.DUMBO_BLOB_BUCKET);
 
 					entries.add(AquaticPlusItems.PARROTFISH);
 					entries.add(AquaticPlusItems.SHADOW_SARDEL);
