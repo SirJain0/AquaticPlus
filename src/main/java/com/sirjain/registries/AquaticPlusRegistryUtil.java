@@ -1,6 +1,6 @@
 package com.sirjain.registries;
 
-import com.sirjain.entities.AquaticPlusEntitySpawn;
+import com.sirjain.entities.AquaticPlusEntitySpawns;
 import com.sirjain.items.AquaticPlusFoodItems;
 import com.sirjain.items.AquaticPlusItemGroup;
 
@@ -15,6 +15,6 @@ public class AquaticPlusRegistryUtil {
 		AquaticPlusBlocks.registerBlocks();
 		AquaticPlusItems.registerBlockItems();
 		AquaticPlusItemGroup.registerItemGroup();
-		AquaticPlusEntitySpawn.initEntitySpawns();
+		AquaticPlusEntitySpawns.initEntitySpawns();
 	}
 }
