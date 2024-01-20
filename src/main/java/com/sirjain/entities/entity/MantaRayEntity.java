@@ -88,7 +88,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
 
-		this.setVariant(MantaRayEntity.MantaRayType.byId(nbt.getInt("MantaRayType")));
+		this.setVariant(MantaRayType.byId(nbt.getInt("MantaRayType")));
 		this.saddledComponent.readNbt(nbt);
 	}
 
@@ -178,8 +178,8 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		this.dataTracker.set(MANTA_RAY_TYPE, mantaRayType.id);
 	}
 
-	public MantaRayEntity.MantaRayType getVariant() {
-		return MantaRayEntity.MantaRayType.byId(this.dataTracker.get(MANTA_RAY_TYPE));
+	public MantaRayType getVariant() {
+		return MantaRayType.byId(this.dataTracker.get(MANTA_RAY_TYPE));
 	}
 
 	@Nullable
@@ -188,10 +188,10 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		return (LivingEntity) this.getFirstPassenger();
 	}
 
-	private void setRiding(PlayerEntity pPlayer) {
-		pPlayer.setYaw(this.getYaw());
-		pPlayer.setPitch(this.getPitch());
-		pPlayer.startRiding(this);
+	private void setRiding(PlayerEntity player) {
+		player.setYaw(this.getYaw());
+		player.setPitch(this.getPitch());
+		player.startRiding(this);
 	}
 
 	@Override
@@ -201,7 +201,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 			return ActionResult.SUCCESS;
 		}
 
-		return super.interactMob(player, hand);
+		return ActionResult.PASS;
 	}
 
 	@Override
@@ -237,8 +237,8 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		DARK_SPOTTED(1, "dark_spotted"),
 		BLUE(2, "blue");
 
-		private static final IntFunction<MantaRayEntity.MantaRayType> BY_ID = ValueLists.createIdToValueFunction(
-			MantaRayEntity.MantaRayType::getId, values(), DARK
+		private static final IntFunction<MantaRayType> BY_ID = ValueLists.createIdToValueFunction(
+			MantaRayType::getId, values(), DARK
 		);
 
 		final int id;
@@ -257,7 +257,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 			return this.id;
 		}
 
-		public static MantaRayEntity.MantaRayType byId(int id) {
+		public static MantaRayType byId(int id) {
 			return BY_ID.apply(id);
 		}
 	}

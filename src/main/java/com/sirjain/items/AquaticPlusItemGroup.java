@@ -43,10 +43,12 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.OCULI_MAGNI_SPAWN_EGG);
 					entries.add(AquaticPlusItems.VIPERFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.MANTA_RAY_SPAWN_EGG);
+					entries.add(AquaticPlusItems.DUMBO_BLOB_SPAWN_EGG);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
 					entries.add(AquaticPlusItems.SHADOW_SARDEL_BUCKET);
+					entries.add(AquaticPlusItems.DUMBO_BLOB_BUCKET);
 
 					entries.add(AquaticPlusItems.PARROTFISH);
 					entries.add(AquaticPlusItems.SHADOW_SARDEL);
