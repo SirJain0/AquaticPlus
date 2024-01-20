@@ -1,10 +1,12 @@
 package com.sirjain.entities.models;
 
 import com.sirjain.entities.entity.DumboBlobEntity;
+import com.sirjain.entities.entity.animation.DumboBlobAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 
 public class DumboBlobModel extends SinglePartEntityModel<DumboBlobEntity> {
 	private final ModelPart root;
@@ -45,13 +47,21 @@ public class DumboBlobModel extends SinglePartEntityModel<DumboBlobEntity> {
 		return TexturedModelData.of(modelData, 64, 64);
 	}
 
-	public ModelPart getRoot() {
-		return root;
+	@Override
+	public void setAngles(DumboBlobEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+		this.getPart().traverse().forEach(ModelPart::resetTransform);
+		this.setHeadAngles(entity, netHeadYaw, headPitch, ageInTicks);
+
+		this.animateMovement(DumboBlobAnimations.DUMBO_BLOB_SWIM, limbSwing, limbSwingAmount, 2f, 2.5f);
+		this.updateAnimation(entity.bobAnimationState, DumboBlobAnimations.DUMBO_BLOB_BOB, ageInTicks, 1f);
 	}
 
-	@Override
-	public void setAngles(DumboBlobEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-		// Animate
+	private void setHeadAngles(DumboBlobEntity entity, float headYaw, float headPitch, float animationProgress) {
+		headYaw = MathHelper.clamp(headYaw, -30.0F, 30.0F);
+		headPitch = MathHelper.clamp(headPitch, -25.0F, 45.0F);
+
+		this.head.yaw = headYaw * 0.017453292F;
+		this.head.pitch = headPitch * 0.017453292F;
 	}
 
 	@Override

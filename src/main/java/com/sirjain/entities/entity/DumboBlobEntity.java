@@ -49,7 +49,6 @@ public class DumboBlobEntity extends FishEntity implements Mount {
 	private static final TrackedData<Integer> BURST_TICKER = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
 	public final AnimationState bobAnimationState = new AnimationState();
-	public final AnimationState swimAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
 
 	public DumboBlobEntity(EntityType<? extends FishEntity> entityType, World world) {
@@ -96,9 +95,32 @@ public class DumboBlobEntity extends FishEntity implements Mount {
 	}
 
 	public void summonHeartParticles() {
-		if (getWorld().isClient) {
-			getWorld().addParticle(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 0, 0.1f, 0);
-			getWorld().addParticle(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 0, 0.1f, 0);
+		World world = this.getWorld();
+		
+		if (world.isClient) {
+			world.addParticle(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 0, 0.1f, 0);
+			world.addParticle(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 0, 0.1f, 0);
+		}
+	}
+
+	@Override
+	protected void updateLimbs(float v) {
+		float f = this.getPose() == EntityPose.STANDING ? Math.min(v * 6.0F, 1.0F) : 0;
+		this.limbAnimator.updateLimbs(f, 0.2F);
+	}
+
+	@Override
+	public void tick() {
+		super.tick();
+		if (this.getWorld().isClient) this.setupAnimationStates();
+	}
+
+	private void setupAnimationStates() {
+		if (this.idleAnimationTimeout <= 0) {
+			this.idleAnimationTimeout = 80;
+			this.bobAnimationState.start(this.age);
+		} else {
+			--this.idleAnimationTimeout;
 		}
 	}
 
