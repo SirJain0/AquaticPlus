@@ -1,17 +1,22 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
+import com.sirjain.entities.goals.HurtAttackerGoal;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.SwimNavigation;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -22,9 +27,10 @@ import java.util.List;
 /*
 - Finish animation (tail)
 - Texture flickering
-- Hurt person when hitting them AI
  */
 public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
+	public static final TrackedData<Boolean> HAS_HURT_ATTACKER = DataTracker.registerData(PinkSunfishEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+
 	public final AnimationState swimAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
 
@@ -36,7 +42,39 @@ public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 	protected void initGoals() {
 		super.initGoals();
 		this.goalSelector.add(0, new EscapeDangerGoal(this, 3));
+		this.goalSelector.add(0, new HurtAttackerGoal(this));
 	}
+
+	@Override
+	protected void initDataTracker() {
+		super.initDataTracker();
+		this.dataTracker.startTracking(HAS_HURT_ATTACKER, false);
+	}
+
+	@Override
+	public void writeCustomDataToNbt(NbtCompound nbt) {
+		super.writeCustomDataToNbt(nbt);
+		nbt.putBoolean("has_hurt_attacker", this.hasHurtAttacker());
+	}
+
+	public boolean hasHurtAttacker() {
+		return this.dataTracker.get(HAS_HURT_ATTACKER);
+	}
+
+	public void setAttackTracker(boolean value) {
+		this.dataTracker.set(HAS_HURT_ATTACKER, value);
+	}
+
+	public boolean canResetAttackTracker() {
+		return this.age % 160 == 0 && this.hasHurtAttacker();
+	}
+
+	@Override
+	public void readCustomDataFromNbt(NbtCompound nbt) {
+		super.readCustomDataFromNbt(nbt);
+		this.dataTracker.set(HAS_HURT_ATTACKER, nbt.getBoolean("has_hurt_attacker"));
+	}
+
 
 	@Override
 	protected SoundEvent getFlopSound() {
