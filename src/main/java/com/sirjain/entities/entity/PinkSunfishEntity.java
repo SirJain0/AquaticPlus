@@ -7,7 +7,6 @@ import net.minecraft.entity.ai.pathing.SwimNavigation;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.SchoolingFishEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.sound.SoundEvent;
@@ -17,7 +16,6 @@ import net.minecraft.world.World;
 import java.util.List;
 
 /*
-- Spawns
 - Stats
 - Finish animation (tail)
 - Texture flickering
