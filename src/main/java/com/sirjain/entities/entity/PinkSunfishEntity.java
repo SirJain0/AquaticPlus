@@ -1,17 +1,26 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
-import net.minecraft.entity.AnimationState;
-import net.minecraft.entity.EntityPose;
-import net.minecraft.entity.EntityType;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.SwimNavigation;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.SchoolingFishEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
+import java.util.List;
+
+/*
+- Spawns
+- Stats
+- Finish animation (tail)
+ */
 public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 	public final AnimationState swimAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
@@ -44,7 +53,17 @@ public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 	@Override
 	public void tick() {
 		super.tick();
-		if (this.getWorld().isClient) this.setupAnimationStates();
+
+		if (this.getWorld().isClient)
+			this.setupAnimationStates();
+
+		List<Entity> entitiesAround = this.getWorld().getOtherEntities(null, this.getBoundingBox().expand(5), EntityPredicates.VALID_LIVING_ENTITY);
+
+		for (Entity entity : entitiesAround) {
+			if (entity instanceof LivingEntity mob) {
+				mob.addStatusEffect(new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, 20*5, 0)); // TODO; Change to Sunfish Grace later
+			}
+		}
 	}
 
 
