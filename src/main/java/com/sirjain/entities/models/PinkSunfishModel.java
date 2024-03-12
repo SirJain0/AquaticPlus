@@ -30,8 +30,8 @@ public class PinkSunfishModel extends SinglePartEntityModel<PinkSunfishEntity> {
 		ModelPartData sunfish = modelPartData.addChild("sunfish", ModelPartBuilder.create().uv(5, 0).mirrored().cuboid(2.0F, -7.0F, 7.0F, 3.0F, 0.0F, 4.0F, new Dilation(0.0F)).mirrored(false)
 			.uv(5, 0).cuboid(-5.0F, -7.0F, 7.0F, 3.0F, 0.0F, 4.0F, new Dilation(0.0F))
 			.uv(0, 0).cuboid(-2.0F, -15.0F, -1.0F, 4.0F, 15.0F, 18.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 23.0F, -14.25F));
-		ModelPartData tail = sunfish.addChild("tail", ModelPartBuilder.create().uv(20, 26).cuboid(0.0F, -16.0F, 17.0F, 0.0F, 17.0F, 7.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
-		ModelPartData bottom_fin = sunfish.addChild("bottom_fin", ModelPartBuilder.create().uv(0, 33).cuboid(-1.0F, -1.0F, 8.0F, 2.0F, 11.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 0.0F));
+		ModelPartData tail = sunfish.addChild("tail", ModelPartBuilder.create().uv(20, 26).cuboid(0.0F, -8.5F, 0.0F, 0.0F, 17.0F, 7.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -7.5F, 17.0F));
+		ModelPartData bottom_fin = sunfish.addChild("bottom_fin", ModelPartBuilder.create().uv(0, 33).cuboid(-1.0F, -0.5F, -4.0F, 2.0F, 11.0F, 8.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -0.5F, 12.0F));
 		ModelPartData top_fin = sunfish.addChild("top_fin", ModelPartBuilder.create().uv(0, 0).cuboid(-1.0F, -10.0F, -2.5F, 2.0F, 10.0F, 5.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -15.0F, 12.5F));
 
 		return TexturedModelData.of(modelData, 64, 64);
