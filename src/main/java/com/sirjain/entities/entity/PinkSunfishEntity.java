@@ -4,8 +4,6 @@ import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import com.sirjain.entities.goals.HurtAttackerGoal;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
-import net.minecraft.entity.ai.goal.SwimAroundGoal;
-import net.minecraft.entity.ai.goal.SwimGoal;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.SwimNavigation;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -26,9 +24,6 @@ import net.minecraft.world.World;
 
 import java.util.List;
 
-/*
-- Texture flickering
- */
 public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 	public static final TrackedData<Boolean> HAS_HURT_ATTACKER = DataTracker.registerData(PinkSunfishEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
