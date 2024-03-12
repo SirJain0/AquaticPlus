@@ -14,6 +14,7 @@
 	"item.aquaticplus.viperfish_spawn_egg": "Viperfish Spawn Egg",
 	"item.aquaticplus.manta_ray_spawn_egg": "Manta Ray Spawn Egg",
 	"item.aquaticplus.dumbo_blob_spawn_egg": "Dumbo Blob Spawn Egg",
+	"item.aquaticplus.pink_sunfish_spawn_egg": "Pink Sunfish Spawn Egg",
 
 	"item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 	"item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
@@ -73,6 +74,7 @@
 	"entity.aquaticplus.viperfish": "Viperfish",
 	"entity.aquaticplus.manta_ray": "Manta Ray",
 	"entity.aquaticplus.dumbo_blob": "Dumbo Blob",
+	"entity.aquaticplus.pink_sunfish": "Pink Sunfish",
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
 	"entity.aquaticplus.numbing_aquatic_star": "Numbing Aquatic Star",

@@ -39,15 +39,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
 
-/*
-- Bucketable?
-- Maybe some sort of cute spin animation when fed?
-- Animations - swimming, bobbing, exploding
- */
+// TODO: Particles when swimming
 public class DumboBlobEntity extends FishEntity implements Mount {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> BURST_TICKER = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
-	public static final String BUCKET_VARIANT_TAG_KEY = "BucketVariantTag";
+	public static final String BUCKET_VARIANT_TAG_KEY = "BucketVariantTag";  // TODO: Check whether this is unused
 
 	public final AnimationState bobAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
