@@ -227,7 +227,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(VIPERFISH_ENTITY, ViperfishEntity.createViperfishAttributes());
 		FabricDefaultAttributeRegistry.register(MANTA_RAY_ENTITY, MantaRayEntity.createMantaRayAttributes());
 		FabricDefaultAttributeRegistry.register(DUMBO_BLOB_ENTITY, DumboBlobEntity.createDumboBlobAttributes());
-		FabricDefaultAttributeRegistry.register(PINK_SUNFISH_ENTITY, PinkSunfishEntity.createFishAttributes()); // CHANGE
+		FabricDefaultAttributeRegistry.register(PINK_SUNFISH_ENTITY, PinkSunfishEntity.createPinkSunfishAttributes());
 	}
 
 	public static void registerEntityRenderers() {
