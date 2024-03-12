@@ -20,6 +20,8 @@ import java.util.List;
 - Spawns
 - Stats
 - Finish animation (tail)
+- Texture flickering
+- Add to gallery
  */
 public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 	public final AnimationState swimAnimationState = new AnimationState();
