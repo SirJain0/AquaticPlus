@@ -2,19 +2,15 @@ package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import com.sirjain.entities.goals.HurtAttackerGoal;
+import com.sirjain.registries.AquaticPlusStatusEffects;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.control.AquaticMoveControl;
-import net.minecraft.entity.ai.control.YawAdjustingLookControl;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
-import net.minecraft.entity.ai.pathing.EntityNavigation;
-import net.minecraft.entity.ai.pathing.SwimNavigation;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -87,7 +83,7 @@ public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 
 		for (Entity entity : entitiesAround) {
 			if (entity instanceof LivingEntity mob && !(mob instanceof FishEntity)) {
-				mob.addStatusEffect(new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, 20*5, 0)); // TODO; Change to Sunfish Grace later
+				mob.addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.SUNFISH_GRACE, 20*5, 0));
 			}
 		}
 	}

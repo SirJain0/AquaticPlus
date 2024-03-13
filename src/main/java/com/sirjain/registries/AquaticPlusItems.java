@@ -36,6 +36,7 @@ public class AquaticPlusItems {
 	public static Item STONE_ESSENCE;
 	public static Item MAXILLA_MORTIS_TOOTH;
 	public static Item VIPER_TOOTH;
+	public static Item SUNFISH_TAIL;
 
 	public static Item PARROTFISH;
 	public static Item SHADOW_SARDEL;
@@ -85,6 +86,7 @@ public class AquaticPlusItems {
 		STONE_ESSENCE = registerBasicItem("stone_essence", new Item.Settings());
 		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth", new Item.Settings());
 		VIPER_TOOTH = registerBasicItem("viper_tooth", new Item.Settings());
+		SUNFISH_TAIL = registerBasicItem("sunfish_tail", new Item.Settings());
 	}
 
 	public static void registerFoodItems() {
