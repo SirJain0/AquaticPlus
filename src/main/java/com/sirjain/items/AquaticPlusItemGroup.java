@@ -62,6 +62,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.STONE_ESSENCE);
 					entries.add(AquaticPlusItems.MAXILLA_MORTIS_TOOTH);
 					entries.add(AquaticPlusItems.VIPER_TOOTH);
+					entries.add(AquaticPlusItems.SUNFISH_TAIL);
 					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
 					entries.add(AquaticPlusItems.STONIFIER);
 					entries.add(AquaticPlusItems.DESTONIFIER);
