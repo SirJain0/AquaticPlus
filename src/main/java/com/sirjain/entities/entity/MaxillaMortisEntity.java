@@ -38,8 +38,6 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 	public MaxillaMortisEntity(EntityType<? extends FishEntity> entityType, World world) {
 		super(entityType, world);
 		this.setTargetState(false);
-//		this.moveControl = new AquaticMoveControl(this, 20, 10, 1, 0.04F, true);
-//		this.lookControl = new YawAdjustingLookControl(this, 10);
 	}
 
 	@Override
@@ -66,11 +64,6 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 		this.targetSelector.add(0, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
 		this.targetSelector.add(1, new RevengeGoal(this));
 	}
-
-//	@Override
-//	protected EntityNavigation createNavigation(World world) {
-//		return new SwimNavigation(this, world);
-//	}
 
 	@Override
 	protected void initDataTracker() {

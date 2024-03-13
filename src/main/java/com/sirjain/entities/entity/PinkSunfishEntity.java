@@ -31,8 +31,6 @@ public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 
 	public PinkSunfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
-//		this.moveControl = new AquaticMoveControl(this, 10, 30, 1, 0.04F, true);
-//		this.lookControl = new YawAdjustingLookControl(this, 20);
 	}
 
 	@Override
@@ -71,11 +69,6 @@ public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 		super.readCustomDataFromNbt(nbt);
 		this.dataTracker.set(HAS_HURT_ATTACKER, nbt.getBoolean("has_hurt_attacker"));
 	}
-
-//	@Override
-//	protected EntityNavigation createNavigation(World world) {
-//		return new SwimNavigation(this, world);
-//	}
 
 	@Override
 	protected void updateLimbs(float v) {
