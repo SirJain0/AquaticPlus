@@ -5,6 +5,7 @@ import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Items;
 import net.minecraft.potion.Potion;
+import net.minecraft.potion.Potions;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -73,8 +74,8 @@ public class AquaticPlusPotions {
 		FabricBrewingRecipeRegistry.registerPotionRecipe(LAND_DROWNING_LONG_POTION, Ingredient.ofItems(Items.GLOWSTONE), LAND_DROWNING_STRONG_POTION);
 	}
 
-	// TODO: Add recipe for sunfish grace potion when sunfish tail gets added
 	public static void registerSunfishGracePotions() {
+		FabricBrewingRecipeRegistry.registerPotionRecipe(Potions.WATER, Ingredient.ofItems(AquaticPlusItems.SUNFISH_TAIL), SUNFISH_GRACE_POTION);
 		FabricBrewingRecipeRegistry.registerPotionRecipe(SUNFISH_GRACE_POTION, Ingredient.ofItems(Items.REDSTONE), SUNFISH_GRACE_LONG_POTION);
 		FabricBrewingRecipeRegistry.registerPotionRecipe(SUNFISH_GRACE_LONG_POTION, Ingredient.ofItems(Items.GLOWSTONE), SUNFISH_GRACE_STRONG_POTION);
 	}
