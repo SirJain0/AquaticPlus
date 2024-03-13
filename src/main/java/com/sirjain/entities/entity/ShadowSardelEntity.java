@@ -1,5 +1,6 @@
 package com.sirjain.entities.entity;
 
+import com.sirjain.entities.entity.template.APSchoolingFishEntity;
 import com.sirjain.registries.AquaticPlusEntities;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
@@ -13,7 +14,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
-public class ShadowSardelEntity extends SchoolingFishEntity {
+public class ShadowSardelEntity extends APSchoolingFishEntity {
 	public boolean variantSpawned = false;
 
 	public ShadowSardelEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
@@ -29,12 +30,6 @@ public class ShadowSardelEntity extends SchoolingFishEntity {
 	@Override
 	public boolean shouldRenderName() {
 		return false;
-	}
-
-	// TODO: Add generic flop sound
-	@Override
-	protected SoundEvent getFlopSound() {
-		return SoundEvents.ENTITY_COD_FLOP;
 	}
 
 	@Override

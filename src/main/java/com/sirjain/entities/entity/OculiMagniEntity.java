@@ -20,7 +20,7 @@ public class OculiMagniEntity extends NoBucketSchoolingFishEntity {
 	public OculiMagniEntity(EntityType<? extends NoBucketSchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
 
-		setTeleportationTracker(false);
+		this.setTeleportationTracker(false);
 		this.experiencePoints = 40;
 	}
 
@@ -28,12 +28,6 @@ public class OculiMagniEntity extends NoBucketSchoolingFishEntity {
 	protected void initGoals() {
 		super.initGoals();
 		this.goalSelector.add(4, new TeleportAttackerGoal(this, 8, 3, 8));
-	}
-
-	// TODO: Change to generic flop sound
-	@Override
-	protected SoundEvent getFlopSound() {
-		return SoundEvents.ENTITY_COD_FLOP;
 	}
 
 	@Override

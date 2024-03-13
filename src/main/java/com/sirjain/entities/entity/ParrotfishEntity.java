@@ -1,5 +1,6 @@
 package com.sirjain.entities.entity;
 
+import com.sirjain.entities.entity.template.APSchoolingFishEntity;
 import com.sirjain.entities.goals.MoveToAndBreakBlockGoal;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
@@ -12,7 +13,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
-public class ParrotfishEntity extends SchoolingFishEntity {
+public class ParrotfishEntity extends APSchoolingFishEntity {
 	public ParrotfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
 	}
@@ -28,12 +29,6 @@ public class ParrotfishEntity extends SchoolingFishEntity {
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 8)
 			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 3);
-	}
-
-	// TODO: Replace with generic flop sound
-	@Override
-	protected SoundEvent getFlopSound() {
-		return SoundEvents.ENTITY_COD_FLOP;
 	}
 
 	@Override

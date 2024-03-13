@@ -35,12 +35,6 @@ public class ShadowSardelEasterEggEntity extends NoBucketFishEntity {
 			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
 	}
 
-	// TODO: Change this to a more generalized flop sound for all fish
-	@Override
-	protected SoundEvent getFlopSound() {
-		return SoundEvents.ENTITY_COD_FLOP;
-	}
-
 	@Override
 	public void tick() {
 		super.tick();

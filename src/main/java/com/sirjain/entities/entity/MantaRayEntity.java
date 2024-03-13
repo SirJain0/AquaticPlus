@@ -46,8 +46,8 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 	public MantaRayEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
 		this.saddledComponent = new SaddledComponent(this.dataTracker, BOOST_TIME, SADDLED);
-		this.moveControl = new AquaticMoveControl(this, 85, 10, 1, 0.04F, true);
-		this.lookControl = new YawAdjustingLookControl(this, 10);
+//		this.moveControl = new AquaticMoveControl(this, 85, 10, 1, 0.04F, true);
+//		this.lookControl = new YawAdjustingLookControl(this, 10);
 	}
 
 	@Override
@@ -65,10 +65,10 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
 	}
 
-	@Override
-	protected EntityNavigation createNavigation(World world) {
-		return new SwimNavigation(this, world);
-	}
+//	@Override
+//	protected EntityNavigation createNavigation(World world) {
+//		return new SwimNavigation(this, world);
+//	}
 
 	protected void initDataTracker() {
 		super.initDataTracker();

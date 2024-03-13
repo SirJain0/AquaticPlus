@@ -1,5 +1,6 @@
 package com.sirjain.entities.entity;
 
+import com.sirjain.entities.entity.template.APFishEntity;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.control.AquaticMoveControl;
@@ -40,30 +41,30 @@ import org.jetbrains.annotations.Nullable;
 import java.util.function.IntFunction;
 
 // TODO: Particles when swimming
-public class DumboBlobEntity extends FishEntity implements Mount {
+public class DumboBlobEntity extends APFishEntity implements Mount {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> BURST_TICKER = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
-	public static final String BUCKET_VARIANT_TAG_KEY = "BucketVariantTag";  // TODO: Check whether this is unused
+	public static final String BUCKET_VARIANT_TAG_KEY = "BucketVariantTag"; // TODO: Check whether this is unused
 
 	public final AnimationState bobAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
 
 	public DumboBlobEntity(EntityType<? extends FishEntity> entityType, World world) {
 		super(entityType, world);
-		this.moveControl = new AquaticMoveControl(this, 10, 30, 1, 0.04F, true);
-		this.lookControl = new YawAdjustingLookControl(this, 70);
+//		this.moveControl = new AquaticMoveControl(this, 10, 30, 1, 0.04F, true);
+//		this.lookControl = new YawAdjustingLookControl(this, 70);
 	}
 
-	@Override
-	protected void initGoals() {
-		this.goalSelector.add(1, new SwimAroundGoal(this, 0.8f, 1));
-		this.goalSelector.add(2, new LookAroundGoal(this));
-	}
+//	@Override
+//	protected void initGoals() {
+//		this.goalSelector.add(1, new SwimAroundGoal(this, 0.8f, 1));
+//		this.goalSelector.add(2, new LookAroundGoal(this));
+//	}
 
-	@Override
-	protected EntityNavigation createNavigation(World world) {
-		return new SwimNavigation(this, world);
-	}
+//	@Override
+//	protected EntityNavigation createNavigation(World world) {
+//		return new SwimNavigation(this, world);
+//	}
 
 	@Override
 	protected SoundEvent getFlopSound() {

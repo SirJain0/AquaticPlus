@@ -68,12 +68,6 @@ public class ViperfishEntity extends NoBucketFishEntity {
 			this.setShouldIlluminate(this.getWorld().getBrightness(BlockPos.ofFloored(this.getPos())) <= 0.34);
 	}
 
-	// TODO: Change to generic sound flop
-	@Override
-	protected SoundEvent getFlopSound() {
-		return SoundEvents.ENTITY_COD_FLOP;
-	}
-
 	public boolean isLowOnHealth() {
 		return this.getHealth() < this.getMaxHealth() / 2;
 	}

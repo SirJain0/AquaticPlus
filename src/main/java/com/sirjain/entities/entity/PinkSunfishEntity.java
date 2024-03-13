@@ -17,11 +17,8 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.predicate.entity.EntityPredicates;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -34,8 +31,8 @@ public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 
 	public PinkSunfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
-		this.moveControl = new AquaticMoveControl(this, 10, 30, 1, 0.04F, true);
-		this.lookControl = new YawAdjustingLookControl(this, 20);
+//		this.moveControl = new AquaticMoveControl(this, 10, 30, 1, 0.04F, true);
+//		this.lookControl = new YawAdjustingLookControl(this, 20);
 	}
 
 	@Override
@@ -75,21 +72,10 @@ public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 		this.dataTracker.set(HAS_HURT_ATTACKER, nbt.getBoolean("has_hurt_attacker"));
 	}
 
-
-	@Override
-	protected SoundEvent getFlopSound() {
-		return SoundEvents.ENTITY_COD_FLOP;
-	}
-
-	@Override
-	public ItemStack getBucketItem() {
-		return null;
-	}
-
-	@Override
-	protected EntityNavigation createNavigation(World world) {
-		return new SwimNavigation(this, world);
-	}
+//	@Override
+//	protected EntityNavigation createNavigation(World world) {
+//		return new SwimNavigation(this, world);
+//	}
 
 	@Override
 	protected void updateLimbs(float v) {

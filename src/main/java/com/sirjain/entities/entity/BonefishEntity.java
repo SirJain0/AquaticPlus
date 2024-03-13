@@ -22,12 +22,6 @@ public class BonefishEntity extends NoBucketSchoolingFishEntity {
 			this.goalSelector.add(3, new FleeEntityGoal<>(this, SpiritedFishEntity.class, 6.0F, 1.0, 1.2));
 	}
 
-	// TODO: Replace with better flop sound
-	@Override
-	protected SoundEvent getFlopSound() {
-		return SoundEvents.ENTITY_COD_FLOP;
-	}
-
 	@Override
 	public void tick() {
 		super.tick();
