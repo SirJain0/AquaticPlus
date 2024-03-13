@@ -11,9 +11,10 @@ public class SunfishGraceStatusEffect extends StatusEffect {
 
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-		if (!entity.isInsideWaterOrBubbleColumn()) return;
-
-		// apply speed
+		if (entity.isInsideWaterOrBubbleColumn()) {
+			float boostedVel = 1.1f + (amplifier / 20f);
+			entity.setVelocity(entity.getVelocity().multiply(boostedVel, 1, boostedVel));
+		}
 	}
 
 	@Override

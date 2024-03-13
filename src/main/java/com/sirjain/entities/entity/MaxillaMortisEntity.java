@@ -2,6 +2,7 @@ package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketFishEntity;
 import com.sirjain.entities.goals.APSwimAroundGoal;
+import com.sirjain.entities.models.OculiMagniModel;
 import com.sirjain.registries.AquaticPlusStatusEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -51,9 +52,7 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 
 	protected void initTargetGoals() {
 		List<Class<? extends LivingEntity>> targets = Arrays.asList(
-			SalmonEntity.class,
-			CodEntity.class,
-			TropicalFishEntity.class,
+			OculiMagniEntity.class,
 			SchoolingFishEntity.class
 		);
 
