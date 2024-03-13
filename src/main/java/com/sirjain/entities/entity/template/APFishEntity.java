@@ -6,7 +6,6 @@ import net.minecraft.entity.ai.control.YawAdjustingLookControl;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.SwimNavigation;
 import net.minecraft.entity.passive.FishEntity;
-import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
@@ -31,11 +30,5 @@ public abstract class APFishEntity extends FishEntity {
 	@Override
 	protected SoundEvent getFlopSound() {
 		return SoundEvents.ENTITY_COD_FLOP;
-	}
-
-	// Overriden in later classes
-	@Override
-	public ItemStack getBucketItem() {
-		return ItemStack.EMPTY;
 	}
 }
