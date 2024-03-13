@@ -3,6 +3,8 @@ package com.sirjain.entities.entity;
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import com.sirjain.entities.goals.HurtAttackerGoal;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.control.AquaticMoveControl;
+import net.minecraft.entity.ai.control.YawAdjustingLookControl;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.SwimNavigation;
@@ -32,6 +34,8 @@ public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 
 	public PinkSunfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
+		this.moveControl = new AquaticMoveControl(this, 10, 30, 1, 0.04F, true);
+		this.lookControl = new YawAdjustingLookControl(this, 20);
 	}
 
 	@Override
@@ -103,7 +107,7 @@ public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 		List<Entity> entitiesAround = this.getWorld().getOtherEntities(null, this.getBoundingBox().expand(5), EntityPredicates.VALID_LIVING_ENTITY);
 
 		for (Entity entity : entitiesAround) {
-			if (entity instanceof LivingEntity mob) {
+			if (entity instanceof LivingEntity mob && !(mob instanceof FishEntity)) {
 				mob.addStatusEffect(new StatusEffectInstance(StatusEffects.DOLPHINS_GRACE, 20*5, 0)); // TODO; Change to Sunfish Grace later
 			}
 		}
