@@ -10,21 +10,12 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 
-public class NoBucketSchoolingFishEntity extends SchoolingFishEntity {
+public abstract class NoBucketSchoolingFishEntity extends APSchoolingFishEntity {
 	public NoBucketSchoolingFishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
-	@Override
-	protected SoundEvent getFlopSound() {
-		return SoundEvents.ENTITY_COD_FLOP;
-	}
-
-	@Override
-	public ItemStack getBucketItem() {
-		return ItemStack.EMPTY;
-	}
-
+	// Returns a pass so that nothing happens when right clicking fish
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
 		return ActionResult.PASS;

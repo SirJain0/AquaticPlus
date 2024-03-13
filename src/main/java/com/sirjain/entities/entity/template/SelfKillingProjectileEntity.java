@@ -15,11 +15,7 @@ public abstract class SelfKillingProjectileEntity extends ThrownItemEntity {
 		super(entityType, owner, world);
 	}
 
-	@Override
-	protected Item getDefaultItem() {
-		return null;
-	}
-
+	// Destroys the particle if the particle has stopped moving
 	@Override
 	public void tick() {
 		super.tick();

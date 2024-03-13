@@ -1,5 +1,7 @@
 package com.sirjain.entities.entity;
 
+import com.sirjain.entities.entity.template.APFishEntity;
+import com.sirjain.entities.entity.template.APSchoolingFishEntity;
 import com.sirjain.entities.goals.APSwimAroundGoal;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
@@ -14,7 +16,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 
-public class SpiritedFishEntity extends FishEntity {
+public class SpiritedFishEntity extends APFishEntity {
 	public SpiritedFishEntity(EntityType<? extends FishEntity> entityType, World world) {
 		super(entityType, world);
 	}
@@ -31,12 +33,6 @@ public class SpiritedFishEntity extends FishEntity {
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 6)
 			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4);
-	}
-
-	// TODO: Change this to a more generalized flop sound for all fish
-	@Override
-	protected SoundEvent getFlopSound() {
-		return SoundEvents.ENTITY_COD_FLOP;
 	}
 
 	@Override
