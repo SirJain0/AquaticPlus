@@ -62,6 +62,8 @@ public class AquaticPlusItems {
 	public static Item SHADOW_SARDEL_BUCKET;
 	public static Item DUMBO_BLOB_BUCKET;
 
+	public static Item GHOSTLY_GEL_ITEM;
+
 	public static void registerItems() {
 		registerSpawnEggs();
 		registerBucketItems();
@@ -121,7 +123,7 @@ public class AquaticPlusItems {
 	}
 
 	public static void registerBlockItems() {
-		// Register block items here
+		GHOSTLY_GEL_ITEM = registerBlockItem("ghostly_gel", AquaticPlusBlocks.GHOSTLY_GEL_BLOCK);
 	}
 
 	// Helper registry methods
@@ -141,11 +143,11 @@ public class AquaticPlusItems {
 		);
 	}
 
-	public static BlockItem registerBlockItem(String identifier, Item.Settings settings, Block block) {
+	public static BlockItem registerBlockItem(String identifier, Block block) {
 		return Registry.register(
 			Registries.ITEM,
 			new Identifier(AquaticPlus.MOD_ID, identifier),
-			new BlockItem(block, settings)
+			new BlockItem(block, new Item.Settings())
 		);
 	}
 

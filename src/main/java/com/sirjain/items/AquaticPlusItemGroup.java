@@ -69,6 +69,8 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.DESTONIFIER);
 					entries.add(AquaticPlusItems.FROSTING_SPECTRE);
 
+					entries.add(AquaticPlusItems.GHOSTLY_GEL_ITEM);
+
 					displayContext.lookup().getOptionalWrapper(RegistryKeys.POTION).ifPresent((wrapper) -> {
 						addPotions(entries, wrapper, Items.POTION);
 						addPotions(entries, wrapper, Items.SPLASH_POTION);
