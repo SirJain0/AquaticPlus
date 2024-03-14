@@ -1,0 +1,17 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###",
+		"###",
+		"###"
+	],
+	"key": {
+		"#": {
+			"item": "aquaticplus:ghostly_membrane"
+		}
+	},
+	"result": {
+		"item": "aquaticplus:ghostly_block",
+		"count": 1
+	}
+}
