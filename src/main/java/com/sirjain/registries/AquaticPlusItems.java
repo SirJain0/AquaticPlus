@@ -37,6 +37,7 @@ public class AquaticPlusItems {
 	public static Item MAXILLA_MORTIS_TOOTH;
 	public static Item VIPER_TOOTH;
 	public static Item SUNFISH_TAIL;
+	public static Item GHOSTLY_MEMBRANE;
 
 	public static Item PARROTFISH;
 	public static Item SHADOW_SARDEL;
@@ -60,6 +61,8 @@ public class AquaticPlusItems {
 	public static Item PARROTFISH_BUCKET;
 	public static Item SHADOW_SARDEL_BUCKET;
 	public static Item DUMBO_BLOB_BUCKET;
+
+	public static Item GHOSTLY_GEL_ITEM;
 
 	public static void registerItems() {
 		registerSpawnEggs();
@@ -87,6 +90,7 @@ public class AquaticPlusItems {
 		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth", new Item.Settings());
 		VIPER_TOOTH = registerBasicItem("viper_tooth", new Item.Settings());
 		SUNFISH_TAIL = registerBasicItem("sunfish_tail", new Item.Settings());
+		GHOSTLY_MEMBRANE = registerBasicItem("ghostly_membrane", new Item.Settings());
 	}
 
 	public static void registerFoodItems() {
@@ -119,7 +123,7 @@ public class AquaticPlusItems {
 	}
 
 	public static void registerBlockItems() {
-		// Register block items here
+		GHOSTLY_GEL_ITEM = registerBlockItem("ghostly_gel", AquaticPlusBlocks.GHOSTLY_GEL_BLOCK);
 	}
 
 	// Helper registry methods
@@ -139,11 +143,11 @@ public class AquaticPlusItems {
 		);
 	}
 
-	public static BlockItem registerBlockItem(String identifier, Item.Settings settings, Block block) {
+	public static BlockItem registerBlockItem(String identifier, Block block) {
 		return Registry.register(
 			Registries.ITEM,
 			new Identifier(AquaticPlus.MOD_ID, identifier),
-			new BlockItem(block, settings)
+			new BlockItem(block, new Item.Settings())
 		);
 	}
 

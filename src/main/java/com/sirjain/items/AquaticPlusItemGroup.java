@@ -63,10 +63,13 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.MAXILLA_MORTIS_TOOTH);
 					entries.add(AquaticPlusItems.VIPER_TOOTH);
 					entries.add(AquaticPlusItems.SUNFISH_TAIL);
+					entries.add(AquaticPlusItems.GHOSTLY_MEMBRANE);
 					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
 					entries.add(AquaticPlusItems.STONIFIER);
 					entries.add(AquaticPlusItems.DESTONIFIER);
 					entries.add(AquaticPlusItems.FROSTING_SPECTRE);
+
+					entries.add(AquaticPlusItems.GHOSTLY_GEL_ITEM);
 
 					displayContext.lookup().getOptionalWrapper(RegistryKeys.POTION).ifPresent((wrapper) -> {
 						addPotions(entries, wrapper, Items.POTION);

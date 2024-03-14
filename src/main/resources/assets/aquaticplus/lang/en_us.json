@@ -28,6 +28,7 @@
 	"item.aquaticplus.maxilla_mortis_tooth": "Maxilla Mortis Tooth",
 	"item.aquaticplus.viper_tooth": "Viper Tooth",
 	"item.aquaticplus.sunfish_tail": "Sunfish Tail",
+	"item.aquaticplus.ghostly_membrane": "Ghostly Membrane",
 	"item.aquaticplus.stonifier": "Stonifier",
 	"item.aquaticplus.destonifier": "Destonifier",
 	"item.aquaticplus.aquatic_star": "Aquatic Star",
@@ -36,6 +37,8 @@
 	"item.aquaticplus.frosted_ball": "Frosted Ball",
 	"item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
 	"item.aquaticplus.frosting_spectre": "Frosting Spectre",
+
+	"item.aquaticplus.ghostly_gel": "Ghostly Gel",
 
 	"item.minecraft.potion.effect.numbing_potion": "Numbing Potion",
 	"item.minecraft.potion.effect.numbing_long_potion": "Numbing Potion",
@@ -75,6 +78,8 @@
 	"item.minecraft.tipped_arrow.effect.sunfish_grace_potion": "Arrow of Sunfish Grace",
 	"item.minecraft.tipped_arrow.effect.sunfish_grace_long_potion": "Arrow of Sunfish Grace",
 	"item.minecraft.tipped_arrow.effect.sunfish_grace_strong_potion": "Arrow of Sunfish Grace",
+
+	"block.aquaticplus.ghostly_gel": "Ghostly Gel",
 
 	"entity.aquaticplus.johnson": "Johnson",
 	"entity.aquaticplus.mindinator": "Mindinator",
