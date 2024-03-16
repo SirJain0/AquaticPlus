@@ -156,6 +156,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer LANTERNFISH_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "lanternfish"), "root");
+	public static final EntityType<LanternfishEntity> LANTERNFISH_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "lanternfish"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, LanternfishEntity::new)
+			.dimensions(EntityDimensions.fixed(0.4f, 0.4f))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -210,7 +219,8 @@ public class AquaticPlusEntities {
 		MANTA_RAY_ENTITY,
 		VIPERFISH_ENTITY,
 		DUMBO_BLOB_ENTITY,
-		PINK_SUNFISH_ENTITY
+		PINK_SUNFISH_ENTITY,
+		LANTERNFISH_ENTITY
 	);
 
 	public static void registerAttributes() {
@@ -228,6 +238,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(MANTA_RAY_ENTITY, MantaRayEntity.createMantaRayAttributes());
 		FabricDefaultAttributeRegistry.register(DUMBO_BLOB_ENTITY, DumboBlobEntity.createDumboBlobAttributes());
 		FabricDefaultAttributeRegistry.register(PINK_SUNFISH_ENTITY, PinkSunfishEntity.createPinkSunfishAttributes());
+		FabricDefaultAttributeRegistry.register(LANTERNFISH_ENTITY, LanternfishEntity.createLanternfishAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -247,6 +258,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(MANTA_RAY_ENTITY, MantaRayRenderer::new);
 		EntityRendererRegistry.register(DUMBO_BLOB_ENTITY, DumboBlobRenderer::new);
 		EntityRendererRegistry.register(PINK_SUNFISH_ENTITY, PinkSunfishRenderer::new);
+		EntityRendererRegistry.register(LANTERNFISH_ENTITY, LanternfishRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -262,6 +274,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(MANTA_RAY_LAYER, MantaRayModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(DUMBO_BLOB_LAYER, DumboBlobModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(PINK_SUNFISH_LAYER, PinkSunfishModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(LANTERNFISH_LAYER, LanternfishModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {
