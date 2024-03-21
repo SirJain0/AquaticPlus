@@ -3,6 +3,7 @@ package com.sirjain.entities.entity;
 import com.sirjain.entities.entity.template.APSchoolingFishEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
+import net.minecraft.entity.ai.goal.AttackGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
@@ -17,13 +18,15 @@ public class BluefinTunaEntity extends APSchoolingFishEntity {
 	@Override
 	protected void initGoals() {
 		super.initGoals();
-		this.goalSelector.add(1, new ActiveTargetGoal<>(this, ShadowSardelEntity.class, true));
+		this.goalSelector.add(0, new AttackGoal(this));
+		this.goalSelector.add(0, new ActiveTargetGoal<>(this, ShadowSardelEntity.class, true));
 	}
 
 	public static DefaultAttributeContainer.Builder createBluefinTunaAttributes() {
 		return FishEntity
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 12)
+			.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3)
 			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4.5F);
 	}
 }
