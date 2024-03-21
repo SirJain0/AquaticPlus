@@ -40,6 +40,7 @@ public class AquaticPlusItems {
 	public static Item GHOSTLY_MEMBRANE;
 
 	public static Item PARROTFISH;
+	public static Item BLUEFIN_TUNA;
 	public static Item SHADOW_SARDEL;
 
 	public static Item JOHNSON_SPAWN_EGG;
@@ -96,6 +97,7 @@ public class AquaticPlusItems {
 
 	public static void registerFoodItems() {
 		PARROTFISH = registerBasicItem("parrotfish", new Item.Settings().food(AquaticPlusFoodItems.PARROTFISH));
+		BLUEFIN_TUNA = registerBasicItem("bluefin_tuna", new Item.Settings().food(AquaticPlusFoodItems.BLUEFIN_TUNA));
 		SHADOW_SARDEL = registerBasicItem("shadow_sardel", new Item.Settings().food(AquaticPlusFoodItems.SHADOW_SARDEL));
 	}
 

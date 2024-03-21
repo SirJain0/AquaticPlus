@@ -53,6 +53,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.DUMBO_BLOB_BUCKET);
 
 					entries.add(AquaticPlusItems.PARROTFISH);
+					entries.add(AquaticPlusItems.BLUEFIN_TUNA);
 					entries.add(AquaticPlusItems.SHADOW_SARDEL);
 
 					entries.add(AquaticPlusItems.AQUATIC_STAR);
@@ -84,8 +85,9 @@ public class AquaticPlusItemGroup {
 
 	private static void addPotions(ItemGroup.Entries entries, RegistryWrapper<Potion> registryWrapper, Item item) {
 		registryWrapper.streamEntries().filter((entry) -> !entry.matchesKey(Potions.EMPTY_KEY)).filter((entry) -> {
-			for (Identifier id : AquaticPlusPotions.POTION_IDS)
+			for (Identifier id : AquaticPlusPotions.POTION_IDS) {
 				if (entry.matchesId(id)) return true;
+			}
 
 			return false;
 		}).map((entry) -> PotionUtil.setPotion(new ItemStack(item), entry.value())).forEach(entries::add);
