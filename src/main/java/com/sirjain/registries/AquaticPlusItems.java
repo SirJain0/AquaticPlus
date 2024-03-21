@@ -58,6 +58,7 @@ public class AquaticPlusItems {
 	public static Item DUMBO_BLOB_SPAWN_EGG;
 	public static Item PINK_SUNFISH_SPAWN_EGG;
 	public static Item LANTERNFISH_SPAWN_EGG;
+	public static Item BLUEFIN_TUNA_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -117,6 +118,7 @@ public class AquaticPlusItems {
 		DUMBO_BLOB_SPAWN_EGG = registerSpawnEggItem("dumbo_blob_spawn_egg", AquaticPlusEntities.DUMBO_BLOB_ENTITY, 0x3981d2, 0xc36afa);
 		PINK_SUNFISH_SPAWN_EGG = registerSpawnEggItem("pink_sunfish_spawn_egg", AquaticPlusEntities.PINK_SUNFISH_ENTITY, 0xcb8fbc, 0x68759d);
 		LANTERNFISH_SPAWN_EGG = registerSpawnEggItem("lanternfish_spawn_egg", AquaticPlusEntities.LANTERNFISH_ENTITY, 0x33333b, 0x34d7e8);
+		BLUEFIN_TUNA_SPAWN_EGG = registerSpawnEggItem("bluefin_tuna_spawn_egg", AquaticPlusEntities.BLUEFIN_TUNA_ENTITY, 0xd2d3d9, 0x313575);
 	}
 
 	public static void registerBucketItems() {

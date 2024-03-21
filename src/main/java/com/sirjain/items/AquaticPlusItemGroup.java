@@ -46,6 +46,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.DUMBO_BLOB_SPAWN_EGG);
 					entries.add(AquaticPlusItems.PINK_SUNFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.LANTERNFISH_SPAWN_EGG);
+					entries.add(AquaticPlusItems.BLUEFIN_TUNA_SPAWN_EGG);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
