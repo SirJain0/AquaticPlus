@@ -39,8 +39,7 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> BURST_TICKER = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
-	public static final String BUCKET_VARIANT_TAG_KEY = "BucketVariantTag"; // TODO: Check whether this is unused
-
+	public static final String BUCKET_VARIANT_TAG_KEY = "BucketVariantTag";
 	public final AnimationState bobAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
 
@@ -77,7 +76,7 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 	public void copyDataToStack(ItemStack stack) {
 		super.copyDataToStack(stack);
 		NbtCompound nbtCompound = stack.getOrCreateNbt();
-		nbtCompound.putInt("BucketVariantTag", this.getVariant().id);
+		nbtCompound.putInt(BUCKET_VARIANT_TAG_KEY, this.getVariant().id);
 	}
 
 	public void summonHeartParticles() {
@@ -113,8 +112,8 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 	@Nullable
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-		if (spawnReason == SpawnReason.BUCKET && entityNbt != null && entityNbt.contains("BucketVariantTag", 3)) {
-			this.setVariant(DumboBlobType.byId(entityNbt.getInt("BucketVariantTag")));
+		if (spawnReason == SpawnReason.BUCKET && entityNbt != null && entityNbt.contains(BUCKET_VARIANT_TAG_KEY, 3)) {
+			this.setVariant(DumboBlobType.byId(entityNbt.getInt(BUCKET_VARIANT_TAG_KEY)));
 			return entityData;
 		}
 
@@ -241,7 +240,6 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 
 		if (this.getWorld().getBlockState(posAbove).isAir()) {
 			// TODO: Show colorful particles coming out of the death here
-			// TODO: Figure out why it doesn't die
 			this.kill();
 		} else if (this.isLogicalSideForUpdatingMovement()) {
 			this.setMovementSpeed((float) this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED));
