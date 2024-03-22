@@ -44,6 +44,8 @@ import java.util.function.IntFunction;
 public class DumboBlobEntity extends APFishEntity implements Mount {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> BURST_TICKER = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
+	private static final TrackedData<Boolean> CAN_SELF_DESTRUCT = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+
 	public static final String BUCKET_VARIANT_TAG_KEY = "BucketVariantTag"; // TODO: Check whether this is unused
 
 	public final AnimationState bobAnimationState = new AnimationState();
@@ -103,7 +105,13 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 	@Override
 	public void tick() {
 		super.tick();
+
+		System.out.println("Self destruct status:" + this.canSelfDestruct());
 		if (this.getWorld().isClient) this.setupAnimationStates();
+		if (this.canSelfDestruct()) {
+			System.out.println("can self destruct");
+			this.kill();
+		}
 	}
 
 	private void setupAnimationStates() {
@@ -124,6 +132,8 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 		}
 
 		this.initVariant();
+		this.setCanSelfDestruct(false);
+
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
 	}
 
@@ -141,6 +151,7 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 
 		this.dataTracker.startTracking(DUMBO_BLOB_TYPE, DumboBlobType.BLUE_PURPLE.id);
 		this.dataTracker.startTracking(BURST_TICKER, 0);
+		this.dataTracker.startTracking(CAN_SELF_DESTRUCT, false);
 	}
 
 	public void writeCustomDataToNbt(NbtCompound nbt) {
@@ -148,6 +159,7 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 
 		nbt.putInt("dumbo_blob_type", this.getVariant().id);
 		nbt.putInt("burst_ticker", this.dataTracker.get(BURST_TICKER));
+		nbt.putBoolean("can_self_destruct", this.canSelfDestruct());
 	}
 
 	public void readCustomDataFromNbt(NbtCompound nbt) {
@@ -155,6 +167,15 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 
 		this.setVariant(DumboBlobType.byId(nbt.getInt("dumbo_blob_type")));
 		this.dataTracker.set(BURST_TICKER, nbt.getInt("burst_ticker"));
+		this.dataTracker.set(CAN_SELF_DESTRUCT, nbt.getBoolean("can_self_destruct"));
+	}
+
+	public void setCanSelfDestruct(boolean val) {
+		this.getDataTracker().set(CAN_SELF_DESTRUCT, val);
+	}
+
+	public boolean canSelfDestruct() {
+		return this.getDataTracker().get(CAN_SELF_DESTRUCT) && this.isAlive() && !this.getWorld().isClient;
 	}
 
 	public void setVariant(DumboBlobType type) {
@@ -163,13 +184,6 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 
 	public DumboBlobType getVariant() {
 		return DumboBlobType.byId(this.dataTracker.get(DUMBO_BLOB_TYPE));
-	}
-
-	public static DefaultAttributeContainer.Builder createDumboBlobAttributes() {
-		return FishEntity
-			.createFishAttributes()
-			.add(EntityAttributes.GENERIC_MAX_HEALTH, 4)
-			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
 	}
 
 	public int getBurstTicks() {
@@ -255,8 +269,10 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 			if (this.getWorld().getBlockState(posAbove).isAir()) {
 				// TODO: Show colorful particles coming out of the death here
 				// TODO: Figure out why it doesn't die
-				this.dismountPassenger(this.getControllingPassenger());
+				this.setCanSelfDestruct(true);
+				System.out.println("Air is above me");
 				this.kill();
+//				this.dismountPassenger(this.getControllingPassenger());
 			} else {
 				if (this.isLogicalSideForUpdatingMovement()) {
 					this.setMovementSpeed((float) this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED));
@@ -272,7 +288,7 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 
 	@Override
 	public double getMountedHeightOffset() {
-		return -0.1;
+		return -0.1D;
 	}
 
 	@Nullable
@@ -289,6 +305,13 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 
 	private void dismountPassenger(LivingEntity passenger) {
 		passenger.stopRiding();
+	}
+
+	public static DefaultAttributeContainer.Builder createDumboBlobAttributes() {
+		return FishEntity
+			.createFishAttributes()
+			.add(EntityAttributes.GENERIC_MAX_HEALTH, 4)
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
 	}
 
 	public enum DumboBlobType implements StringIdentifiable {
