@@ -268,10 +268,6 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 		passenger.startRiding(this);
 	}
 
-	private void dismountPassenger(LivingEntity passenger) {
-		passenger.stopRiding();
-	}
-
 	public static DefaultAttributeContainer.Builder createDumboBlobAttributes() {
 		return FishEntity
 			.createFishAttributes()
