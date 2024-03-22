@@ -45,7 +45,8 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 	protected void initGoals() {
 		this.goalSelector.add(1, new SwimAroundGoal(this, 1.0, 10));
 		this.goalSelector.add(2, new LookAroundGoal(this));
-		this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));		this.goalSelector.add(0, new AttackGoal(this));
+		this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
+		this.goalSelector.add(0, new AttackGoal(this));
 		this.goalSelector.add(0, new MoveIntoWaterGoal(this));
 		this.initTargetGoals();
 	}

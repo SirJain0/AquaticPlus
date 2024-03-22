@@ -165,6 +165,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer BLUEFIN_TUNA_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "bluefin_tuna"), "root");
+	public static final EntityType<BluefinTunaEntity> BLUEFIN_TUNA_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "bluefin_tuna"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, BluefinTunaEntity::new)
+			.dimensions(EntityDimensions.fixed(0.4f, 0.4f))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -220,7 +229,8 @@ public class AquaticPlusEntities {
 		VIPERFISH_ENTITY,
 		DUMBO_BLOB_ENTITY,
 		PINK_SUNFISH_ENTITY,
-		LANTERNFISH_ENTITY
+		LANTERNFISH_ENTITY,
+		BLUEFIN_TUNA_ENTITY
 	);
 
 	public static void registerAttributes() {
@@ -239,6 +249,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(DUMBO_BLOB_ENTITY, DumboBlobEntity.createDumboBlobAttributes());
 		FabricDefaultAttributeRegistry.register(PINK_SUNFISH_ENTITY, PinkSunfishEntity.createPinkSunfishAttributes());
 		FabricDefaultAttributeRegistry.register(LANTERNFISH_ENTITY, LanternfishEntity.createLanternfishAttributes());
+		FabricDefaultAttributeRegistry.register(BLUEFIN_TUNA_ENTITY, BluefinTunaEntity.createBluefinTunaAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -259,6 +270,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(DUMBO_BLOB_ENTITY, DumboBlobRenderer::new);
 		EntityRendererRegistry.register(PINK_SUNFISH_ENTITY, PinkSunfishRenderer::new);
 		EntityRendererRegistry.register(LANTERNFISH_ENTITY, LanternfishRenderer::new);
+		EntityRendererRegistry.register(BLUEFIN_TUNA_ENTITY, BluefinTunaRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -275,6 +287,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(DUMBO_BLOB_LAYER, DumboBlobModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(PINK_SUNFISH_LAYER, PinkSunfishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(LANTERNFISH_LAYER, LanternfishModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(BLUEFIN_TUNA_LAYER, BluefinTunaModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {

@@ -40,6 +40,7 @@ public class AquaticPlusItems {
 	public static Item GHOSTLY_MEMBRANE;
 
 	public static Item PARROTFISH;
+	public static Item BLUEFIN_TUNA;
 	public static Item SHADOW_SARDEL;
 
 	public static Item JOHNSON_SPAWN_EGG;
@@ -57,11 +58,13 @@ public class AquaticPlusItems {
 	public static Item DUMBO_BLOB_SPAWN_EGG;
 	public static Item PINK_SUNFISH_SPAWN_EGG;
 	public static Item LANTERNFISH_SPAWN_EGG;
+	public static Item BLUEFIN_TUNA_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
 	public static Item SHADOW_SARDEL_BUCKET;
 	public static Item DUMBO_BLOB_BUCKET;
+	public static Item BLUEFIN_TUNA_BUCKET;
 
 	public static Item GHOSTLY_GEL_ITEM;
 
@@ -96,6 +99,7 @@ public class AquaticPlusItems {
 
 	public static void registerFoodItems() {
 		PARROTFISH = registerBasicItem("parrotfish", new Item.Settings().food(AquaticPlusFoodItems.PARROTFISH));
+		BLUEFIN_TUNA = registerBasicItem("bluefin_tuna", new Item.Settings().food(AquaticPlusFoodItems.BLUEFIN_TUNA));
 		SHADOW_SARDEL = registerBasicItem("shadow_sardel", new Item.Settings().food(AquaticPlusFoodItems.SHADOW_SARDEL));
 	}
 
@@ -115,6 +119,7 @@ public class AquaticPlusItems {
 		DUMBO_BLOB_SPAWN_EGG = registerSpawnEggItem("dumbo_blob_spawn_egg", AquaticPlusEntities.DUMBO_BLOB_ENTITY, 0x3981d2, 0xc36afa);
 		PINK_SUNFISH_SPAWN_EGG = registerSpawnEggItem("pink_sunfish_spawn_egg", AquaticPlusEntities.PINK_SUNFISH_ENTITY, 0xcb8fbc, 0x68759d);
 		LANTERNFISH_SPAWN_EGG = registerSpawnEggItem("lanternfish_spawn_egg", AquaticPlusEntities.LANTERNFISH_ENTITY, 0x33333b, 0x34d7e8);
+		BLUEFIN_TUNA_SPAWN_EGG = registerSpawnEggItem("bluefin_tuna_spawn_egg", AquaticPlusEntities.BLUEFIN_TUNA_ENTITY, 0xd2d3d9, 0x313575);
 	}
 
 	public static void registerBucketItems() {
@@ -122,6 +127,7 @@ public class AquaticPlusItems {
 		PARROTFISH_BUCKET = registerBucketItem("parrotfish_bucket", AquaticPlusEntities.PARROTFISH_ENTITY);
 		SHADOW_SARDEL_BUCKET = registerBucketItem("shadow_sardel_bucket", AquaticPlusEntities.SHADOW_SARDEL_ENTITY);
 		DUMBO_BLOB_BUCKET = registerBucketItem("dumbo_blob_bucket", AquaticPlusEntities.DUMBO_BLOB_ENTITY);
+		BLUEFIN_TUNA_BUCKET = registerBucketItem("bluefin_tuna_bucket", AquaticPlusEntities.BLUEFIN_TUNA_ENTITY);
 	}
 
 	public static void registerBlockItems() {
