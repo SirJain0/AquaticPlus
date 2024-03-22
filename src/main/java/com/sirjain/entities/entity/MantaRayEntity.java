@@ -5,10 +5,7 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.control.AquaticMoveControl;
 import net.minecraft.entity.ai.control.YawAdjustingLookControl;
-import net.minecraft.entity.ai.goal.FollowGroupLeaderGoal;
-import net.minecraft.entity.ai.goal.LookAroundGoal;
-import net.minecraft.entity.ai.goal.LookAtEntityGoal;
-import net.minecraft.entity.ai.goal.SwimAroundGoal;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.ai.pathing.EntityNavigation;
 import net.minecraft.entity.ai.pathing.SwimNavigation;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -54,6 +51,9 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		this.goalSelector.add(1, new SwimAroundGoal(this, 1.0, 10));
 		this.goalSelector.add(2, new LookAroundGoal(this));
 		this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
+		this.goalSelector.add(0, new AttackGoal(this));
+
+		this.targetSelector.add(0, new ActiveTargetGoal<>(this, LanternfishEntity.class, true, true));
 	}
 
 	@Nullable
@@ -222,6 +222,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		return SchoolingFishEntity
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 22)
+			.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3)
 			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 3);
 	}
 
