@@ -3,12 +3,6 @@ package com.sirjain.entities.entity;
 import com.sirjain.entities.entity.template.APFishEntity;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.control.AquaticMoveControl;
-import net.minecraft.entity.ai.control.YawAdjustingLookControl;
-import net.minecraft.entity.ai.goal.LookAroundGoal;
-import net.minecraft.entity.ai.goal.SwimAroundGoal;
-import net.minecraft.entity.ai.pathing.EntityNavigation;
-import net.minecraft.entity.ai.pathing.SwimNavigation;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -44,8 +38,8 @@ import java.util.function.IntFunction;
 public class DumboBlobEntity extends APFishEntity implements Mount {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> BURST_TICKER = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
-	public static final String BUCKET_VARIANT_TAG_KEY = "BucketVariantTag"; // TODO: Check whether this is unused
 
+	public static final String BUCKET_VARIANT_TAG_KEY = "BucketVariantTag";
 	public final AnimationState bobAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
 
@@ -82,7 +76,7 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 	public void copyDataToStack(ItemStack stack) {
 		super.copyDataToStack(stack);
 		NbtCompound nbtCompound = stack.getOrCreateNbt();
-		nbtCompound.putInt("BucketVariantTag", this.getVariant().id);
+		nbtCompound.putInt(BUCKET_VARIANT_TAG_KEY, this.getVariant().id);
 	}
 
 	public void summonHeartParticles() {
@@ -118,8 +112,8 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 	@Nullable
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-		if (spawnReason == SpawnReason.BUCKET && entityNbt != null && entityNbt.contains("BucketVariantTag", 3)) {
-			this.setVariant(DumboBlobType.byId(entityNbt.getInt("BucketVariantTag")));
+		if (spawnReason == SpawnReason.BUCKET && entityNbt != null && entityNbt.contains(BUCKET_VARIANT_TAG_KEY, 3)) {
+			this.setVariant(DumboBlobType.byId(entityNbt.getInt(BUCKET_VARIANT_TAG_KEY)));
 			return entityData;
 		}
 
@@ -163,13 +157,6 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 
 	public DumboBlobType getVariant() {
 		return DumboBlobType.byId(this.dataTracker.get(DUMBO_BLOB_TYPE));
-	}
-
-	public static DefaultAttributeContainer.Builder createDumboBlobAttributes() {
-		return FishEntity
-			.createFishAttributes()
-			.add(EntityAttributes.GENERIC_MAX_HEALTH, 4)
-			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
 	}
 
 	public int getBurstTicks() {
@@ -248,31 +235,23 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 	}
 
 	@Override
-	public void travel(Vec3d movementInput) {
-		if (this.hasPassengers()) {
-			BlockPos posAbove = this.getBlockPos().up();
+	protected void tickControlled(PlayerEntity controllingPlayer, Vec3d movementInput) {
+		BlockPos posAbove = this.getBlockPos().up();
 
-			if (this.getWorld().getBlockState(posAbove).isAir()) {
-				// TODO: Show colorful particles coming out of the death here
-				// TODO: Figure out why it doesn't die
-				this.dismountPassenger(this.getControllingPassenger());
-				this.kill();
-			} else {
-				if (this.isLogicalSideForUpdatingMovement()) {
-					this.setMovementSpeed((float) this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED));
-					this.setVelocity(0, 0.1f, 0);
+		if (this.getWorld().getBlockState(posAbove).isAir()) {
+			// TODO: Show colorful particles coming out of the death here
+			this.kill();
+		} else if (this.isLogicalSideForUpdatingMovement()) {
+			this.setMovementSpeed((float) this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED));
+			this.setVelocity(0, 0.1f, 0);
 
-					super.travel(new Vec3d(0, movementInput.y, forwardSpeed));
-				}
-			}
+			super.travel(new Vec3d(0, movementInput.y, forwardSpeed));
 		}
-
-		super.travel(movementInput);
 	}
 
 	@Override
 	public double getMountedHeightOffset() {
-		return -0.1;
+		return -0.1D;
 	}
 
 	@Nullable
@@ -287,8 +266,11 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 		passenger.startRiding(this);
 	}
 
-	private void dismountPassenger(LivingEntity passenger) {
-		passenger.stopRiding();
+	public static DefaultAttributeContainer.Builder createDumboBlobAttributes() {
+		return FishEntity
+			.createFishAttributes()
+			.add(EntityAttributes.GENERIC_MAX_HEALTH, 4)
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.8f);
 	}
 
 	public enum DumboBlobType implements StringIdentifiable {
