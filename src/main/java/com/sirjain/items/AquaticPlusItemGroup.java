@@ -52,6 +52,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
 					entries.add(AquaticPlusItems.SHADOW_SARDEL_BUCKET);
 					entries.add(AquaticPlusItems.DUMBO_BLOB_BUCKET);
+					entries.add(AquaticPlusItems.BLUEFIN_TUNA_BUCKET);
 
 					entries.add(AquaticPlusItems.PARROTFISH);
 					entries.add(AquaticPlusItems.BLUEFIN_TUNA);
