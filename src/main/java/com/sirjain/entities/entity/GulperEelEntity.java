@@ -24,6 +24,7 @@ public class GulperEelEntity extends AbstractEelEntity {
 
 	@Override
 	protected void updateLimbs(float v) {
+		// TODO: Change something here to fix the idle animation
 		float f = this.getPose() == EntityPose.STANDING ? Math.min(v * 6, 2) : 2;
 		this.limbAnimator.updateLimbs(f, 1);
 	}
