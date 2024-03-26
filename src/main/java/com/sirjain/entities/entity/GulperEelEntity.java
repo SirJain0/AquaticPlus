@@ -9,6 +9,11 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.world.World;
 
+/*
+To do:
+- AI for attacking anything within radius
+- Play bite animation for when it is attacking
+*/
 public class GulperEelEntity extends AbstractEelEntity {
 	public final AnimationState swimAnimationState = new AnimationState();
 	private int idleAnimationTimeout = 0;
