@@ -1,7 +1,6 @@
 package com.sirjain.entities.models;
 
 import com.sirjain.entities.entity.GulperEelEntity;
-import com.sirjain.entities.entity.animation.DumboBlobAnimations;
 import com.sirjain.entities.entity.animation.GulperEelAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
@@ -11,10 +10,22 @@ import net.minecraft.client.util.math.MatrixStack;
 public class GulperEelModel extends SinglePartEntityModel<GulperEelEntity> {
 	private final ModelPart root;
 	private final ModelPart main;
+	private final ModelPart head;
+	private final ModelPart lowerJaw;
+	private final ModelPart tail;
+	private final ModelPart tail2;
+	private final ModelPart tail3;
+	private final ModelPart tail4;
 
 	public GulperEelModel(ModelPart part) {
 		root = part;
 		main = root.getChild("gulper_eel");
+		head = main.getChild("head");
+		lowerJaw = head.getChild("lower_jaw");
+		tail = main.getChild("tail");
+		tail2 = tail.getChild("tail2");
+		tail3 = tail2.getChild("tail3");
+		tail4 = tail3.getChild("tail4");
 	}
 
 	@Override
