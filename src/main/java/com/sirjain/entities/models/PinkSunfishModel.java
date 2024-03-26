@@ -47,7 +47,7 @@ public class PinkSunfishModel extends SinglePartEntityModel<PinkSunfishEntity> {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 
 		this.animateMovement(PinkSunfishAnimations.PINK_SUNFISH_SWIM, limbSwing, limbSwingAmount, 2f, 2.5f);
-		this.updateAnimation(entity.swimAnimationState, DumboBlobAnimations.DUMBO_BLOB_BOB, ageInTicks, 1f);
+		this.updateAnimation(entity.swimAnimationState, PinkSunfishAnimations.PINK_SUNFISH_SWIM, ageInTicks, 1f);
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
+import com.sirjain.entities.models.GulperEelModel;
 import com.sirjain.items.AquaticPlusFoodItems;
 import com.sirjain.items.DeoxidizingMaterialItem;
 import com.sirjain.items.DestonifierItem;
@@ -59,6 +60,7 @@ public class AquaticPlusItems {
 	public static Item PINK_SUNFISH_SPAWN_EGG;
 	public static Item LANTERNFISH_SPAWN_EGG;
 	public static Item BLUEFIN_TUNA_SPAWN_EGG;
+	public static Item GULPER_EEL_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -120,6 +122,7 @@ public class AquaticPlusItems {
 		PINK_SUNFISH_SPAWN_EGG = registerSpawnEggItem("pink_sunfish_spawn_egg", AquaticPlusEntities.PINK_SUNFISH_ENTITY, 0xcb8fbc, 0x68759d);
 		LANTERNFISH_SPAWN_EGG = registerSpawnEggItem("lanternfish_spawn_egg", AquaticPlusEntities.LANTERNFISH_ENTITY, 0x33333b, 0x34d7e8);
 		BLUEFIN_TUNA_SPAWN_EGG = registerSpawnEggItem("bluefin_tuna_spawn_egg", AquaticPlusEntities.BLUEFIN_TUNA_ENTITY, 0xd2d3d9, 0x313575);
+		GULPER_EEL_SPAWN_EGG = registerSpawnEggItem("gulper_eel_spawn_egg", AquaticPlusEntities.GULPER_EEL_ENTITY, 0x413b4a, 0x422e4d);
 	}
 
 	public static void registerBucketItems() {
