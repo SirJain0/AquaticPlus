@@ -24,8 +24,8 @@ public class GulperEelEntity extends AbstractEelEntity {
 
 	@Override
 	protected void updateLimbs(float v) {
-		float f = this.getPose() == EntityPose.STANDING ? Math.min(v * 6.0F, 1.0F) : 0;
-		this.limbAnimator.updateLimbs(f, 0.2F);
+		float f = this.getPose() == EntityPose.STANDING ? Math.min(v * 6, 2) : 2;
+		this.limbAnimator.updateLimbs(f, 1);
 	}
 
 	@Override
