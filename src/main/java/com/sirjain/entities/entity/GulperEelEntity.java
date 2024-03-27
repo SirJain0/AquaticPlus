@@ -4,6 +4,8 @@ import com.sirjain.entities.entity.template.AbstractEelEntity;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityPose;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.goal.AttackGoal;
+import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
@@ -11,7 +13,6 @@ import net.minecraft.world.World;
 
 /*
 To do:
-- AI for attacking anything within radius
 - Play bite animation for when it is attacking
 */
 public class GulperEelEntity extends AbstractEelEntity {
@@ -25,6 +26,8 @@ public class GulperEelEntity extends AbstractEelEntity {
 	@Override
 	protected void initGoals() {
 		super.initGoals();
+		this.goalSelector.add(0, new AttackGoal(this));
+		this.targetSelector.add(0, new RevengeGoal(this));
 	}
 
 	@Override
@@ -52,6 +55,7 @@ public class GulperEelEntity extends AbstractEelEntity {
 	public static DefaultAttributeContainer.Builder createGulperEelEntity() {
 		return AbstractEelEntity
 			.createGenericEelAttributes()
-			.add(EntityAttributes.GENERIC_MAX_HEALTH, 20);
+			.add(EntityAttributes.GENERIC_MAX_HEALTH, 20)
+			.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7);
 	}
 }
