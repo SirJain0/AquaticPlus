@@ -6,6 +6,7 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 
 public class GulperEelModel extends SinglePartEntityModel<GulperEelEntity> {
 	private final ModelPart root;
@@ -64,12 +65,11 @@ public class GulperEelModel extends SinglePartEntityModel<GulperEelEntity> {
 	}
 
 	@Override
-	public void setAngles(GulperEelEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
-//		main.pivotX =
-
+	public void setAngles(GulperEelEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 
-		this.updateAnimation(entity.swimAnimationState, GulperEelAnimations.GULPER_EEL_SWIM, ageInTicks, 1f);
-		this.updateAnimation(entity.attackAnimationState, GulperEelAnimations.GULPER_EEL_BITE, ageInTicks, 1f);
+		main.pivotX = MathHelper.cos(animationProgress * 0.31f)*4;
+		this.updateAnimation(entity.swimAnimationState, GulperEelAnimations.GULPER_EEL_SWIM, animationProgress, 2f);
+		this.updateAnimation(entity.attackAnimationState, GulperEelAnimations.GULPER_EEL_BITE, animationProgress, 1f);
 	}
 }
