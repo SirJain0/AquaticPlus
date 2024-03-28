@@ -50,13 +50,6 @@ public class GulperEelEntity extends AbstractEelEntity {
 	}
 
 	@Override
-	protected void updateLimbs(float v) {
-		// TODO: Change something here to fix the idle animation
-		float f = this.getPose() == EntityPose.STANDING ? Math.min(v * 6, 2) : 2;
-		this.limbAnimator.updateLimbs(f, 1);
-	}
-
-	@Override
 	public void tick() {
 		super.tick();
 
@@ -72,22 +65,23 @@ public class GulperEelEntity extends AbstractEelEntity {
 			--this.idleAnimationTimeout;
 		}
 
-		if (this.isAttacking() && attackAnimationTimeout <= 0) {
-			attackAnimationTimeout = 40;
-			attackAnimationState.start(this.age);
-		} else {
-			--this.attackAnimationTimeout;
-		}
-
-		if (!this.isAttacking()) {
-			attackAnimationState.stop();
-		}
+//
+//		if (this.isAttacking() && attackAnimationTimeout <= 0) {
+//			attackAnimationTimeout = 40;
+//			attackAnimationState.start(this.age);
+//		} else {
+//			--this.attackAnimationTimeout;
+//		}
+//
+//		if (!this.isAttacking()) {
+//			attackAnimationState.stop();
+//		}
 	}
 
 //	@Override
 //	public boolean tryAttack(Entity target) {
 //		if (super.tryAttack(target) && target instanceof LivingEntity) {
-//			this.setAttacking(true);
+//			this.setIsAttacking(true);
 //		}
 //
 //		return super.tryAttack(target);

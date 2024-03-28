@@ -65,9 +65,10 @@ public class GulperEelModel extends SinglePartEntityModel<GulperEelEntity> {
 
 	@Override
 	public void setAngles(GulperEelEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+//		main.pivotX =
+
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
 
-		this.animateMovement(GulperEelAnimations.GULPER_EEL_SWIM, limbSwing, limbSwingAmount, 2f, 2.5f);
 		this.updateAnimation(entity.swimAnimationState, GulperEelAnimations.GULPER_EEL_SWIM, ageInTicks, 1f);
 		this.updateAnimation(entity.attackAnimationState, GulperEelAnimations.GULPER_EEL_BITE, ageInTicks, 1f);
 	}
