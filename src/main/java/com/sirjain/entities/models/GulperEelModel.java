@@ -40,7 +40,7 @@ public class GulperEelModel extends SinglePartEntityModel<GulperEelEntity> {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
 
-		ModelPartData gulper_eel = modelPartData.addChild("gulper_eel", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 18.0F, -11.0F));
+		ModelPartData gulper_eel = modelPartData.addChild("gulper_eel", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 26.0F, -5.0F));
 		ModelPartData head = gulper_eel.addChild("head", ModelPartBuilder.create().uv(0, 49).cuboid(-4.0F, -2.875F, -13.1875F, 8.0F, 4.0F, 0.0F, new Dilation(0.0F))
 			.uv(0, 16).cuboid(-6.0F, 0.125F, -12.9375F, 12.0F, 1.0F, 13.0F, new Dilation(-0.1F))
 			.uv(0, 0).cuboid(-6.0F, -2.375F, -12.9375F, 12.0F, 3.0F, 13.0F, new Dilation(0.0F))
@@ -58,6 +58,8 @@ public class GulperEelModel extends SinglePartEntityModel<GulperEelEntity> {
 
 		return TexturedModelData.of(modelData, 128, 128);
 	}
+
+
 
 	@Override
 	public ModelPart getPart() {

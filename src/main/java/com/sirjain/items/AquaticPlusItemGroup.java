@@ -47,6 +47,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.PINK_SUNFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.LANTERNFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.BLUEFIN_TUNA_SPAWN_EGG);
+					entries.add(AquaticPlusItems.GULPER_EEL_SPAWN_EGG);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
@@ -64,6 +65,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.FROSTED_BALL);
 					entries.add(AquaticPlusItems.FROST_SHARDS);
 					entries.add(AquaticPlusItems.STONE_ESSENCE);
+					entries.add(AquaticPlusItems.STONE_CORRODER);
 					entries.add(AquaticPlusItems.MAXILLA_MORTIS_TOOTH);
 					entries.add(AquaticPlusItems.VIPER_TOOTH);
 					entries.add(AquaticPlusItems.SUNFISH_TAIL);

@@ -35,6 +35,7 @@ public class AquaticPlusItems {
 	public static Item FROSTED_BALL;
 	public static Item FROST_SHARDS;
 	public static Item STONE_ESSENCE;
+	public static Item STONE_CORRODER;
 	public static Item MAXILLA_MORTIS_TOOTH;
 	public static Item VIPER_TOOTH;
 	public static Item SUNFISH_TAIL;
@@ -80,8 +81,8 @@ public class AquaticPlusItems {
 	}
 
 	public static void registerAdvancedItems() {
-		STONIFIER = registerCustomItem("stonifier", new StonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
-		DESTONIFIER = registerCustomItem("destonifier", new DestonifierItem(new Item.Settings().maxCount(1).maxDamage(60)));
+		STONIFIER = registerCustomItem("stonifier", new StonifierItem(new Item.Settings().maxCount(1).maxDamage(40)));
+		DESTONIFIER = registerCustomItem("destonifier", new DestonifierItem(new Item.Settings().maxCount(1).maxDamage(40)));
 		AQUATIC_STAR = registerCustomItem("aquatic_star", new AquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
 		NUMBING_AQUATIC_STAR = registerCustomItem("numbing_aquatic_star", new NumbingAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
@@ -93,6 +94,7 @@ public class AquaticPlusItems {
 		FROSTED_BALL = registerBasicItem("frosted_ball", new Item.Settings().maxCount(1).maxCount(16));
 		FROST_SHARDS = registerBasicItem("frost_shards", new Item.Settings());
 		STONE_ESSENCE = registerBasicItem("stone_essence", new Item.Settings());
+		STONE_CORRODER = registerBasicItem("stone_corroder", new Item.Settings());
 		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth", new Item.Settings());
 		VIPER_TOOTH = registerBasicItem("viper_tooth", new Item.Settings());
 		SUNFISH_TAIL = registerBasicItem("sunfish_tail", new Item.Settings());
