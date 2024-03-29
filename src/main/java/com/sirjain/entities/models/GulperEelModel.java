@@ -58,9 +58,7 @@ public class GulperEelModel extends SinglePartEntityModel<GulperEelEntity> {
 
 		return TexturedModelData.of(modelData, 128, 128);
 	}
-
-
-
+	
 	@Override
 	public ModelPart getPart() {
 		return main;
