@@ -70,6 +70,6 @@ public class GulperEelModel extends SinglePartEntityModel<GulperEelEntity> {
 
 		main.pivotX = MathHelper.cos(animationProgress * 0.31f)*4;
 		this.updateAnimation(entity.swimAnimationState, GulperEelAnimations.GULPER_EEL_SWIM, animationProgress, 2f);
-		this.updateAnimation(entity.attackAnimationState, GulperEelAnimations.GULPER_EEL_BITE, animationProgress, 1f);
+		this.updateAnimation(entity.attackAnimationState, GulperEelAnimations.GULPER_EEL_BITE, animationProgress, 2f);
 	}
 }

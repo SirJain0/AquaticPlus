@@ -269,7 +269,7 @@ public class GulperEelAnimations {
 		))
 		.build();
 
-	public static final Animation GULPER_EEL_BITE = Animation.Builder.create(2.0F).looping()
+	public static final Animation GULPER_EEL_BITE = Animation.Builder.create(2.0F)
 		.addBoneAnimation("gulper_eel", new Transformation(Transformation.Targets.TRANSLATE,
 			new Keyframe(0.0F, AnimationHelper.createTranslationalVector(0.0F, 0.0F, 0.0F), Transformation.Interpolations.CUBIC),
 			new Keyframe(0.0417F, AnimationHelper.createTranslationalVector(1.04F, 0.0F, 0.0F), Transformation.Interpolations.CUBIC),

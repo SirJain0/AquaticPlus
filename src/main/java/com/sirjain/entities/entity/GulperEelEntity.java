@@ -1,8 +1,8 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.AbstractEelEntity;
-import com.sirjain.entities.goals.GulperEelAttackGoal;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.goal.AttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -11,11 +11,8 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
-/*
-To do:
-- Play bite animation for when it is attacking
-*/
 public class GulperEelEntity extends AbstractEelEntity {
 	public static TrackedData<Boolean> IS_ATTACKING = DataTracker.registerData(GulperEelEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
@@ -31,7 +28,7 @@ public class GulperEelEntity extends AbstractEelEntity {
 	@Override
 	protected void initGoals() {
 		super.initGoals();
-		this.goalSelector.add(0, new GulperEelAttackGoal(this, 1.1D, true));
+		this.goalSelector.add(0, new AttackGoal(this));
 		this.targetSelector.add(0, new RevengeGoal(this));
 	}
 
@@ -41,10 +38,12 @@ public class GulperEelEntity extends AbstractEelEntity {
 		this.dataTracker.startTracking(IS_ATTACKING, false);
 	}
 
-	public void setIsAttacking(boolean attacking) {
+	@Override
+	public void setAttacking(boolean attacking) {
 		this.dataTracker.set(IS_ATTACKING, attacking);
 	}
 
+	@Override
 	public boolean isAttacking() {
 		return this.dataTracker.get(IS_ATTACKING);
 	}
@@ -52,9 +51,13 @@ public class GulperEelEntity extends AbstractEelEntity {
 	@Override
 	public void tick() {
 		super.tick();
-
 		if (this.getWorld().isClient) this.setupAnimationStates();
-//		if (this.getTarget() == null) this.setAttacking(false);
+	}
+
+	@Override
+	public void setTarget(@Nullable LivingEntity target) {
+		super.setTarget(target);
+		this.setAttacking(this.getTarget() != null);
 	}
 
 	private void setupAnimationStates() {
@@ -65,27 +68,15 @@ public class GulperEelEntity extends AbstractEelEntity {
 			--this.idleAnimationTimeout;
 		}
 
-//
-//		if (this.isAttacking() && attackAnimationTimeout <= 0) {
-//			attackAnimationTimeout = 40;
-//			attackAnimationState.start(this.age);
-//		} else {
-//			--this.attackAnimationTimeout;
-//		}
-//
-//		if (!this.isAttacking()) {
-//			attackAnimationState.stop();
-//		}
-	}
+		if (this.isAttacking() && attackAnimationTimeout <= 0) {
+			attackAnimationTimeout = 40;
+			attackAnimationState.start(this.age);
+		} else {
+			--this.attackAnimationTimeout;
+		}
 
-//	@Override
-//	public boolean tryAttack(Entity target) {
-//		if (super.tryAttack(target) && target instanceof LivingEntity) {
-//			this.setIsAttacking(true);
-//		}
-//
-//		return super.tryAttack(target);
-//	}
+		if (!this.isAttacking()) attackAnimationState.stop();
+	}
 
 	public static DefaultAttributeContainer.Builder createGulperEelEntity() {
 		return AbstractEelEntity
