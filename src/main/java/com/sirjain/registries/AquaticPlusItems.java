@@ -2,6 +2,7 @@ package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
 import com.sirjain.entities.models.GulperEelModel;
+import com.sirjain.entities.models.HalibutModel;
 import com.sirjain.items.AquaticPlusFoodItems;
 import com.sirjain.items.DeoxidizingMaterialItem;
 import com.sirjain.items.DestonifierItem;
@@ -44,6 +45,7 @@ public class AquaticPlusItems {
 	public static Item PARROTFISH;
 	public static Item BLUEFIN_TUNA;
 	public static Item SHADOW_SARDEL;
+	public static Item HALIBUT;
 
 	public static Item JOHNSON_SPAWN_EGG;
 	public static Item MINDINATOR_SPAWN_EGG;
@@ -107,6 +109,7 @@ public class AquaticPlusItems {
 		PARROTFISH = registerBasicItem("parrotfish", new Item.Settings().food(AquaticPlusFoodItems.PARROTFISH));
 		BLUEFIN_TUNA = registerBasicItem("bluefin_tuna", new Item.Settings().food(AquaticPlusFoodItems.BLUEFIN_TUNA));
 		SHADOW_SARDEL = registerBasicItem("shadow_sardel", new Item.Settings().food(AquaticPlusFoodItems.SHADOW_SARDEL));
+		HALIBUT = registerBasicItem("halibut", new Item.Settings().food(AquaticPlusFoodItems.HALIBUT));
 	}
 
 	public static void registerSpawnEggs() {

@@ -8,10 +8,12 @@ public class AquaticPlusFoodItems {
 	public static FoodComponent PARROTFISH;
 	public static FoodComponent BLUEFIN_TUNA;
 	public static FoodComponent SHADOW_SARDEL;
+	public static FoodComponent HALIBUT;
 
 	public static void registerFoodComponents() {
 		PARROTFISH = registerBasicFoodComponent(2);
 		BLUEFIN_TUNA = registerBasicFoodComponent(4);
+		HALIBUT = registerBasicFoodComponent(4);
 
 		SHADOW_SARDEL = new FoodComponent.Builder()
 			.hunger(2)

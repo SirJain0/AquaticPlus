@@ -60,6 +60,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.PARROTFISH);
 					entries.add(AquaticPlusItems.BLUEFIN_TUNA);
 					entries.add(AquaticPlusItems.SHADOW_SARDEL);
+					entries.add(AquaticPlusItems.HALIBUT);
 
 					entries.add(AquaticPlusItems.AQUATIC_STAR);
 					entries.add(AquaticPlusItems.NUMBING_AQUATIC_STAR);
