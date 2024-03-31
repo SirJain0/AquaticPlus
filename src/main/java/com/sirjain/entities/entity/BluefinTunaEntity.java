@@ -1,6 +1,7 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.APSchoolingFishEntity;
+import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.AttackGoal;
@@ -8,6 +9,7 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class BluefinTunaEntity extends APSchoolingFishEntity {
@@ -28,5 +30,10 @@ public class BluefinTunaEntity extends APSchoolingFishEntity {
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 12)
 			.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3)
 			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4.5F);
+	}
+
+	@Override
+	public ItemStack getBucketItem() {
+		return AquaticPlusItems.BLUEFIN_TUNA_BUCKET.getDefaultStack();
 	}
 }

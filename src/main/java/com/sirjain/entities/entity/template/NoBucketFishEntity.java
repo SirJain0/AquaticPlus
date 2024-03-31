@@ -20,4 +20,10 @@ public abstract class NoBucketFishEntity extends APFishEntity {
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
 		return ActionResult.PASS;
 	}
+
+	// Returns an action result of PASS when user right clicks it
+	@Override
+	public ItemStack getBucketItem() {
+		return ItemStack.EMPTY;
+	}
 }

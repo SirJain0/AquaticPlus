@@ -1,6 +1,8 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.APSchoolingFishEntity;
+import com.sirjain.entities.entity.template.NoBucketFishEntity;
+import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
@@ -9,7 +11,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.world.World;
 
-public class LanternfishEntity extends APSchoolingFishEntity {
+public class LanternfishEntity extends NoBucketSchoolingFishEntity {
 	public LanternfishEntity(EntityType<? extends APSchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
 	}
