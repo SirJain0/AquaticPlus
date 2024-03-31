@@ -38,8 +38,8 @@ public class BluefinTunaModel extends EntityModel<BluefinTunaEntity> {
 	@Override
 	public void setAngles(BluefinTunaEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 		tail.yaw = MathHelper.sin(-40 + animationProgress * 0.4f) * 0.3f;
-		tail2.yaw = MathHelper.sin(-65 + animationProgress * 0.4f) * 0.27f;
-		root.pivotX = MathHelper.sin(animationProgress * 0.4f) * 0.5f;
+		tail2.yaw = MathHelper.sin(-80 + animationProgress * 0.4f) * 0.27f;
+		root.pivotX = MathHelper.sin(animationProgress * 0.4f);
 	}
 
 	@Override

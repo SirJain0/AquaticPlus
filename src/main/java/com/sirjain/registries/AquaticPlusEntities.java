@@ -183,6 +183,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer HALIBUT_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "halibut"), "root");
+	public static final EntityType<HalibutEntity> HALIBUT_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "halibut"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, HalibutEntity::new)
+			.dimensions(EntityDimensions.fixed(0.4f, 0.4f))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -240,7 +249,8 @@ public class AquaticPlusEntities {
 		PINK_SUNFISH_ENTITY,
 		LANTERNFISH_ENTITY,
 		BLUEFIN_TUNA_ENTITY,
-		GULPER_EEL_ENTITY
+		GULPER_EEL_ENTITY,
+		HALIBUT_ENTITY
 	);
 
 	public static void registerAttributes() {
@@ -261,6 +271,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(LANTERNFISH_ENTITY, LanternfishEntity.createLanternfishAttributes());
 		FabricDefaultAttributeRegistry.register(BLUEFIN_TUNA_ENTITY, BluefinTunaEntity.createBluefinTunaAttributes());
 		FabricDefaultAttributeRegistry.register(GULPER_EEL_ENTITY, GulperEelEntity.createGulperEelEntity());
+		FabricDefaultAttributeRegistry.register(HALIBUT_ENTITY, HalibutEntity.createHalibutAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -283,6 +294,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(LANTERNFISH_ENTITY, LanternfishRenderer::new);
 		EntityRendererRegistry.register(BLUEFIN_TUNA_ENTITY, BluefinTunaRenderer::new);
 		EntityRendererRegistry.register(GULPER_EEL_ENTITY, GulperEelRenderer::new);
+		EntityRendererRegistry.register(HALIBUT_ENTITY, HalibutRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -301,6 +313,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(LANTERNFISH_LAYER, LanternfishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(BLUEFIN_TUNA_LAYER, BluefinTunaModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(GULPER_EEL_LAYER, GulperEelModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(HALIBUT_LAYER, HalibutModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {

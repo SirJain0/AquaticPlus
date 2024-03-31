@@ -18,6 +18,7 @@
 	"item.aquaticplus.lanternfish_spawn_egg": "Lanternfish Spawn Egg",
 	"item.aquaticplus.bluefin_tuna_spawn_egg": "Bluefin Tuna Spawn Egg",
 	"item.aquaticplus.gulper_eel_spawn_egg": "Gulper Eel Spawn Egg",
+	"item.aquaticplus.halibut_spawn_egg": "Halibut Spawn Egg",
 
 	"item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 	"item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
@@ -104,6 +105,7 @@
 	"entity.aquaticplus.lanternfish": "Lanternfish",
 	"entity.aquaticplus.bluefin_tuna": "Bluefin Tuna",
 	"entity.aquaticplus.gulper_eel": "Gulper Eel",
+	"entity.aquaticplus.halibut": "Halibut",
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
 	"entity.aquaticplus.numbing_aquatic_star": "Numbing Aquatic Star",
