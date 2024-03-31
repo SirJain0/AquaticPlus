@@ -69,6 +69,7 @@ public class AquaticPlusItems {
 	public static Item SHADOW_SARDEL_BUCKET;
 	public static Item DUMBO_BLOB_BUCKET;
 	public static Item BLUEFIN_TUNA_BUCKET;
+	public static Item HALIBUT_BUCKET;
 
 	public static Item GHOSTLY_GEL_ITEM;
 
@@ -135,6 +136,7 @@ public class AquaticPlusItems {
 		SHADOW_SARDEL_BUCKET = registerBucketItem("shadow_sardel_bucket", AquaticPlusEntities.SHADOW_SARDEL_ENTITY);
 		DUMBO_BLOB_BUCKET = registerBucketItem("dumbo_blob_bucket", AquaticPlusEntities.DUMBO_BLOB_ENTITY);
 		BLUEFIN_TUNA_BUCKET = registerBucketItem("bluefin_tuna_bucket", AquaticPlusEntities.BLUEFIN_TUNA_ENTITY);
+		HALIBUT_BUCKET = registerBucketItem("halibut_bucket", AquaticPlusEntities.HALIBUT_ENTITY);
 	}
 
 	public static void registerBlockItems() {
