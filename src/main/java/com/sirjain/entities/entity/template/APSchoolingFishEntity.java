@@ -32,10 +32,4 @@ public abstract class APSchoolingFishEntity extends SchoolingFishEntity {
 	protected SoundEvent getFlopSound() {
 		return SoundEvents.ENTITY_COD_FLOP;
 	}
-
-	// Overriden in later classes
-	@Override
-	public ItemStack getBucketItem() {
-		return ItemStack.EMPTY;
-	}
 }

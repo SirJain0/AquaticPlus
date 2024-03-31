@@ -48,16 +48,19 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.LANTERNFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.BLUEFIN_TUNA_SPAWN_EGG);
 					entries.add(AquaticPlusItems.GULPER_EEL_SPAWN_EGG);
+					entries.add(AquaticPlusItems.HALIBUT_SPAWN_EGG);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
 					entries.add(AquaticPlusItems.SHADOW_SARDEL_BUCKET);
 					entries.add(AquaticPlusItems.DUMBO_BLOB_BUCKET);
 					entries.add(AquaticPlusItems.BLUEFIN_TUNA_BUCKET);
+					entries.add(AquaticPlusItems.HALIBUT_BUCKET);
 
 					entries.add(AquaticPlusItems.PARROTFISH);
 					entries.add(AquaticPlusItems.BLUEFIN_TUNA);
 					entries.add(AquaticPlusItems.SHADOW_SARDEL);
+					entries.add(AquaticPlusItems.HALIBUT);
 
 					entries.add(AquaticPlusItems.AQUATIC_STAR);
 					entries.add(AquaticPlusItems.NUMBING_AQUATIC_STAR);

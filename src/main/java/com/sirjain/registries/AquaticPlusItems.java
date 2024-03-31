@@ -2,6 +2,7 @@ package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
 import com.sirjain.entities.models.GulperEelModel;
+import com.sirjain.entities.models.HalibutModel;
 import com.sirjain.items.AquaticPlusFoodItems;
 import com.sirjain.items.DeoxidizingMaterialItem;
 import com.sirjain.items.DestonifierItem;
@@ -44,6 +45,7 @@ public class AquaticPlusItems {
 	public static Item PARROTFISH;
 	public static Item BLUEFIN_TUNA;
 	public static Item SHADOW_SARDEL;
+	public static Item HALIBUT;
 
 	public static Item JOHNSON_SPAWN_EGG;
 	public static Item MINDINATOR_SPAWN_EGG;
@@ -62,12 +64,14 @@ public class AquaticPlusItems {
 	public static Item LANTERNFISH_SPAWN_EGG;
 	public static Item BLUEFIN_TUNA_SPAWN_EGG;
 	public static Item GULPER_EEL_SPAWN_EGG;
+	public static Item HALIBUT_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
 	public static Item SHADOW_SARDEL_BUCKET;
 	public static Item DUMBO_BLOB_BUCKET;
 	public static Item BLUEFIN_TUNA_BUCKET;
+	public static Item HALIBUT_BUCKET;
 
 	public static Item GHOSTLY_GEL_ITEM;
 
@@ -105,6 +109,7 @@ public class AquaticPlusItems {
 		PARROTFISH = registerBasicItem("parrotfish", new Item.Settings().food(AquaticPlusFoodItems.PARROTFISH));
 		BLUEFIN_TUNA = registerBasicItem("bluefin_tuna", new Item.Settings().food(AquaticPlusFoodItems.BLUEFIN_TUNA));
 		SHADOW_SARDEL = registerBasicItem("shadow_sardel", new Item.Settings().food(AquaticPlusFoodItems.SHADOW_SARDEL));
+		HALIBUT = registerBasicItem("halibut", new Item.Settings().food(AquaticPlusFoodItems.HALIBUT));
 	}
 
 	public static void registerSpawnEggs() {
@@ -125,6 +130,7 @@ public class AquaticPlusItems {
 		LANTERNFISH_SPAWN_EGG = registerSpawnEggItem("lanternfish_spawn_egg", AquaticPlusEntities.LANTERNFISH_ENTITY, 0x33333b, 0x34d7e8);
 		BLUEFIN_TUNA_SPAWN_EGG = registerSpawnEggItem("bluefin_tuna_spawn_egg", AquaticPlusEntities.BLUEFIN_TUNA_ENTITY, 0xd2d3d9, 0x313575);
 		GULPER_EEL_SPAWN_EGG = registerSpawnEggItem("gulper_eel_spawn_egg", AquaticPlusEntities.GULPER_EEL_ENTITY, 0x413b4a, 0x422e4d);
+		HALIBUT_SPAWN_EGG = registerSpawnEggItem("halibut_spawn_egg", AquaticPlusEntities.HALIBUT_ENTITY, 0x432d24, 0x644832);
 	}
 
 	public static void registerBucketItems() {
@@ -133,6 +139,7 @@ public class AquaticPlusItems {
 		SHADOW_SARDEL_BUCKET = registerBucketItem("shadow_sardel_bucket", AquaticPlusEntities.SHADOW_SARDEL_ENTITY);
 		DUMBO_BLOB_BUCKET = registerBucketItem("dumbo_blob_bucket", AquaticPlusEntities.DUMBO_BLOB_ENTITY);
 		BLUEFIN_TUNA_BUCKET = registerBucketItem("bluefin_tuna_bucket", AquaticPlusEntities.BLUEFIN_TUNA_ENTITY);
+		HALIBUT_BUCKET = registerBucketItem("halibut_bucket", AquaticPlusEntities.HALIBUT_ENTITY);
 	}
 
 	public static void registerBlockItems() {
