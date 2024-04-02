@@ -5,6 +5,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 
 public class AquaticPlusFoodItems {
+	public static FoodComponent VIPERFISH;
 	public static FoodComponent PARROTFISH;
 	public static FoodComponent BLUEFIN_TUNA;
 	public static FoodComponent SHADOW_SARDEL;
@@ -12,6 +13,7 @@ public class AquaticPlusFoodItems {
 	public static FoodComponent SARDINE;
 
 	public static void registerFoodComponents() {
+		VIPERFISH = registerBasicFoodComponent(3);
 		PARROTFISH = registerBasicFoodComponent(2);
 		BLUEFIN_TUNA = registerBasicFoodComponent(4);
 		HALIBUT = registerBasicFoodComponent(4);

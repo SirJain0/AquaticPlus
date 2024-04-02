@@ -10,6 +10,29 @@
 					"functions": [
 						{
 							"function": "minecraft:set_count",
+							"count": {
+								"min": 0,
+								"max": 1
+							}
+						}
+					],
+					"conditions": [
+						{
+							"condition": "minecraft:killed_by_player"
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "aquaticplus:viperfish",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
 							"count": 1
 						}
 					],

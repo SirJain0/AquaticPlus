@@ -39,6 +39,7 @@ public class AquaticPlusItems {
 	public static Item SUNFISH_TAIL;
 	public static Item GHOSTLY_MEMBRANE;
 
+	public static Item VIPERFISH;
 	public static Item PARROTFISH;
 	public static Item BLUEFIN_TUNA;
 	public static Item SHADOW_SARDEL;
@@ -106,6 +107,7 @@ public class AquaticPlusItems {
 	}
 
 	public static void registerFoodItems() {
+		VIPERFISH = registerFoodItem("viperfish", AquaticPlusFoodItems.VIPERFISH);
 		PARROTFISH = registerFoodItem("parrotfish", AquaticPlusFoodItems.PARROTFISH);
 		BLUEFIN_TUNA = registerFoodItem("bluefin_tuna", AquaticPlusFoodItems.BLUEFIN_TUNA);
 		SHADOW_SARDEL = registerFoodItem("shadow_sardel", AquaticPlusFoodItems.SHADOW_SARDEL);
