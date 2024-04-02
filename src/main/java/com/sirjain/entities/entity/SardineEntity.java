@@ -36,10 +36,18 @@ public class SardineEntity extends APSchoolingFishEntity {
 		return AquaticPlusItems.SARDINE_BUCKET.getDefaultStack();
 	}
 
+	@Override
+	public void copyDataToStack(ItemStack stack) {
+		super.copyDataToStack(stack);
+
+		NbtCompound nbtCompound = stack.getOrCreateNbt();
+		nbtCompound.putInt(BUCKET_VARIANT_TAG_KEY, this.getVariant().id);
+	}
+
 	@Nullable
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-		if (spawnReason == SpawnReason.BUCKET && entityNbt != null && entityNbt.contains(BUCKET_VARIANT_TAG_KEY, 1)) {
+		if (spawnReason == SpawnReason.BUCKET && entityNbt != null && entityNbt.contains(BUCKET_VARIANT_TAG_KEY, 3)) {
 			this.setVariant(SardineType.byId(entityNbt.getInt(BUCKET_VARIANT_TAG_KEY)));
 			return entityData;
 		}
@@ -48,12 +56,11 @@ public class SardineEntity extends APSchoolingFishEntity {
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
 	}
 
-	@Override
-	public void copyDataToStack(ItemStack stack) {
-		super.copyDataToStack(stack);
+	protected void initVariant() {
+		int textureID = this.random.nextInt(3);
 
-		NbtCompound nbtCompound = stack.getOrCreateNbt();
-		nbtCompound.putInt(BUCKET_VARIANT_TAG_KEY, this.getVariant().id);
+		if (textureID == 0 || textureID == 1) this.setVariant(SardineType.GREY);
+		else if (textureID == 2) this.setVariant(SardineType.BLUE_TOP);
 	}
 
 	@Override
@@ -72,13 +79,6 @@ public class SardineEntity extends APSchoolingFishEntity {
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
 		this.setVariant(SardineType.byId(nbt.getInt("sardine_type")));
-	}
-
-	protected void initVariant() {
-		int textureID = this.random.nextInt(3);
-
-		if (textureID == 0 || textureID == 1) this.setVariant(SardineType.GREY);
-		else if (textureID == 2) this.setVariant(SardineType.BLUE_TOP);
 	}
 
 	public void setVariant(SardineType sardineType) {
