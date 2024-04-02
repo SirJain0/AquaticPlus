@@ -26,7 +26,8 @@ import net.minecraft.util.Identifier;
 import java.util.Arrays;
 import java.util.List;
 
-// TODO: Check all hitboxes
+// TODO: Check all hitboxes and shadow radiuses
+// TODO: Make all single texture for entities in root texture/entity instead of subfolders
 // TODO: Refactor system?
 
 public class AquaticPlusEntities {
@@ -192,6 +193,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer SARDINE_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "sardine"), "root");
+	public static final EntityType<SardineEntity> SARDINE_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "sardine"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, SardineEntity::new)
+			.dimensions(EntityDimensions.fixed(0.4f, 0.4f))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -250,7 +260,8 @@ public class AquaticPlusEntities {
 		LANTERNFISH_ENTITY,
 		BLUEFIN_TUNA_ENTITY,
 		GULPER_EEL_ENTITY,
-		HALIBUT_ENTITY
+		HALIBUT_ENTITY,
+		SARDINE_ENTITY
 	);
 
 	public static void registerAttributes() {
@@ -272,6 +283,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(BLUEFIN_TUNA_ENTITY, BluefinTunaEntity.createBluefinTunaAttributes());
 		FabricDefaultAttributeRegistry.register(GULPER_EEL_ENTITY, GulperEelEntity.createGulperEelEntity());
 		FabricDefaultAttributeRegistry.register(HALIBUT_ENTITY, HalibutEntity.createHalibutAttributes());
+		FabricDefaultAttributeRegistry.register(SARDINE_ENTITY, SardineEntity.createSardineAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -295,6 +307,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(BLUEFIN_TUNA_ENTITY, BluefinTunaRenderer::new);
 		EntityRendererRegistry.register(GULPER_EEL_ENTITY, GulperEelRenderer::new);
 		EntityRendererRegistry.register(HALIBUT_ENTITY, HalibutRenderer::new);
+		EntityRendererRegistry.register(SARDINE_ENTITY, SardineRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -314,6 +327,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(BLUEFIN_TUNA_LAYER, BluefinTunaModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(GULPER_EEL_LAYER, GulperEelModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(HALIBUT_LAYER, HalibutModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(SARDINE_LAYER, SardineModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {

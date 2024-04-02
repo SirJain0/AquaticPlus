@@ -15,10 +15,7 @@ import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.fluid.Fluids;
-import net.minecraft.item.BlockItem;
-import net.minecraft.item.EntityBucketItem;
-import net.minecraft.item.Item;
-import net.minecraft.item.SpawnEggItem;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvents;
@@ -46,6 +43,7 @@ public class AquaticPlusItems {
 	public static Item BLUEFIN_TUNA;
 	public static Item SHADOW_SARDEL;
 	public static Item HALIBUT;
+	public static Item SARDINE;
 
 	public static Item JOHNSON_SPAWN_EGG;
 	public static Item MINDINATOR_SPAWN_EGG;
@@ -65,6 +63,7 @@ public class AquaticPlusItems {
 	public static Item BLUEFIN_TUNA_SPAWN_EGG;
 	public static Item GULPER_EEL_SPAWN_EGG;
 	public static Item HALIBUT_SPAWN_EGG;
+	public static Item SARDINE_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -72,6 +71,7 @@ public class AquaticPlusItems {
 	public static Item DUMBO_BLOB_BUCKET;
 	public static Item BLUEFIN_TUNA_BUCKET;
 	public static Item HALIBUT_BUCKET;
+	public static Item SARDINE_BUCKET;
 
 	public static Item GHOSTLY_GEL_ITEM;
 
@@ -106,10 +106,11 @@ public class AquaticPlusItems {
 	}
 
 	public static void registerFoodItems() {
-		PARROTFISH = registerBasicItem("parrotfish", new Item.Settings().food(AquaticPlusFoodItems.PARROTFISH));
-		BLUEFIN_TUNA = registerBasicItem("bluefin_tuna", new Item.Settings().food(AquaticPlusFoodItems.BLUEFIN_TUNA));
-		SHADOW_SARDEL = registerBasicItem("shadow_sardel", new Item.Settings().food(AquaticPlusFoodItems.SHADOW_SARDEL));
-		HALIBUT = registerBasicItem("halibut", new Item.Settings().food(AquaticPlusFoodItems.HALIBUT));
+		PARROTFISH = registerFoodItem("parrotfish", AquaticPlusFoodItems.PARROTFISH);
+		BLUEFIN_TUNA = registerFoodItem("bluefin_tuna", AquaticPlusFoodItems.BLUEFIN_TUNA);
+		SHADOW_SARDEL = registerFoodItem("shadow_sardel", AquaticPlusFoodItems.SHADOW_SARDEL);
+		HALIBUT = registerFoodItem("halibut", AquaticPlusFoodItems.HALIBUT);
+		SARDINE = registerFoodItem("sardine", AquaticPlusFoodItems.SARDINE);
 	}
 
 	public static void registerSpawnEggs() {
@@ -131,6 +132,7 @@ public class AquaticPlusItems {
 		BLUEFIN_TUNA_SPAWN_EGG = registerSpawnEggItem("bluefin_tuna_spawn_egg", AquaticPlusEntities.BLUEFIN_TUNA_ENTITY, 0xd2d3d9, 0x313575);
 		GULPER_EEL_SPAWN_EGG = registerSpawnEggItem("gulper_eel_spawn_egg", AquaticPlusEntities.GULPER_EEL_ENTITY, 0x413b4a, 0x422e4d);
 		HALIBUT_SPAWN_EGG = registerSpawnEggItem("halibut_spawn_egg", AquaticPlusEntities.HALIBUT_ENTITY, 0x432d24, 0x644832);
+		SARDINE_SPAWN_EGG = registerSpawnEggItem("sardine_spawn_egg", AquaticPlusEntities.SARDINE_ENTITY, 0xbdbdbe, 0xb8ad9e);
 	}
 
 	public static void registerBucketItems() {
@@ -140,6 +142,7 @@ public class AquaticPlusItems {
 		DUMBO_BLOB_BUCKET = registerBucketItem("dumbo_blob_bucket", AquaticPlusEntities.DUMBO_BLOB_ENTITY);
 		BLUEFIN_TUNA_BUCKET = registerBucketItem("bluefin_tuna_bucket", AquaticPlusEntities.BLUEFIN_TUNA_ENTITY);
 		HALIBUT_BUCKET = registerBucketItem("halibut_bucket", AquaticPlusEntities.HALIBUT_ENTITY);
+		SARDINE_BUCKET = registerBucketItem("sardine_bucket", AquaticPlusEntities.SARDINE_ENTITY);
 	}
 
 	public static void registerBlockItems() {
@@ -153,6 +156,10 @@ public class AquaticPlusItems {
 			new Identifier(AquaticPlus.MOD_ID, identifier),
 			new Item(settings)
 		);
+	}
+
+	public static Item registerFoodItem(String identifier, FoodComponent food) {
+		return registerBasicItem(identifier, new Item.Settings().food(food));
 	}
 
 	public static Item registerCustomItem(String identifier, Item item) {
