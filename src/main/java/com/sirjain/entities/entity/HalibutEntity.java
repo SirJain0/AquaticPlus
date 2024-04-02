@@ -1,7 +1,6 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.APSchoolingFishEntity;
-import com.sirjain.entities.entity.template.AbstractEelEntity;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -16,8 +15,8 @@ public class HalibutEntity extends APSchoolingFishEntity {
 	}
 
 	public static DefaultAttributeContainer.Builder createHalibutAttributes() {
-		return AbstractEelEntity
-			.createGenericEelAttributes()
+		return SchoolingFishEntity
+			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 6);
 	}
 

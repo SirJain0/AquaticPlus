@@ -39,7 +39,7 @@ public class SardineEntity extends APSchoolingFishEntity {
 	@Nullable
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-		if (spawnReason == SpawnReason.BUCKET && entityNbt != null && entityNbt.contains(BUCKET_VARIANT_TAG_KEY, 2)) {
+		if (spawnReason == SpawnReason.BUCKET && entityNbt != null && entityNbt.contains(BUCKET_VARIANT_TAG_KEY, 1)) {
 			this.setVariant(SardineType.byId(entityNbt.getInt(BUCKET_VARIANT_TAG_KEY)));
 			return entityData;
 		}
@@ -49,21 +49,29 @@ public class SardineEntity extends APSchoolingFishEntity {
 	}
 
 	@Override
+	public void copyDataToStack(ItemStack stack) {
+		super.copyDataToStack(stack);
+
+		NbtCompound nbtCompound = stack.getOrCreateNbt();
+		nbtCompound.putInt(BUCKET_VARIANT_TAG_KEY, this.getVariant().id);
+	}
+
+	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
-		this.dataTracker.startTracking(SARDINE_TYPE, MantaRayEntity.MantaRayType.DARK.id);
+		this.dataTracker.startTracking(SARDINE_TYPE, SardineType.GREY.id);
 	}
 
 	@Override
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
-		nbt.putInt("SardineType", this.getVariant().id);
+		nbt.putInt("sardine_type", this.getVariant().id);
 	}
 
 	@Override
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
-		this.setVariant(SardineType.byId(nbt.getInt("SardineType")));
+		this.setVariant(SardineType.byId(nbt.getInt("sardine_type")));
 	}
 
 	protected void initVariant() {
