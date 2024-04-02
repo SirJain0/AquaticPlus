@@ -9,14 +9,19 @@ import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
 
 public class SardineRenderer extends MobEntityRenderer<SardineEntity, SardineModel> {
-	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/sardine/sardine.png");
-
 	public SardineRenderer(EntityRendererFactory.Context context) {
 		super(context, new SardineModel(context.getPart(AquaticPlusEntities.SARDINE_LAYER)), 0.5f);
 	}
 
 	@Override
 	public Identifier getTexture(SardineEntity entity) {
-		return TEXTURE;
+		return switch(entity.getVariant()) {
+			case GREY -> buildTextureID("grey");
+			case BLUE_TOP -> buildTextureID("blue_top");
+		};
+	}
+
+	public static Identifier buildTextureID(String id) {
+		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/sardine/sardine_" + id + ".png");
 	}
 }
