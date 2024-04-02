@@ -63,6 +63,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
 	}
 
+	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
 
@@ -71,6 +72,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		this.dataTracker.startTracking(BOOST_TIME, 0);
 	}
 
+	@Override
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
 
@@ -78,6 +80,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		this.saddledComponent.writeNbt(nbt);
 	}
 
+	@Override
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
 

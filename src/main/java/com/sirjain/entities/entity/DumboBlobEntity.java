@@ -75,6 +75,7 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 
 	public void copyDataToStack(ItemStack stack) {
 		super.copyDataToStack(stack);
+
 		NbtCompound nbtCompound = stack.getOrCreateNbt();
 		nbtCompound.putInt(BUCKET_VARIANT_TAG_KEY, this.getVariant().id);
 	}
