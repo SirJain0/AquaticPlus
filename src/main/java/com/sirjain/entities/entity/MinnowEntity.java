@@ -59,14 +59,15 @@ public class MinnowEntity extends APSchoolingFishEntity {
 	protected void initVariant() {
 		int textureID = this.random.nextInt(3);
 
-		if (textureID == 0 || textureID == 1) this.setVariant(MinnowType.ONE);
-		else if (textureID == 2) this.setVariant(MinnowType.TWO);
+		if (textureID == 0) this.setVariant(MinnowType.BLUE_WHITE);
+		if (textureID == 1) this.setVariant(MinnowType.BROWN_RED);
+		else if (textureID == 2) this.setVariant(MinnowType.GREEN_BEIGE);
 	}
 
 	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
-		this.dataTracker.startTracking(MINNOW_TYPE, MinnowType.ONE.id);
+		this.dataTracker.startTracking(MINNOW_TYPE, MinnowType.BLUE_WHITE.id);
 	}
 
 	@Override
@@ -89,21 +90,13 @@ public class MinnowEntity extends APSchoolingFishEntity {
 		return MinnowType.byId(this.dataTracker.get(MINNOW_TYPE));
 	}
 
-	public static DefaultAttributeContainer.Builder createMinnowAttributes() {
-		return FishEntity
-			.createFishAttributes()
-			.add(EntityAttributes.GENERIC_MAX_HEALTH, 4)
-			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 6);
-	}
-
 	public enum MinnowType implements StringIdentifiable {
-		ONE(0, "one"),
-		TWO(1, "two"),
-		THREE(1, "three"),
-		FOUR(1, "four");
+		BLUE_WHITE(0, "blue_white"),
+		BROWN_RED(1, "brown_red"),
+		GREEN_BEIGE(2, "green_beige");
 
 		private static final IntFunction<MinnowType> BY_ID = ValueLists.createIdToValueFunction(
-			MinnowType::getId, values(), ONE
+			MinnowType::getId, values(), BLUE_WHITE
 		);
 
 		final int id;

@@ -50,6 +50,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.GULPER_EEL_SPAWN_EGG);
 					entries.add(AquaticPlusItems.HALIBUT_SPAWN_EGG);
 					entries.add(AquaticPlusItems.SARDINE_SPAWN_EGG);
+					entries.add(AquaticPlusItems.MINNOW_SPAWN_EGG);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);

@@ -65,6 +65,7 @@ public class AquaticPlusItems {
 	public static Item GULPER_EEL_SPAWN_EGG;
 	public static Item HALIBUT_SPAWN_EGG;
 	public static Item SARDINE_SPAWN_EGG;
+	public static Item MINNOW_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -135,6 +136,7 @@ public class AquaticPlusItems {
 		GULPER_EEL_SPAWN_EGG = registerSpawnEggItem("gulper_eel_spawn_egg", AquaticPlusEntities.GULPER_EEL_ENTITY, 0x413b4a, 0x422e4d);
 		HALIBUT_SPAWN_EGG = registerSpawnEggItem("halibut_spawn_egg", AquaticPlusEntities.HALIBUT_ENTITY, 0x432d24, 0x644832);
 		SARDINE_SPAWN_EGG = registerSpawnEggItem("sardine_spawn_egg", AquaticPlusEntities.SARDINE_ENTITY, 0xbdbdbe, 0xb8ad9e);
+		MINNOW_SPAWN_EGG = registerSpawnEggItem("minnow_spawn_egg", AquaticPlusEntities.MINNOW_ENTITY, 0x50602d, 0xcfbd82);
 	}
 
 	public static void registerBucketItems() {

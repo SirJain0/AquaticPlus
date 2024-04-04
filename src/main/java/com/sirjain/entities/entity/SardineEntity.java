@@ -89,7 +89,7 @@ public class SardineEntity extends APSchoolingFishEntity {
 		return SardineType.byId(this.dataTracker.get(SARDINE_TYPE));
 	}
 
-	public static DefaultAttributeContainer.Builder createSardineAttributes() {
+	public static DefaultAttributeContainer.Builder createSchoolingFishAttributes() {
 		return FishEntity
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 4)

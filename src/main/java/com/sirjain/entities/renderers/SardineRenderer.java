@@ -15,13 +15,7 @@ public class SardineRenderer extends MobEntityRenderer<SardineEntity, SardineMod
 
 	@Override
 	public Identifier getTexture(SardineEntity entity) {
-		return switch(entity.getVariant()) {
-			case GREY -> buildTextureID("grey");
-			case BLUE_TOP -> buildTextureID("blue_top");
-		};
-	}
-
-	public static Identifier buildTextureID(String id) {
-		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/sardine/sardine_" + id + ".png");
+		String variantName = entity.getVariant().name().toLowerCase();
+		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/sardine/sardine_" + variantName + ".png");
 	}
 }

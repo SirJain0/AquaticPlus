@@ -117,7 +117,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 			}
 		} else {
 			if (this.isLogicalSideForUpdatingMovement())
-				this.move(MovementType.SELF, this.getRotationVector().multiply(0.26f));
+				this.move(MovementType.SELF, this.getRotationVector().multiply(0.2f));
 
 			super.travel(movementInput.multiply(3f));
 		}

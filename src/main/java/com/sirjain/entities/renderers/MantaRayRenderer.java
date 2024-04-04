@@ -15,14 +15,7 @@ public class MantaRayRenderer extends MobEntityRenderer<MantaRayEntity, MantaRay
 
 	@Override
 	public Identifier getTexture(MantaRayEntity entity) {
-		return switch(entity.getVariant()) {
-			case DARK -> buildTextureID("dark");
-			case DARK_SPOTTED -> buildTextureID("dark_spotted");
-			case BLUE -> buildTextureID("blue");
-		};
-	}
-
-	public static Identifier buildTextureID(String id) {
-		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/manta_ray/manta_ray_" + id + ".png");
+		String variantName = entity.getVariant().name().toLowerCase();
+		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/manta_ray/manta_ray_" + variantName + ".png");
 	}
 }
