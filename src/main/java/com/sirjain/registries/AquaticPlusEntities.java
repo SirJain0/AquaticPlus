@@ -27,7 +27,6 @@ import java.util.Arrays;
 import java.util.List;
 
 // TODO: Check all hitboxes and shadow radiuses
-// TODO: Make all single texture for entities in root texture/entity instead of subfolders
 // TODO: Refactor system?
 
 public class AquaticPlusEntities {
