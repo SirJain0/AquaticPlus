@@ -201,6 +201,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer MINNOW_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "minnow"), "root");
+	public static final EntityType<MinnowEntity> MINNOW_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "minnow"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, MinnowEntity::new)
+			.dimensions(EntityDimensions.fixed(0.4f, 0.4f))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
