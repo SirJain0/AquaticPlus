@@ -10,7 +10,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class BluefinTunaRenderer extends MobEntityRenderer<BluefinTunaEntity, BluefinTunaModel> {
-	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/bluefin_tuna/bluefin_tuna.png");
+	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/bluefin_tuna.png");
 
 	public BluefinTunaRenderer(EntityRendererFactory.Context context) {
 		super(context, new BluefinTunaModel(context.getPart(AquaticPlusEntities.BLUEFIN_TUNA_LAYER)), 0.5f);

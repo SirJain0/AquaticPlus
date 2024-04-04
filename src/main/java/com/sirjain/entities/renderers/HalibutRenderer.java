@@ -12,7 +12,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class HalibutRenderer extends MobEntityRenderer<HalibutEntity, HalibutModel> {
-	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/halibut/halibut.png");
+	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/halibut.png");
 
 	public HalibutRenderer(EntityRendererFactory.Context context) {
 		super(context, new HalibutModel(context.getPart(AquaticPlusEntities.HALIBUT_LAYER)), 0.5f);
