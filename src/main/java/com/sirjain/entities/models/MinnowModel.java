@@ -24,17 +24,14 @@ public class MinnowModel extends EntityModel<MinnowEntity> {
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
+
 		ModelPartData minnow = modelPartData.addChild("minnow", ModelPartBuilder.create().uv(0, 0).cuboid(-1.5F, -0.5994F, -5.7992F, 3.0F, 5.0F, 11.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 18.8494F, -5.4508F, 0.0F, 0.0873F, 0.0F));
-
 		ModelPartData cube_r1 = minnow.addChild("cube_r1", ModelPartBuilder.create().uv(0, 12).cuboid(0.0F, -3.1224F, -5.4491F, 0.0F, 4.0F, 4.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 4.3546F, 4.7957F, 0.48F, 0.0F, 0.0F));
-
 		ModelPartData cube_r2 = minnow.addChild("cube_r2", ModelPartBuilder.create().uv(0, 0).cuboid(0.0F, -3.0F, -0.75F, 0.0F, 5.0F, 5.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -0.8494F, 3.4508F, -0.6414F, 0.0F, 0.0F));
-
 		ModelPartData tail1 = minnow.addChild("tail1", ModelPartBuilder.create().uv(0, 16).cuboid(-1.0F, -4.0F, 0.0F, 2.0F, 3.0F, 8.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 4.4006F, 5.2008F, 0.0F, 0.3054F, 0.0F));
-
 		ModelPartData cube_r3 = tail1.addChild("cube_r3", ModelPartBuilder.create().uv(0, 16).cuboid(0.0F, -0.8776F, 1.4491F, 0.0F, 4.0F, 4.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, 0.454F, -0.4052F, 0.48F, 0.0F, 0.0F));
-
 		ModelPartData tail2 = tail1.addChild("tail2", ModelPartBuilder.create().uv(12, 10).cuboid(0.0F, -4.0F, -1.75F, 0.0F, 8.0F, 6.0F, new Dilation(0.0F)), ModelTransform.of(0.0F, -2.5F, 7.75F, 0.0F, 0.6109F, 0.0F));
+
 		return TexturedModelData.of(modelData, 32, 32);
 	}
 
