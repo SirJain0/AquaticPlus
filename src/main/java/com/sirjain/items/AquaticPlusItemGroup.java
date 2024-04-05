@@ -50,6 +50,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.GULPER_EEL_SPAWN_EGG);
 					entries.add(AquaticPlusItems.HALIBUT_SPAWN_EGG);
 					entries.add(AquaticPlusItems.SARDINE_SPAWN_EGG);
+					entries.add(AquaticPlusItems.MINNOW_SPAWN_EGG);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
@@ -58,6 +59,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.BLUEFIN_TUNA_BUCKET);
 					entries.add(AquaticPlusItems.HALIBUT_BUCKET);
 					entries.add(AquaticPlusItems.SARDINE_BUCKET);
+					entries.add(AquaticPlusItems.MINNOW_BUCKET);
 
 					entries.add(AquaticPlusItems.VIPERFISH);
 					entries.add(AquaticPlusItems.PARROTFISH);
@@ -65,6 +67,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.SHADOW_SARDEL);
 					entries.add(AquaticPlusItems.HALIBUT);
 					entries.add(AquaticPlusItems.SARDINE);
+					entries.add(AquaticPlusItems.MINNOW);
 
 					entries.add(AquaticPlusItems.AQUATIC_STAR);
 					entries.add(AquaticPlusItems.NUMBING_AQUATIC_STAR);

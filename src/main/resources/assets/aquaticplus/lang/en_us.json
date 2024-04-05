@@ -20,6 +20,7 @@
 	"item.aquaticplus.gulper_eel_spawn_egg": "Gulper Eel Spawn Egg",
 	"item.aquaticplus.halibut_spawn_egg": "Halibut Spawn Egg",
 	"item.aquaticplus.sardine_spawn_egg": "Sardine Spawn Egg",
+	"item.aquaticplus.minnow_spawn_egg": "Minnow Spawn Egg",
 
 	"item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 	"item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
@@ -28,6 +29,7 @@
 	"item.aquaticplus.bluefin_tuna_bucket": "Bluefin Tuna Bucket",
 	"item.aquaticplus.halibut_bucket": "Halibut Bucket",
 	"item.aquaticplus.sardine_bucket": "Sardine Bucket",
+	"item.aquaticplus.minnow_bucket": "Minnow Bucket",
 
 	"item.aquaticplus.viperfish": "Viperfish",
 	"item.aquaticplus.parrotfish": "Parrotfish",
@@ -35,6 +37,7 @@
 	"item.aquaticplus.bluefin_tuna": "Bluefin Tuna",
 	"item.aquaticplus.halibut": "Halibut",
 	"item.aquaticplus.sardine": "Sardine",
+	"item.aquaticplus.minnow": "Minnow",
 
 	"item.aquaticplus.frost_shards": "Frost Shards",
 	"item.aquaticplus.stone_essence": "Stone Essence",
@@ -114,6 +117,8 @@
 	"entity.aquaticplus.gulper_eel": "Gulper Eel",
 	"entity.aquaticplus.halibut": "Halibut",
 	"entity.aquaticplus.sardine": "Sardine",
+	"entity.aquaticplus.minnow": "Minnow",
+
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
 	"entity.aquaticplus.numbing_aquatic_star": "Numbing Aquatic Star",
