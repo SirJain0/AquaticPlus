@@ -6,6 +6,7 @@ import com.sirjain.entities.models.SardineModel;
 import com.sirjain.registries.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class SardineRenderer extends MobEntityRenderer<SardineEntity, SardineModel> {
@@ -17,5 +18,10 @@ public class SardineRenderer extends MobEntityRenderer<SardineEntity, SardineMod
 	public Identifier getTexture(SardineEntity entity) {
 		String variantName = entity.getVariant().name().toLowerCase();
 		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/sardine/sardine_" + variantName + ".png");
+	}
+
+	@Override
+	protected void scale(SardineEntity entity, MatrixStack matrices, float amount) {
+		matrices.scale(0.6f, 0.6f, 0.6f);
 	}
 }
