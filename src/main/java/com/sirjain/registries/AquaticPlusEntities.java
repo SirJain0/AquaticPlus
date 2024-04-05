@@ -293,8 +293,8 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(BLUEFIN_TUNA_ENTITY, BluefinTunaEntity.createBluefinTunaAttributes());
 		FabricDefaultAttributeRegistry.register(GULPER_EEL_ENTITY, GulperEelEntity.createGulperEelEntity());
 		FabricDefaultAttributeRegistry.register(HALIBUT_ENTITY, HalibutEntity.createHalibutAttributes());
-		FabricDefaultAttributeRegistry.register(SARDINE_ENTITY, SardineEntity.createSchoolingFishAttributes());
-		FabricDefaultAttributeRegistry.register(MINNOW_ENTITY, SchoolingFishEntity.createFishAttributes());
+		FabricDefaultAttributeRegistry.register(SARDINE_ENTITY, FishEntity.createFishAttributes());
+		FabricDefaultAttributeRegistry.register(MINNOW_ENTITY, FishEntity.createFishAttributes());
 	}
 
 	public static void registerEntityRenderers() {
