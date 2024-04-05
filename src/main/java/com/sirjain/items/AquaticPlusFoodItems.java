@@ -11,6 +11,7 @@ public class AquaticPlusFoodItems {
 	public static FoodComponent SHADOW_SARDEL;
 	public static FoodComponent HALIBUT;
 	public static FoodComponent SARDINE;
+	public static FoodComponent MINNOW;
 
 	public static void registerFoodComponents() {
 		VIPERFISH = registerBasicFoodComponent(3);
@@ -25,6 +26,10 @@ public class AquaticPlusFoodItems {
 			.statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 20 * 3, 0), 0.25f)
 			.build();
 
+		MINNOW = new FoodComponent.Builder()
+			.hunger(2)
+			.statusEffect(new StatusEffectInstance(StatusEffects.SPEED, 20 * 4, 0), 0.5f)
+			.build();
 	}
 
 	public static FoodComponent registerBasicFoodComponent(int hunger) {

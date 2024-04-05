@@ -4,18 +4,17 @@ import com.sirjain.entities.entity.template.APSchoolingFishEntity;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.MovementType;
 import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.function.ValueLists;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -33,7 +32,7 @@ public class MinnowEntity extends APSchoolingFishEntity {
 
 	@Override
 	public ItemStack getBucketItem() {
-		return AquaticPlusItems.SARDINE_BUCKET.getDefaultStack(); // TODO: Change
+		return AquaticPlusItems.MINNOW_BUCKET.getDefaultStack();
 	}
 
 	@Override
@@ -88,6 +87,14 @@ public class MinnowEntity extends APSchoolingFishEntity {
 
 	public MinnowType getVariant() {
 		return MinnowType.byId(this.dataTracker.get(MINNOW_TYPE));
+	}
+
+	@Override
+	public void travel(Vec3d movementInput) {
+		super.travel(movementInput);
+
+		if (this.isLogicalSideForUpdatingMovement())
+			this.move(MovementType.SELF, this.getRotationVector().multiply(0.2f));
 	}
 
 	public enum MinnowType implements StringIdentifiable {

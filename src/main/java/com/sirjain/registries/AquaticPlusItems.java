@@ -45,6 +45,7 @@ public class AquaticPlusItems {
 	public static Item SHADOW_SARDEL;
 	public static Item HALIBUT;
 	public static Item SARDINE;
+	public static Item MINNOW;
 
 	public static Item JOHNSON_SPAWN_EGG;
 	public static Item MINDINATOR_SPAWN_EGG;
@@ -74,6 +75,7 @@ public class AquaticPlusItems {
 	public static Item BLUEFIN_TUNA_BUCKET;
 	public static Item HALIBUT_BUCKET;
 	public static Item SARDINE_BUCKET;
+	public static Item MINNOW_BUCKET;
 
 	public static Item GHOSTLY_GEL_ITEM;
 
@@ -114,6 +116,7 @@ public class AquaticPlusItems {
 		SHADOW_SARDEL = registerFoodItem("shadow_sardel", AquaticPlusFoodItems.SHADOW_SARDEL);
 		HALIBUT = registerFoodItem("halibut", AquaticPlusFoodItems.HALIBUT);
 		SARDINE = registerFoodItem("sardine", AquaticPlusFoodItems.SARDINE);
+		MINNOW = registerFoodItem("minnow", AquaticPlusFoodItems.MINNOW);
 	}
 
 	public static void registerSpawnEggs() {
@@ -147,6 +150,7 @@ public class AquaticPlusItems {
 		BLUEFIN_TUNA_BUCKET = registerBucketItem("bluefin_tuna_bucket", AquaticPlusEntities.BLUEFIN_TUNA_ENTITY);
 		HALIBUT_BUCKET = registerBucketItem("halibut_bucket", AquaticPlusEntities.HALIBUT_ENTITY);
 		SARDINE_BUCKET = registerBucketItem("sardine_bucket", AquaticPlusEntities.SARDINE_ENTITY);
+		MINNOW_BUCKET = registerBucketItem("minnow_bucket", AquaticPlusEntities.MINNOW_ENTITY);
 	}
 
 	public static void registerBlockItems() {
