@@ -1,7 +1,6 @@
 package com.sirjain.entities.models;
 
 import com.sirjain.entities.entity.MinnowEntity;
-import com.sirjain.entities.entity.SardineEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
@@ -34,7 +33,6 @@ public class MinnowModel extends EntityModel<MinnowEntity> {
 
 		return TexturedModelData.of(modelData, 32, 32);
 	}
-
 
 	@Override
 	public void setAngles(MinnowEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {

@@ -1,8 +1,6 @@
 package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
-import com.sirjain.entities.models.GulperEelModel;
-import com.sirjain.entities.models.HalibutModel;
 import com.sirjain.items.AquaticPlusFoodItems;
 import com.sirjain.items.DeoxidizingMaterialItem;
 import com.sirjain.items.DestonifierItem;

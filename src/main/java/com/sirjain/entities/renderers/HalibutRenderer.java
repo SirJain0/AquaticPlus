@@ -1,9 +1,7 @@
 package com.sirjain.entities.renderers;
 
 import com.sirjain.AquaticPlus;
-import com.sirjain.entities.entity.BluefinTunaEntity;
 import com.sirjain.entities.entity.HalibutEntity;
-import com.sirjain.entities.models.BluefinTunaModel;
 import com.sirjain.entities.models.HalibutModel;
 import com.sirjain.registries.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;

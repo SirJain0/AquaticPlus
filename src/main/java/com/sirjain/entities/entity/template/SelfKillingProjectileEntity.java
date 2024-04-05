@@ -3,7 +3,6 @@ package com.sirjain.entities.entity.template;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
-import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
 public abstract class SelfKillingProjectileEntity extends ThrownItemEntity {

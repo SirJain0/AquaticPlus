@@ -10,8 +10,6 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
 public class OculiMagniEntity extends NoBucketSchoolingFishEntity {

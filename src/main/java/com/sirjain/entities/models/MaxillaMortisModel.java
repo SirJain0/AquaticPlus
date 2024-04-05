@@ -7,8 +7,6 @@ import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 
-import static com.sirjain.entities.entity.MaxillaMortisEntity.HAS_ACTIVE_TARGET;
-
 public class MaxillaMortisModel extends EntityModel<MaxillaMortisEntity> {
 	private final ModelPart root;
 	private final ModelPart main;

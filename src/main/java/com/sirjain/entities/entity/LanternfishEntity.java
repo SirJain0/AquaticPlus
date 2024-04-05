@@ -1,7 +1,6 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.APSchoolingFishEntity;
-import com.sirjain.entities.entity.template.NoBucketFishEntity;
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

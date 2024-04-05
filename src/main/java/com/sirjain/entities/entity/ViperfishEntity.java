@@ -18,8 +18,6 @@ import net.minecraft.entity.mob.ElderGuardianEntity;
 import net.minecraft.entity.mob.GuardianEntity;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 

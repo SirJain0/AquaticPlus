@@ -1,7 +1,6 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.APFishEntity;
-import com.sirjain.entities.entity.template.APSchoolingFishEntity;
 import com.sirjain.entities.goals.APSwimAroundGoal;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
@@ -11,8 +10,6 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.sound.SoundEvent;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
 

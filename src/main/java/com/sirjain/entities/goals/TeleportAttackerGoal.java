@@ -2,7 +2,6 @@ package com.sirjain.entities.goals;
 
 import com.sirjain.entities.entity.OculiMagniEntity;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;

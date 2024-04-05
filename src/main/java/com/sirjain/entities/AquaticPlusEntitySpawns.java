@@ -38,7 +38,9 @@ public class AquaticPlusEntitySpawns {
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.WARM_OCEAN, BiomeKeys.COLD_OCEAN, BiomeKeys.RIVER, BiomeKeys.DEEP_LUKEWARM_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.BLUEFIN_TUNA_ENTITY, 120, 5, 8);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.OCEAN, BiomeKeys.COLD_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.DEEP_COLD_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.BLUEFIN_TUNA_ENTITY, 28, 1, 1);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.HALIBUT_ENTITY, 125, 5, 7);
-		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.FROZEN_RIVER), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.HALIBUT_ENTITY, 130, 6, 9);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.FROZEN_RIVER, BiomeKeys.OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.HALIBUT_ENTITY, 130, 6, 9);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.FROZEN_RIVER, BiomeKeys.OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.SARDINE_ENTITY, 130, 6, 9);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.FROZEN_RIVER, BiomeKeys.OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.MINNOW_ENTITY, 122, 5, 7);
 	}
 
 	public static void initRestrictions() {

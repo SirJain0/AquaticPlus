@@ -1,7 +1,6 @@
 package com.sirjain.entities.models;
 
 import com.sirjain.entities.entity.PinkSunfishEntity;
-import com.sirjain.entities.entity.animation.DumboBlobAnimations;
 import com.sirjain.entities.entity.animation.PinkSunfishAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
