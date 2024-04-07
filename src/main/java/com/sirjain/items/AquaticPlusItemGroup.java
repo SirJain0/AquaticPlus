@@ -68,6 +68,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.HALIBUT);
 					entries.add(AquaticPlusItems.SARDINE);
 					entries.add(AquaticPlusItems.MINNOW);
+					entries.add(AquaticPlusItems.MORTIS_FLESH);
 
 					entries.add(AquaticPlusItems.AQUATIC_STAR);
 					entries.add(AquaticPlusItems.NUMBING_AQUATIC_STAR);
