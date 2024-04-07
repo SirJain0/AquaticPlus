@@ -1,6 +1,6 @@
 {
 	"parent": "item/handheld",
 	"textures": {
-		"layer0": "aquaticplus:item/fish/minnow"
+		"layer0": "aquaticplus:item/food/minnow"
 	}
 }
