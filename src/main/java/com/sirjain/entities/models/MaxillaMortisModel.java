@@ -55,7 +55,7 @@ public class MaxillaMortisModel extends EntityModel<MaxillaMortisEntity> {
 		tailSeg2.yaw = MathHelper.cos(-20 + animationProgress * 0.2f) * 0.32f;
 		tailSeg3.yaw = MathHelper.cos(-40 + animationProgress * 0.2f) * 0.34f;
 		head.yaw = -(MathHelper.cos(animationProgress * 0.2f) * 0.12f);
-		main.pivotX = -(MathHelper.cos(animationProgress * 0.2f) * 1);
+		main.pivotX = -(MathHelper.cos(animationProgress * 0.2f) * 1.5f);
 
 		if (entity.hasActiveTarget()) {
 			upperJaw.pitch = -1;

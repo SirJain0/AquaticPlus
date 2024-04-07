@@ -32,6 +32,7 @@ public class AquaticPlusItems {
 	public static Item FROST_SHARDS;
 	public static Item STONE_ESSENCE;
 	public static Item STONE_CORRODER;
+	public static Item MORTIS_VENOM;
 	public static Item MAXILLA_MORTIS_TOOTH;
 	public static Item VIPER_TOOTH;
 	public static Item SUNFISH_TAIL;
@@ -81,9 +82,21 @@ public class AquaticPlusItems {
 		registerSpawnEggs();
 		registerBucketItems();
 		registerFoodItems();
-		registerAdvancedItems();
 		registerBasicItems();
+		registerAdvancedItems();
 		AquaticPlusPotions.registerPotions();
+	}
+
+	public static void registerBasicItems() {
+		FROSTED_BALL = registerBasicItem("frosted_ball", new Item.Settings().maxCount(1).maxCount(16));
+		FROST_SHARDS = registerBasicItem("frost_shards", new Item.Settings());
+		STONE_ESSENCE = registerBasicItem("stone_essence", new Item.Settings());
+		STONE_CORRODER = registerBasicItem("stone_corroder", new Item.Settings());
+		MORTIS_VENOM = registerBasicItem("mortis_venom", new Item.Settings());
+		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth", new Item.Settings());
+		VIPER_TOOTH = registerBasicItem("viper_tooth", new Item.Settings());
+		SUNFISH_TAIL = registerBasicItem("sunfish_tail", new Item.Settings());
+		GHOSTLY_MEMBRANE = registerBasicItem("ghostly_membrane", new Item.Settings());
 	}
 
 	public static void registerAdvancedItems() {
@@ -94,17 +107,6 @@ public class AquaticPlusItems {
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
-	}
-
-	public static void registerBasicItems() {
-		FROSTED_BALL = registerBasicItem("frosted_ball", new Item.Settings().maxCount(1).maxCount(16));
-		FROST_SHARDS = registerBasicItem("frost_shards", new Item.Settings());
-		STONE_ESSENCE = registerBasicItem("stone_essence", new Item.Settings());
-		STONE_CORRODER = registerBasicItem("stone_corroder", new Item.Settings());
-		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth", new Item.Settings());
-		VIPER_TOOTH = registerBasicItem("viper_tooth", new Item.Settings());
-		SUNFISH_TAIL = registerBasicItem("sunfish_tail", new Item.Settings());
-		GHOSTLY_MEMBRANE = registerBasicItem("ghostly_membrane", new Item.Settings());
 	}
 
 	public static void registerFoodItems() {

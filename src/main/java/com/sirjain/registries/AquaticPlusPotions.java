@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.List;
 
 // TODO: Refactor this system
+// TODO: Change water bottles to whatever suitable starter potion (awk, mundane, etc)
 public class AquaticPlusPotions {
 	public static Potion NUMBING_POTION, NUMBING_LONG_POTION, NUMBING_STRONG_POTION;
 	public static Potion LAND_DROWNING_POTION, LAND_DROWNING_LONG_POTION, LAND_DROWNING_STRONG_POTION;
@@ -62,8 +63,10 @@ public class AquaticPlusPotions {
 		registerSunfishGracePotions();
 	}
 
-	// TODO: Add numbing potion recipe with Maxilla Mortis and Stonefish venom
+	// TODO: Add numbing potion recipe with Stonefish venom
 	public static void registerNumbingRecipes() {
+		FabricBrewingRecipeRegistry.registerPotionRecipe(Potions.WATER, Ingredient.ofItems(AquaticPlusItems.MORTIS_VENOM), NUMBING_POTION);
+
 		FabricBrewingRecipeRegistry.registerPotionRecipe(NUMBING_POTION, Ingredient.ofItems(Items.REDSTONE), NUMBING_LONG_POTION);
 		FabricBrewingRecipeRegistry.registerPotionRecipe(NUMBING_LONG_POTION, Ingredient.ofItems(Items.GLOWSTONE), NUMBING_STRONG_POTION);
 	}
@@ -76,6 +79,7 @@ public class AquaticPlusPotions {
 
 	public static void registerSunfishGracePotions() {
 		FabricBrewingRecipeRegistry.registerPotionRecipe(Potions.WATER, Ingredient.ofItems(AquaticPlusItems.SUNFISH_TAIL), SUNFISH_GRACE_POTION);
+
 		FabricBrewingRecipeRegistry.registerPotionRecipe(SUNFISH_GRACE_POTION, Ingredient.ofItems(Items.REDSTONE), SUNFISH_GRACE_LONG_POTION);
 		FabricBrewingRecipeRegistry.registerPotionRecipe(SUNFISH_GRACE_LONG_POTION, Ingredient.ofItems(Items.GLOWSTONE), SUNFISH_GRACE_STRONG_POTION);
 	}
