@@ -1,6 +1,6 @@
 {
-	"parent": "item/handheld",
+	"parent": "item/generated",
 	"textures": {
-		"layer0": "aquaticplus:item/fish/bluefin_tuna"
+		"layer0": "aquaticplus:item/food/bluefin_tuna"
 	}
 }

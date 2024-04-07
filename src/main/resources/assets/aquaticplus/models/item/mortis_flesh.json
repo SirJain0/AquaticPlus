@@ -1,6 +1,6 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "aquaticplus:item/food/shadow_sardel"
+		"layer0": "aquaticplus:item/food/mortis_flesh"
 	}
 }
