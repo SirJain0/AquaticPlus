@@ -47,8 +47,8 @@ public class LionfishModel extends EntityModel<LionfishEntity> {
 	public void setAngles(LionfishEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 		tail.yaw = MathHelper.sin(-40 + animationProgress * 0.4f) * 0.3f;
 		tail2.yaw = MathHelper.sin(-80 + animationProgress * 0.4f) * 0.27f;
-		head.yaw = MathHelper.sin(-15 + animationProgress * 0.4f) * 0.1f;
-		root.pivotX = MathHelper.sin(animationProgress * 0.4f);
+		head.yaw = -MathHelper.sin(-40 + animationProgress * 0.4f) * 0.07f;
+		lionfish.pivotX = MathHelper.sin(animationProgress * 0.4f);
 	}
 
 	@Override
