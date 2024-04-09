@@ -25,6 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
 
+// TODO: Spawns and attack back AI
 public class LionfishEntity extends NoBucketSchoolingFishEntity {
 	private static final TrackedData<Integer> LIONFISH_TYPE = DataTracker.registerData(LionfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
