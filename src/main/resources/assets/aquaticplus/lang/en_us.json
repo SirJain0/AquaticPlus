@@ -21,6 +21,7 @@
 	"item.aquaticplus.halibut_spawn_egg": "Halibut Spawn Egg",
 	"item.aquaticplus.sardine_spawn_egg": "Sardine Spawn Egg",
 	"item.aquaticplus.minnow_spawn_egg": "Minnow Spawn Egg",
+	"item.aquaticplus.lionfish_spawn_egg": "Lionfish Spawn Egg",
 
 	"item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 	"item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
@@ -121,6 +122,7 @@
 	"entity.aquaticplus.halibut": "Halibut",
 	"entity.aquaticplus.sardine": "Sardine",
 	"entity.aquaticplus.minnow": "Minnow",
+	"entity.aquaticplus.lionfish": "Lionfish",
 
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
