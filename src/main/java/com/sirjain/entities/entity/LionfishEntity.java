@@ -12,6 +12,7 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.passive.CodEntity;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
@@ -23,10 +24,11 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.UUID;
 import java.util.function.IntFunction;
 
 // TODO: attack back AI, lionfish spike
-public class LionfishEntity extends NoBucketSchoolingFishEntity {
+public class LionfishEntity extends NoBucketSchoolingFishEntity implements Angerable {
 	private static final TrackedData<Integer> LIONFISH_TYPE = DataTracker.registerData(LionfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
 	public LionfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
@@ -98,6 +100,33 @@ public class LionfishEntity extends NoBucketSchoolingFishEntity {
 
 	public LionfishType getVariant() {
 		return LionfishType.byId(this.dataTracker.get(LIONFISH_TYPE));
+	}
+
+	// Universally Angry - from Angerable interface
+	@Override
+	public int getAngerTime() {
+		return 0;
+	}
+
+	@Override
+	public void setAngerTime(int angerTime) {
+
+	}
+
+	@Nullable
+	@Override
+	public UUID getAngryAt() {
+		return null;
+	}
+
+	@Override
+	public void setAngryAt(@Nullable UUID angryAt) {
+
+	}
+
+	@Override
+	public void chooseRandomAngerTime() {
+
 	}
 
 	public enum LionfishType implements StringIdentifiable {
