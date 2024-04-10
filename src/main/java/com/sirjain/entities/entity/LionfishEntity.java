@@ -31,7 +31,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.UUID;
 import java.util.function.IntFunction;
 
-// TODO: attack back AI, lionfish spike
+// TODO: lionfish spike
 public class LionfishEntity extends NoBucketSchoolingFishEntity implements Angerable {
 	private static final TrackedData<Integer> LIONFISH_TYPE = DataTracker.registerData(LionfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(LionfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
