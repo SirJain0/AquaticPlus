@@ -16,9 +16,12 @@ import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.passive.CodEntity;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.StringIdentifiable;
+import net.minecraft.util.TimeHelper;
 import net.minecraft.util.function.ValueLists;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -30,6 +33,9 @@ import java.util.function.IntFunction;
 // TODO: attack back AI, lionfish spike
 public class LionfishEntity extends NoBucketSchoolingFishEntity implements Angerable {
 	private static final TrackedData<Integer> LIONFISH_TYPE = DataTracker.registerData(LionfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
+	private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(LionfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
+	private static final UniformIntProvider ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);
+	private UUID angryAt;
 
 	public LionfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
@@ -43,6 +49,7 @@ public class LionfishEntity extends NoBucketSchoolingFishEntity implements Anger
 		this.targetSelector.add(1, new UniversalAngerGoal(this, true));
 		this.targetSelector.add(1, new ActiveTargetGoal<>(this, ParrotfishEntity.class, true));
 		this.targetSelector.add(1, new ActiveTargetGoal<>(this, CodEntity.class, true));
+		this.targetSelector.add(4, new ActiveTargetGoal<>(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
 	}
 
 	@Override
@@ -79,19 +86,25 @@ public class LionfishEntity extends NoBucketSchoolingFishEntity implements Anger
 	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
+
 		this.dataTracker.startTracking(LIONFISH_TYPE, LionfishType.RED.id);
+		this.dataTracker.startTracking(ANGER_TIME, 0);
 	}
 
 	@Override
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
+
 		nbt.putInt("lionfish_type", this.getVariant().id);
+		this.writeAngerToNbt(nbt);
 	}
 
 	@Override
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
+
 		this.setVariant(LionfishType.byId(nbt.getInt("lionfish_type")));
+		this.readAngerFromNbt(this.getWorld(), nbt);
 	}
 
 	public void setVariant(LionfishType sardineType) {
@@ -103,30 +116,25 @@ public class LionfishEntity extends NoBucketSchoolingFishEntity implements Anger
 	}
 
 	// Universally Angry - from Angerable interface
-	@Override
 	public int getAngerTime() {
-		return 0;
+		return this.dataTracker.get(ANGER_TIME);
 	}
 
-	@Override
 	public void setAngerTime(int angerTime) {
+		this.dataTracker.set(ANGER_TIME, angerTime);
+	}
 
+	public void chooseRandomAngerTime() {
+		this.setAngerTime(ANGER_TIME_RANGE.get(this.random));
 	}
 
 	@Nullable
-	@Override
 	public UUID getAngryAt() {
-		return null;
+		return this.angryAt;
 	}
 
-	@Override
 	public void setAngryAt(@Nullable UUID angryAt) {
-
-	}
-
-	@Override
-	public void chooseRandomAngerTime() {
-
+		this.angryAt = angryAt;
 	}
 
 	public enum LionfishType implements StringIdentifiable {
