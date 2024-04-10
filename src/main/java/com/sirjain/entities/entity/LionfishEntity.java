@@ -4,6 +4,7 @@ import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
+import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.UniversalAngerGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -47,9 +48,10 @@ public class LionfishEntity extends NoBucketSchoolingFishEntity implements Anger
 
 		this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0, true));
 		this.targetSelector.add(1, new UniversalAngerGoal(this, true));
-		this.targetSelector.add(1, new ActiveTargetGoal<>(this, ParrotfishEntity.class, true));
-		this.targetSelector.add(1, new ActiveTargetGoal<>(this, CodEntity.class, true));
-		this.targetSelector.add(4, new ActiveTargetGoal<>(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
+		this.targetSelector.add(3, new ActiveTargetGoal<>(this, ParrotfishEntity.class, true));
+		this.targetSelector.add(3, new ActiveTargetGoal<>(this, CodEntity.class, true));
+		this.targetSelector.add(2, (new RevengeGoal(this)).setGroupRevenge());
+		this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
 	}
 
 	@Override
