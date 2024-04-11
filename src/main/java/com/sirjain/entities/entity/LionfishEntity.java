@@ -1,6 +1,7 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
+import com.sirjain.registries.AquaticPlusStatusEffects;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
@@ -11,6 +12,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.Angerable;
@@ -31,7 +33,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.UUID;
 import java.util.function.IntFunction;
 
-// TODO: lionfish spike and new Status Effect
+// TODO: lionfish spike, test new status effect + finish, make lionfish get angered by any mob not just players
 public class LionfishEntity extends NoBucketSchoolingFishEntity implements Angerable {
 	private static final TrackedData<Integer> LIONFISH_TYPE = DataTracker.registerData(LionfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(LionfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -57,8 +59,16 @@ public class LionfishEntity extends NoBucketSchoolingFishEntity implements Anger
 	@Override
 	public boolean tryAttack(Entity entity) {
 		boolean canAttack = super.tryAttack(entity) && entity instanceof LivingEntity;
-		if (canAttack)
-			((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 6 * 20, 0), this);
+
+		if (canAttack) {
+			LivingEntity target = ((LivingEntity) entity);
+
+			if (!target.isUndead() && this.random.nextInt(4) == 0) {
+				target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 3 * 20, 0), this);
+			} else if (target.isUndead()) {
+				target.addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.SEA_BANE, 6 * 20, 0), this);
+			}
+		}
 
 		return canAttack;
 	}
