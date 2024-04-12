@@ -33,7 +33,6 @@ import java.util.function.IntFunction;
 
 /* TODO: 
 lionfish spike
-Sea Bane effect harm non-undead mobs at slower rate
 Sea Bane effect icon + langs etc
 make lionfish get angered by any mob not just players
  */
