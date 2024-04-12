@@ -17,7 +17,6 @@ import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.passive.CodEntity;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.TimeHelper;
@@ -34,7 +33,6 @@ import java.util.function.IntFunction;
 /* TODO: 
 lionfish spike
 Sea Bane effect icon
-make lionfish get angered by any mob not just players
  */
 public class LionfishEntity extends NoBucketSchoolingFishEntity implements Angerable {
 	private static final TrackedData<Integer> LIONFISH_TYPE = DataTracker.registerData(LionfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -55,7 +53,13 @@ public class LionfishEntity extends NoBucketSchoolingFishEntity implements Anger
 		this.targetSelector.add(3, new ActiveTargetGoal<>(this, ParrotfishEntity.class, true));
 		this.targetSelector.add(3, new ActiveTargetGoal<>(this, CodEntity.class, true));
 		this.targetSelector.add(2, (new RevengeGoal(this)).setGroupRevenge());
-		this.targetSelector.add(1, new ActiveTargetGoal<>(this, PlayerEntity.class, 10, true, false, this::shouldAngerAt));
+		this.targetSelector.add(1, new ActiveTargetGoal<>(this, LivingEntity.class, 10, true, false, this::shouldAngerAt));
+	}
+
+	@Override
+	public boolean shouldAngerAt(LivingEntity entity) {
+		if (!this.canTarget(entity)) return false;
+		else return this.isUniversallyAngry(entity.getWorld()) || entity.getUuid().equals(this.getAngryAt());
 	}
 
 	@Override
