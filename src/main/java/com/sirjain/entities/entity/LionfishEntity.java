@@ -33,7 +33,7 @@ import java.util.function.IntFunction;
 
 /* TODO: 
 lionfish spike
-Sea Bane effect icon + langs etc
+Sea Bane effect icon
 make lionfish get angered by any mob not just players
  */
 public class LionfishEntity extends NoBucketSchoolingFishEntity implements Angerable {
