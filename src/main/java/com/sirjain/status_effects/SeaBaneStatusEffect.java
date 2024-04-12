@@ -5,7 +5,7 @@ import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 
 public class SeaBaneStatusEffect extends StatusEffect {
-	private int hurtTimeout = 0;
+	private int tickTimeout = 0;
 
 	public SeaBaneStatusEffect(StatusEffectCategory statusEffectCategory, int color) {
 		super(statusEffectCategory, color);
@@ -13,13 +13,18 @@ public class SeaBaneStatusEffect extends StatusEffect {
 
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-		if (!entity.isUndead()) return;
+		if (entity.isUndead()) handleDamage(20 - amplifier, entity);
+		else handleDamage(70 - (2 * amplifier), entity);
+	}
 
-		if (hurtTimeout == 20 - amplifier) {
+	public void handleDamage(int resetTime, LivingEntity entity) {
+		if (entity.getHealth() == 1) return;
+
+		if (tickTimeout == resetTime) {
 			entity.damage(entity.getDamageSources().magic(), 1);
-			hurtTimeout = 0;
+			tickTimeout = 0;
 		} else {
-			hurtTimeout++;
+			tickTimeout++;
 		}
 	}
 

@@ -21,7 +21,7 @@ public class AquaticPlusStatusEffects {
 		NUMBING = registerStatusEffect("numbing", new NumbingStatusEffect(StatusEffectCategory.HARMFUL, 0xF2F2D2));
 		LAND_DROWNING = registerStatusEffect("land_drowning", new LandDrowningStatusEffect(StatusEffectCategory.HARMFUL, 0x7DC2B6));
 		SUNFISH_GRACE = registerStatusEffect("sunfish_grace", new SunfishGraceStatusEffect(StatusEffectCategory.BENEFICIAL, 0xcb8fbc));
-		SEA_BANE = registerStatusEffect("sea_bane", new SeaBaneStatusEffect(StatusEffectCategory.NEUTRAL, 0x75C098));
+		SEA_BANE = registerStatusEffect("sea_bane", new SeaBaneStatusEffect(StatusEffectCategory.HARMFUL, 0x556A40));
 	}
 
 	private static StatusEffect registerStatusEffect(String name, StatusEffect statusEffect) {

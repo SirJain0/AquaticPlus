@@ -12,9 +12,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
-import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.Angerable;
 import net.minecraft.entity.passive.CodEntity;
 import net.minecraft.entity.passive.FishEntity;
@@ -64,16 +62,7 @@ public class LionfishEntity extends NoBucketSchoolingFishEntity implements Anger
 	@Override
 	public boolean tryAttack(Entity entity) {
 		boolean canAttack = super.tryAttack(entity) && entity instanceof LivingEntity;
-
-		if (canAttack) {
-			LivingEntity target = ((LivingEntity) entity);
-
-			if (!target.isUndead() && this.random.nextInt(4) == 0) {
-				target.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 3 * 20, 0), this);
-			} else if (target.isUndead()) {
-				target.addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.SEA_BANE, 6 * 20, 0), this);
-			}
-		}
+		if (canAttack) ((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.SEA_BANE, 6 * 20, 0), this);
 
 		return canAttack;
 	}
