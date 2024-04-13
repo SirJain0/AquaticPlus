@@ -1,10 +1,7 @@
 package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
-import com.sirjain.items.AquaticPlusFoodItems;
-import com.sirjain.items.DeoxidizingMaterialItem;
-import com.sirjain.items.DestonifierItem;
-import com.sirjain.items.StonifierItem;
+import com.sirjain.items.*;
 import com.sirjain.items.combat.FrostingSpectreItem;
 import com.sirjain.items.projectile.AquaticStarItem;
 import com.sirjain.items.projectile.LandDrowningAquaticStarItem;
@@ -99,7 +96,6 @@ public class AquaticPlusItems {
 		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth", new Item.Settings());
 		VIPER_TOOTH = registerBasicItem("viper_tooth", new Item.Settings());
 		SUNFISH_TAIL = registerBasicItem("sunfish_tail", new Item.Settings());
-		LIONFISH_SPIKE = registerBasicItem("lionfish_spike", new Item.Settings());
 		GHOSTLY_MEMBRANE = registerBasicItem("ghostly_membrane", new Item.Settings());
 	}
 
@@ -111,6 +107,7 @@ public class AquaticPlusItems {
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
+		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem(new Item.Settings()));
 	}
 
 	public static void registerFoodItems() {
