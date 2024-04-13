@@ -11,6 +11,7 @@ public class SeaBaneStatusEffect extends StatusEffect {
 		super(statusEffectCategory, color);
 	}
 
+	// TODO: After a specific amplifier, reset time will be 0 and the entity will infinitely take damage
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
 		if (entity.isUndead()) handleDamage(20 - amplifier, entity);
