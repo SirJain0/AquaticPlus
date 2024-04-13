@@ -31,8 +31,7 @@ import java.util.UUID;
 import java.util.function.IntFunction;
 
 /* TODO: 
-lionfish spike
-Sea Bane effect icon
+lionfish spike item
  */
 public class LionfishEntity extends NoBucketSchoolingFishEntity implements Angerable {
 	private static final TrackedData<Integer> LIONFISH_TYPE = DataTracker.registerData(LionfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
