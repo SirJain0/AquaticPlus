@@ -94,9 +94,11 @@ public class AquaticPlusPotions {
 		FabricBrewingRecipeRegistry.registerPotionRecipe(SUNFISH_GRACE_LONG_POTION, Ingredient.ofItems(Items.GLOWSTONE), SUNFISH_GRACE_STRONG_POTION);
 	}
 
-	// TODO: Add recipe for lionfish spike when added
 	public static void registerSeaBanePotions() {
+		FabricBrewingRecipeRegistry.registerPotionRecipe(Potions.WATER, Ingredient.ofItems(AquaticPlusItems.LIONFISH_SPIKE), SEA_BANE_POTION);
 
+		FabricBrewingRecipeRegistry.registerPotionRecipe(SEA_BANE_POTION, Ingredient.ofItems(Items.REDSTONE), SEA_BANE_LONG_POTION);
+		FabricBrewingRecipeRegistry.registerPotionRecipe(SEA_BANE_LONG_POTION, Ingredient.ofItems(Items.GLOWSTONE), SEA_BANE_STRONG_POTION);
 	}
 
 	public static Identifier buildPotionID(String identifier) {
