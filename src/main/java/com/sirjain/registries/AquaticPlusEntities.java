@@ -210,6 +210,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer LIONFISH_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "lionfish"), "root");
+	public static final EntityType<LionfishEntity> LIONFISH_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "lionfish"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, LionfishEntity::new)
+			.dimensions(EntityDimensions.fixed(0.4f, 0.4f))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -270,7 +279,8 @@ public class AquaticPlusEntities {
 		GULPER_EEL_ENTITY,
 		HALIBUT_ENTITY,
 		SARDINE_ENTITY,
-		MINNOW_ENTITY
+		MINNOW_ENTITY,
+		LIONFISH_ENTITY
 	);
 
 	public static void registerAttributes() {
@@ -294,6 +304,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(HALIBUT_ENTITY, HalibutEntity.createHalibutAttributes());
 		FabricDefaultAttributeRegistry.register(SARDINE_ENTITY, FishEntity.createFishAttributes());
 		FabricDefaultAttributeRegistry.register(MINNOW_ENTITY, FishEntity.createFishAttributes());
+		FabricDefaultAttributeRegistry.register(LIONFISH_ENTITY, LionfishEntity.createLionfishAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -319,6 +330,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(HALIBUT_ENTITY, HalibutRenderer::new);
 		EntityRendererRegistry.register(SARDINE_ENTITY, SardineRenderer::new);
 		EntityRendererRegistry.register(MINNOW_ENTITY, MinnowRenderer::new);
+		EntityRendererRegistry.register(LIONFISH_ENTITY, LionfishRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -340,6 +352,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(HALIBUT_LAYER, HalibutModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SARDINE_LAYER, SardineModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINNOW_LAYER, MinnowModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(LIONFISH_LAYER, LionfishModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {

@@ -22,6 +22,7 @@ public class JohnsonModel extends EntityModel<ShadowSardelEasterEggEntity> {
 		head = body.getChild("head");
 	}
 
+	// TODO: Redo fish model
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();

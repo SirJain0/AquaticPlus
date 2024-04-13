@@ -36,6 +36,7 @@ public class AquaticPlusItems {
 	public static Item MAXILLA_MORTIS_TOOTH;
 	public static Item VIPER_TOOTH;
 	public static Item SUNFISH_TAIL;
+	public static Item LIONFISH_SPIKE;
 	public static Item GHOSTLY_MEMBRANE;
 
 	public static Item VIPERFISH;
@@ -67,6 +68,7 @@ public class AquaticPlusItems {
 	public static Item HALIBUT_SPAWN_EGG;
 	public static Item SARDINE_SPAWN_EGG;
 	public static Item MINNOW_SPAWN_EGG;
+	public static Item LIONFISH_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -97,6 +99,7 @@ public class AquaticPlusItems {
 		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth", new Item.Settings());
 		VIPER_TOOTH = registerBasicItem("viper_tooth", new Item.Settings());
 		SUNFISH_TAIL = registerBasicItem("sunfish_tail", new Item.Settings());
+		LIONFISH_SPIKE = registerBasicItem("lionfish_spike", new Item.Settings());
 		GHOSTLY_MEMBRANE = registerBasicItem("ghostly_membrane", new Item.Settings());
 	}
 
@@ -142,6 +145,7 @@ public class AquaticPlusItems {
 		HALIBUT_SPAWN_EGG = registerSpawnEggItem("halibut_spawn_egg", AquaticPlusEntities.HALIBUT_ENTITY, 0x432d24, 0x644832);
 		SARDINE_SPAWN_EGG = registerSpawnEggItem("sardine_spawn_egg", AquaticPlusEntities.SARDINE_ENTITY, 0xbdbdbe, 0xb8ad9e);
 		MINNOW_SPAWN_EGG = registerSpawnEggItem("minnow_spawn_egg", AquaticPlusEntities.MINNOW_ENTITY, 0x50602d, 0xcfbd82);
+		LIONFISH_SPAWN_EGG = registerSpawnEggItem("lionfish_spawn_egg", AquaticPlusEntities.LIONFISH_ENTITY, 0xa46e3f, 0xd1c8bb);
 	}
 
 	public static void registerBucketItems() {

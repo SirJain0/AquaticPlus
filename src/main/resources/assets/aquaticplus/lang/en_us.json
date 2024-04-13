@@ -21,6 +21,7 @@
 	"item.aquaticplus.halibut_spawn_egg": "Halibut Spawn Egg",
 	"item.aquaticplus.sardine_spawn_egg": "Sardine Spawn Egg",
 	"item.aquaticplus.minnow_spawn_egg": "Minnow Spawn Egg",
+	"item.aquaticplus.lionfish_spawn_egg": "Lionfish Spawn Egg",
 
 	"item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 	"item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
@@ -47,6 +48,7 @@
 	"item.aquaticplus.maxilla_mortis_tooth": "Maxilla Mortis Tooth",
 	"item.aquaticplus.viper_tooth": "Viper Tooth",
 	"item.aquaticplus.sunfish_tail": "Sunfish Tail",
+	"item.aquaticplus.lionfish_spike": "Lionfish Spike",
 	"item.aquaticplus.ghostly_membrane": "Ghostly Membrane",
 
 	"item.aquaticplus.stonifier": "Stonifier",
@@ -99,6 +101,19 @@
 	"item.minecraft.tipped_arrow.effect.sunfish_grace_long_potion": "Arrow of Sunfish Grace",
 	"item.minecraft.tipped_arrow.effect.sunfish_grace_strong_potion": "Arrow of Sunfish Grace",
 
+	"item.minecraft.potion.effect.sea_bane_potion": "Sea Bane Potion",
+	"item.minecraft.potion.effect.sea_bane_long_potion": "Sea Bane Potion",
+	"item.minecraft.potion.effect.sea_bane_strong_potion": "Sea Bane Potion",
+	"item.minecraft.splash_potion.effect.sea_bane_potion": "Sea Bane Splash Potion",
+	"item.minecraft.splash_potion.effect.sea_bane_long_potion": "Sea Bane Splash Potion",
+	"item.minecraft.splash_potion.effect.sea_bane_strong_potion": "Sea Bane Splash Potion",
+	"item.minecraft.lingering_potion.effect.sea_bane_potion": "Sea Bane Lingering Potion",
+	"item.minecraft.lingering_potion.effect.sea_bane_long_potion": "Sea Bane Lingering Potion",
+	"item.minecraft.lingering_potion.effect.sea_bane_strong_potion": "Sea Bane Lingering Potion",
+	"item.minecraft.tipped_arrow.effect.sea_bane_potion": "Arrow of Sea Bane",
+	"item.minecraft.tipped_arrow.effect.sea_bane_long_potion": "Arrow of Sea Bane",
+	"item.minecraft.tipped_arrow.effect.sea_bane_strong_potion": "Arrow of Sea Bane",
+
 	"block.aquaticplus.ghostly_gel": "Ghostly Gel",
 
 	"entity.aquaticplus.johnson": "Johnson",
@@ -121,6 +136,7 @@
 	"entity.aquaticplus.halibut": "Halibut",
 	"entity.aquaticplus.sardine": "Sardine",
 	"entity.aquaticplus.minnow": "Minnow",
+	"entity.aquaticplus.lionfish": "Lionfish",
 
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
@@ -129,6 +145,7 @@
 	"effect.aquaticplus.numbing": "Numbing",
 	"effect.aquaticplus.land_drowning": "Land Drowning",
 	"effect.aquaticplus.sunfish_grace": "Sunfish Grace",
+	"effect.aquaticplus.sea_bane": "Sea Bane",
 
 	"aquaticplus.stonifier.tooltip": "Turn blocks into stone",
 	"aquaticplus.destonifier.tooltip": "Break a stone block instantly",

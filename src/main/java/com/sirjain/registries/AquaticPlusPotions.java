@@ -20,6 +20,7 @@ public class AquaticPlusPotions {
 	public static Potion NUMBING_POTION, NUMBING_LONG_POTION, NUMBING_STRONG_POTION;
 	public static Potion LAND_DROWNING_POTION, LAND_DROWNING_LONG_POTION, LAND_DROWNING_STRONG_POTION;
 	public static Potion SUNFISH_GRACE_POTION, SUNFISH_GRACE_LONG_POTION, SUNFISH_GRACE_STRONG_POTION;
+	public static Potion SEA_BANE_POTION, SEA_BANE_LONG_POTION, SEA_BANE_STRONG_POTION;
 
 	public static List<Identifier> POTION_IDS = Arrays.asList(
 		buildPotionID("numbing_potion"),
@@ -32,7 +33,11 @@ public class AquaticPlusPotions {
 
 		buildPotionID("sunfish_grace_potion"),
 		buildPotionID("sunfish_grace_long_potion"),
-		buildPotionID("sunfish_grace_strong_potion")
+		buildPotionID("sunfish_grace_strong_potion"),
+
+		buildPotionID("sea_bane_potion"),
+		buildPotionID("sea_bane_long_potion"),
+		buildPotionID("sea_bane_strong_potion")
 	);
 
 	public static void registerPotions() {
@@ -47,6 +52,10 @@ public class AquaticPlusPotions {
 		SUNFISH_GRACE_POTION = registerPotion("sunfish_grace_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.SUNFISH_GRACE, 20 * 12, 0)));
 		SUNFISH_GRACE_LONG_POTION = registerPotion("sunfish_grace_long_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.SUNFISH_GRACE, 20 * 25, 0)));
 		SUNFISH_GRACE_STRONG_POTION = registerPotion("sunfish_grace_strong_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.SUNFISH_GRACE, 20 * 7, 1)));
+
+		SEA_BANE_POTION = registerPotion("sea_bane_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.SEA_BANE, 20 * 12, 0)));
+		SEA_BANE_LONG_POTION = registerPotion("sea_bane_long_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.SEA_BANE, 20 * 25, 0)));
+		SEA_BANE_STRONG_POTION = registerPotion("sea_bane_strong_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.SEA_BANE, 20 * 7, 1)));
 	}
 
 	private static Potion registerPotion(String name, Potion potion) {
@@ -61,6 +70,7 @@ public class AquaticPlusPotions {
 		registerNumbingRecipes();
 		registerLandDrowningPotions();
 		registerSunfishGracePotions();
+		registerSeaBanePotions();
 	}
 
 	// TODO: Add numbing potion recipe with Stonefish venom
@@ -82,6 +92,13 @@ public class AquaticPlusPotions {
 
 		FabricBrewingRecipeRegistry.registerPotionRecipe(SUNFISH_GRACE_POTION, Ingredient.ofItems(Items.REDSTONE), SUNFISH_GRACE_LONG_POTION);
 		FabricBrewingRecipeRegistry.registerPotionRecipe(SUNFISH_GRACE_LONG_POTION, Ingredient.ofItems(Items.GLOWSTONE), SUNFISH_GRACE_STRONG_POTION);
+	}
+
+	public static void registerSeaBanePotions() {
+		FabricBrewingRecipeRegistry.registerPotionRecipe(Potions.WATER, Ingredient.ofItems(AquaticPlusItems.LIONFISH_SPIKE), SEA_BANE_POTION);
+
+		FabricBrewingRecipeRegistry.registerPotionRecipe(SEA_BANE_POTION, Ingredient.ofItems(Items.REDSTONE), SEA_BANE_LONG_POTION);
+		FabricBrewingRecipeRegistry.registerPotionRecipe(SEA_BANE_LONG_POTION, Ingredient.ofItems(Items.GLOWSTONE), SEA_BANE_STRONG_POTION);
 	}
 
 	public static Identifier buildPotionID(String identifier) {
