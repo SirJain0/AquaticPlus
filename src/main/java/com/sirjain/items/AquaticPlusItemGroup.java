@@ -81,6 +81,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.MORTIS_VENOM);
 					entries.add(AquaticPlusItems.MAXILLA_MORTIS_TOOTH);
 					entries.add(AquaticPlusItems.VIPER_TOOTH);
+					entries.add(AquaticPlusItems.LIONFISH_SPIKE);
 					entries.add(AquaticPlusItems.SUNFISH_TAIL);
 					entries.add(AquaticPlusItems.GHOSTLY_MEMBRANE);
 					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);

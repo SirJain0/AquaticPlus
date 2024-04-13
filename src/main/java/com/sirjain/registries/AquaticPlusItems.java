@@ -36,6 +36,7 @@ public class AquaticPlusItems {
 	public static Item MAXILLA_MORTIS_TOOTH;
 	public static Item VIPER_TOOTH;
 	public static Item SUNFISH_TAIL;
+	public static Item LIONFISH_SPIKE;
 	public static Item GHOSTLY_MEMBRANE;
 
 	public static Item VIPERFISH;
@@ -98,6 +99,7 @@ public class AquaticPlusItems {
 		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth", new Item.Settings());
 		VIPER_TOOTH = registerBasicItem("viper_tooth", new Item.Settings());
 		SUNFISH_TAIL = registerBasicItem("sunfish_tail", new Item.Settings());
+		LIONFISH_SPIKE = registerBasicItem("lionfish_spike", new Item.Settings());
 		GHOSTLY_MEMBRANE = registerBasicItem("ghostly_membrane", new Item.Settings());
 	}
 

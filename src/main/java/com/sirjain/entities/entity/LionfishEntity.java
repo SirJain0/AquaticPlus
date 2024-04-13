@@ -30,9 +30,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.UUID;
 import java.util.function.IntFunction;
 
-/* TODO: 
-lionfish spike item
- */
 public class LionfishEntity extends NoBucketSchoolingFishEntity implements Angerable {
 	private static final TrackedData<Integer> LIONFISH_TYPE = DataTracker.registerData(LionfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> ANGER_TIME = DataTracker.registerData(LionfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
