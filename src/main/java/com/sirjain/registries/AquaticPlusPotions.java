@@ -55,7 +55,7 @@ public class AquaticPlusPotions {
 
 		SEA_BANE_POTION = registerPotion("sea_bane_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.SEA_BANE, 20 * 12, 0)));
 		SEA_BANE_LONG_POTION = registerPotion("sea_bane_long_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.SEA_BANE, 20 * 25, 0)));
-		SEA_BANE_STRONG_POTION = registerPotion("sea_bane_strong_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.SEA_BANE, 20 * 7, 6)));
+		SEA_BANE_STRONG_POTION = registerPotion("sea_bane_strong_potion", new Potion(new StatusEffectInstance(AquaticPlusStatusEffects.SEA_BANE, 20 * 7, 1)));
 	}
 
 	private static Potion registerPotion(String name, Potion potion) {
