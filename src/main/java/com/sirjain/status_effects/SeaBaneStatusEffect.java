@@ -1,6 +1,7 @@
 package com.sirjain.status_effects;
 
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 
@@ -11,17 +12,23 @@ public class SeaBaneStatusEffect extends StatusEffect {
 		super(statusEffectCategory, color);
 	}
 
-	// TODO: After a specific amplifier, reset time will be 0 and the entity will infinitely take damage
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-		if (entity.isUndead()) handleDamage(20 - amplifier, entity);
-		else handleDamage(70 - (2 * amplifier), entity);
+		int appliedAmplifier = entity.isUndead()
+			? Math.min(amplifier, 6)
+			: Math.min(amplifier, 29);
+
+		int resetTime = entity.isUndead()
+			? 30 - (3 * appliedAmplifier)
+			: 70 - (2 * appliedAmplifier);
+
+		handleDamage(resetTime, entity);
 	}
 
 	public void handleDamage(int resetTime, LivingEntity entity) {
 		if (entity.getHealth() == 1) return;
 
-		if (tickTimeout == resetTime) {
+		if (tickTimeout > resetTime) {
 			entity.damage(entity.getDamageSources().magic(), 1);
 			tickTimeout = 0;
 		} else {
@@ -32,5 +39,11 @@ public class SeaBaneStatusEffect extends StatusEffect {
 	@Override
 	public boolean canApplyUpdateEffect(int duration, int amplifier) {
 		return true;
+	}
+
+	@Override
+	public void onApplied(LivingEntity entity, AttributeContainer attributes, int amplifier) {
+		super.onApplied(entity, attributes, amplifier);
+		tickTimeout = 0;
 	}
 }
