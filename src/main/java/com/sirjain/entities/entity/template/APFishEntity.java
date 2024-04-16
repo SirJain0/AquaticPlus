@@ -11,6 +11,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
+// TODO: Use getBaseMovementSpeedMultiplier to create helper methods for increasing speed
 public abstract class APFishEntity extends FishEntity {
 	public APFishEntity(EntityType<? extends FishEntity> entityType, World world) {
 		super(entityType, world);

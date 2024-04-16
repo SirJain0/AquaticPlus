@@ -36,6 +36,6 @@ public class MaxillaMortisEmissiveTextureFeature<T extends Entity, M extends Ent
 		this.canRecolor = entity.getDataTracker().get(CAN_RECOLOR);
 
 		VertexConsumer vertexConsumer = vertexConsumers.getBuffer(this.getEyesTexture());
-		this.getContextModel().render(matrices, vertexConsumer, 20, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 0.4F);
+		this.getContextModel().render(matrices, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 0.4F);
 	}
 }
