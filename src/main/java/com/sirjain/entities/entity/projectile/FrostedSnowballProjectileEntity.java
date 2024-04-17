@@ -39,6 +39,7 @@ public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity
 		if (target == null) return;
 
 		boolean canDamage = !this.getWorld().isClient && !target.isDead();
+
 		if (canDamage) {
 			if (target.canFreeze()) {
 				target.setFrozenTicks(target.getMinFreezeDamageTicks());
@@ -48,7 +49,7 @@ public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity
 			target.addStatusEffect(new StatusEffectInstance(StatusEffects.SLOWNESS, 20 * 6, 3, false, false, false));
 		}
 
-		summonParticle(ParticleTypes.SNOWFLAKE, entity.getWorld(), 8, target);
+		summonParticles(ParticleTypes.SNOWFLAKE, entity.getWorld(), 8, target);
 	}
 
 	@Override
@@ -62,7 +63,7 @@ public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity
 		return 0;
 	}
 
-	public static void summonParticle(ParticleEffect particle, World world, int numParticles, LivingEntity target) {
+	public static void summonParticles(ParticleEffect particle, World world, int numParticles, LivingEntity target) {
 		if (world.isClient) {
 			for (int x = 0; x < numParticles; x++) {
 				int xRand = world.random.nextInt(2);
