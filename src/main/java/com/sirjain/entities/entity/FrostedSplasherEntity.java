@@ -12,7 +12,6 @@ import net.minecraft.world.World;
 
 /*
 TODO:
-- Refactor particle code
 - Attack revenge AI
  */
 public class FrostedSplasherEntity extends APFishEntity {
@@ -39,27 +38,24 @@ public class FrostedSplasherEntity extends APFishEntity {
 	@Override
 	public void tick() {
 		super.tick();
-		World world = this.getWorld();
 
-		if (world.isClient) {
-			if (this.random.nextInt(5) == 0)
-				this.getWorld().addParticle(
-					ParticleTypes.SNOWFLAKE,
-					this.getX() + 0.8f,
-					this.getRandomBodyY(),
-					this.getZ() + 0.5f,
-					-0.01f, 0.05f, 0
-				);
+		if (this.getWorld().isClient) {
+			World world = this.getWorld();
+			double xPos = this.getX() + 0.8f;
+			double xPos2 = this.getX() - 0.8f;
 
-			if (this.random.nextInt(5) == 0) {
-				this.getWorld().addParticle(
-					ParticleTypes.SNOWFLAKE,
-					this.getX() - 0.8f,
-					this.getRandomBodyY(),
-					this.getZ() + 0.5f,
-					-0.01f, 0.05f, 0
-				);
-			}
+			summonRandomSnowParticle(world, xPos);
+			summonRandomSnowParticle(world, xPos2);
+		}
+	}
+
+	public void summonRandomSnowParticle(World world, double x) {
+		if (this.random.nextInt(5) == 0) {
+			world.addParticle(
+				ParticleTypes.SNOWFLAKE,
+				x, this.getRandomBodyY(), this.getZ() + 0.5f,
+				-0.01f, 0.05f, 0
+			);
 		}
 	}
 }
