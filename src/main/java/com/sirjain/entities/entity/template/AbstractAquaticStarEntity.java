@@ -1,5 +1,7 @@
 package com.sirjain.entities.entity.template;
 
+import com.sirjain.AquaticPlusUtil;
+import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -48,16 +50,8 @@ public abstract class AbstractAquaticStarEntity extends SelfKillingProjectileEnt
 	public void tick() {
 		super.tick();
 
-		if (this.isSubmergedInWater()) {
-			Vec3d prevVelocity = this.getVelocity();
-			double multiplier = 1 / 0.8;
-
-			this.setVelocity(
-				prevVelocity.x * multiplier,
-				prevVelocity.y * multiplier,
-				prevVelocity.z * multiplier
-			);
-		}
+		if (this.isSubmergedInWater())
+			this.setVelocity(this.getVelocity().multiply(AquaticPlusUtil.UNDERWATER_PARTICLE_MULTIPLIER));
 	}
 
 	@Override

@@ -1,5 +1,6 @@
 package com.sirjain.entities.entity.projectile;
 
+import com.sirjain.AquaticPlusUtil;
 import com.sirjain.entities.entity.template.SelfKillingProjectileEntity;
 import com.sirjain.registries.AquaticPlusEntities;
 import com.sirjain.registries.AquaticPlusItems;
@@ -56,6 +57,14 @@ public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity
 	protected void onCollision(HitResult hitResult) {
 		super.onCollision(hitResult);
 		this.kill();
+	}
+
+	@Override
+	public void tick() {
+		super.tick();
+
+		if (this.isSubmergedInWater())
+			this.setVelocity(this.getVelocity().multiply(AquaticPlusUtil.UNDERWATER_PARTICLE_MULTIPLIER));
 	}
 
 	@Override

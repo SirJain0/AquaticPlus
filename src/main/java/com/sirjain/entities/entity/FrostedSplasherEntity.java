@@ -1,22 +1,32 @@
 package com.sirjain.entities.entity;
 
+import com.sirjain.entities.entity.projectile.FrostedSnowballProjectileEntity;
 import com.sirjain.entities.entity.template.APFishEntity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.MovementType;
+import net.minecraft.entity.ai.RangedAttackMob;
+import net.minecraft.entity.ai.goal.ProjectileAttackGoal;
+import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
+import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-/*
-TODO:
-- Attack revenge AI
- */
-public class FrostedSplasherEntity extends APFishEntity {
+public class FrostedSplasherEntity extends APFishEntity implements RangedAttackMob {
 	public FrostedSplasherEntity(EntityType<? extends FishEntity> entityType, World world) {
 		super(entityType, world);
+	}
+
+	@Override
+	protected void initGoals() {
+		super.initGoals();
+
+		this.goalSelector.add(0, new ProjectileAttackGoal(this, 1.0D, 20/*(20*60) * 2*/, 15.0F));
+		this.targetSelector.add(1, new RevengeGoal(this));
 	}
 
 	@Override
@@ -47,6 +57,10 @@ public class FrostedSplasherEntity extends APFishEntity {
 			summonRandomSnowParticle(world, xPos);
 			summonRandomSnowParticle(world, xPos2);
 		}
+
+		if (this.age % 60 == 0 && this.getHealth() < this.getMaxHealth()) {
+			this.heal(1);
+		}
 	}
 
 	public void summonRandomSnowParticle(World world, double x) {
@@ -57,5 +71,18 @@ public class FrostedSplasherEntity extends APFishEntity {
 				-0.01f, 0.05f, 0
 			);
 		}
+	}
+
+	@Override
+	public void attack(LivingEntity target, float pullProgress) {
+		ThrownItemEntity projectile = new FrostedSnowballProjectileEntity(this.getWorld(), this);
+
+		double xCoord = target.getX() - this.getX();
+		double yCoord = target.getBodyY(0.3f) - projectile.getY();
+		double zCoord = target.getZ() - this.getZ();
+		double velPath = Math.sqrt(xCoord * xCoord + zCoord * zCoord);
+
+		projectile.setVelocity(xCoord, yCoord + velPath * (double) 0.2f, zCoord, 1, 0);
+		this.getWorld().spawnEntity(projectile);
 	}
 }
