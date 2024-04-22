@@ -21,4 +21,9 @@ public class JellyfishRenderer extends MobEntityRenderer<JellyfishEntity, Jellyf
 		String variantName = entity.getVariant().name().toLowerCase();
 		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/jellyfish/jellyfish_" + variantName + ".png");
 	}
+
+	@Override
+	protected void scale(JellyfishEntity entity, MatrixStack matrices, float amount) {
+		matrices.scale(entity.getModelScale(), entity.getModelScale(), entity.getModelScale());
+	}
 }

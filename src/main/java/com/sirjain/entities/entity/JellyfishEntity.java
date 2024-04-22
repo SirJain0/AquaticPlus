@@ -28,7 +28,6 @@ import java.util.function.IntFunction;
 
 /*
 TODO:
-- Add random scales
 - Make it hurt you when you touch it
 - Drops jelly and ghostly membrane
 - Flee when it is below a certain health
@@ -36,14 +35,10 @@ TODO:
  */
 public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Mount {
 	private static final TrackedData<Integer> JELLYFISH_TYPE = DataTracker.registerData(JellyfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
+	private static final TrackedData<Float> SCALE = DataTracker.registerData(JellyfishEntity.class, TrackedDataHandlerRegistry.FLOAT);
 
 	public JellyfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
-	}
-
-	@Override
-	protected void initGoals() {
-		super.initGoals();
 	}
 
 	public static DefaultAttributeContainer.Builder createJellyfishAttributes() {
@@ -58,6 +53,9 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
 		this.initVariant();
 
+		int rand = this.getRandom().nextInt(8);
+		this.setModelScale(0.6f + (rand / 10f));
+
 		if (this.isFrostVariant()) {
 			this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(15);
 			this.heal(this.getMaxHealth());
@@ -68,6 +66,20 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 
 	public boolean isFrostVariant() {
 		return this.getVariant().id == 2;
+	}
+
+	public float getModelScale() {
+		return this.dataTracker.get(SCALE);
+	}
+
+	public void setModelScale(float newScale) {
+		this.dataTracker.set(SCALE, newScale);
+	}
+
+	@Override
+	public void tick() {
+		super.tick();
+		System.out.println(getModelScale());
 	}
 
 	@Override
@@ -132,19 +144,25 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
+
 		this.dataTracker.startTracking(JELLYFISH_TYPE, JellyfishType.PINK.id);
+		this.dataTracker.startTracking(SCALE, 1F);
 	}
 
 	@Override
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
+
 		nbt.putInt("jellyfish_type", this.getVariant().id);
+		nbt.putFloat("scale", this.getModelScale());
 	}
 
 	@Override
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
+
 		this.setVariant(JellyfishType.byId(nbt.getInt("jellyfish_type")));
+		this.dataTracker.set(SCALE, nbt.getFloat("scale"));
 	}
 
 	public void setVariant(JellyfishType sardineType) {
