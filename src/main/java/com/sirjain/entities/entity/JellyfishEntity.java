@@ -23,7 +23,6 @@ import java.util.function.IntFunction;
 
 /*
 TODO:
-- Increase HP when it is frost variant
 - Add random scales
 - Make it ridable but not controllable
 - Make it hurt you when you touch it
@@ -53,6 +52,12 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity {
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
 		this.initVariant();
+
+		if (this.getVariant().id == 2) {
+			this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(15);
+			this.heal(this.getMaxHealth());
+		}
+
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
 	}
 
