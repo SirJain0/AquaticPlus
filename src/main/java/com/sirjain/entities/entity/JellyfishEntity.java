@@ -32,6 +32,7 @@ TODO:
 - Drops jelly and ghostly membrane
 - Flee when it is below a certain health
 - Animations
+- Rename frost to albino
  */
 public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Mount {
 	private static final TrackedData<Integer> JELLYFISH_TYPE = DataTracker.registerData(JellyfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
