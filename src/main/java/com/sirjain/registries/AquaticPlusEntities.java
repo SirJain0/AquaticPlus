@@ -228,6 +228,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer JELLYFISH_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "jellyfish"), "root");
+	public static final EntityType<JellyfishEntity> JELLYFISH_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "jellyfish"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, JellyfishEntity::new)
+			.dimensions(EntityDimensions.fixed(0.4f, 0.4f))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -290,7 +299,8 @@ public class AquaticPlusEntities {
 		SARDINE_ENTITY,
 		MINNOW_ENTITY,
 		LIONFISH_ENTITY,
-		FROSTED_SPLASHER_ENTITY
+		FROSTED_SPLASHER_ENTITY,
+		JELLYFISH_ENTITY
 	);
 
 	public static void registerAttributes() {
@@ -316,6 +326,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(MINNOW_ENTITY, FishEntity.createFishAttributes());
 		FabricDefaultAttributeRegistry.register(LIONFISH_ENTITY, LionfishEntity.createLionfishAttributes());
 		FabricDefaultAttributeRegistry.register(FROSTED_SPLASHER_ENTITY, FrostedSplasherEntity.createFrostedSplasherAttributes());
+		FabricDefaultAttributeRegistry.register(JELLYFISH_ENTITY, JellyfishEntity.createJellyfishAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -343,6 +354,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(MINNOW_ENTITY, MinnowRenderer::new);
 		EntityRendererRegistry.register(LIONFISH_ENTITY, LionfishRenderer::new);
 		EntityRendererRegistry.register(FROSTED_SPLASHER_ENTITY, FrostedSplasherRenderer::new);
+		EntityRendererRegistry.register(JELLYFISH_ENTITY, JellyfishRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -366,6 +378,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(MINNOW_LAYER, MinnowModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(LIONFISH_LAYER, LionfishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(FROSTED_SPLASHER_LAYER, FrostedSplasherModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(JELLYFISH_LAYER, JellyfishModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {

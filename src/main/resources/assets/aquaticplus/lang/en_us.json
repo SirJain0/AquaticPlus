@@ -23,6 +23,7 @@
 	"item.aquaticplus.minnow_spawn_egg": "Minnow Spawn Egg",
 	"item.aquaticplus.lionfish_spawn_egg": "Lionfish Spawn Egg",
 	"item.aquaticplus.frosted_splasher_spawn_egg": "Frosted Splasher Spawn Egg",
+	"item.aquaticplus.jellyfish_spawn_egg": "Jellyfish Spawn Egg",
 
 	"item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 	"item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
@@ -139,6 +140,7 @@
 	"entity.aquaticplus.minnow": "Minnow",
 	"entity.aquaticplus.lionfish": "Lionfish",
 	"entity.aquaticplus.frosted_splasher": "Frosted Splasher",
+	"entity.aquaticplus.jellyfish": "Jellyfish",
 
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",

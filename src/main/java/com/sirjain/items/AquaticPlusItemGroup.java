@@ -53,6 +53,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.MINNOW_SPAWN_EGG);
 					entries.add(AquaticPlusItems.LIONFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.FROSTED_SPLASHER_SPAWN_EGG);
+					entries.add(AquaticPlusItems.JELLYFISH_SPAWN_EGG);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
