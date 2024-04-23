@@ -31,7 +31,6 @@ TODO:
 - Make it hurt you when you touch it
 - Drops jelly and ghostly membrane
 - Flee when it is below a certain health
-- Animations
 - Rename frost to albino
  */
 public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Mount {
@@ -75,12 +74,6 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 
 	public void setModelScale(float newScale) {
 		this.dataTracker.set(SCALE, newScale);
-	}
-
-	@Override
-	public void tick() {
-		super.tick();
-		System.out.println(getModelScale());
 	}
 
 	@Override

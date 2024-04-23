@@ -5,14 +5,31 @@ import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 
 public class JellyfishModel extends EntityModel<JellyfishEntity> {
 	private final ModelPart root;
 	private final ModelPart jellyfish;
+	private final ModelPart tentacle1;
+	private final ModelPart tentacle2;
+	private final ModelPart tentacle3;
+	private final ModelPart tentacle4;
+	private final ModelPart tentacle5;
+	private final ModelPart tentacle6;
+	private final ModelPart tentacle7;
+	private final ModelPart tentacle8;
 
 	public JellyfishModel(ModelPart part) {
 		root = part;
 		jellyfish = root.getChild("jellyfish");
+		tentacle1 = jellyfish.getChild("tentacle1");
+		tentacle2 = jellyfish.getChild("tentacle2");
+		tentacle3 = jellyfish.getChild("tentacle3");
+		tentacle4 = jellyfish.getChild("tentacle4");
+		tentacle5 = jellyfish.getChild("tentacle5");
+		tentacle6 = jellyfish.getChild("tentacle6");
+		tentacle7 = jellyfish.getChild("tentacle7");
+		tentacle8 = jellyfish.getChild("tentacle8");
 	}
 
 	public static TexturedModelData getTexturedModelData() {
@@ -42,7 +59,20 @@ public class JellyfishModel extends EntityModel<JellyfishEntity> {
 
 	@Override
 	public void setAngles(JellyfishEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-		// Animate
+		tentacle1.roll = 0.5f + MathHelper.cos(animationProgress * 0.1f) * 0.25f;
+		tentacle2.roll = -(0.5f + MathHelper.cos(animationProgress * 0.1f) * 0.25f);
+		tentacle3.pitch = -(0.5f + MathHelper.cos(animationProgress * 0.1f) * 0.25f);
+		tentacle4.pitch = 0.5f + MathHelper.cos(animationProgress * 0.1f) * 0.25f;
+		tentacle5.roll = 0.42f + MathHelper.cos(animationProgress * 0.1f) * 0.22f;
+		tentacle5.pitch = -(0.42f + MathHelper.cos(animationProgress * 0.1f) * 0.22f);
+		tentacle6.roll = -(0.42f + MathHelper.cos(animationProgress * 0.1f) * 0.22f);
+		tentacle6.pitch = 0.42f + MathHelper.cos(animationProgress * 0.1f) * 0.22f;
+		tentacle7.roll = -(0.42f + MathHelper.cos(animationProgress * 0.1f) * 0.22f);
+		tentacle7.pitch = -(0.42f + MathHelper.cos(animationProgress * 0.1f) * 0.22f);
+		tentacle8.roll = 0.42f + MathHelper.cos(animationProgress * 0.1f) * 0.22f;
+		tentacle8.pitch = 0.42f + MathHelper.cos(animationProgress * 0.1f) * 0.22f;
+
+		jellyfish.pivotY = -(MathHelper.cos(40 + animationProgress * 0.1f) * 0.5f);
 	}
 
 	@Override
