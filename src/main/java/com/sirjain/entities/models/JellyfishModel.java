@@ -59,10 +59,10 @@ public class JellyfishModel extends EntityModel<JellyfishEntity> {
 
 	@Override
 	public void setAngles(JellyfishEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-		tentacle1.roll = 0.5f + MathHelper.cos(animationProgress * 0.1f) * 0.25f;
-		tentacle2.roll = -(0.5f + MathHelper.cos(animationProgress * 0.1f) * 0.25f);
-		tentacle3.pitch = -(0.5f + MathHelper.cos(animationProgress * 0.1f) * 0.25f);
-		tentacle4.pitch = 0.5f + MathHelper.cos(animationProgress * 0.1f) * 0.25f;
+		tentacle1.roll = 0.5f + MathHelper.cos(-0.8f + animationProgress * 0.1f) * 0.25f;
+		tentacle2.roll = -(0.5f + MathHelper.cos(-0.8f + animationProgress * 0.1f) * 0.25f);
+		tentacle3.pitch = -(0.5f + MathHelper.cos(-0.8f + animationProgress * 0.1f) * 0.25f);
+		tentacle4.pitch = 0.5f + MathHelper.cos(-0.8f + animationProgress * 0.1f) * 0.25f;
 		tentacle5.roll = 0.42f + MathHelper.cos(animationProgress * 0.1f) * 0.22f;
 		tentacle5.pitch = -(0.42f + MathHelper.cos(animationProgress * 0.1f) * 0.22f);
 		tentacle6.roll = -(0.42f + MathHelper.cos(animationProgress * 0.1f) * 0.22f);

@@ -31,7 +31,6 @@ TODO:
 - Make it hurt you when you touch it
 - Drops jelly and ghostly membrane
 - Flee when it is below a certain health
-- Rename frost to albino
  */
 public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Mount {
 	private static final TrackedData<Integer> JELLYFISH_TYPE = DataTracker.registerData(JellyfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -132,7 +131,7 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 
 		if (textureID == 0 || textureID == 1) this.setVariant(JellyfishType.PINK);
 		else if (textureID == 2 || textureID == 3) this.setVariant(JellyfishType.YELLOW);
-		else if (textureID == 4) this.setVariant(JellyfishType.FROST);
+		else if (textureID == 4) this.setVariant(JellyfishType.ALBINO);
 	}
 
 	@Override
@@ -170,7 +169,7 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 	public enum JellyfishType implements StringIdentifiable {
 		PINK(0, "pink"),
 		YELLOW(1, "yellow"),
-		FROST(2, "frost");
+		ALBINO(2, "albino");
 
 		private static final IntFunction<JellyfishType> BY_ID = ValueLists.createIdToValueFunction(
 			JellyfishType::getId, values(), PINK
