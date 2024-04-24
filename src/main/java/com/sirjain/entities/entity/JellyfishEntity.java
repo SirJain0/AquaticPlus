@@ -1,7 +1,10 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
+import com.sirjain.entities.goals.APSwimAroundGoal;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.goal.EscapeDangerGoal;
+import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -30,7 +33,6 @@ import java.util.function.IntFunction;
 TODO:
 - Make it hurt you when you touch it
 - Drops jelly
-- Flee when it is below a certain health
  */
 public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Mount {
 	private static final TrackedData<Integer> JELLYFISH_TYPE = DataTracker.registerData(JellyfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -38,6 +40,13 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 
 	public JellyfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
+	}
+
+	@Override
+	protected void initGoals() {
+		this.goalSelector.add(2, new APSwimAroundGoal(this, 1, 1, 10, 3));
+		this.goalSelector.add(1, new FleeEntityGoal<>(this, PlayerEntity.class, 10, 1.4, 1.9));
+		this.goalSelector.add(this.getHealth() < 6 ? 0 : 3, new EscapeDangerGoal(this, 1.5f));
 	}
 
 	public static DefaultAttributeContainer.Builder createJellyfishAttributes() {
