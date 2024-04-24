@@ -33,10 +33,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.function.IntFunction;
 
-/*
-TODO:
-- Bread and jelly item texture
- */
 public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Mount {
 	private static final TrackedData<Integer> JELLYFISH_TYPE = DataTracker.registerData(JellyfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Float> SCALE = DataTracker.registerData(JellyfishEntity.class, TrackedDataHandlerRegistry.FLOAT);
