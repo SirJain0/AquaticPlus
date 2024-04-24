@@ -72,6 +72,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.SARDINE);
 					entries.add(AquaticPlusItems.MINNOW);
 					entries.add(AquaticPlusItems.MORTIS_FLESH);
+					entries.add(AquaticPlusItems.BREAD_AND_JELLY);
 
 					entries.add(AquaticPlusItems.AQUATIC_STAR);
 					entries.add(AquaticPlusItems.NUMBING_AQUATIC_STAR);

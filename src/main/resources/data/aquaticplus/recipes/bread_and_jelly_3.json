@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"jjj",
+		" b "
+	],
+	"key": {
+		"j": {
+			"item": "aquaticplus:white_jelly"
+		},
+		"b": {
+			"item": "minecraft:bread"
+		}
+	},
+	"result": {
+		"item": "aquaticplus:bread_and_jelly",
+		"count": 1
+	}
+}
