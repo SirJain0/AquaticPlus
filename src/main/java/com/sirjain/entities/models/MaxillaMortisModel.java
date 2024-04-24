@@ -61,8 +61,8 @@ public class MaxillaMortisModel extends EntityModel<MaxillaMortisEntity> {
 			upperJaw.pitch = -1;
 			lowerJaw.pitch = 1;
 		} else {
-			upperJaw.pitch = (float) -0.67;
-			lowerJaw.pitch = (float) 0.67;
+			upperJaw.pitch = -0.67f;
+			lowerJaw.pitch = 0.67f;
 		}
 	}
 

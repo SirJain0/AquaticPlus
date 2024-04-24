@@ -23,6 +23,7 @@
 	"item.aquaticplus.minnow_spawn_egg": "Minnow Spawn Egg",
 	"item.aquaticplus.lionfish_spawn_egg": "Lionfish Spawn Egg",
 	"item.aquaticplus.frosted_splasher_spawn_egg": "Frosted Splasher Spawn Egg",
+	"item.aquaticplus.jellyfish_spawn_egg": "Jellyfish Spawn Egg",
 
 	"item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 	"item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
@@ -41,6 +42,7 @@
 	"item.aquaticplus.sardine": "Sardine",
 	"item.aquaticplus.minnow": "Minnow",
 	"item.aquaticplus.mortis_flesh": "Mortis Flesh",
+	"item.aquaticplus.bread_and_jelly": "Bread and Jelly",
 
 	"item.aquaticplus.frost_shards": "Frost Shards",
 	"item.aquaticplus.stone_essence": "Stone Essence",
@@ -51,6 +53,9 @@
 	"item.aquaticplus.sunfish_tail": "Sunfish Tail",
 	"item.aquaticplus.lionfish_spike": "Lionfish Spike",
 	"item.aquaticplus.ghostly_membrane": "Ghostly Membrane",
+	"item.aquaticplus.pink_jelly": "Pink Jelly",
+	"item.aquaticplus.yellow_jelly": "Yellow Jelly",
+	"item.aquaticplus.white_jelly": "White Jelly",
 
 	"item.aquaticplus.stonifier": "Stonifier",
 	"item.aquaticplus.destonifier": "Destonifier",
@@ -139,6 +144,7 @@
 	"entity.aquaticplus.minnow": "Minnow",
 	"entity.aquaticplus.lionfish": "Lionfish",
 	"entity.aquaticplus.frosted_splasher": "Frosted Splasher",
+	"entity.aquaticplus.jellyfish": "Jellyfish",
 
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",

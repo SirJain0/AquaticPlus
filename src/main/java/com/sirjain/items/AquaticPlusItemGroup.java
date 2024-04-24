@@ -53,6 +53,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.MINNOW_SPAWN_EGG);
 					entries.add(AquaticPlusItems.LIONFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.FROSTED_SPLASHER_SPAWN_EGG);
+					entries.add(AquaticPlusItems.JELLYFISH_SPAWN_EGG);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
@@ -71,6 +72,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.SARDINE);
 					entries.add(AquaticPlusItems.MINNOW);
 					entries.add(AquaticPlusItems.MORTIS_FLESH);
+					entries.add(AquaticPlusItems.BREAD_AND_JELLY);
 
 					entries.add(AquaticPlusItems.AQUATIC_STAR);
 					entries.add(AquaticPlusItems.NUMBING_AQUATIC_STAR);
@@ -85,6 +87,9 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.LIONFISH_SPIKE);
 					entries.add(AquaticPlusItems.SUNFISH_TAIL);
 					entries.add(AquaticPlusItems.GHOSTLY_MEMBRANE);
+					entries.add(AquaticPlusItems.PINK_JELLY);
+					entries.add(AquaticPlusItems.YELLOW_JELLY);
+					entries.add(AquaticPlusItems.WHITE_JELLY);
 					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
 					entries.add(AquaticPlusItems.STONIFIER);
 					entries.add(AquaticPlusItems.DESTONIFIER);

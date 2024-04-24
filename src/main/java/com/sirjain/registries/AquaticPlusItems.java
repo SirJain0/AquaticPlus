@@ -35,6 +35,9 @@ public class AquaticPlusItems {
 	public static Item SUNFISH_TAIL;
 	public static Item LIONFISH_SPIKE;
 	public static Item GHOSTLY_MEMBRANE;
+	public static Item PINK_JELLY;
+	public static Item YELLOW_JELLY;
+	public static Item WHITE_JELLY;
 
 	public static Item VIPERFISH;
 	public static Item PARROTFISH;
@@ -44,6 +47,7 @@ public class AquaticPlusItems {
 	public static Item SARDINE;
 	public static Item MINNOW;
 	public static Item MORTIS_FLESH;
+	public static Item BREAD_AND_JELLY;
 
 	public static Item JOHNSON_SPAWN_EGG;
 	public static Item MINDINATOR_SPAWN_EGG;
@@ -67,6 +71,7 @@ public class AquaticPlusItems {
 	public static Item MINNOW_SPAWN_EGG;
 	public static Item LIONFISH_SPAWN_EGG;
 	public static Item FROSTED_SPLASHER_SPAWN_EGG;
+	public static Item JELLYFISH_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -90,14 +95,17 @@ public class AquaticPlusItems {
 
 	public static void registerBasicItems() {
 		FROSTED_BALL = registerBasicItem("frosted_ball", new Item.Settings().maxCount(1).maxCount(16));
-		FROST_SHARDS = registerBasicItem("frost_shards", new Item.Settings());
-		STONE_ESSENCE = registerBasicItem("stone_essence", new Item.Settings());
-		STONE_CORRODER = registerBasicItem("stone_corroder", new Item.Settings());
-		MORTIS_VENOM = registerBasicItem("mortis_venom", new Item.Settings());
-		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth", new Item.Settings());
-		VIPER_TOOTH = registerBasicItem("viper_tooth", new Item.Settings());
-		SUNFISH_TAIL = registerBasicItem("sunfish_tail", new Item.Settings());
-		GHOSTLY_MEMBRANE = registerBasicItem("ghostly_membrane", new Item.Settings());
+		FROST_SHARDS = registerBasicItem("frost_shards");
+		STONE_ESSENCE = registerBasicItem("stone_essence");
+		STONE_CORRODER = registerBasicItem("stone_corroder");
+		MORTIS_VENOM = registerBasicItem("mortis_venom");
+		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth");
+		VIPER_TOOTH = registerBasicItem("viper_tooth");
+		SUNFISH_TAIL = registerBasicItem("sunfish_tail");
+		GHOSTLY_MEMBRANE = registerBasicItem("ghostly_membrane");
+		PINK_JELLY = registerBasicItem("pink_jelly");
+		YELLOW_JELLY = registerBasicItem("yellow_jelly");
+		WHITE_JELLY = registerBasicItem("white_jelly");
 	}
 
 	public static void registerAdvancedItems() {
@@ -120,6 +128,7 @@ public class AquaticPlusItems {
 		SARDINE = registerFoodItem("sardine", AquaticPlusFoodItems.SARDINE);
 		MINNOW = registerFoodItem("minnow", AquaticPlusFoodItems.MINNOW);
 		MORTIS_FLESH = registerFoodItem("mortis_flesh", AquaticPlusFoodItems.MORTIS_FLESH);
+		BREAD_AND_JELLY = registerFoodItem("bread_and_jelly", AquaticPlusFoodItems.BREAD_AND_JELLY);
 	}
 
 	public static void registerSpawnEggs() {
@@ -145,6 +154,7 @@ public class AquaticPlusItems {
 		MINNOW_SPAWN_EGG = registerSpawnEggItem("minnow_spawn_egg", AquaticPlusEntities.MINNOW_ENTITY, 0x50602d, 0xcfbd82);
 		LIONFISH_SPAWN_EGG = registerSpawnEggItem("lionfish_spawn_egg", AquaticPlusEntities.LIONFISH_ENTITY, 0xa46e3f, 0xd1c8bb);
 		FROSTED_SPLASHER_SPAWN_EGG = registerSpawnEggItem("frosted_splasher_spawn_egg", AquaticPlusEntities.FROSTED_SPLASHER_ENTITY, 0xe2d6af, 0x8bcee6);
+		JELLYFISH_SPAWN_EGG = registerSpawnEggItem("jellyfish_spawn_egg", AquaticPlusEntities.JELLYFISH_ENTITY, 0x956ebd, 0xff9fec);
 	}
 
 	public static void registerBucketItems() {
@@ -169,6 +179,10 @@ public class AquaticPlusItems {
 			new Identifier(AquaticPlus.MOD_ID, identifier),
 			new Item(settings)
 		);
+	}
+
+	public static Item registerBasicItem(String identifier) {
+		return registerBasicItem(identifier, new Item.Settings());
 	}
 
 	public static Item registerFoodItem(String identifier, FoodComponent food) {
