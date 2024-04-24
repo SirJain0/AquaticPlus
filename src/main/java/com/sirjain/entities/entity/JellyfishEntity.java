@@ -5,6 +5,7 @@ import com.sirjain.entities.goals.APSwimAroundGoal;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
+import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -45,8 +46,7 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 	@Override
 	protected void initGoals() {
 		this.goalSelector.add(2, new APSwimAroundGoal(this, 1, 1, 10, 3));
-		this.goalSelector.add(1, new FleeEntityGoal<>(this, PlayerEntity.class, 10, 1.4, 1.9));
-		this.goalSelector.add(this.getHealth() < 6 ? 0 : 3, new EscapeDangerGoal(this, 1.5f));
+		this.goalSelector.add(0, new EscapeDangerGoal(this, 1.5f));
 	}
 
 	public static DefaultAttributeContainer.Builder createJellyfishAttributes() {
@@ -82,6 +82,17 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 
 	public void setModelScale(float newScale) {
 		this.dataTracker.set(SCALE, newScale);
+	}
+
+	@Override
+	public void tick() {
+		super.tick();
+
+		Goal fleeGoal = new FleeEntityGoal<>(this, PlayerEntity.class, 10, 1.4, 1.9);
+
+		if (this.getHealth() < 6) this.goalSelector.add(1, fleeGoal);
+		else this.goalSelector.remove(fleeGoal);
+
 	}
 
 	@Override
