@@ -35,7 +35,6 @@ import java.util.function.IntFunction;
 
 /*
 TODO:
-- Jelly textures
 - Bread and jelly item texture
  */
 public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Mount {
