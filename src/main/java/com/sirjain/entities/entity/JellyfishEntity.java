@@ -12,9 +12,11 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.FishEntity;
+import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.StringIdentifiable;
@@ -28,11 +30,11 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.function.IntFunction;
 
 /*
 TODO:
-- Make it hurt you when you touch it
 - Drops jelly
  */
 public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Mount {
@@ -89,10 +91,19 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 		super.tick();
 
 		Goal fleeGoal = new FleeEntityGoal<>(this, PlayerEntity.class, 10, 1.4, 1.9);
+		List<Entity> entities = this.getWorld()
+			.getOtherEntities(this, this.getBoundingBox()
+			.expand(0.6f), EntityPredicates.VALID_LIVING_ENTITY);
 
+		// Handles the Flee goal depending on the health
 		if (this.getHealth() < 6) this.goalSelector.add(1, fleeGoal);
 		else this.goalSelector.remove(fleeGoal);
 
+		// Hurts entities that "touch" it
+		for (Entity entity : entities) {
+			if (!(entity instanceof LivingEntity)) continue;
+			entity.damage(entity.getDamageSources().mobAttackNoAggro(this), 1);
+		}
 	}
 
 	@Override
