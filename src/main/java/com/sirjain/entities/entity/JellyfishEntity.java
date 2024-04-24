@@ -29,7 +29,7 @@ import java.util.function.IntFunction;
 /*
 TODO:
 - Make it hurt you when you touch it
-- Drops jelly and ghostly membrane
+- Drops jelly
 - Flee when it is below a certain health
  */
 public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Mount {
