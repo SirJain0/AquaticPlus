@@ -86,6 +86,9 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.LIONFISH_SPIKE);
 					entries.add(AquaticPlusItems.SUNFISH_TAIL);
 					entries.add(AquaticPlusItems.GHOSTLY_MEMBRANE);
+					entries.add(AquaticPlusItems.PINK_JELLY);
+					entries.add(AquaticPlusItems.YELLOW_JELLY);
+					entries.add(AquaticPlusItems.WHITE_JELLY);
 					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
 					entries.add(AquaticPlusItems.STONIFIER);
 					entries.add(AquaticPlusItems.DESTONIFIER);

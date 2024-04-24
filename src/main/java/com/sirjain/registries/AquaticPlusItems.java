@@ -35,6 +35,9 @@ public class AquaticPlusItems {
 	public static Item SUNFISH_TAIL;
 	public static Item LIONFISH_SPIKE;
 	public static Item GHOSTLY_MEMBRANE;
+	public static Item PINK_JELLY;
+	public static Item YELLOW_JELLY;
+	public static Item WHITE_JELLY;
 
 	public static Item VIPERFISH;
 	public static Item PARROTFISH;
@@ -91,14 +94,17 @@ public class AquaticPlusItems {
 
 	public static void registerBasicItems() {
 		FROSTED_BALL = registerBasicItem("frosted_ball", new Item.Settings().maxCount(1).maxCount(16));
-		FROST_SHARDS = registerBasicItem("frost_shards", new Item.Settings());
-		STONE_ESSENCE = registerBasicItem("stone_essence", new Item.Settings());
-		STONE_CORRODER = registerBasicItem("stone_corroder", new Item.Settings());
-		MORTIS_VENOM = registerBasicItem("mortis_venom", new Item.Settings());
-		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth", new Item.Settings());
-		VIPER_TOOTH = registerBasicItem("viper_tooth", new Item.Settings());
-		SUNFISH_TAIL = registerBasicItem("sunfish_tail", new Item.Settings());
-		GHOSTLY_MEMBRANE = registerBasicItem("ghostly_membrane", new Item.Settings());
+		FROST_SHARDS = registerBasicItem("frost_shards");
+		STONE_ESSENCE = registerBasicItem("stone_essence");
+		STONE_CORRODER = registerBasicItem("stone_corroder");
+		MORTIS_VENOM = registerBasicItem("mortis_venom");
+		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth");
+		VIPER_TOOTH = registerBasicItem("viper_tooth");
+		SUNFISH_TAIL = registerBasicItem("sunfish_tail");
+		GHOSTLY_MEMBRANE = registerBasicItem("ghostly_membrane");
+		PINK_JELLY = registerBasicItem("pink_jelly");
+		YELLOW_JELLY = registerBasicItem("yellow_jelly");
+		WHITE_JELLY = registerBasicItem("white_jelly");
 	}
 
 	public static void registerAdvancedItems() {
@@ -171,6 +177,10 @@ public class AquaticPlusItems {
 			new Identifier(AquaticPlus.MOD_ID, identifier),
 			new Item(settings)
 		);
+	}
+
+	public static Item registerBasicItem(String identifier) {
+		return registerBasicItem(identifier, new Item.Settings());
 	}
 
 	public static Item registerFoodItem(String identifier, FoodComponent food) {

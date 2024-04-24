@@ -2,6 +2,7 @@ package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import com.sirjain.entities.goals.APSwimAroundGoal;
+import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
@@ -12,7 +13,6 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.FishEntity;
-import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
@@ -35,7 +35,8 @@ import java.util.function.IntFunction;
 
 /*
 TODO:
-- Drops jelly
+- Jelly textures
+- Bread and jelly item
  */
 public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Mount {
 	private static final TrackedData<Integer> JELLYFISH_TYPE = DataTracker.registerData(JellyfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -66,7 +67,7 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 		int rand = this.getRandom().nextInt(8);
 		this.setModelScale(0.6f + (rand / 10f));
 
-		if (this.isFrostVariant()) {
+		if (this.isAlbinoVariant()) {
 			this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(15);
 			this.heal(this.getMaxHealth());
 		}
@@ -74,7 +75,7 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
 	}
 
-	public boolean isFrostVariant() {
+	public boolean isAlbinoVariant() {
 		return this.getVariant().id == 2;
 	}
 
@@ -107,8 +108,17 @@ public class JellyfishEntity extends NoBucketSchoolingFishEntity implements Moun
 	}
 
 	@Override
+	protected void dropInventory() {
+		super.dropInventory();
+
+		if (this.getVariant().id == 0) this.dropItem(AquaticPlusItems.PINK_JELLY);
+		else if (this.getVariant().id == 1) this.dropItem(AquaticPlusItems.YELLOW_JELLY);
+		else if (this.isAlbinoVariant()) this.dropItem(AquaticPlusItems.WHITE_JELLY);
+	}
+
+	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-		if (this.isFrostVariant() && hand == Hand.MAIN_HAND) {
+		if (this.isAlbinoVariant() && hand == Hand.MAIN_HAND) {
 			this.setRiding(player);
 			return ActionResult.SUCCESS;
 		}
