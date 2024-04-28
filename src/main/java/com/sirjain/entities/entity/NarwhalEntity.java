@@ -28,7 +28,6 @@ TODO:
 - AI - fleeing danger
 - Make two variants, one or two horns - change health to 30 if two horns
 - Can mate and make babies?
-- Spawns
 - Animations
  */
 public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
