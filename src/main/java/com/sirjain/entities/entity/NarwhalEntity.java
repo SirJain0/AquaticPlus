@@ -29,7 +29,6 @@ import org.jetbrains.annotations.Nullable;
 /*
 TODO:
 - Make tameable
-- Make player occasionally get healed when riding it
  */
 public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -61,6 +60,14 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		}
 
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+	}
+
+	@Override
+	public void tickControlled(PlayerEntity controllingPlayer, Vec3d movementInput) {
+		super.tickControlled(controllingPlayer, movementInput);
+
+		if (!this.getWorld().isClient && this.age % 20*5 == 0)
+			this.heal(1);
 	}
 
 	// Code for dealing with making it mountable and ridable
