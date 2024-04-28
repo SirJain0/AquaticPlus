@@ -28,7 +28,8 @@ import org.jetbrains.annotations.Nullable;
 
 /*
 TODO:
-- Can mate and make babies?
+- Make tameable
+- Make player occasionally get healed when riding it
  */
 public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
