@@ -246,7 +246,7 @@ public class AquaticPlusEntities {
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "narwhal"),
 		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, NarwhalEntity::new)
-			.dimensions(EntityDimensions.fixed(1, 1))
+			.dimensions(EntityDimensions.fixed(0.6f, 0.6f))
 			.build()
 	);
 

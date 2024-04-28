@@ -29,7 +29,6 @@ import org.jetbrains.annotations.Nullable;
 /*
 TODO:
 - Can mate and make babies?
-- Animations
  */
 public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -46,7 +45,7 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	@Override
 	protected void initGoals() {
 		super.initGoals();
-		this.goalSelector.add(0, new EscapeDangerGoal(this, 1.45));
+		this.goalSelector.add(4, new EscapeDangerGoal(this, 1.45));
 	}
 
 	@Nullable
