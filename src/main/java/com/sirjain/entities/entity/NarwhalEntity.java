@@ -3,12 +3,12 @@ package com.sirjain.entities.entity;
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
@@ -16,54 +16,37 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.StringIdentifiable;
-import net.minecraft.util.function.ValueLists;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.function.IntFunction;
-
-public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
-	private static final TrackedData<Integer> MANTA_RAY_TYPE = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
-	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
+/*
+TODO:
+- AI - fleeing danger
+- Make two variants, one or two horns - change health to 30 if two horns
+- Can mate and make babies?
+- Spawns
+- Animations
+ */
+public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
+	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
 	private final SaddledComponent saddledComponent;
 
-	public MantaRayEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
+	public NarwhalEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
 		this.saddledComponent = new SaddledComponent(this.dataTracker, BOOST_TIME, SADDLED);
 	}
 
-	@Override
-	protected void initGoals() {
-		this.goalSelector.add(0, new FollowGroupLeaderGoal(this));
-		this.goalSelector.add(1, new SwimAroundGoal(this, 1.0, 10));
-		this.goalSelector.add(2, new LookAroundGoal(this));
-		this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
-		this.goalSelector.add(0, new AttackGoal(this));
-
-		this.targetSelector.add(0, new ActiveTargetGoal<>(this, LanternfishEntity.class, true, true));
-	}
-
-	@Nullable
-	@Override
-	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-		this.initVariant();
-		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
-	}
-
+	// Code for dealing with making it mountable and ridable
 	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
 
-		this.dataTracker.startTracking(MANTA_RAY_TYPE, MantaRayType.DARK.id);
 		this.dataTracker.startTracking(SADDLED, false);
 		this.dataTracker.startTracking(BOOST_TIME, 0);
 	}
@@ -72,7 +55,6 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
 
-		nbt.putInt("MantaRayType", this.getVariant().id);
 		this.saddledComponent.writeNbt(nbt);
 	}
 
@@ -80,8 +62,13 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
 
-		this.setVariant(MantaRayType.byId(nbt.getInt("MantaRayType")));
 		this.saddledComponent.readNbt(nbt);
+	}
+
+	@Nullable
+	@Override
+	public LivingEntity getControllingPassenger() {
+		return (LivingEntity) this.getFirstPassenger();
 	}
 
 	@Override
@@ -113,9 +100,9 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 			}
 		} else {
 			if (this.isLogicalSideForUpdatingMovement())
-				this.move(MovementType.SELF, this.getRotationVector().multiply(0.2f));
+				this.move(MovementType.SELF, this.getRotationVector().multiply(0.09f));
 
-			super.travel(movementInput.multiply(3f));
+			super.travel(movementInput.multiply(2f));
 		}
 
 		if (!this.isSubmergedInWater() && this.isLogicalSideForUpdatingMovement()) {
@@ -151,33 +138,6 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		}
 
 		return super.updatePassengerForDismount(passenger);
-	}
-
-	@Override
-	public double getMountedHeightOffset() {
-		return 1.45;
-	}
-
-	protected void initVariant() {
-		int textureID = this.random.nextInt(3);
-
-		if (textureID == 0) this.setVariant(MantaRayType.DARK);
-		else if (textureID == 1) this.setVariant(MantaRayType.DARK_SPOTTED);
-		else if (textureID == 2) this.setVariant(MantaRayType.BLUE);
-	}
-
-	public void setVariant(MantaRayType mantaRayType) {
-		this.dataTracker.set(MANTA_RAY_TYPE, mantaRayType.id);
-	}
-
-	public MantaRayType getVariant() {
-		return MantaRayType.byId(this.dataTracker.get(MANTA_RAY_TYPE));
-	}
-
-	@Nullable
-	@Override
-	public LivingEntity getControllingPassenger() {
-		return (LivingEntity) this.getFirstPassenger();
 	}
 
 	private void setRiding(PlayerEntity player) {
@@ -217,41 +177,9 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		if (this.isSaddled()) this.dropItem(Items.SADDLE);
 	}
 
-	public static DefaultAttributeContainer.Builder createMantaRayAttributes() {
-		return SchoolingFishEntity
+	public static DefaultAttributeContainer.Builder createNarwhalAttributes() {
+		return FishEntity
 			.createFishAttributes()
-			.add(EntityAttributes.GENERIC_MAX_HEALTH, 22)
-			.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3)
-			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 3);
-	}
-
-	public enum MantaRayType implements StringIdentifiable {
-		DARK(0, "dark"),
-		DARK_SPOTTED(1, "dark_spotted"),
-		BLUE(2, "blue");
-
-		private static final IntFunction<MantaRayType> BY_ID = ValueLists.createIdToValueFunction(
-			MantaRayType::getId, values(), DARK
-		);
-
-		final int id;
-		private final String name;
-
-		MantaRayType(int id, String name) {
-			this.id = id;
-			this.name = name;
-		}
-
-		public String asString() {
-			return this.name;
-		}
-
-		public int getId() {
-			return this.id;
-		}
-
-		public static MantaRayType byId(int id) {
-			return BY_ID.apply(id);
-		}
+			.add(EntityAttributes.GENERIC_MAX_HEALTH, 18);
 	}
 }

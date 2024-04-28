@@ -26,8 +26,13 @@ import net.minecraft.util.Identifier;
 import java.util.Arrays;
 import java.util.List;
 
-// TODO: Check all hitboxes and shadow radiuses
-// TODO: Refactor system?
+/*
+TODO for entities:
+- Check all hitboxes and shadow radiuses
+- Refactor system?
+- Make API for being saddleable/mountable
+- Make an API method for changing the swim speed of the entities
+ */
 
 public class AquaticPlusEntities {
 	public static final EntityModelLayer JOHNNSON_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "johnson"), "root");
@@ -237,6 +242,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer NARWHAL_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "narwhal"), "root");
+	public static final EntityType<NarwhalEntity> NARWHAL_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "narwhal"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, NarwhalEntity::new)
+			.dimensions(EntityDimensions.fixed(1, 1))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -300,7 +314,8 @@ public class AquaticPlusEntities {
 		MINNOW_ENTITY,
 		LIONFISH_ENTITY,
 		FROSTED_SPLASHER_ENTITY,
-		JELLYFISH_ENTITY
+		JELLYFISH_ENTITY,
+		NARWHAL_ENTITY
 	);
 
 	public static void registerAttributes() {
@@ -327,6 +342,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(LIONFISH_ENTITY, LionfishEntity.createLionfishAttributes());
 		FabricDefaultAttributeRegistry.register(FROSTED_SPLASHER_ENTITY, FrostedSplasherEntity.createFrostedSplasherAttributes());
 		FabricDefaultAttributeRegistry.register(JELLYFISH_ENTITY, JellyfishEntity.createJellyfishAttributes());
+		FabricDefaultAttributeRegistry.register(NARWHAL_ENTITY, NarwhalEntity.createNarwhalAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -355,6 +371,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(LIONFISH_ENTITY, LionfishRenderer::new);
 		EntityRendererRegistry.register(FROSTED_SPLASHER_ENTITY, FrostedSplasherRenderer::new);
 		EntityRendererRegistry.register(JELLYFISH_ENTITY, JellyfishRenderer::new);
+		EntityRendererRegistry.register(NARWHAL_ENTITY, NarwhalRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -379,6 +396,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(LIONFISH_LAYER, LionfishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(FROSTED_SPLASHER_LAYER, FrostedSplasherModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JELLYFISH_LAYER, JellyfishModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(NARWHAL_LAYER, NarwhalModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {
