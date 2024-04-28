@@ -86,6 +86,11 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 	}
 
 	@Override
+	public void tickControlled(PlayerEntity controllingPlayer, Vec3d movementInput) {
+		controllingPlayer.heal(1);
+	}
+
+	@Override
 	public void travel(Vec3d movementInput) {
 		if (this.hasPassengers() && getControllingPassenger() instanceof PlayerEntity && this.isSubmergedInWater()) {
 			LivingEntity rider = this.getControllingPassenger();
