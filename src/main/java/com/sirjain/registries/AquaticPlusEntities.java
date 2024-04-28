@@ -31,7 +31,6 @@ TODO for entities:
 - Check all hitboxes and shadow radiuses
 - Refactor system?
 - Make API for being saddleable/mountable
-- Make an API method for changing the swim speed of the entities
  */
 
 public class AquaticPlusEntities {

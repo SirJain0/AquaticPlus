@@ -41,6 +41,11 @@ public class SardineEntity extends APSchoolingFishEntity {
 		nbtCompound.putInt(BUCKET_VARIANT_TAG_KEY, this.getVariant().id);
 	}
 
+	@Override
+	public float getSpeedAmplifier() {
+		return 0.18f;
+	}
+
 	@Nullable
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {

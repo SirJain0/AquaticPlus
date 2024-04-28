@@ -30,11 +30,8 @@ public class FrostedSplasherEntity extends APFishEntity implements RangedAttackM
 	}
 
 	@Override
-	public void travel(Vec3d movementInput) {
-		super.travel(movementInput);
-
-		if (this.isLogicalSideForUpdatingMovement())
-			this.move(MovementType.SELF, this.getRotationVector().multiply(0.08f));
+	public float getSpeedAmplifier() {
+		return 0.06f;
 	}
 
 	public static DefaultAttributeContainer.Builder createFrostedSplasherAttributes() {
