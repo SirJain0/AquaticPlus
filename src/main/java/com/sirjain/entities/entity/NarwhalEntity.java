@@ -29,6 +29,7 @@ import org.jetbrains.annotations.Nullable;
 /*
 TODO:
 - Make tameable
+- Display heart particle when healing player
  */
 public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
