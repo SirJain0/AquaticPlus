@@ -20,19 +20,21 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 /*
 TODO:
 - AI - fleeing danger
-- Make two variants, one or two horns - change health to 30 if two horns
 - Can mate and make babies?
 - Animations
  */
 public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.INTEGER);
+	private static final TrackedData<Boolean> IS_DOUBLE_TUSKED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
 	private final SaddledComponent saddledComponent;
 
@@ -41,12 +43,27 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		this.saddledComponent = new SaddledComponent(this.dataTracker, BOOST_TIME, SADDLED);
 	}
 
+	@Nullable
+	@Override
+	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+		if (this.getRandom().nextInt(40) == 0)
+			this.setIsDoubleTusked(true);
+
+		if (this.isDoubleTusked()) {
+			this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(30);
+			this.heal(this.getMaxHealth());
+		}
+
+		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+	}
+
 	// Code for dealing with making it mountable and ridable
 	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
 
 		this.dataTracker.startTracking(SADDLED, false);
+		this.dataTracker.startTracking(IS_DOUBLE_TUSKED, false);
 		this.dataTracker.startTracking(BOOST_TIME, 0);
 	}
 
@@ -55,6 +72,7 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		super.writeCustomDataToNbt(nbt);
 
 		this.saddledComponent.writeNbt(nbt);
+		nbt.putBoolean("is_double_tusked", this.isDoubleTusked());
 	}
 
 	@Override
@@ -62,6 +80,15 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		super.readCustomDataFromNbt(nbt);
 
 		this.saddledComponent.readNbt(nbt);
+		this.setIsDoubleTusked(nbt.getBoolean("is_double_tusked"));
+	}
+
+	public boolean isDoubleTusked() {
+		return this.dataTracker.get(IS_DOUBLE_TUSKED);
+	}
+
+	public void setIsDoubleTusked(boolean val) {
+		this.dataTracker.set(IS_DOUBLE_TUSKED, val);
 	}
 
 	@Nullable

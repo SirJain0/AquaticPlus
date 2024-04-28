@@ -78,8 +78,8 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
 
-		setTargetState(nbt.getBoolean("has_active_target"));
-		setTargetState(nbt.getBoolean("can_recolor"));
+		this.setTargetState(nbt.getBoolean("has_active_target"));
+		this.setTargetState(nbt.getBoolean("can_recolor"));
 	}
 
 	@Override

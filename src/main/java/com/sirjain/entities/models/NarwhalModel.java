@@ -10,11 +10,17 @@ public class NarwhalModel extends EntityModel<NarwhalEntity> {
 	private final ModelPart root;
 	private final ModelPart narwhal;
 	private final ModelPart saddle;
+	private final ModelPart head;
+	private final ModelPart horn1;
+	private final ModelPart horn2;
 
 	public NarwhalModel(ModelPart part) {
 		root = part;
 		narwhal = root.getChild("narwhal");
 		saddle = narwhal.getChild("saddle");
+		head = narwhal.getChild("head");
+		horn1 = head.getChild("horn1");
+		horn2 = head.getChild("horn2");
 	}
 
 	public static TexturedModelData getTexturedModelData() {
@@ -37,6 +43,8 @@ public class NarwhalModel extends EntityModel<NarwhalEntity> {
 	@Override
 	public void setAngles(NarwhalEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 		saddle.visible = entity.isSaddled();
+		horn2.visible = entity.isDoubleTusked();
+		horn1.pivotX = !entity.isDoubleTusked() ? 1.75f : 0.25f;
 	}
 
 	@Override
