@@ -3,6 +3,7 @@ package com.sirjain.entities.entity;
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -27,7 +28,6 @@ import org.jetbrains.annotations.Nullable;
 
 /*
 TODO:
-- AI - fleeing danger
 - Can mate and make babies?
 - Animations
  */
@@ -41,6 +41,12 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	public NarwhalEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
 		this.saddledComponent = new SaddledComponent(this.dataTracker, BOOST_TIME, SADDLED);
+	}
+
+	@Override
+	protected void initGoals() {
+		super.initGoals();
+		this.goalSelector.add(0, new EscapeDangerGoal(this, 1.45));
 	}
 
 	@Nullable
