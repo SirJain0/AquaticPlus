@@ -14,6 +14,7 @@ import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -29,7 +30,6 @@ import org.jetbrains.annotations.Nullable;
 /*
 TODO:
 - Make tameable
-- Display heart particle when healing player
  */
 public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -67,8 +67,20 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	public void tickControlled(PlayerEntity controllingPlayer, Vec3d movementInput) {
 		super.tickControlled(controllingPlayer, movementInput);
 
-		if (!this.getWorld().isClient && this.age % 20*5 == 0)
-			this.heal(1);
+		if (this.age % 20*5 == 0 && controllingPlayer.getHealth() < controllingPlayer.getMaxHealth()) {
+			if (!this.getWorld().isClient) this.heal(1);
+			if (this.getWorld().isClient) this.spawnHealingParticle(controllingPlayer);
+		}
+	}
+
+	public void spawnHealingParticle(PlayerEntity controllingPlayer) {
+		this.getWorld().addParticle(
+			ParticleTypes.HEART,
+			controllingPlayer.getX(),
+			controllingPlayer.getRandomBodyY(),
+			controllingPlayer.getZ(),
+			0, 0.04f, 0
+		);
 	}
 
 	// Code for dealing with making it mountable and ridable
