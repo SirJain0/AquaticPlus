@@ -1,20 +1,29 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
+import com.sirjain.registries.AquaticPlusEntities;
+import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.EscapeDangerGoal;
+import net.minecraft.entity.ai.control.AquaticMoveControl;
+import net.minecraft.entity.ai.control.YawAdjustingLookControl;
+import net.minecraft.entity.ai.goal.*;
+import net.minecraft.entity.ai.pathing.EntityNavigation;
+import net.minecraft.entity.ai.pathing.SwimNavigation;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.passive.FishEntity;
-import net.minecraft.entity.passive.SchoolingFishEntity;
+import net.minecraft.entity.mob.GuardianEntity;
+import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.recipe.Ingredient;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -31,22 +40,34 @@ import org.jetbrains.annotations.Nullable;
 TODO:
 - Make tameable
  */
-public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
+public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Boolean> IS_DOUBLE_TUSKED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
 	private final SaddledComponent saddledComponent;
 
-	public NarwhalEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
+	public NarwhalEntity(EntityType<? extends AnimalEntity> entityType, World world) {
 		super(entityType, world);
 		this.saddledComponent = new SaddledComponent(this.dataTracker, BOOST_TIME, SADDLED);
+		this.moveControl = new AquaticMoveControl(this, 85, 10, 0.05F, 0.1F, true);
+		this.lookControl = new YawAdjustingLookControl(this, 10);
+	}
+
+	@Override
+	protected EntityNavigation createNavigation(World world) {
+		return new SwimNavigation(this, world);
 	}
 
 	@Override
 	protected void initGoals() {
-		super.initGoals();
-		this.goalSelector.add(4, new EscapeDangerGoal(this, 1.45));
+		this.goalSelector.add(1, new TemptGoal(this, 1, Ingredient.ofItems(AquaticPlusItems.HALIBUT), false));
+		this.goalSelector.add(0, new MoveIntoWaterGoal(this));
+		this.goalSelector.add(4, new SwimAroundGoal(this, 1.0, 10));
+		this.goalSelector.add(4, new LookAroundGoal(this));
+		this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
+		this.goalSelector.add(8, new ChaseBoatGoal(this));
+		this.goalSelector.add(9, new FleeEntityGoal<>(this, GuardianEntity.class, 8.0F, 1.0, 1.0));
 	}
 
 	@Nullable
@@ -61,6 +82,22 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		}
 
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+	}
+
+	@Override
+	public boolean canBreatheInWater() {
+		return true;
+	}
+
+	@Nullable
+	@Override
+	public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
+		return AquaticPlusEntities.NARWHAL_ENTITY.create(world);
+	}
+
+	@Override
+	public boolean isBreedingItem(ItemStack stack) {
+		return stack == AquaticPlusItems.HALIBUT.getDefaultStack();
 	}
 
 	@Override
@@ -152,7 +189,7 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 			}
 		} else {
 			if (this.isLogicalSideForUpdatingMovement())
-				this.move(MovementType.SELF, this.getRotationVector().multiply(0.09f));
+				this.move(MovementType.SELF, this.getRotationVector().multiply(0.15f));
 
 			super.travel(movementInput.multiply(2f));
 		}
@@ -199,7 +236,7 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	}
 
 	@Override
-	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+	public ActionResult interactMob(PlayerEntity player, Hand hand) {
 		if (hand == Hand.MAIN_HAND && this.isSaddled()) {
 			this.setRiding(player);
 			return ActionResult.SUCCESS;

@@ -18,6 +18,7 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -290,7 +291,7 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
-	public static final List<EntityType<? extends FishEntity>> MOD_ENTITIES = Arrays.asList(
+	public static final List<EntityType<? extends PathAwareEntity>> MOD_ENTITIES = Arrays.asList(
 		JOHNSON_ENTITY,
 		MINDINATOR_ENTITY,
 		SPIRITED_FISH_ENTITY,
