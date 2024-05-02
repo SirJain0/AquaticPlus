@@ -49,8 +49,9 @@ public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 
 	public NarwhalEntity(EntityType<? extends AnimalEntity> entityType, World world) {
 		super(entityType, world);
+
 		this.saddledComponent = new SaddledComponent(this.dataTracker, BOOST_TIME, SADDLED);
-		this.moveControl = new AquaticMoveControl(this, 85, 10, 0.05F, 0.1F, true);
+		this.moveControl = new AquaticMoveControl(this, 85, 10, 1, 0.1F, true);
 		this.lookControl = new YawAdjustingLookControl(this, 10);
 	}
 
@@ -62,23 +63,21 @@ public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 	@Override
 	protected void initGoals() {
 		this.goalSelector.add(1, new TemptGoal(this, 1, Ingredient.ofItems(AquaticPlusItems.HALIBUT), false));
-		this.goalSelector.add(0, new MoveIntoWaterGoal(this));
-		this.goalSelector.add(4, new SwimAroundGoal(this, 1.0, 10));
-		this.goalSelector.add(4, new LookAroundGoal(this));
-		this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
-		this.goalSelector.add(8, new ChaseBoatGoal(this));
+//		this.goalSelector.add(0, new MoveIntoWaterGoal(this));
+		this.goalSelector.add(2, new SwimAroundGoal(this, 1.0, 10));
+//		this.goalSelector.add(4, new LookAroundGoal(this));
+//		this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
+//		this.goalSelector.add(8, new ChaseBoatGoal(this));
 		this.goalSelector.add(9, new FleeEntityGoal<>(this, GuardianEntity.class, 8.0F, 1.0, 1.0));
 		this.goalSelector.add(2, new AnimalMateGoal(this, 1.3D));
-		this.goalSelector.add(4, new FollowParentGoal(this, 1.1));
+		this.goalSelector.add(3, new FollowParentGoal(this, 1.1));
 	}
 
 	@Nullable
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-		if (this.getRandom().nextInt(40) == 0)
+		if (this.getRandom().nextInt(40) == 0) {
 			this.setIsDoubleTusked(true);
-
-		if (this.isDoubleTusked()) {
 			this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(30);
 			this.heal(this.getMaxHealth());
 		}
@@ -96,6 +95,7 @@ public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 	public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
 		NarwhalEntity narwhal = AquaticPlusEntities.NARWHAL_ENTITY.create(world);
 		if (narwhal != null) narwhal.setPersistent();
+
 		return narwhal;
 	}
 
@@ -273,6 +273,7 @@ public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 	public static DefaultAttributeContainer.Builder createNarwhalAttributes() {
 		return FishEntity
 			.createFishAttributes()
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4f)
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 18);
 	}
 }
