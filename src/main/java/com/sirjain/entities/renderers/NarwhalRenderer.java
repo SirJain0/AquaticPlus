@@ -25,7 +25,6 @@ public class NarwhalRenderer extends MobEntityRenderer<NarwhalEntity, NarwhalMod
 
 	@Override
 	protected void scale(NarwhalEntity entity, MatrixStack matrices, float amount) {
-		if (entity.isBaby()) matrices.scale(0.7f, 0.7f, 0.7f);
-		else matrices.scale(1.25f, 1.25f, 1.25f);
+		matrices.scale(1.25f, 1.25f, 1.25f);
 	}
 }

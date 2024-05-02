@@ -38,7 +38,7 @@ import org.jetbrains.annotations.Nullable;
 
 /*
 TODO:
-- Look into being tameable
+- Scale baby down
  */
 public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
