@@ -38,8 +38,7 @@ import org.jetbrains.annotations.Nullable;
 
 /*
 TODO:
-- Why is it staying still?
-- Fix speed
+- Look into being tameable
  */
 public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -51,7 +50,7 @@ public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 	public NarwhalEntity(EntityType<? extends AnimalEntity> entityType, World world) {
 		super(entityType, world);
 		this.saddledComponent = new SaddledComponent(this.dataTracker, BOOST_TIME, SADDLED);
-		this.moveControl = new AquaticMoveControl(this, 85, 10, 1, 0.04f, true);
+		this.moveControl = new AquaticMoveControl(this, 85, 10, 0.05F, 0.1F, true);
 		this.lookControl = new YawAdjustingLookControl(this, 10);
 	}
 
@@ -62,15 +61,15 @@ public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 
 	@Override
 	protected void initGoals() {
-		this.goalSelector.add(1, new SwimAroundGoal(this, 1.0, 10));
-		this.goalSelector.add(2, new LookAroundGoal(this));
-		this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
+		this.goalSelector.add(1, new TemptGoal(this, 1, Ingredient.ofItems(AquaticPlusItems.HALIBUT), false));
+		this.goalSelector.add(0, new MoveIntoWaterGoal(this));
+		this.goalSelector.add(4, new SwimAroundGoal(this, 1.0, 10));
+		this.goalSelector.add(4, new LookAroundGoal(this));
+		this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.add(8, new ChaseBoatGoal(this));
-
 		this.goalSelector.add(9, new FleeEntityGoal<>(this, GuardianEntity.class, 8.0F, 1.0, 1.0));
 		this.goalSelector.add(2, new AnimalMateGoal(this, 1.3D));
 		this.goalSelector.add(4, new FollowParentGoal(this, 1.1));
-		this.goalSelector.add(1, new TemptGoal(this, 1, Ingredient.ofItems(AquaticPlusItems.HALIBUT), false));
 	}
 
 	@Nullable
@@ -192,6 +191,11 @@ public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 
 				super.travel(new Vec3d(sidewaysSpeed, movementInput.y, forwardSpeed));
 			}
+		} else {
+			if (this.isLogicalSideForUpdatingMovement())
+				this.move(MovementType.SELF, this.getRotationVector().multiply(0.15f));
+
+			super.travel(movementInput.multiply(2f));
 		}
 
 		if (!this.isSubmergedInWater() && this.isLogicalSideForUpdatingMovement()) {
