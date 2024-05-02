@@ -38,7 +38,7 @@ import org.jetbrains.annotations.Nullable;
 
 /*
 TODO:
-- Scale baby down
+- Make tameable
  */
 public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -68,8 +68,6 @@ public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 		this.goalSelector.add(5, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.add(8, new ChaseBoatGoal(this));
 		this.goalSelector.add(9, new FleeEntityGoal<>(this, GuardianEntity.class, 8.0F, 1.0, 1.0));
-		this.goalSelector.add(2, new AnimalMateGoal(this, 1.3D));
-		this.goalSelector.add(4, new FollowParentGoal(this, 1.1));
 	}
 
 	@Nullable
@@ -94,14 +92,12 @@ public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 	@Nullable
 	@Override
 	public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
-		NarwhalEntity narwhal = AquaticPlusEntities.NARWHAL_ENTITY.create(world);
-		if (narwhal != null) narwhal.setPersistent();
-		return narwhal;
+		return AquaticPlusEntities.NARWHAL_ENTITY.create(world);
 	}
 
 	@Override
 	public boolean isBreedingItem(ItemStack stack) {
-		return stack.isOf(AquaticPlusItems.HALIBUT);
+		return stack == AquaticPlusItems.HALIBUT.getDefaultStack();
 	}
 
 	@Override
@@ -241,7 +237,7 @@ public class NarwhalEntity extends AnimalEntity implements Saddleable, Mount {
 
 	@Override
 	public ActionResult interactMob(PlayerEntity player, Hand hand) {
-		if (hand == Hand.MAIN_HAND && this.isSaddled() && !isBreedingItem(player.getStackInHand(hand))) {
+		if (hand == Hand.MAIN_HAND && this.isSaddled()) {
 			this.setRiding(player);
 			return ActionResult.SUCCESS;
 		}
