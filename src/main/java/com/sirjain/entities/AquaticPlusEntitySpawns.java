@@ -6,7 +6,6 @@ import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.SpawnRestriction;
-import net.minecraft.entity.mob.PathAwareEntity;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.BiomeKeys;
@@ -52,7 +51,7 @@ public class AquaticPlusEntitySpawns {
 	}
 
 	public static void initRestrictions() {
-		for (EntityType<? extends PathAwareEntity> entity : AquaticPlusEntities.MOD_ENTITIES) {
+		for (EntityType<? extends FishEntity> entity : AquaticPlusEntities.MOD_ENTITIES) {
 			SpawnRestriction.register(entity, SpawnRestriction.Location.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, FishEntity::canMobSpawn);
 		}
 	}
