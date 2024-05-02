@@ -152,7 +152,7 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 			}
 		} else {
 			if (this.isLogicalSideForUpdatingMovement())
-				this.move(MovementType.SELF, this.getRotationVector().multiply(0.09f));
+				this.move(MovementType.SELF, this.getRotationVector().multiply(0.11f));
 
 			super.travel(movementInput.multiply(2f));
 		}
