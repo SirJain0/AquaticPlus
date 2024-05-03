@@ -214,7 +214,7 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
 		if (hand == Hand.MAIN_HAND && this.isSaddled()) {
-			if (this.getStackInHand(hand).isOf(AquaticPlusItems.HALIBUT)) this.setSitting(!this.isSitting());
+			if (player.getStackInHand(hand).isOf(AquaticPlusItems.HALIBUT)) this.setSitting(!this.isSitting());
 			else this.setRiding(player);
 
 			return ActionResult.SUCCESS;
