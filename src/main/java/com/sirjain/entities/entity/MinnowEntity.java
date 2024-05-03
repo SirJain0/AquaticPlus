@@ -90,11 +90,8 @@ public class MinnowEntity extends APSchoolingFishEntity {
 	}
 
 	@Override
-	public void travel(Vec3d movementInput) {
-		super.travel(movementInput);
-
-		if (this.isLogicalSideForUpdatingMovement())
-			this.move(MovementType.SELF, this.getRotationVector().multiply(0.2f));
+	public float getSpeedAmplifier() {
+		return 0.02f;
 	}
 
 	public enum MinnowType implements StringIdentifiable {
