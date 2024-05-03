@@ -1,6 +1,7 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
+import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
@@ -34,6 +35,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 	private static final TrackedData<Integer> MANTA_RAY_TYPE = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
+	private static final TrackedData<Boolean> SITTING = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
 	private final SaddledComponent saddledComponent;
 
@@ -67,6 +69,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		this.dataTracker.startTracking(MANTA_RAY_TYPE, MantaRayType.DARK.id);
 		this.dataTracker.startTracking(SADDLED, false);
 		this.dataTracker.startTracking(BOOST_TIME, 0);
+		this.dataTracker.startTracking(SITTING, false);
 	}
 
 	@Override
@@ -75,6 +78,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 
 		nbt.putInt("MantaRayType", this.getVariant().id);
 		this.saddledComponent.writeNbt(nbt);
+		nbt.putBoolean("sitting", this.isSitting());
 	}
 
 	@Override
@@ -83,6 +87,12 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 
 		this.setVariant(MantaRayType.byId(nbt.getInt("MantaRayType")));
 		this.saddledComponent.readNbt(nbt);
+		this.setSitting(nbt.getBoolean("sitting"));
+	}
+
+	@Override
+	public void tickMovement() {
+		if (!this.isSitting()) super.tickMovement();
 	}
 
 	@Override
@@ -119,7 +129,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 			}
 		} else {
 			if (this.isLogicalSideForUpdatingMovement())
-				this.move(MovementType.SELF, this.getRotationVector().multiply(0.2f));
+				this.move(MovementType.SELF, this.getRotationVector().multiply(0.15f));
 
 			super.travel(movementInput.multiply(3f));
 		}
@@ -195,11 +205,21 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
 		if (hand == Hand.MAIN_HAND && this.isSaddled()) {
-			this.setRiding(player);
+			if (player.getStackInHand(hand).isOf(AquaticPlusItems.HALIBUT)) this.setSitting(!this.isSitting());
+			else this.setRiding(player);
+
 			return ActionResult.SUCCESS;
 		}
 
 		return super.interactMob(player, hand);
+	}
+
+	public boolean isSitting() {
+		return this.dataTracker.get(SITTING);
+	}
+
+	public void setSitting(boolean sitting) {
+		this.dataTracker.set(SITTING, sitting);
 	}
 
 	@Override
