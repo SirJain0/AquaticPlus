@@ -1,6 +1,7 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
+import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
@@ -34,7 +35,8 @@ TODO:
 public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.INTEGER);
-	private static final TrackedData<Boolean> IS_DOUBLE_TUSKED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	private static final TrackedData<Boolean> DOUBLE_TUSKED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	private static final TrackedData<Boolean> SITTING = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
 	private final SaddledComponent saddledComponent;
 
@@ -53,7 +55,7 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
 		if (this.getRandom().nextInt(40) == 0)
-			this.setIsDoubleTusked(true);
+			this.setDoubleTusked(true);
 
 		if (this.isDoubleTusked()) {
 			this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(30);
@@ -89,8 +91,9 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		super.initDataTracker();
 
 		this.dataTracker.startTracking(SADDLED, false);
-		this.dataTracker.startTracking(IS_DOUBLE_TUSKED, false);
+		this.dataTracker.startTracking(DOUBLE_TUSKED, false);
 		this.dataTracker.startTracking(BOOST_TIME, 0);
+		this.dataTracker.startTracking(SITTING, false);
 	}
 
 	@Override
@@ -98,7 +101,8 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		super.writeCustomDataToNbt(nbt);
 
 		this.saddledComponent.writeNbt(nbt);
-		nbt.putBoolean("is_double_tusked", this.isDoubleTusked());
+		nbt.putBoolean("double_tusked", this.isDoubleTusked());
+		nbt.putBoolean("sitting", this.isSitting());
 	}
 
 	@Override
@@ -106,15 +110,24 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		super.readCustomDataFromNbt(nbt);
 
 		this.saddledComponent.readNbt(nbt);
-		this.setIsDoubleTusked(nbt.getBoolean("is_double_tusked"));
+		this.setDoubleTusked(nbt.getBoolean("double_tusked"));
+		this.setSitting(nbt.getBoolean("sitting"));
 	}
 
 	public boolean isDoubleTusked() {
-		return this.dataTracker.get(IS_DOUBLE_TUSKED);
+		return this.dataTracker.get(DOUBLE_TUSKED);
 	}
 
-	public void setIsDoubleTusked(boolean val) {
-		this.dataTracker.set(IS_DOUBLE_TUSKED, val);
+	public void setDoubleTusked(boolean val) {
+		this.dataTracker.set(DOUBLE_TUSKED, val);
+	}
+
+	public boolean isSitting() {
+		return this.dataTracker.get(SITTING);
+	}
+
+	public void setSitting(boolean sitting) {
+		this.dataTracker.set(SITTING, sitting);
 	}
 
 	@Nullable
@@ -201,11 +214,18 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
 		if (hand == Hand.MAIN_HAND && this.isSaddled()) {
-			this.setRiding(player);
+			if (this.getStackInHand(hand).isOf(AquaticPlusItems.HALIBUT)) this.setSitting(!this.isSitting());
+			else this.setRiding(player);
+
 			return ActionResult.SUCCESS;
 		}
 
 		return super.interactMob(player, hand);
+	}
+
+	@Override
+	public void tickMovement() {
+		if (!this.isSitting()) super.tickMovement();
 	}
 
 	@Override
