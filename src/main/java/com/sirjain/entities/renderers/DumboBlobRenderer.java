@@ -17,15 +17,7 @@ public class DumboBlobRenderer extends MobEntityRenderer<DumboBlobEntity, DumboB
 
 	@Override
 	public Identifier getTexture(DumboBlobEntity entity) {
-		return switch(entity.getVariant()) {
-			case BLUE_PURPLE -> buildTextureID("blue_purple");
-			case PINK_ORANGE -> buildTextureID("pink_orange");
-			case GREEN -> buildTextureID("green");
-			case ORANGE_YELLOW -> buildTextureID("orange_yellow");
-		};
-	}
-
-	public static Identifier buildTextureID(String id) {
-		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/dumbo_blob/dumbo_blob_" + id + ".png");
+		String variantName = entity.getVariant().name().toLowerCase();
+		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/dumbo_blob/dumbo_blob_" + variantName + ".png");
 	}
 }

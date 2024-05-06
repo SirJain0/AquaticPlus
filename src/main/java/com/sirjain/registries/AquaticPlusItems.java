@@ -73,6 +73,7 @@ public class AquaticPlusItems {
 	public static Item FROSTED_SPLASHER_SPAWN_EGG;
 	public static Item JELLYFISH_SPAWN_EGG;
 	public static Item NARWHAL_SPAWN_EGG;
+	public static Item NEON_CRAB_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -157,6 +158,7 @@ public class AquaticPlusItems {
 		FROSTED_SPLASHER_SPAWN_EGG = registerSpawnEggItem("frosted_splasher_spawn_egg", AquaticPlusEntities.FROSTED_SPLASHER_ENTITY, 0xe2d6af, 0x8bcee6);
 		JELLYFISH_SPAWN_EGG = registerSpawnEggItem("jellyfish_spawn_egg", AquaticPlusEntities.JELLYFISH_ENTITY, 0x956ebd, 0xff9fec);
 		NARWHAL_SPAWN_EGG = registerSpawnEggItem("narwhal_spawn_egg", AquaticPlusEntities.NARWHAL_ENTITY, 0xbcbac5, 0xe6e2db);
+		NEON_CRAB_SPAWN_EGG = registerSpawnEggItem("neon_crab_spawn_egg", AquaticPlusEntities.NEON_CRAB_ENTITY, 0x4bb7b0, 0x5bc33b);
 	}
 
 	public static void registerBucketItems() {

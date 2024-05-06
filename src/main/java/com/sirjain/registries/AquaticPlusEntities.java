@@ -17,7 +17,9 @@ import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -250,6 +252,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer NEON_CRAB_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "neon_crab"), "root");
+	public static final EntityType<NeonCrabEntity> NEON_CRAB_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "neon_crab"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, NeonCrabEntity::new)
+			.dimensions(EntityDimensions.fixed(0.6f, 0.6f))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -290,7 +301,7 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
-	public static final List<EntityType<? extends FishEntity>> MOD_ENTITIES = Arrays.asList(
+	public static final List<EntityType<? extends MobEntity>> MOD_ENTITIES = Arrays.asList(
 		JOHNSON_ENTITY,
 		MINDINATOR_ENTITY,
 		SPIRITED_FISH_ENTITY,
@@ -314,7 +325,8 @@ public class AquaticPlusEntities {
 		LIONFISH_ENTITY,
 		FROSTED_SPLASHER_ENTITY,
 		JELLYFISH_ENTITY,
-		NARWHAL_ENTITY
+		NARWHAL_ENTITY,
+		NEON_CRAB_ENTITY
 	);
 
 	public static void registerAttributes() {
@@ -342,6 +354,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(FROSTED_SPLASHER_ENTITY, FrostedSplasherEntity.createFrostedSplasherAttributes());
 		FabricDefaultAttributeRegistry.register(JELLYFISH_ENTITY, JellyfishEntity.createJellyfishAttributes());
 		FabricDefaultAttributeRegistry.register(NARWHAL_ENTITY, NarwhalEntity.createNarwhalAttributes());
+		FabricDefaultAttributeRegistry.register(NEON_CRAB_ENTITY, NeonCrabEntity.createNeonCrabAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -371,6 +384,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(FROSTED_SPLASHER_ENTITY, FrostedSplasherRenderer::new);
 		EntityRendererRegistry.register(JELLYFISH_ENTITY, JellyfishRenderer::new);
 		EntityRendererRegistry.register(NARWHAL_ENTITY, NarwhalRenderer::new);
+		EntityRendererRegistry.register(NEON_CRAB_ENTITY, NeonCrabRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -396,6 +410,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(FROSTED_SPLASHER_LAYER, FrostedSplasherModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JELLYFISH_LAYER, JellyfishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(NARWHAL_LAYER, NarwhalModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(NEON_CRAB_LAYER, NeonCrabModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {
