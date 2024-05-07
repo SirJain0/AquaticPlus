@@ -23,7 +23,6 @@ TODO:
 - Animations
 - Crab Claw item
 - Neon Leaf item + crafting recipes
-- Spawns
  */
 public class NeonCrabEntity extends WaterCreatureEntity {
 	private static final TrackedData<Integer> NEON_CRAB_TYPE = DataTracker.registerData(NeonCrabEntity.class, TrackedDataHandlerRegistry.INTEGER);
