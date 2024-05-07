@@ -20,7 +20,7 @@ import java.util.function.IntFunction;
 
 /*
 TODO:
-- Animations
+- Get animation to stop playing when entity is idle
 - Crab Claw item
 - Neon Leaf item + crafting recipes
  */
