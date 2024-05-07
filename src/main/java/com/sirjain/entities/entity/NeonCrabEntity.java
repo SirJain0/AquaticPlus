@@ -18,6 +18,13 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
 
+/*
+TODO:
+- Animations
+- Crab Claw item
+- Neon Leaf item + crafting recipes
+- Spawns
+ */
 public class NeonCrabEntity extends WaterCreatureEntity {
 	private static final TrackedData<Integer> NEON_CRAB_TYPE = DataTracker.registerData(NeonCrabEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
@@ -38,7 +45,7 @@ public class NeonCrabEntity extends WaterCreatureEntity {
 
 	@Override
 	protected void updateLimbs(float v) {
-		float f = this.getPose() == EntityPose.STANDING ? Math.min(v * 6.0F, 1.0F) : 0;
+		float f = this.getPose() == EntityPose.STANDING ? 1 : 0;
 		this.limbAnimator.updateLimbs(f, 0.2F);
 	}
 
