@@ -20,16 +20,11 @@ import java.util.function.IntFunction;
 
 /*
 TODO:
-- Get animation to stop playing when entity is idle
 - Crab Claw item
 - Neon Leaf item + crafting recipes
  */
 public class NeonCrabEntity extends WaterCreatureEntity {
 	private static final TrackedData<Integer> NEON_CRAB_TYPE = DataTracker.registerData(NeonCrabEntity.class, TrackedDataHandlerRegistry.INTEGER);
-
-	public final AnimationState walkAnimationState = new AnimationState();
-	private int idleAnimationTimeout = 0;
-	private int walkAnimationTimeout = 0;
 
 	public NeonCrabEntity(EntityType<? extends WaterCreatureEntity> entityType, World world) {
 		super(entityType, world);
@@ -40,28 +35,6 @@ public class NeonCrabEntity extends WaterCreatureEntity {
 		this.goalSelector.add(0, new EscapeDangerGoal(this, 1.4f));
 		this.goalSelector.add(1, new WanderAroundFarGoal(this, 1));
 		this.goalSelector.add(3, new LookAroundGoal(this));
-	}
-
-	@Override
-	protected void updateLimbs(float v) {
-		float f = this.getPose() == EntityPose.STANDING ? 1 : 0;
-		this.limbAnimator.updateLimbs(f, 0.2F);
-	}
-
-	@Override
-	public void tick() {
-		super.tick();
-
-		if (this.getWorld().isClient) this.setupAnimationStates();
-	}
-
-	private void setupAnimationStates() {
-		if (this.idleAnimationTimeout <= 0) {
-			this.idleAnimationTimeout = 80;
-			this.walkAnimationState.start(this.age);
-		} else {
-			--this.idleAnimationTimeout;
-		}
 	}
 
 	public static DefaultAttributeContainer.Builder createNeonCrabAttributes() {

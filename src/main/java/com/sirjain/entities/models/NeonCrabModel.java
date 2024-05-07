@@ -4,6 +4,7 @@ import com.sirjain.entities.entity.NeonCrabEntity;
 import com.sirjain.entities.entity.animation.DumboBlobAnimations;
 import com.sirjain.entities.entity.animation.NeonCrabAnimations;
 import net.minecraft.client.model.*;
+import net.minecraft.client.render.entity.animation.SnifferAnimations;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 
 public class NeonCrabModel extends SinglePartEntityModel<NeonCrabEntity> {
@@ -69,7 +70,6 @@ public class NeonCrabModel extends SinglePartEntityModel<NeonCrabEntity> {
 	@Override
 	public void setAngles(NeonCrabEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
-
-		this.updateAnimation(entity.walkAnimationState, NeonCrabAnimations.WALK, ageInTicks, 2f);
+		this.animateMovement(NeonCrabAnimations.WALK, limbSwing, limbSwingAmount, 9.0F, 100.0F);
 	}
 }
