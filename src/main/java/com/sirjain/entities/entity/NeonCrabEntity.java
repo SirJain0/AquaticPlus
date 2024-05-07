@@ -1,6 +1,7 @@
 package com.sirjain.entities.entity;
 
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -26,6 +27,13 @@ public class NeonCrabEntity extends WaterCreatureEntity {
 
 	public NeonCrabEntity(EntityType<? extends WaterCreatureEntity> entityType, World world) {
 		super(entityType, world);
+	}
+
+	@Override
+	protected void initGoals() {
+		this.goalSelector.add(0, new EscapeDangerGoal(this, 1.4f));
+		this.goalSelector.add(1, new WanderAroundFarGoal(this, 1));
+		this.goalSelector.add(3, new LookAroundGoal(this));
 	}
 
 	@Override
