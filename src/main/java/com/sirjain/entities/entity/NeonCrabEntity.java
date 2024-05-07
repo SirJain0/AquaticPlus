@@ -61,6 +61,7 @@ public class NeonCrabEntity extends WaterCreatureEntity {
 			this.walkAnimationState.start(this.age);
 		} else {
 			--this.idleAnimationTimeout;
+			this.walkAnimationState.stop();
 		}
 	}
 
