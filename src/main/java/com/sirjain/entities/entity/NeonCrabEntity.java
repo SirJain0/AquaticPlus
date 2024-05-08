@@ -21,7 +21,6 @@ import java.util.function.IntFunction;
 /*
 TODO:
 - Crab Claw item
-- Neon Leaf item + crafting recipes
  */
 public class NeonCrabEntity extends WaterCreatureEntity {
 	private static final TrackedData<Integer> NEON_CRAB_TYPE = DataTracker.registerData(NeonCrabEntity.class, TrackedDataHandlerRegistry.INTEGER);
