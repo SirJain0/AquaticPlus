@@ -1,5 +1,6 @@
 package com.sirjain.entities.entity;
 
+import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -8,6 +9,7 @@ import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.WaterCreatureEntity;
+import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.function.ValueLists;
@@ -37,6 +39,19 @@ public class NeonCrabEntity extends WaterCreatureEntity {
 			.createMobAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 7)
 			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 3);
+	}
+
+	@Override
+	protected void dropInventory() {
+		super.dropInventory();
+
+		Item droppedClaw;
+
+		if (this.getVariant().id == 0) droppedClaw = AquaticPlusItems.CYAN_CRAB_CLAW;
+		else if (this.getVariant().id == 1) droppedClaw = AquaticPlusItems.PINK_CRAB_CLAW;
+		else droppedClaw = AquaticPlusItems.ORANGE_CRAB_CLAW;
+
+		this.dropItem(droppedClaw);
 	}
 
 	@Nullable
