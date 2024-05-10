@@ -97,7 +97,9 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.STONIFIER);
 					entries.add(AquaticPlusItems.DESTONIFIER);
 					entries.add(AquaticPlusItems.FROSTING_SPECTRE);
-					entries.add(AquaticPlusItems.CRAB_CLAW);
+					entries.add(AquaticPlusItems.CYAN_CRAB_CLAW);
+					entries.add(AquaticPlusItems.ORANGE_CRAB_CLAW);
+					entries.add(AquaticPlusItems.PINK_CRAB_CLAW);
 
 					entries.add(AquaticPlusItems.GHOSTLY_GEL_ITEM);
 

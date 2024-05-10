@@ -7,7 +7,6 @@ import com.sirjain.items.projectile.AquaticStarItem;
 import com.sirjain.items.projectile.LandDrowningAquaticStarItem;
 import com.sirjain.items.projectile.NumbingAquaticStarItem;
 import net.minecraft.block.Block;
-import net.minecraft.block.entity.ChestLidAnimator;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.fluid.Fluids;
@@ -25,7 +24,9 @@ public class AquaticPlusItems {
 	public static Item LAND_DROWNING_AQUATIC_STAR;
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
-	public static Item CRAB_CLAW;
+	public static Item CYAN_CRAB_CLAW;
+	public static Item ORANGE_CRAB_CLAW;
+	public static Item PINK_CRAB_CLAW;
 
 	public static Item FROSTED_BALL;
 	public static Item FROST_SHARDS;
@@ -122,7 +123,9 @@ public class AquaticPlusItems {
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
-		CRAB_CLAW = registerCustomItem("crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
+		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
+		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
+		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
 		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem(new Item.Settings()));
 	}
 
