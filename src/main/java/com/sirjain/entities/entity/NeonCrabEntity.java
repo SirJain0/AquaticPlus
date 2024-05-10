@@ -20,7 +20,8 @@ import java.util.function.IntFunction;
 
 /*
 TODO:
-- Crab Claw item
+- Crab claw model & item texture
+- Figure out how to have a handheld model
  */
 public class NeonCrabEntity extends WaterCreatureEntity {
 	private static final TrackedData<Integer> NEON_CRAB_TYPE = DataTracker.registerData(NeonCrabEntity.class, TrackedDataHandlerRegistry.INTEGER);
