@@ -18,10 +18,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
 
-/*
-TODO:
-- Crab claw texture
- */
 public class NeonCrabEntity extends WaterCreatureEntity {
 	private static final TrackedData<Integer> NEON_CRAB_TYPE = DataTracker.registerData(NeonCrabEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
