@@ -55,6 +55,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.FROSTED_SPLASHER_SPAWN_EGG);
 					entries.add(AquaticPlusItems.JELLYFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.NARWHAL_SPAWN_EGG);
+					entries.add(AquaticPlusItems.NEON_CRAB_SPAWN_EGG);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
@@ -91,10 +92,14 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.PINK_JELLY);
 					entries.add(AquaticPlusItems.YELLOW_JELLY);
 					entries.add(AquaticPlusItems.WHITE_JELLY);
+					entries.add(AquaticPlusItems.NEON_LEAF);
 					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
 					entries.add(AquaticPlusItems.STONIFIER);
 					entries.add(AquaticPlusItems.DESTONIFIER);
 					entries.add(AquaticPlusItems.FROSTING_SPECTRE);
+					entries.add(AquaticPlusItems.CYAN_CRAB_CLAW);
+					entries.add(AquaticPlusItems.ORANGE_CRAB_CLAW);
+					entries.add(AquaticPlusItems.PINK_CRAB_CLAW);
 
 					entries.add(AquaticPlusItems.GHOSTLY_GEL_ITEM);
 

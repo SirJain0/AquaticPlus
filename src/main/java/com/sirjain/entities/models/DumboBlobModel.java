@@ -75,6 +75,6 @@ public class DumboBlobModel extends SinglePartEntityModel<DumboBlobEntity> {
 
 	@Override
 	public ModelPart getPart() {
-		return blob;
+		return this.blob;
 	}
 }

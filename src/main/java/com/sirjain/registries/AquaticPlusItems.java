@@ -24,6 +24,9 @@ public class AquaticPlusItems {
 	public static Item LAND_DROWNING_AQUATIC_STAR;
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
+	public static Item CYAN_CRAB_CLAW;
+	public static Item ORANGE_CRAB_CLAW;
+	public static Item PINK_CRAB_CLAW;
 
 	public static Item FROSTED_BALL;
 	public static Item FROST_SHARDS;
@@ -38,6 +41,7 @@ public class AquaticPlusItems {
 	public static Item PINK_JELLY;
 	public static Item YELLOW_JELLY;
 	public static Item WHITE_JELLY;
+	public static Item NEON_LEAF;
 
 	public static Item VIPERFISH;
 	public static Item PARROTFISH;
@@ -73,6 +77,7 @@ public class AquaticPlusItems {
 	public static Item FROSTED_SPLASHER_SPAWN_EGG;
 	public static Item JELLYFISH_SPAWN_EGG;
 	public static Item NARWHAL_SPAWN_EGG;
+	public static Item NEON_CRAB_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -107,6 +112,7 @@ public class AquaticPlusItems {
 		PINK_JELLY = registerBasicItem("pink_jelly");
 		YELLOW_JELLY = registerBasicItem("yellow_jelly");
 		WHITE_JELLY = registerBasicItem("white_jelly");
+		NEON_LEAF = registerBasicItem("neon_leaf");
 	}
 
 	public static void registerAdvancedItems() {
@@ -117,6 +123,9 @@ public class AquaticPlusItems {
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
+		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
+		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
+		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
 		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem(new Item.Settings()));
 	}
 
@@ -157,6 +166,7 @@ public class AquaticPlusItems {
 		FROSTED_SPLASHER_SPAWN_EGG = registerSpawnEggItem("frosted_splasher_spawn_egg", AquaticPlusEntities.FROSTED_SPLASHER_ENTITY, 0xe2d6af, 0x8bcee6);
 		JELLYFISH_SPAWN_EGG = registerSpawnEggItem("jellyfish_spawn_egg", AquaticPlusEntities.JELLYFISH_ENTITY, 0x956ebd, 0xff9fec);
 		NARWHAL_SPAWN_EGG = registerSpawnEggItem("narwhal_spawn_egg", AquaticPlusEntities.NARWHAL_ENTITY, 0xbcbac5, 0xe6e2db);
+		NEON_CRAB_SPAWN_EGG = registerSpawnEggItem("neon_crab_spawn_egg", AquaticPlusEntities.NEON_CRAB_ENTITY, 0x4bb7b0, 0x5bc33b);
 	}
 
 	public static void registerBucketItems() {

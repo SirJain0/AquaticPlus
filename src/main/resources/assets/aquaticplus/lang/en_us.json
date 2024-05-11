@@ -25,6 +25,7 @@
 	"item.aquaticplus.frosted_splasher_spawn_egg": "Frosted Splasher Spawn Egg",
 	"item.aquaticplus.jellyfish_spawn_egg": "Jellyfish Spawn Egg",
 	"item.aquaticplus.narwhal_spawn_egg": "Narwhal Spawn Egg",
+	"item.aquaticplus.neon_crab_spawn_egg": "Neon Crab Spawn Egg",
 
 	"item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 	"item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
@@ -57,6 +58,7 @@
 	"item.aquaticplus.pink_jelly": "Pink Jelly",
 	"item.aquaticplus.yellow_jelly": "Yellow Jelly",
 	"item.aquaticplus.white_jelly": "White Jelly",
+	"item.aquaticplus.neon_leaf": "Neon Leaf",
 
 	"item.aquaticplus.stonifier": "Stonifier",
 	"item.aquaticplus.destonifier": "Destonifier",
@@ -66,6 +68,9 @@
 	"item.aquaticplus.frosted_ball": "Frosted Ball",
 	"item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
 	"item.aquaticplus.frosting_spectre": "Frosting Spectre",
+	"item.aquaticplus.cyan_crab_claw": "Cyan Crab Claw",
+	"item.aquaticplus.orange_crab_claw": "Orange Crab Claw",
+	"item.aquaticplus.pink_crab_claw": "Pink Crab Claw",
 
 	"item.aquaticplus.ghostly_gel": "Ghostly Gel",
 
@@ -147,6 +152,7 @@
 	"entity.aquaticplus.frosted_splasher": "Frosted Splasher",
 	"entity.aquaticplus.jellyfish": "Jellyfish",
 	"entity.aquaticplus.narwhal": "Narwhal",
+	"entity.aquaticplus.neon_crab": "Neon Crab",
 
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",

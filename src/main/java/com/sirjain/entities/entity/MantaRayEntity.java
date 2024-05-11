@@ -30,7 +30,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
 
-// TODO: Make tameable
+// TODO: Look into making it tameable and/or breedable?
 public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Integer> MANTA_RAY_TYPE = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -204,6 +204,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+		// TODO: change halibut to slimy shrimp when it is added
 		if (hand == Hand.MAIN_HAND && this.isSaddled()) {
 			if (player.getStackInHand(hand).isOf(AquaticPlusItems.HALIBUT)) this.setSitting(!this.isSitting());
 			else this.setRiding(player);
