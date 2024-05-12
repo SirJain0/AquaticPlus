@@ -18,6 +18,7 @@ public class AquaticPlusEntitySpawns {
 		initRestrictions();
 	}
 
+	// TODO: Make this work better
 	public static void initLocations() {
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.OCEAN, BiomeKeys.COLD_OCEAN, BiomeKeys.LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.DEEP_COLD_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.MAXILLA_MORTIS_ENTITY, 36, 1, 1);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.WARM_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.KELP_EEL_ENTITY, 42, 1, 2);
@@ -53,11 +54,14 @@ public class AquaticPlusEntitySpawns {
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.FROZEN_RIVER, BiomeKeys.OCEAN, BiomeKeys.WARM_OCEAN, BiomeKeys.LUKEWARM_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.NARWHAL_ENTITY, 60, 1, 3);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.FROZEN_RIVER, BiomeKeys.OCEAN, BiomeKeys.SWAMP, BiomeKeys.MANGROVE_SWAMP), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.MINNOW_ENTITY, 80, 1, 4);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.FROZEN_RIVER, BiomeKeys.OCEAN, BiomeKeys.SWAMP, BiomeKeys.MANGROVE_SWAMP), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.MINNOW_ENTITY, 92, 2, 5);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.FROZEN_RIVER, BiomeKeys.OCEAN, BiomeKeys.FROZEN_RIVER), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.MINNOW_ENTITY, 270, 6, 10);
 	}
 
 	public static void initRestrictions() {
-		for (EntityType<? extends MobEntity> entity : AquaticPlusEntities.MOD_ENTITIES) {
-			SpawnRestriction.register(entity, SpawnRestriction.Location.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, FishEntity::canMobSpawn);
-		}
+		for (EntityType<? extends MobEntity> entity : AquaticPlusEntities.SWIMMING_ENTITIES)
+			SpawnRestriction.register(entity, SpawnRestriction.Location.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MobEntity::canMobSpawn);
+
+		for (EntityType<? extends MobEntity> entity : AquaticPlusEntities.GROUND_ENTITIES)
+			SpawnRestriction.register(entity, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MobEntity::canMobSpawn);
 	}
 }
