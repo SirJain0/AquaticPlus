@@ -26,6 +26,7 @@
 	"item.aquaticplus.jellyfish_spawn_egg": "Jellyfish Spawn Egg",
 	"item.aquaticplus.narwhal_spawn_egg": "Narwhal Spawn Egg",
 	"item.aquaticplus.neon_crab_spawn_egg": "Neon Crab Spawn Egg",
+	"item.aquaticplus.alligator_gar_spawn_egg": "Alligator Gar Spawn Egg",
 
 	"item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 	"item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
@@ -44,6 +45,7 @@
 	"item.aquaticplus.sardine": "Sardine",
 	"item.aquaticplus.minnow": "Minnow",
 	"item.aquaticplus.mortis_flesh": "Mortis Flesh",
+	"item.aquaticplus.gar_flesh": "Gar Flesh",
 	"item.aquaticplus.bread_and_jelly": "Bread and Jelly",
 
 	"item.aquaticplus.frost_shards": "Frost Shards",
@@ -153,6 +155,7 @@
 	"entity.aquaticplus.jellyfish": "Jellyfish",
 	"entity.aquaticplus.narwhal": "Narwhal",
 	"entity.aquaticplus.neon_crab": "Neon Crab",
+	"entity.aquaticplus.alligator_gar": "Alligator Gar",
 
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",

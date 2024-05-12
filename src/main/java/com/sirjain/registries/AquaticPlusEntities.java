@@ -261,6 +261,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer ALLIGATOR_GAR_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "alligator_gar"), "root");
+	public static final EntityType<AlligatorGarEntity> ALLIGATOR_GAR_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "alligator_gar"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, AlligatorGarEntity::new)
+			.dimensions(EntityDimensions.fixed(0.6f, 0.6f))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -326,7 +335,8 @@ public class AquaticPlusEntities {
 		FROSTED_SPLASHER_ENTITY,
 		JELLYFISH_ENTITY,
 		NARWHAL_ENTITY,
-		NEON_CRAB_ENTITY
+		NEON_CRAB_ENTITY,
+		ALLIGATOR_GAR_ENTITY
 	);
 
 	public static void registerAttributes() {
@@ -355,6 +365,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(JELLYFISH_ENTITY, JellyfishEntity.createJellyfishAttributes());
 		FabricDefaultAttributeRegistry.register(NARWHAL_ENTITY, NarwhalEntity.createNarwhalAttributes());
 		FabricDefaultAttributeRegistry.register(NEON_CRAB_ENTITY, NeonCrabEntity.createNeonCrabAttributes());
+		FabricDefaultAttributeRegistry.register(ALLIGATOR_GAR_ENTITY, AlligatorGarEntity.createAlligatorGarAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -385,6 +396,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(JELLYFISH_ENTITY, JellyfishRenderer::new);
 		EntityRendererRegistry.register(NARWHAL_ENTITY, NarwhalRenderer::new);
 		EntityRendererRegistry.register(NEON_CRAB_ENTITY, NeonCrabRenderer::new);
+		EntityRendererRegistry.register(ALLIGATOR_GAR_ENTITY, AlligatorGarRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -411,6 +423,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(JELLYFISH_LAYER, JellyfishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(NARWHAL_LAYER, NarwhalModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(NEON_CRAB_LAYER, NeonCrabModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(ALLIGATOR_GAR_LAYER, AlligatorGarModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {

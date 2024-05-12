@@ -56,6 +56,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.JELLYFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.NARWHAL_SPAWN_EGG);
 					entries.add(AquaticPlusItems.NEON_CRAB_SPAWN_EGG);
+					entries.add(AquaticPlusItems.ALLIGATOR_GAR_SPAWN_EGG);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
@@ -74,6 +75,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.SARDINE);
 					entries.add(AquaticPlusItems.MINNOW);
 					entries.add(AquaticPlusItems.MORTIS_FLESH);
+					entries.add(AquaticPlusItems.GAR_FLESH);
 					entries.add(AquaticPlusItems.BREAD_AND_JELLY);
 
 					entries.add(AquaticPlusItems.AQUATIC_STAR);

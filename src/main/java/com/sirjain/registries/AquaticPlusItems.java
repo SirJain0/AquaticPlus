@@ -51,6 +51,7 @@ public class AquaticPlusItems {
 	public static Item SARDINE;
 	public static Item MINNOW;
 	public static Item MORTIS_FLESH;
+	public static Item GAR_FLESH;
 	public static Item BREAD_AND_JELLY;
 
 	public static Item JOHNSON_SPAWN_EGG;
@@ -78,6 +79,7 @@ public class AquaticPlusItems {
 	public static Item JELLYFISH_SPAWN_EGG;
 	public static Item NARWHAL_SPAWN_EGG;
 	public static Item NEON_CRAB_SPAWN_EGG;
+	public static Item ALLIGATOR_GAR_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -138,6 +140,7 @@ public class AquaticPlusItems {
 		SARDINE = registerFoodItem("sardine", AquaticPlusFoodItems.SARDINE);
 		MINNOW = registerFoodItem("minnow", AquaticPlusFoodItems.MINNOW);
 		MORTIS_FLESH = registerFoodItem("mortis_flesh", AquaticPlusFoodItems.MORTIS_FLESH);
+		GAR_FLESH = registerFoodItem("gar_flesh", AquaticPlusFoodItems.GAR_FLESH);
 		BREAD_AND_JELLY = registerFoodItem("bread_and_jelly", AquaticPlusFoodItems.BREAD_AND_JELLY);
 	}
 
@@ -167,6 +170,7 @@ public class AquaticPlusItems {
 		JELLYFISH_SPAWN_EGG = registerSpawnEggItem("jellyfish_spawn_egg", AquaticPlusEntities.JELLYFISH_ENTITY, 0x956ebd, 0xff9fec);
 		NARWHAL_SPAWN_EGG = registerSpawnEggItem("narwhal_spawn_egg", AquaticPlusEntities.NARWHAL_ENTITY, 0xbcbac5, 0xe6e2db);
 		NEON_CRAB_SPAWN_EGG = registerSpawnEggItem("neon_crab_spawn_egg", AquaticPlusEntities.NEON_CRAB_ENTITY, 0x4bb7b0, 0x5bc33b);
+		ALLIGATOR_GAR_SPAWN_EGG = registerSpawnEggItem("alligator_gar_spawn_egg", AquaticPlusEntities.ALLIGATOR_GAR_ENTITY, 0xbba461, 0x51566d);
 	}
 
 	public static void registerBucketItems() {
