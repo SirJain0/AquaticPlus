@@ -13,6 +13,7 @@ public class AquaticPlusFoodItems {
 	public static FoodComponent SARDINE;
 	public static FoodComponent MINNOW;
 	public static FoodComponent MORTIS_FLESH;
+	public static FoodComponent GAR_FLESH;
 	public static FoodComponent BREAD_AND_JELLY;
 
 	public static void registerFoodComponents() {
@@ -22,6 +23,7 @@ public class AquaticPlusFoodItems {
 		HALIBUT = registerBasicFoodComponent(4);
 		SARDINE = registerBasicFoodComponent(3);
 		MORTIS_FLESH = registerBasicFoodComponent(5);
+		GAR_FLESH = registerBasicFoodComponent(4);
 		BREAD_AND_JELLY = registerBasicFoodComponent(4);
 
 		SHADOW_SARDEL = new FoodComponent.Builder()

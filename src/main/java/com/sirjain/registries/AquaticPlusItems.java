@@ -51,6 +51,7 @@ public class AquaticPlusItems {
 	public static Item SARDINE;
 	public static Item MINNOW;
 	public static Item MORTIS_FLESH;
+	public static Item GAR_FLESH;
 	public static Item BREAD_AND_JELLY;
 
 	public static Item JOHNSON_SPAWN_EGG;
@@ -139,6 +140,7 @@ public class AquaticPlusItems {
 		SARDINE = registerFoodItem("sardine", AquaticPlusFoodItems.SARDINE);
 		MINNOW = registerFoodItem("minnow", AquaticPlusFoodItems.MINNOW);
 		MORTIS_FLESH = registerFoodItem("mortis_flesh", AquaticPlusFoodItems.MORTIS_FLESH);
+		GAR_FLESH = registerFoodItem("gar_flesh", AquaticPlusFoodItems.GAR_FLESH);
 		BREAD_AND_JELLY = registerFoodItem("bread_and_jelly", AquaticPlusFoodItems.BREAD_AND_JELLY);
 	}
 
