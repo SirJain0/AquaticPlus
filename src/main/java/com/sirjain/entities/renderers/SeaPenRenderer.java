@@ -6,6 +6,7 @@ import com.sirjain.entities.models.SeaPenModel;
 import com.sirjain.registries.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class SeaPenRenderer extends MobEntityRenderer<SeaPenEntity, SeaPenModel> {
@@ -18,5 +19,10 @@ public class SeaPenRenderer extends MobEntityRenderer<SeaPenEntity, SeaPenModel>
 	@Override
 	public Identifier getTexture(SeaPenEntity entity) {
 		return TEXTURE;
+	}
+
+	@Override
+	protected void scale(SeaPenEntity entity, MatrixStack matrices, float amount) {
+		matrices.scale(entity.getModelScale(), entity.getModelScale(), entity.getModelScale());
 	}
 }
