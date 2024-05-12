@@ -17,9 +17,9 @@ import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.WaterCreatureEntity;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -270,6 +270,16 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer SEA_PEN_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "sea_pen"), "root");
+	public static final EntityType<SeaPenEntity> SEA_PEN_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "sea_pen"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, SeaPenEntity::new)
+			.dimensions(EntityDimensions.fixed(0.6f, 0.6f))
+			.build()
+	);
+
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -310,7 +320,7 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
-	public static final List<EntityType<? extends MobEntity>> MOD_ENTITIES = Arrays.asList(
+	public static final List<EntityType<? extends MobEntity>> SWIMMING_ENTITIES = Arrays.asList(
 		JOHNSON_ENTITY,
 		MINDINATOR_ENTITY,
 		SPIRITED_FISH_ENTITY,
@@ -335,8 +345,12 @@ public class AquaticPlusEntities {
 		FROSTED_SPLASHER_ENTITY,
 		JELLYFISH_ENTITY,
 		NARWHAL_ENTITY,
-		NEON_CRAB_ENTITY,
 		ALLIGATOR_GAR_ENTITY
+	);
+
+	public static final List<EntityType<? extends WaterCreatureEntity>> GROUND_ENTITIES = Arrays.asList(
+		NEON_CRAB_ENTITY,
+		SEA_PEN_ENTITY
 	);
 
 	public static void registerAttributes() {
@@ -366,6 +380,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(NARWHAL_ENTITY, NarwhalEntity.createNarwhalAttributes());
 		FabricDefaultAttributeRegistry.register(NEON_CRAB_ENTITY, NeonCrabEntity.createNeonCrabAttributes());
 		FabricDefaultAttributeRegistry.register(ALLIGATOR_GAR_ENTITY, AlligatorGarEntity.createAlligatorGarAttributes());
+		FabricDefaultAttributeRegistry.register(SEA_PEN_ENTITY, SeaPenEntity.createSeaPenAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -397,6 +412,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(NARWHAL_ENTITY, NarwhalRenderer::new);
 		EntityRendererRegistry.register(NEON_CRAB_ENTITY, NeonCrabRenderer::new);
 		EntityRendererRegistry.register(ALLIGATOR_GAR_ENTITY, AlligatorGarRenderer::new);
+		EntityRendererRegistry.register(SEA_PEN_ENTITY, SeaPenRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -424,6 +440,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(NARWHAL_LAYER, NarwhalModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(NEON_CRAB_LAYER, NeonCrabModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(ALLIGATOR_GAR_LAYER, AlligatorGarModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(SEA_PEN_LAYER, SeaPenModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {

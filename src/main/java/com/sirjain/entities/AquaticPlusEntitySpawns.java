@@ -56,8 +56,10 @@ public class AquaticPlusEntitySpawns {
 	}
 
 	public static void initRestrictions() {
-		for (EntityType<? extends MobEntity> entity : AquaticPlusEntities.MOD_ENTITIES) {
-			SpawnRestriction.register(entity, SpawnRestriction.Location.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, FishEntity::canMobSpawn);
-		}
+		for (EntityType<? extends MobEntity> entity : AquaticPlusEntities.SWIMMING_ENTITIES)
+			SpawnRestriction.register(entity, SpawnRestriction.Location.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MobEntity::canMobSpawn);
+
+		for (EntityType<? extends MobEntity> entity : AquaticPlusEntities.GROUND_ENTITIES)
+			SpawnRestriction.register(entity, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MobEntity::canMobSpawn);
 	}
 }
