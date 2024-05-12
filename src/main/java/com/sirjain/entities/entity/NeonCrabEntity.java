@@ -45,13 +45,15 @@ public class NeonCrabEntity extends WaterCreatureEntity {
 	protected void dropInventory() {
 		super.dropInventory();
 
-		Item droppedClaw;
+		if (this.getRandom().nextInt(10) == 0) {
+			Item droppedClaw;
 
-		if (this.getVariant().id == 0) droppedClaw = AquaticPlusItems.CYAN_CRAB_CLAW;
-		else if (this.getVariant().id == 1) droppedClaw = AquaticPlusItems.PINK_CRAB_CLAW;
-		else droppedClaw = AquaticPlusItems.ORANGE_CRAB_CLAW;
+			if (this.getVariant().id == 0) droppedClaw = AquaticPlusItems.CYAN_CRAB_CLAW;
+			else if (this.getVariant().id == 1) droppedClaw = AquaticPlusItems.PINK_CRAB_CLAW;
+			else droppedClaw = AquaticPlusItems.ORANGE_CRAB_CLAW;
 
-		this.dropItem(droppedClaw);
+			this.dropItem(droppedClaw);
+		}
 	}
 
 	@Nullable

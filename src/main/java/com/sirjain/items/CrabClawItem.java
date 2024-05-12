@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+// TODO: When this mod gets updated, add extra build reach.
 public class CrabClawItem extends Item {
 	public CrabClawItem(Settings settings) {
 		super(settings);
