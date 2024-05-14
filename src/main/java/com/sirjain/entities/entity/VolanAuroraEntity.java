@@ -11,12 +11,12 @@ import net.minecraft.world.World;
 /*
 TODO:
 - Try to make custom spawn egg
-- Animations
 - Make it attack guardians via projectile, and change texture if angry
 - Emit particles
 - Spawns
 - Drops
 - Think of an item that baits it - maybe a spectre of some sort?
+- Emissive texture for eyes - change based on variant
  */
 public class VolanAuroraEntity extends NoBucketSchoolingFishEntity {
 	public VolanAuroraEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
