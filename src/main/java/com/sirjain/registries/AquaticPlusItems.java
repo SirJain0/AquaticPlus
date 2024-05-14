@@ -75,6 +75,7 @@ public class AquaticPlusItems {
 	public static Item SARDINE_SPAWN_EGG;
 	public static Item MINNOW_SPAWN_EGG;
 	public static Item LIONFISH_SPAWN_EGG;
+	public static Item DEBUG_SWORD;
 	public static Item FROSTED_SPLASHER_SPAWN_EGG;
 	public static Item JELLYFISH_SPAWN_EGG;
 	public static Item NARWHAL_SPAWN_EGG;
@@ -131,6 +132,7 @@ public class AquaticPlusItems {
 		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
 		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
 		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem(new Item.Settings()));
+		DEBUG_SWORD = registerCustomItem("debug_sword", new SwordItem(ToolMaterials.DIAMOND, 10000, 1, new Item.Settings()));
 	}
 
 	public static void registerFoodItems() {

@@ -13,7 +13,6 @@ TODO:
 - Try to make custom spawn egg
 - Make it attack guardians via projectile, and change texture if angry
 - Emit particles
-- Drops
 - Think of an item that baits it - maybe a spectre of some sort?
 - Emissive texture for eyes - change based on variant
  */
