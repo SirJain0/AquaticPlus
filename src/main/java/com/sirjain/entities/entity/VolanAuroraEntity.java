@@ -24,7 +24,6 @@ TODO:
 - Try to make custom spawn egg
 - Make it attack guardians via projectile
 - Think of an item that baits it - maybe a spectre of some sort?
-- Emissive texture for eyes - change based on variant
  */
 public class VolanAuroraEntity extends NoBucketSchoolingFishEntity {
 	public static final TrackedData<Boolean> IS_ANGRY = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
