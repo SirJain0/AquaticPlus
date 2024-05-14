@@ -15,7 +15,7 @@ public class VolanAuroraRenderer extends MobEntityRenderer<VolanAuroraEntity, Vo
 
 	@Override
 	public Identifier getTexture(VolanAuroraEntity entity) {
-		boolean isAngry = false;
+		boolean isAngry = entity.isAngry();
 		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/volan_aurora/volan_aurora" + (isAngry ? "_angry" : "") + ".png");
 	}
 }
