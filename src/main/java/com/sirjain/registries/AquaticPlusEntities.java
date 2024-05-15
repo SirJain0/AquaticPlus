@@ -4,6 +4,7 @@ import com.sirjain.AquaticPlus;
 import com.sirjain.entities.entity.*;
 import com.sirjain.entities.entity.projectile.*;
 import com.sirjain.entities.models.*;
+import com.sirjain.entities.models.projectile.AuroraModel;
 import com.sirjain.entities.renderers.*;
 import com.sirjain.entities.renderers.projectile.AquaticStarRenderer;
 import com.sirjain.entities.renderers.projectile.AuroraRenderer;
@@ -326,6 +327,7 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer AURORA_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "aurora"), "root");
 	public static final EntityType<AuroraEntity> AURORA_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aurora"),
@@ -461,6 +463,8 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(ALLIGATOR_GAR_LAYER, AlligatorGarModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SEA_PEN_LAYER, SeaPenModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(VOLAN_AURORA_LAYER, VolanAuroraModel::getTexturedModelData);
+
+		EntityModelLayerRegistry.registerModelLayer(AURORA_LAYER, AuroraModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {

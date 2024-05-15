@@ -11,7 +11,7 @@ public class AuroraModel<T extends Entity> extends SinglePartEntityModel<T> {
 	private final ModelPart root;
 
 	public AuroraModel(ModelPart root) {
-		super(RenderLayer::getEntitySolid);
+//		super(RenderLayer::getEntityTranslucent);
 		this.root = root;
 	}
 
@@ -28,7 +28,7 @@ public class AuroraModel<T extends Entity> extends SinglePartEntityModel<T> {
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-		this.root.render(matrices, vertices, light, overlay, red, green, blue, alpha);
+		root.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}
 
