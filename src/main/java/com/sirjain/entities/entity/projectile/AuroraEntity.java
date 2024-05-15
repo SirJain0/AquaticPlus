@@ -14,9 +14,9 @@ public class AuroraEntity extends ProjectileEntity {
 		super(entityType, world);
 	}
 
-	public AuroraEntity(World world, LivingEntity owner) {
+	public AuroraEntity(World world) {
 		super(AquaticPlusEntities.AURORA_ENTITY, world);
-		this.setOwner(owner);
+//		this.setOwner(owner);
 	}
 
 	@Override

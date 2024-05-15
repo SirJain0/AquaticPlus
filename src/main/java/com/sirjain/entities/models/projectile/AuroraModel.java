@@ -17,7 +17,7 @@ public class AuroraModel<T extends Entity> extends SinglePartEntityModel<T> {
 		ModelPartData modelPartData = modelData.getRoot();
 
 		ModelPartData bone = modelPartData.addChild("bone", ModelPartBuilder.create().uv(0, 8).cuboid(-10.0F, -8.0F, 6.0F, 4.0F, 4.0F, 4.0F, new Dilation(0.0F))
-			.uv(0, 0).cuboid(-10.0F, -8.0F, 6.0F, 4.0F, 4.0F, 4.0F, new Dilation(0.7F)), ModelTransform.pivot(8.0F, 24.0F, -8.0F));
+			.uv(0, 0), ModelTransform.pivot(8.0F, 24.0F, -8.0F));
 
 		return TexturedModelData.of(modelData, 16, 16);
 	}

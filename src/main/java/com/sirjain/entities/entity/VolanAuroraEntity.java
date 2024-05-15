@@ -121,7 +121,7 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 
 	@Override
 	public void attack(LivingEntity target, float pullProgress) {
-		ProjectileEntity projectile = new AuroraEntity(this.getWorld(), this);
+		ProjectileEntity projectile = new AuroraEntity(this.getWorld());
 
 		double xCoord = target.getX() - this.getX();
 		double yCoord = target.getBodyY(0.3f) - projectile.getY();
