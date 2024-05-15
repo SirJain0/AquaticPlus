@@ -2,13 +2,11 @@ package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
 import com.sirjain.entities.entity.*;
-import com.sirjain.entities.entity.projectile.AquaticStarEntity;
-import com.sirjain.entities.entity.projectile.FrostedSnowballProjectileEntity;
-import com.sirjain.entities.entity.projectile.LandDrowningAquaticStarEntity;
-import com.sirjain.entities.entity.projectile.NumbingAquaticStarEntity;
+import com.sirjain.entities.entity.projectile.*;
 import com.sirjain.entities.models.*;
 import com.sirjain.entities.renderers.*;
 import com.sirjain.entities.renderers.projectile.AquaticStarRenderer;
+import com.sirjain.entities.renderers.projectile.AuroraRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -328,6 +326,16 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityType<AuroraEntity> AURORA_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "aurora"),
+		FabricEntityTypeBuilder.<AuroraEntity>create(SpawnGroup.MISC, AuroraEntity::new)
+			.dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+			.trackRangeBlocks(16)
+			.trackedUpdateRate(20)
+			.build()
+	);
+
 	public static final List<EntityType<? extends MobEntity>> SWIMMING_ENTITIES = Arrays.asList(
 		JOHNSON_ENTITY,
 		MINDINATOR_ENTITY,
@@ -460,5 +468,6 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(NUMBING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
 		EntityRendererRegistry.register(LAND_DROWNING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
 		EntityRendererRegistry.register(FROSTED_SNOWBALL_PROJECTILE_ENTITY, FlyingItemEntityRenderer::new);
+		EntityRendererRegistry.register(AURORA_ENTITY, AuroraRenderer::new);
 	}
 }
