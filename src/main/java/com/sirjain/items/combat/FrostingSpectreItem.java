@@ -1,6 +1,6 @@
 package com.sirjain.items.combat;
 
-import com.sirjain.entities.entity.projectile.FrostedSnowballProjectileEntity;
+import com.sirjain.entities.entity.projectile.FrostedSnowballEntity;
 import com.sirjain.items.abstract_item.AbstractStaffItem;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.client.item.TooltipContext;
@@ -27,7 +27,7 @@ public class FrostingSpectreItem extends AbstractStaffItem {
 
 	@Override
 	public ThrownItemEntity getEntity(World world, LivingEntity user) {
-		return new FrostedSnowballProjectileEntity(world, user);
+		return new FrostedSnowballEntity(world, user);
 	}
 
 	@Override

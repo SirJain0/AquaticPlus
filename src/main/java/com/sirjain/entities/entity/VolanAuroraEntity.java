@@ -1,6 +1,6 @@
 package com.sirjain.entities.entity;
 
-import com.sirjain.entities.entity.projectile.FrostedSnowballProjectileEntity;
+import com.sirjain.entities.entity.projectile.FrostedSnowballEntity;
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -119,7 +119,7 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 
 	@Override
 	public void attack(LivingEntity target, float pullProgress) {
-		ThrownItemEntity projectile = new FrostedSnowballProjectileEntity(this.getWorld(), this);
+		ThrownItemEntity projectile = new FrostedSnowballEntity(this.getWorld(), this);
 
 		double xCoord = target.getX() - this.getX();
 		double yCoord = target.getBodyY(0.3f) - projectile.getY();

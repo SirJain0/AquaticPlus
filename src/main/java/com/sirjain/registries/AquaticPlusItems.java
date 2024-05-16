@@ -4,6 +4,7 @@ import com.sirjain.AquaticPlus;
 import com.sirjain.items.*;
 import com.sirjain.items.combat.FrostingSpectreItem;
 import com.sirjain.items.projectile.AquaticStarItem;
+import com.sirjain.items.projectile.AuroraItem;
 import com.sirjain.items.projectile.LandDrowningAquaticStarItem;
 import com.sirjain.items.projectile.NumbingAquaticStarItem;
 import net.minecraft.block.Block;
@@ -29,6 +30,7 @@ public class AquaticPlusItems {
 	public static Item PINK_CRAB_CLAW;
 
 	public static Item FROSTED_BALL;
+	public static Item AURORA;
 	public static Item FROST_SHARDS;
 	public static Item STONE_ESSENCE;
 	public static Item STONE_CORRODER;
@@ -106,6 +108,7 @@ public class AquaticPlusItems {
 
 	public static void registerBasicItems() {
 		FROSTED_BALL = registerBasicItem("frosted_ball", new Item.Settings().maxCount(1).maxCount(16));
+		AURORA = registerCustomItem("aurora", new AuroraItem(new Item.Settings().maxCount(1).maxCount(16)));
 		FROST_SHARDS = registerBasicItem("frost_shards");
 		STONE_ESSENCE = registerBasicItem("stone_essence");
 		STONE_CORRODER = registerBasicItem("stone_corroder");

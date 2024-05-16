@@ -1,7 +1,5 @@
 package com.sirjain.entities.entity.template;
 
-import com.sirjain.AquaticPlusUtil;
-import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -10,11 +8,9 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public abstract class AbstractAquaticStarEntity extends SelfKillingProjectileEntity {
+public abstract class AbstractAquaticStarEntity extends APProjectileEntity {
 	public AbstractAquaticStarEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
 		super(entityType, world);
 	}
@@ -39,30 +35,6 @@ public abstract class AbstractAquaticStarEntity extends SelfKillingProjectileEnt
 			if (this.getConditionalEffect() != null)
 				target.addStatusEffect(new StatusEffectInstance(getConditionalEffect(), 20 * 6, 0));
 		}
-	}
-
-	@Override
-	protected float getGravity() {
-		return 0;
-	}
-
-	@Override
-	public void tick() {
-		super.tick();
-
-		if (this.isSubmergedInWater())
-			this.setVelocity(this.getVelocity().multiply(AquaticPlusUtil.UNDERWATER_PARTICLE_MULTIPLIER));
-	}
-
-	@Override
-	protected void tickInVoid() {
-		this.kill();
-	}
-
-	@Override
-	protected void onCollision(HitResult hitResult) {
-		super.onCollision(hitResult);
-		this.kill();
 	}
 
 	abstract public StatusEffect getConditionalEffect();
