@@ -28,6 +28,7 @@ TODO:
  */
 public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements RangedAttackMob {
 	public static final TrackedData<Boolean> IS_ANGRY = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	public static final TrackedData<Boolean> IS_ATTRACTED = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
 	public VolanAuroraEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
@@ -63,8 +64,6 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 		if (this.age % 70 == 0 && this.getHealth() < this.getMaxHealth()) {
 			this.heal(2);
 		}
-
-
 	}
 
 	public void summonRandomMagicParticle(World world, double x) {
@@ -82,19 +81,25 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
+
 		this.dataTracker.startTracking(IS_ANGRY, false);
+		this.dataTracker.startTracking(IS_ATTRACTED, false);
 	}
 
 	@Override
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
+
 		nbt.putBoolean("is_angry", this.isAngry());
+		nbt.putBoolean("is_attracted", this.isAttracted());
 	}
 
 	@Override
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
+
 		this.dataTracker.set(IS_ANGRY, nbt.getBoolean("is_angry"));
+		this.dataTracker.set(IS_ATTRACTED, nbt.getBoolean("is_attracted"));
 	}
 
 	public boolean isAngry() {
@@ -103,6 +108,14 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 
 	public void setAngryState(boolean value) {
 		this.dataTracker.set(IS_ANGRY, value);
+	}
+
+	public boolean isAttracted() {
+		return this.dataTracker.get(IS_ATTRACTED);
+	}
+
+	public void setAttractedState(boolean value) {
+		this.dataTracker.set(IS_ATTRACTED, value);
 	}
 
 	@Override
