@@ -16,11 +16,7 @@ public class AuroraStaffItem extends Item {
 	@Override
 	public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
 		if (entity instanceof VolanAuroraEntity volanAurora) {
-//			if (volanAurora.getTarget() != null || volanAurora.squaredDistanceTo(user) >= 144.0) {
-//				volanAurora.getNavigation().recalculatePath();
-//			} else {
-//				volanAurora.getNavigation().startMovingTo(user, 1);
-//			}
+			volanAurora.setAttractedState(!volanAurora.isAttracted());
 
 			if (!user.getAbilities().creativeMode) {
 				stack.damage(1, user, p -> p.sendToolBreakStatus(hand));

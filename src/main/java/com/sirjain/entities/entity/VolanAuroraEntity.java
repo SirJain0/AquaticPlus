@@ -64,6 +64,10 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 		if (this.age % 70 == 0 && this.getHealth() < this.getMaxHealth()) {
 			this.heal(2);
 		}
+
+		if (!this.getWorld().isClient) {
+			System.out.println("Is attracted: " + this.isAttracted());
+		}
 	}
 
 	public void summonRandomMagicParticle(World world, double x) {
