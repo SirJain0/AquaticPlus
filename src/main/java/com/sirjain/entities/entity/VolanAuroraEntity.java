@@ -16,6 +16,7 @@ import net.minecraft.entity.mob.ElderGuardianEntity;
 import net.minecraft.entity.mob.GuardianEntity;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
@@ -29,6 +30,7 @@ TODO:
 public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements RangedAttackMob {
 	public static final TrackedData<Boolean> IS_ANGRY = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	public static final TrackedData<Boolean> IS_ATTRACTED = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	@Nullable public PlayerEntity leader;
 
 	public VolanAuroraEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
@@ -65,8 +67,11 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 			this.heal(2);
 		}
 
+		if (!this.isAttracted()) this.leader = null;
+
 		if (!this.getWorld().isClient) {
 			System.out.println("Is attracted: " + this.isAttracted());
+			System.out.println("Leader: " + leader);
 		}
 	}
 
