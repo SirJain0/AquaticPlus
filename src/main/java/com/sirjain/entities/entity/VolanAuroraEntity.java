@@ -82,7 +82,11 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 	}
 
 	public void summonRandomMagicParticle(World world, double x) {
-		int chance = this.isAngry() ? 7 : 15;
+		int chance;
+
+		if (this.isAngry()) chance = 7;
+		else if (this.isAttracted()) chance = 14;
+		else chance = 30;
 
 		if (this.random.nextInt(chance) == 0) {
 			world.addParticle(
