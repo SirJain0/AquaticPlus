@@ -1,13 +1,11 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.projectile.AuroraEntity;
-import com.sirjain.entities.entity.projectile.FrostedSnowballEntity;
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
-import net.minecraft.entity.ai.goal.FollowMobGoal;
 import net.minecraft.entity.ai.goal.ProjectileAttackGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -65,6 +63,8 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 		if (this.age % 70 == 0 && this.getHealth() < this.getMaxHealth()) {
 			this.heal(2);
 		}
+
+
 	}
 
 	public void summonRandomMagicParticle(World world, double x) {

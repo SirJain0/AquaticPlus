@@ -2,6 +2,7 @@ package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
 import com.sirjain.items.*;
+import com.sirjain.items.combat.AuroraStaffItem;
 import com.sirjain.items.combat.FrostingSpectreItem;
 import com.sirjain.items.projectile.AquaticStarItem;
 import com.sirjain.items.projectile.AuroraItem;
@@ -25,6 +26,7 @@ public class AquaticPlusItems {
 	public static Item LAND_DROWNING_AQUATIC_STAR;
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
+	public static Item AURORA_STAFF;
 	public static Item CYAN_CRAB_CLAW;
 	public static Item ORANGE_CRAB_CLAW;
 	public static Item PINK_CRAB_CLAW;
@@ -131,6 +133,7 @@ public class AquaticPlusItems {
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
+		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
 		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
 		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
 		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));

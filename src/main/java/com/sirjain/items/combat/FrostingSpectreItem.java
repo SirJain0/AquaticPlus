@@ -1,7 +1,7 @@
 package com.sirjain.items.combat;
 
 import com.sirjain.entities.entity.projectile.FrostedSnowballEntity;
-import com.sirjain.items.abstract_item.AbstractStaffItem;
+import com.sirjain.items.abstract_item.ShootingStaffItem;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class FrostingSpectreItem extends AbstractStaffItem {
+public class FrostingSpectreItem extends ShootingStaffItem {
 	public FrostingSpectreItem(Settings settings) {
 		super(settings);
 	}
