@@ -1,7 +1,6 @@
 package com.sirjain.entities.entity;
 
 import com.sirjain.entities.entity.projectile.AuroraEntity;
-import com.sirjain.entities.entity.projectile.FrostedSnowballProjectileEntity;
 import com.sirjain.entities.entity.template.NoBucketSchoolingFishEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
