@@ -6,6 +6,7 @@ import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.mob.GuardianEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.util.hit.EntityHitResult;
@@ -25,15 +26,13 @@ public class AuroraEntity extends APProjectileEntity {
 		return AquaticPlusItems.AURORA;
 	}
 
-
-
 	@Override
 	protected void onEntityHit(EntityHitResult entityHitResult) {
 		super.onEntityHit(entityHitResult);
 
 		Entity entity = entityHitResult.getEntity();
-		LivingEntity target = ((LivingEntity) entity);
 
-		target.damage(target.getDamageSources().magic(), 2);
+		if (entity instanceof GuardianEntity guardian)
+			guardian.damage(guardian.getDamageSources().magic(), 2);
 	}
 }
