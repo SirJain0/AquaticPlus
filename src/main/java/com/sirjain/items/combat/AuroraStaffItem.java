@@ -15,9 +15,9 @@ public class AuroraStaffItem extends Item {
 
 	@Override
 	public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-		if (entity instanceof VolanAuroraEntity volanAurora && volanAurora.leader == null) {
+		if (entity instanceof VolanAuroraEntity volanAurora) {
 			volanAurora.setAttractedState(!volanAurora.isAttracted());
-			volanAurora.leader = user;
+			if (volanAurora.leader == null) volanAurora.leader = user;
 
 			if (!user.getAbilities().creativeMode) {
 				stack.damage(1, user, p -> p.sendToolBreakStatus(hand));

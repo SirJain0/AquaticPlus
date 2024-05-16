@@ -67,11 +67,17 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 			this.heal(2);
 		}
 
-		if (!this.isAttracted()) this.leader = null;
+		if (!this.isAttracted()) {
+			this.leader = null;
+		}
 
-		if (!this.getWorld().isClient) {
-			System.out.println("Is attracted: " + this.isAttracted());
-			System.out.println("Leader: " + leader);
+		if (this.leader != null) {
+			if (this.squaredDistanceTo(this.leader) >= 144.0) {
+				this.setAttractedState(false);
+				this.leader = null;
+			} else {
+				this.navigation.startMovingTo(this.leader, this.speed);
+			}
 		}
 	}
 
