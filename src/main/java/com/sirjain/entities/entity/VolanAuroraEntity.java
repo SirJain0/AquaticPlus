@@ -24,7 +24,6 @@ import org.jetbrains.annotations.Nullable;
 
 /*
 TODO:
-- Change colors of spawn egg
 - Implement projectile, staff, follow behavior??
  */
 public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements RangedAttackMob {
