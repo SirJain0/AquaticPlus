@@ -46,6 +46,29 @@
 					]
 				}
 			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "aquaticplus:aurora",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": -5,
+								"max": 1
+							}
+						}
+					],
+					"conditions": [
+						{
+							"condition": "minecraft:killed_by_player"
+						}
+					]
+				}
+			]
 		}
 	]
 }
