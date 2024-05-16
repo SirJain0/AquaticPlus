@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 
 public class AuroraRenderer extends EntityRenderer<AuroraEntity> {
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/projectile/aurora.png");
-	private static final RenderLayer LAYER = RenderLayer.getEntitySolid(TEXTURE);
+	private static final RenderLayer LAYER = RenderLayer.getEntityTranslucent(TEXTURE);
 	private final AuroraModel<AuroraEntity> model;
 
 	public AuroraRenderer(EntityRendererFactory.Context ctx) {
