@@ -1,6 +1,7 @@
 package com.sirjain.entities.entity.projectile;
 
-import com.sirjain.entities.entity.template.APProjectileEntity;
+import com.sirjain.AquaticPlusUtil;
+import com.sirjain.entities.entity.template.SelfKillingProjectileEntity;
 import com.sirjain.registries.AquaticPlusEntities;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.Entity;
@@ -16,7 +17,7 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
 
-public class FrostedSnowballProjectileEntity extends APProjectileEntity {
+public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity {
 	public FrostedSnowballProjectileEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
 		super(entityType, world);
 	}
@@ -56,6 +57,14 @@ public class FrostedSnowballProjectileEntity extends APProjectileEntity {
 	protected void onCollision(HitResult hitResult) {
 		super.onCollision(hitResult);
 		this.kill();
+	}
+
+	@Override
+	public void tick() {
+		super.tick();
+
+		if (this.isSubmergedInWater())
+			this.setVelocity(this.getVelocity().multiply(AquaticPlusUtil.UNDERWATER_PARTICLE_MULTIPLIER));
 	}
 
 	@Override
