@@ -26,7 +26,6 @@ import org.jetbrains.annotations.Nullable;
 /*
 TODO:
 - Projectile model
-- Staff texture
  */
 public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements RangedAttackMob {
 	public static final TrackedData<Boolean> IS_ANGRY = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);

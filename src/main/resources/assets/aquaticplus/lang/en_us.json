@@ -70,8 +70,10 @@
 	"item.aquaticplus.numbing_aquatic_star": "Numbing Aquatic Star",
 	"item.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
 	"item.aquaticplus.frosted_ball": "Frosted Ball",
+	"item.aquaticplus.aurora": "Aurora",
 	"item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
 	"item.aquaticplus.frosting_spectre": "Frosting Spectre",
+	"item.aquaticplus.aurora_staff": "Aurora Staff",
 	"item.aquaticplus.cyan_crab_claw": "Cyan Crab Claw",
 	"item.aquaticplus.orange_crab_claw": "Orange Crab Claw",
 	"item.aquaticplus.pink_crab_claw": "Pink Crab Claw",
@@ -164,6 +166,7 @@
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
 	"entity.aquaticplus.numbing_aquatic_star": "Numbing Aquatic Star",
+	"entity.aquaticplus.aurora": "Aurora",
 
 	"effect.aquaticplus.numbing": "Numbing",
 	"effect.aquaticplus.land_drowning": "Land Drowning",
