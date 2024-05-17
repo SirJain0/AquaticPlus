@@ -30,11 +30,13 @@ TODO:
  */
 public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements RangedAttackMob {
 	public static final TrackedData<Boolean> IS_ANGRY = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-	public static final TrackedData<Boolean> IS_ATTRACTED = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+//	public static final TrackedData<Boolean> IS_ATTRACTED = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	@Nullable public PlayerEntity leader;
+	public boolean isAttracted;
 
 	public VolanAuroraEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
+		this.isAttracted = false;
 	}
 
 	@Override
@@ -68,17 +70,15 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 			this.heal(2);
 		}
 
-		if (!this.isAttracted()) {
-			this.leader = null;
-		}
-
-		if (this.leader != null) {
+		if (this.isAttracted) {
 			if (this.squaredDistanceTo(this.leader) >= 144.0) {
-				this.setAttractedState(false);
+				this.isAttracted = false;
 				this.leader = null;
 			} else {
 				this.navigation.startMovingTo(this.leader, this.speed);
 			}
+		} else {
+			this.leader = null;
 		}
 	}
 
@@ -86,7 +86,7 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 		int chance;
 
 		if (this.isAngry()) chance = 7;
-		else if (this.isAttracted()) chance = 14;
+		else if (this.isAttracted) chance = 14;
 		else chance = 30;
 
 		if (this.random.nextInt(chance) == 0) {
@@ -101,25 +101,19 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
-
 		this.dataTracker.startTracking(IS_ANGRY, false);
-		this.dataTracker.startTracking(IS_ATTRACTED, false);
 	}
 
 	@Override
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
-
 		nbt.putBoolean("is_angry", this.isAngry());
-		nbt.putBoolean("is_attracted", this.isAttracted());
 	}
 
 	@Override
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
-
 		this.dataTracker.set(IS_ANGRY, nbt.getBoolean("is_angry"));
-		this.dataTracker.set(IS_ATTRACTED, nbt.getBoolean("is_attracted"));
 	}
 
 	public boolean isAngry() {
@@ -128,14 +122,6 @@ public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements Ra
 
 	public void setAngryState(boolean value) {
 		this.dataTracker.set(IS_ANGRY, value);
-	}
-
-	public boolean isAttracted() {
-		return this.dataTracker.get(IS_ATTRACTED);
-	}
-
-	public void setAttractedState(boolean value) {
-		this.dataTracker.set(IS_ATTRACTED, value);
 	}
 
 	@Override

@@ -16,7 +16,7 @@ public class AuroraStaffItem extends Item {
 	@Override
 	public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
 		if (entity instanceof VolanAuroraEntity volanAurora) {
-			if (volanAurora.getTarget() == null) volanAurora.setAttractedState(!volanAurora.isAttracted());
+			if (volanAurora.getTarget() == null) volanAurora.isAttracted = !volanAurora.isAttracted;
 			if (volanAurora.leader == null) volanAurora.leader = user;
 
 			if (!user.getAbilities().creativeMode) {
