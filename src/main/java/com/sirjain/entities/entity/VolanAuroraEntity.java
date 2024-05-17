@@ -29,7 +29,6 @@ TODO:
  */
 public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements RangedAttackMob {
 	public static final TrackedData<Boolean> IS_ANGRY = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-//	public static final TrackedData<Boolean> IS_ATTRACTED = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	@Nullable public PlayerEntity leader;
 	public boolean isAttracted;
 
