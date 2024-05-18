@@ -23,10 +23,6 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-/*
-TODO:
-- Projectile model
- */
 public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements RangedAttackMob {
 	public static final TrackedData<Boolean> IS_ANGRY = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	@Nullable public PlayerEntity leader;

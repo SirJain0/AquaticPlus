@@ -22,9 +22,10 @@ public abstract class ModelLoaderMixin {
 	protected abstract void addModel(ModelIdentifier modelId);
 
 	@Inject(method = "<init>", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/render/model/ModelLoader;addModel(Lnet/minecraft/client/util/ModelIdentifier;)V", ordinal = 3, shift = At.Shift.AFTER))
-	public void addRadiationStaff(BlockColors blockColors, Profiler profiler, Map<Identifier, JsonUnbakedModel> jsonUnbakedModels, Map<Identifier, List<ModelLoader.SourceTrackedData>> blockStates, CallbackInfo ci) {
+	public void addModels(BlockColors blockColors, Profiler profiler, Map<Identifier, JsonUnbakedModel> jsonUnbakedModels, Map<Identifier, List<ModelLoader.SourceTrackedData>> blockStates, CallbackInfo ci) {
 		this.addModel(new ModelIdentifier(AquaticPlus.MOD_ID, "cyan_crab_claw_model", "inventory"));
 		this.addModel(new ModelIdentifier(AquaticPlus.MOD_ID, "pink_crab_claw_model", "inventory"));
 		this.addModel(new ModelIdentifier(AquaticPlus.MOD_ID, "orange_crab_claw_model", "inventory"));
+		this.addModel(new ModelIdentifier(AquaticPlus.MOD_ID, "aurora_model", "inventory"));
 	}
 }
