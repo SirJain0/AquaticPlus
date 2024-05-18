@@ -2,8 +2,10 @@ package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
 import com.sirjain.items.*;
+import com.sirjain.items.combat.AuroraStaffItem;
 import com.sirjain.items.combat.FrostingSpectreItem;
 import com.sirjain.items.projectile.AquaticStarItem;
+import com.sirjain.items.projectile.AuroraItem;
 import com.sirjain.items.projectile.LandDrowningAquaticStarItem;
 import com.sirjain.items.projectile.NumbingAquaticStarItem;
 import net.minecraft.block.Block;
@@ -24,11 +26,13 @@ public class AquaticPlusItems {
 	public static Item LAND_DROWNING_AQUATIC_STAR;
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
+	public static Item AURORA_STAFF;
 	public static Item CYAN_CRAB_CLAW;
 	public static Item ORANGE_CRAB_CLAW;
 	public static Item PINK_CRAB_CLAW;
 
 	public static Item FROSTED_BALL;
+	public static Item AURORA;
 	public static Item FROST_SHARDS;
 	public static Item STONE_ESSENCE;
 	public static Item STONE_CORRODER;
@@ -75,12 +79,14 @@ public class AquaticPlusItems {
 	public static Item SARDINE_SPAWN_EGG;
 	public static Item MINNOW_SPAWN_EGG;
 	public static Item LIONFISH_SPAWN_EGG;
+	public static Item DEBUG_SWORD;
 	public static Item FROSTED_SPLASHER_SPAWN_EGG;
 	public static Item JELLYFISH_SPAWN_EGG;
 	public static Item NARWHAL_SPAWN_EGG;
 	public static Item NEON_CRAB_SPAWN_EGG;
 	public static Item ALLIGATOR_GAR_SPAWN_EGG;
 	public static Item SEA_PEN_SPAWN_EGG;
+	public static Item VOLAN_AURORA_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -104,6 +110,7 @@ public class AquaticPlusItems {
 
 	public static void registerBasicItems() {
 		FROSTED_BALL = registerBasicItem("frosted_ball", new Item.Settings().maxCount(1).maxCount(16));
+		AURORA = registerCustomItem("aurora", new AuroraItem(new Item.Settings().maxCount(1).maxCount(16)));
 		FROST_SHARDS = registerBasicItem("frost_shards");
 		STONE_ESSENCE = registerBasicItem("stone_essence");
 		STONE_CORRODER = registerBasicItem("stone_corroder");
@@ -126,10 +133,12 @@ public class AquaticPlusItems {
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
+		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
 		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
 		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
 		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
 		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem(new Item.Settings()));
+		DEBUG_SWORD = registerCustomItem("debug_sword", new SwordItem(ToolMaterials.DIAMOND, 10000, 1, new Item.Settings()));
 	}
 
 	public static void registerFoodItems() {
@@ -173,6 +182,7 @@ public class AquaticPlusItems {
 		NEON_CRAB_SPAWN_EGG = registerSpawnEggItem("neon_crab_spawn_egg", AquaticPlusEntities.NEON_CRAB_ENTITY, 0x4bb7b0, 0x5bc33b);
 		ALLIGATOR_GAR_SPAWN_EGG = registerSpawnEggItem("alligator_gar_spawn_egg", AquaticPlusEntities.ALLIGATOR_GAR_ENTITY, 0xbba461, 0x51566d);
 		SEA_PEN_SPAWN_EGG = registerSpawnEggItem("sea_pen_spawn_egg", AquaticPlusEntities.SEA_PEN_ENTITY, 0xd2a746, 0x9a5f32);
+		VOLAN_AURORA_SPAWN_EGG = registerSpawnEggItem("volan_aurora_spawn_egg", AquaticPlusEntities.VOLAN_AURORA_ENTITY, 0x4d9fd8, 0xb3a6e8); // TODO: Make this have a custom texture to incorporate purple
 	}
 
 	public static void registerBucketItems() {

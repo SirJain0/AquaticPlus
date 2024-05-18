@@ -9,8 +9,8 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
-public abstract class AbstractStaffItem extends Item {
-	public AbstractStaffItem(Settings settings) {
+public abstract class ShootingStaffItem extends Item {
+	public ShootingStaffItem(Settings settings) {
 		super(settings);
 	}
 

@@ -1,10 +1,9 @@
 package com.sirjain.entities.entity;
 
-import com.sirjain.entities.entity.projectile.FrostedSnowballProjectileEntity;
+import com.sirjain.entities.entity.projectile.FrostedSnowballEntity;
 import com.sirjain.entities.entity.template.APFishEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.MovementType;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.ProjectileAttackGoal;
 import net.minecraft.entity.ai.goal.RevengeGoal;
@@ -13,7 +12,6 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
 public class FrostedSplasherEntity extends APFishEntity implements RangedAttackMob {
@@ -72,7 +70,7 @@ public class FrostedSplasherEntity extends APFishEntity implements RangedAttackM
 
 	@Override
 	public void attack(LivingEntity target, float pullProgress) {
-		ThrownItemEntity projectile = new FrostedSnowballProjectileEntity(this.getWorld(), this);
+		ThrownItemEntity projectile = new FrostedSnowballEntity(this.getWorld(), this);
 
 		double xCoord = target.getX() - this.getX();
 		double yCoord = target.getBodyY(0.3f) - projectile.getY();

@@ -1,0 +1,74 @@
+{
+	"type": "minecraft:generic",
+	"pools": [
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "aquaticplus:ghostly_membrane",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": 0,
+								"max": 2
+							}
+						}
+					],
+					"conditions": [
+						{
+							"condition": "minecraft:killed_by_player"
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "minecraft:elytra",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": -10,
+								"max": 1
+							}
+						}
+					],
+					"conditions": [
+						{
+							"condition": "minecraft:killed_by_player"
+						}
+					]
+				}
+			]
+		},
+		{
+			"rolls": 1,
+			"entries": [
+				{
+					"type": "minecraft:item",
+					"name": "aquaticplus:aurora",
+					"functions": [
+						{
+							"function": "minecraft:set_count",
+							"count": {
+								"min": -5,
+								"max": 1
+							}
+						}
+					],
+					"conditions": [
+						{
+							"condition": "minecraft:killed_by_player"
+						}
+					]
+				}
+			]
+		}
+	]
+}

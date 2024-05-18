@@ -1,7 +1,7 @@
 package com.sirjain.entities.entity.projectile;
 
 import com.sirjain.AquaticPlusUtil;
-import com.sirjain.entities.entity.template.SelfKillingProjectileEntity;
+import com.sirjain.entities.entity.template.APProjectileEntity;
 import com.sirjain.registries.AquaticPlusEntities;
 import com.sirjain.registries.AquaticPlusItems;
 import net.minecraft.entity.Entity;
@@ -17,13 +17,13 @@ import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
 
-public class FrostedSnowballProjectileEntity extends SelfKillingProjectileEntity {
-	public FrostedSnowballProjectileEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
+public class FrostedSnowballEntity extends APProjectileEntity {
+	public FrostedSnowballEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
-	public FrostedSnowballProjectileEntity(World world, LivingEntity owner) {
-		super(AquaticPlusEntities.FROSTED_SNOWBALL_PROJECTILE_ENTITY, world, owner);
+	public FrostedSnowballEntity(World world, LivingEntity owner) {
+		super(AquaticPlusEntities.FROSTED_SNOWBALL_ENTITY, world, owner);
 	}
 
 	@Override

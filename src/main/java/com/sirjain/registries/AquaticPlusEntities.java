@@ -2,10 +2,7 @@ package com.sirjain.registries;
 
 import com.sirjain.AquaticPlus;
 import com.sirjain.entities.entity.*;
-import com.sirjain.entities.entity.projectile.AquaticStarEntity;
-import com.sirjain.entities.entity.projectile.FrostedSnowballProjectileEntity;
-import com.sirjain.entities.entity.projectile.LandDrowningAquaticStarEntity;
-import com.sirjain.entities.entity.projectile.NumbingAquaticStarEntity;
+import com.sirjain.entities.entity.projectile.*;
 import com.sirjain.entities.models.*;
 import com.sirjain.entities.renderers.*;
 import com.sirjain.entities.renderers.projectile.AquaticStarRenderer;
@@ -279,6 +276,14 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer VOLAN_AURORA_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "volan_aurora"), "root");
+	public static final EntityType<VolanAuroraEntity> VOLAN_AURORA_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "volan_aurora"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, VolanAuroraEntity::new)
+			.dimensions(EntityDimensions.fixed(0.6f, 0.6f))
+			.build()
+	);
 
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
@@ -310,10 +315,20 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
-	public static final EntityType<FrostedSnowballProjectileEntity> FROSTED_SNOWBALL_PROJECTILE_ENTITY = Registry.register(
+	public static final EntityType<FrostedSnowballEntity> FROSTED_SNOWBALL_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "frosted_snowball"),
-		FabricEntityTypeBuilder.<FrostedSnowballProjectileEntity>create(SpawnGroup.MISC, FrostedSnowballProjectileEntity::new)
+		FabricEntityTypeBuilder.<FrostedSnowballEntity>create(SpawnGroup.MISC, FrostedSnowballEntity::new)
+			.dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+			.trackRangeBlocks(16)
+			.trackedUpdateRate(20)
+			.build()
+	);
+
+	public static final EntityType<AuroraEntity> AURORA_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "aurora"),
+		FabricEntityTypeBuilder.<AuroraEntity>create(SpawnGroup.MISC, AuroraEntity::new)
 			.dimensions(EntityDimensions.fixed(0.25F, 0.25F))
 			.trackRangeBlocks(16)
 			.trackedUpdateRate(20)
@@ -345,7 +360,8 @@ public class AquaticPlusEntities {
 		FROSTED_SPLASHER_ENTITY,
 		JELLYFISH_ENTITY,
 		NARWHAL_ENTITY,
-		ALLIGATOR_GAR_ENTITY
+		ALLIGATOR_GAR_ENTITY,
+		VOLAN_AURORA_ENTITY
 	);
 
 	public static final List<EntityType<? extends WaterCreatureEntity>> GROUND_ENTITIES = Arrays.asList(
@@ -381,6 +397,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(NEON_CRAB_ENTITY, NeonCrabEntity.createNeonCrabAttributes());
 		FabricDefaultAttributeRegistry.register(ALLIGATOR_GAR_ENTITY, AlligatorGarEntity.createAlligatorGarAttributes());
 		FabricDefaultAttributeRegistry.register(SEA_PEN_ENTITY, SeaPenEntity.createSeaPenAttributes());
+		FabricDefaultAttributeRegistry.register(VOLAN_AURORA_ENTITY, VolanAuroraEntity.createVolanAuroraAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -413,6 +430,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(NEON_CRAB_ENTITY, NeonCrabRenderer::new);
 		EntityRendererRegistry.register(ALLIGATOR_GAR_ENTITY, AlligatorGarRenderer::new);
 		EntityRendererRegistry.register(SEA_PEN_ENTITY, SeaPenRenderer::new);
+		EntityRendererRegistry.register(VOLAN_AURORA_ENTITY, VolanAuroraRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -441,12 +459,14 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(NEON_CRAB_LAYER, NeonCrabModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(ALLIGATOR_GAR_LAYER, AlligatorGarModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SEA_PEN_LAYER, SeaPenModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(VOLAN_AURORA_LAYER, VolanAuroraModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {
 		EntityRendererRegistry.register(AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
 		EntityRendererRegistry.register(NUMBING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
 		EntityRendererRegistry.register(LAND_DROWNING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
-		EntityRendererRegistry.register(FROSTED_SNOWBALL_PROJECTILE_ENTITY, FlyingItemEntityRenderer::new);
+		EntityRendererRegistry.register(FROSTED_SNOWBALL_ENTITY, FlyingItemEntityRenderer::new);
+		EntityRendererRegistry.register(AURORA_ENTITY, FlyingItemEntityRenderer::new);
 	}
 }
