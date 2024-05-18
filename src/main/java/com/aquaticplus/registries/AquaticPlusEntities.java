@@ -28,7 +28,7 @@ import java.util.List;
 /*
 TODO for entities:
 - Check all hitboxes and shadow radiuses
-- Refactor system?
+- Refactor system? + separate into two classes
 - Make API for being saddleable/mountable
  */
 
