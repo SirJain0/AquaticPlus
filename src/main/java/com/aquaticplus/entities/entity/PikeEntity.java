@@ -37,8 +37,13 @@ public class PikeEntity extends NoBucketSchoolingFishEntity {
 	protected void initVariant() {
 		int textureID = this.random.nextInt(3); // change to 45
 
-		if (textureID == 0) this.setVariant(PikeType.MIDNIGHT);
-		else this.setVariant(PikeType.BROWN);
+		if (textureID == 0) {
+			this.setVariant(PikeType.MIDNIGHT);
+			this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(30);
+			this.heal(this.getMaxHealth());
+		} else {
+			this.setVariant(PikeType.BROWN);
+		}
 	}
 
 	@Override

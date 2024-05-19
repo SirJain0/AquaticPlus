@@ -51,10 +51,8 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	@Nullable
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-		if (this.getRandom().nextInt(40) == 0)
+		if (this.getRandom().nextInt(40) == 0) {
 			this.setDoubleTusked(true);
-
-		if (this.isDoubleTusked()) {
 			this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(30);
 			this.heal(this.getMaxHealth());
 		}
