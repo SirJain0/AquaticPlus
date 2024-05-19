@@ -4,6 +4,8 @@ import com.aquaticplus.entities.entity.template.NoBucketSchoolingFishEntity;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
@@ -35,7 +37,7 @@ public class PikeEntity extends NoBucketSchoolingFishEntity {
 	protected void initVariant() {
 		int textureID = this.random.nextInt(3); // change to 45
 
-		if (textureID == 0) this.setVariant(PikeType.RARE);
+		if (textureID == 0) this.setVariant(PikeType.MIDNIGHT);
 		else this.setVariant(PikeType.BROWN);
 	}
 
@@ -65,9 +67,16 @@ public class PikeEntity extends NoBucketSchoolingFishEntity {
 		return PikeType.byId(this.dataTracker.get(PIKE_TYPE));
 	}
 
+	public static DefaultAttributeContainer.Builder createPikeAttributes() {
+		return SchoolingFishEntity
+			.createFishAttributes()
+			.add(EntityAttributes.GENERIC_MAX_HEALTH, 14)
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 2);
+	}
+
 	public enum PikeType implements StringIdentifiable {
 		BROWN(0, "pike_brown"),
-		RARE(1, "pike_purple");
+		MIDNIGHT(1, "pike_midnight");
 
 		private static final IntFunction<PikeType> BY_ID = ValueLists.createIdToValueFunction(
 			PikeType::getId, values(), BROWN

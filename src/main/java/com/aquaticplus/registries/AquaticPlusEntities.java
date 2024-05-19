@@ -285,6 +285,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer PIKE_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "pike"), "root");
+	public static final EntityType<PikeEntity> PIKE_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "pike"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, PikeEntity::new)
+			.dimensions(EntityDimensions.fixed(0.6f, 0.6f))
+			.build()
+	);
+
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
@@ -361,7 +370,8 @@ public class AquaticPlusEntities {
 		JELLYFISH_ENTITY,
 		NARWHAL_ENTITY,
 		ALLIGATOR_GAR_ENTITY,
-		VOLAN_AURORA_ENTITY
+		VOLAN_AURORA_ENTITY,
+		PIKE_ENTITY
 	);
 
 	public static final List<EntityType<? extends WaterCreatureEntity>> GROUND_ENTITIES = Arrays.asList(
@@ -398,6 +408,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(ALLIGATOR_GAR_ENTITY, AlligatorGarEntity.createAlligatorGarAttributes());
 		FabricDefaultAttributeRegistry.register(SEA_PEN_ENTITY, SeaPenEntity.createSeaPenAttributes());
 		FabricDefaultAttributeRegistry.register(VOLAN_AURORA_ENTITY, VolanAuroraEntity.createVolanAuroraAttributes());
+		FabricDefaultAttributeRegistry.register(PIKE_ENTITY, PikeEntity.createPikeAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -431,6 +442,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(ALLIGATOR_GAR_ENTITY, AlligatorGarRenderer::new);
 		EntityRendererRegistry.register(SEA_PEN_ENTITY, SeaPenRenderer::new);
 		EntityRendererRegistry.register(VOLAN_AURORA_ENTITY, VolanAuroraRenderer::new);
+		EntityRendererRegistry.register(PIKE_ENTITY, PikeRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -460,6 +472,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(ALLIGATOR_GAR_LAYER, AlligatorGarModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SEA_PEN_LAYER, SeaPenModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(VOLAN_AURORA_LAYER, VolanAuroraModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(PIKE_LAYER, PikeModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {
