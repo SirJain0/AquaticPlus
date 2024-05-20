@@ -135,9 +135,9 @@ public class AquaticPlusItems {
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
-		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
-		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
-		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
+		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem());
+		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem());
+		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem());
 		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem(new Item.Settings()));
 		DEBUG_SWORD = registerCustomItem("debug_sword", new SwordItem(ToolMaterials.DIAMOND, 10000, 1, new Item.Settings()));
 	}
