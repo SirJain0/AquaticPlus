@@ -25,10 +25,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Objects;
 import java.util.function.IntFunction;
 
-/*
-TODO:
-- Pike flesh item
- */
 public class PikeEntity extends NoBucketSchoolingFishEntity {
 	private static final TrackedData<Integer> PIKE_TYPE = DataTracker.registerData(PikeEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
