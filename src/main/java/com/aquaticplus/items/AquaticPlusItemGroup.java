@@ -59,6 +59,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.ALLIGATOR_GAR_SPAWN_EGG);
 					entries.add(AquaticPlusItems.SEA_PEN_SPAWN_EGG);
 					entries.add(AquaticPlusItems.VOLAN_AURORA_SPAWN_EGG);
+					entries.add(AquaticPlusItems.PIKE_SPAWN_EGG);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
@@ -78,6 +79,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.MINNOW);
 					entries.add(AquaticPlusItems.MORTIS_FLESH);
 					entries.add(AquaticPlusItems.GAR_FLESH);
+					entries.add(AquaticPlusItems.PIKE_FLESH);
 					entries.add(AquaticPlusItems.BREAD_AND_JELLY);
 
 					entries.add(AquaticPlusItems.AQUATIC_STAR);
@@ -103,6 +105,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.DESTONIFIER);
 					entries.add(AquaticPlusItems.FROSTING_SPECTRE);
 					entries.add(AquaticPlusItems.AURORA_STAFF);
+					entries.add(AquaticPlusItems.MIDNIGHT_PIKE);
 					entries.add(AquaticPlusItems.CYAN_CRAB_CLAW);
 					entries.add(AquaticPlusItems.ORANGE_CRAB_CLAW);
 					entries.add(AquaticPlusItems.PINK_CRAB_CLAW);

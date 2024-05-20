@@ -4,10 +4,7 @@ import com.aquaticplus.AquaticPlus;
 import com.aquaticplus.items.*;
 import com.aquaticplus.items.combat.AuroraStaffItem;
 import com.aquaticplus.items.combat.FrostingSpectreItem;
-import com.aquaticplus.items.projectile.AquaticStarItem;
-import com.aquaticplus.items.projectile.AuroraItem;
-import com.aquaticplus.items.projectile.LandDrowningAquaticStarItem;
-import com.aquaticplus.items.projectile.NumbingAquaticStarItem;
+import com.aquaticplus.items.projectile.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
@@ -27,6 +24,7 @@ public class AquaticPlusItems {
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
 	public static Item AURORA_STAFF;
+	public static Item MIDNIGHT_PIKE;
 	public static Item CYAN_CRAB_CLAW;
 	public static Item ORANGE_CRAB_CLAW;
 	public static Item PINK_CRAB_CLAW;
@@ -56,6 +54,7 @@ public class AquaticPlusItems {
 	public static Item MINNOW;
 	public static Item MORTIS_FLESH;
 	public static Item GAR_FLESH;
+	public static Item PIKE_FLESH;
 	public static Item BREAD_AND_JELLY;
 
 	public static Item JOHNSON_SPAWN_EGG;
@@ -87,6 +86,7 @@ public class AquaticPlusItems {
 	public static Item ALLIGATOR_GAR_SPAWN_EGG;
 	public static Item SEA_PEN_SPAWN_EGG;
 	public static Item VOLAN_AURORA_SPAWN_EGG;
+	public static Item PIKE_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -134,10 +134,11 @@ public class AquaticPlusItems {
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
-		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
-		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
-		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem(new Item.Settings().maxDamage(130)));
-		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem(new Item.Settings()));
+		MIDNIGHT_PIKE = registerCustomItem("midnight_pike", new MidnightPikeItem());
+		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem());
+		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem());
+		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem());
+		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem());
 		DEBUG_SWORD = registerCustomItem("debug_sword", new SwordItem(ToolMaterials.DIAMOND, 10000, 1, new Item.Settings()));
 	}
 
@@ -151,6 +152,7 @@ public class AquaticPlusItems {
 		MINNOW = registerFoodItem("minnow", AquaticPlusFoodItems.MINNOW);
 		MORTIS_FLESH = registerFoodItem("mortis_flesh", AquaticPlusFoodItems.MORTIS_FLESH);
 		GAR_FLESH = registerFoodItem("gar_flesh", AquaticPlusFoodItems.GAR_FLESH);
+		PIKE_FLESH = registerFoodItem("pike_flesh", AquaticPlusFoodItems.PIKE_FLESH);
 		BREAD_AND_JELLY = registerFoodItem("bread_and_jelly", AquaticPlusFoodItems.BREAD_AND_JELLY);
 	}
 
@@ -183,6 +185,7 @@ public class AquaticPlusItems {
 		ALLIGATOR_GAR_SPAWN_EGG = registerSpawnEggItem("alligator_gar_spawn_egg", AquaticPlusEntities.ALLIGATOR_GAR_ENTITY, 0xbba461, 0x51566d);
 		SEA_PEN_SPAWN_EGG = registerSpawnEggItem("sea_pen_spawn_egg", AquaticPlusEntities.SEA_PEN_ENTITY, 0xd2a746, 0x9a5f32);
 		VOLAN_AURORA_SPAWN_EGG = registerSpawnEggItem("volan_aurora_spawn_egg", AquaticPlusEntities.VOLAN_AURORA_ENTITY, 0x4d9fd8, 0xb3a6e8); // TODO: Make this have a custom texture to incorporate purple
+		PIKE_SPAWN_EGG = registerSpawnEggItem("pike_spawn_egg", AquaticPlusEntities.PIKE_ENTITY, 0x544631, 0x7c7051);
 	}
 
 	public static void registerBucketItems() {

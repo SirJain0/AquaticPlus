@@ -29,6 +29,7 @@
 	"item.aquaticplus.alligator_gar_spawn_egg": "Alligator Gar Spawn Egg",
 	"item.aquaticplus.sea_pen_spawn_egg": "Sea Pen Spawn Egg",
 	"item.aquaticplus.volan_aurora_spawn_egg": "Volan Aurora Spawn Egg",
+	"item.aquaticplus.pike_spawn_egg": "Pike Spawn Egg",
 
 	"item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 	"item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
@@ -48,6 +49,7 @@
 	"item.aquaticplus.minnow": "Minnow",
 	"item.aquaticplus.mortis_flesh": "Mortis Flesh",
 	"item.aquaticplus.gar_flesh": "Gar Flesh",
+	"item.aquaticplus.pike_flesh": "Pike Flesh",
 	"item.aquaticplus.bread_and_jelly": "Bread and Jelly",
 
 	"item.aquaticplus.frost_shards": "Frost Shards",
@@ -74,6 +76,7 @@
 	"item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
 	"item.aquaticplus.frosting_spectre": "Frosting Spectre",
 	"item.aquaticplus.aurora_staff": "Aurora Staff",
+	"item.aquaticplus.midnight_pike": "Midnight Pike",
 	"item.aquaticplus.cyan_crab_claw": "Cyan Crab Claw",
 	"item.aquaticplus.orange_crab_claw": "Orange Crab Claw",
 	"item.aquaticplus.pink_crab_claw": "Pink Crab Claw",
@@ -162,6 +165,7 @@
 	"entity.aquaticplus.alligator_gar": "Alligator Gar",
 	"entity.aquaticplus.sea_pen": "Sea Pen",
 	"entity.aquaticplus.volan_aurora": "Volan Aurora",
+	"entity.aquaticplus.pike": "Pike",
 
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
