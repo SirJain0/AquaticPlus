@@ -1,6 +1,7 @@
 package com.aquaticplus.entities.entity;
 
 import com.aquaticplus.entities.entity.template.NoBucketSchoolingFishEntity;
+import com.aquaticplus.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -18,6 +19,7 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Objects;
 import java.util.function.IntFunction;
 
 public class PikeEntity extends NoBucketSchoolingFishEntity {
@@ -70,6 +72,16 @@ public class PikeEntity extends NoBucketSchoolingFishEntity {
 
 	public PikeType getVariant() {
 		return PikeType.byId(this.dataTracker.get(PIKE_TYPE));
+	}
+
+	public boolean isMidnightVariant() {
+		return Objects.equals(this.getVariant().name, PikeType.MIDNIGHT.name);
+	}
+
+	@Override
+	protected void dropInventory() {
+		if (this.isMidnightVariant()) this.dropItem(AquaticPlusItems.MIDNIGHT_PIKE);
+		super.dropInventory();
 	}
 
 	public static DefaultAttributeContainer.Builder createPikeAttributes() {

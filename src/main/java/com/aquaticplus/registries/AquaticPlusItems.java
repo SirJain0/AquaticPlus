@@ -4,10 +4,7 @@ import com.aquaticplus.AquaticPlus;
 import com.aquaticplus.items.*;
 import com.aquaticplus.items.combat.AuroraStaffItem;
 import com.aquaticplus.items.combat.FrostingSpectreItem;
-import com.aquaticplus.items.projectile.AquaticStarItem;
-import com.aquaticplus.items.projectile.AuroraItem;
-import com.aquaticplus.items.projectile.LandDrowningAquaticStarItem;
-import com.aquaticplus.items.projectile.NumbingAquaticStarItem;
+import com.aquaticplus.items.projectile.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
@@ -27,6 +24,7 @@ public class AquaticPlusItems {
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
 	public static Item AURORA_STAFF;
+	public static Item MIDNIGHT_PIKE;
 	public static Item CYAN_CRAB_CLAW;
 	public static Item ORANGE_CRAB_CLAW;
 	public static Item PINK_CRAB_CLAW;
@@ -135,10 +133,11 @@ public class AquaticPlusItems {
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
+		MIDNIGHT_PIKE = registerCustomItem("midnight_pike", new MidnightPikeItem());
 		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem());
 		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem());
 		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem());
-		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem(new Item.Settings()));
+		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem());
 		DEBUG_SWORD = registerCustomItem("debug_sword", new SwordItem(ToolMaterials.DIAMOND, 10000, 1, new Item.Settings()));
 	}
 
