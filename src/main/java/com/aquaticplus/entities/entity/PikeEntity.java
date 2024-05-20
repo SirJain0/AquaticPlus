@@ -4,7 +4,10 @@ import com.aquaticplus.entities.entity.template.NoBucketSchoolingFishEntity;
 import com.aquaticplus.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
+import net.minecraft.entity.ai.goal.AttackGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -25,13 +28,20 @@ import java.util.function.IntFunction;
 /*
 TODO:
 - Pike flesh item
-- Attack AI
  */
 public class PikeEntity extends NoBucketSchoolingFishEntity {
 	private static final TrackedData<Integer> PIKE_TYPE = DataTracker.registerData(PikeEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
 	public PikeEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
+	}
+
+	@Override
+	protected void initGoals() {
+		super.initGoals();
+
+		this.goalSelector.add(0, new AttackGoal(this));
+		this.targetSelector.add(0, new ActiveTargetGoal<>(this, LivingEntity.class, false, entity -> !(entity instanceof PikeEntity)));
 	}
 
 	@Nullable
@@ -93,6 +103,8 @@ public class PikeEntity extends NoBucketSchoolingFishEntity {
 		return SchoolingFishEntity
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 14)
+			.add(EntityAttributes.GENERIC_FOLLOW_RANGE, 2.4f)
+			.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3)
 			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 2);
 	}
 
