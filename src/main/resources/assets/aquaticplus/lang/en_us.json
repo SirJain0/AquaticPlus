@@ -71,6 +71,7 @@
 	"item.aquaticplus.aquatic_star": "Aquatic Star",
 	"item.aquaticplus.numbing_aquatic_star": "Numbing Aquatic Star",
 	"item.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
+	"item.aquaticplus.sea_bane_aquatic_star": "Sea Bane Aquatic Star",
 	"item.aquaticplus.frosted_ball": "Frosted Ball",
 	"item.aquaticplus.aurora": "Aurora",
 	"item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
@@ -170,6 +171,7 @@
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",
 	"entity.aquaticplus.numbing_aquatic_star": "Numbing Aquatic Star",
+	"entity.aquaticplus.sea_bane_aquatic_star": "Sea Bane Aquatic Star",
 	"entity.aquaticplus.aurora": "Aurora",
 
 	"effect.aquaticplus.numbing": "Numbing",
@@ -181,7 +183,8 @@
 	"aquaticplus.destonifier.tooltip": "Break a stone block instantly",
 	"aquaticplus.deoxidizing_material.tooltip": "Time in reverse",
 	"aquaticplus.aquatic_star.tooltip": "Harness power and speed...",
-	"aquaticplus.land_drowning_aquatic_star.tooltip": "Tinker with enemies' lungs",
+	"aquaticplus.land_drowning_aquatic_star.tooltip": "Tinker with enemy lungs...",
+	"aquaticplus.sea_bane_aquatic_star.tooltip": "Use our poison against them...",
 	"aquaticplus.numbing_aquatic_star.tooltip": "Make your enemies drop their own weapons",
 	"aquaticplus.frosting_spectre.tooltip": "Packs a cold punch"
 }

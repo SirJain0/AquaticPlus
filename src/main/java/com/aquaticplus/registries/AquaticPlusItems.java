@@ -21,6 +21,7 @@ public class AquaticPlusItems {
 	public static Item AQUATIC_STAR;
 	public static Item NUMBING_AQUATIC_STAR;
 	public static Item LAND_DROWNING_AQUATIC_STAR;
+	public static Item SEA_BANE_AQUATIC_STAR;
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
 	public static Item AURORA_STAFF;
@@ -128,9 +129,10 @@ public class AquaticPlusItems {
 	public static void registerAdvancedItems() {
 		STONIFIER = registerCustomItem("stonifier", new StonifierItem(new Item.Settings().maxCount(1).maxDamage(40)));
 		DESTONIFIER = registerCustomItem("destonifier", new DestonifierItem(new Item.Settings().maxCount(1).maxDamage(40)));
-		AQUATIC_STAR = registerCustomItem("aquatic_star", new AquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
-		NUMBING_AQUATIC_STAR = registerCustomItem("numbing_aquatic_star", new NumbingAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
-		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem(new Item.Settings().maxCount(1).maxCount(16)));
+		AQUATIC_STAR = registerCustomItem("aquatic_star", new AquaticStarItem());
+		NUMBING_AQUATIC_STAR = registerCustomItem("numbing_aquatic_star", new NumbingAquaticStarItem());
+		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem());
+		SEA_BANE_AQUATIC_STAR = registerCustomItem("sea_bane_aquatic_star", new SeaBaneAquaticStarItem());
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());

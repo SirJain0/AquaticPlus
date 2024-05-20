@@ -85,6 +85,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.AQUATIC_STAR);
 					entries.add(AquaticPlusItems.NUMBING_AQUATIC_STAR);
 					entries.add(AquaticPlusItems.LAND_DROWNING_AQUATIC_STAR);
+					entries.add(AquaticPlusItems.SEA_BANE_AQUATIC_STAR);
 					entries.add(AquaticPlusItems.AURORA);
 					entries.add(AquaticPlusItems.FROSTED_BALL);
 					entries.add(AquaticPlusItems.FROST_SHARDS);
