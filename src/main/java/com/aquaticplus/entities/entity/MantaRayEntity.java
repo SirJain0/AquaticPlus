@@ -14,6 +14,7 @@ import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -30,7 +31,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
 
-// TODO: Look into making it tameable and/or breedable?
 public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Integer> MANTA_RAY_TYPE = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(MantaRayEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -51,6 +51,8 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		this.goalSelector.add(2, new LookAroundGoal(this));
 		this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.add(0, new AttackGoal(this));
+		// TODO: Make the bait item shrimp when it is added
+		this.goalSelector.add(2, new TemptGoal(this, this.isSaddled() ? 1 : 0.7f, Ingredient.ofItems(AquaticPlusItems.HALIBUT), this.isSaddled()));
 
 		this.targetSelector.add(0, new ActiveTargetGoal<>(this, LanternfishEntity.class, true, true));
 	}

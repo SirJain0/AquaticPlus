@@ -5,6 +5,7 @@ import com.aquaticplus.registries.AquaticPlusItems;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
+import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -16,6 +17,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -28,7 +30,6 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-// TODO: Look into making it tameable and/or breedable?
 public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -46,6 +47,7 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	protected void initGoals() {
 		super.initGoals();
 		this.goalSelector.add(4, new EscapeDangerGoal(this, 1.45));
+		this.goalSelector.add(2, new TemptGoal(this, this.isSaddled() ? 1 : 0.7f, Ingredient.ofItems(AquaticPlusItems.HALIBUT), this.isSaddled()));
 	}
 
 	@Nullable
