@@ -324,6 +324,16 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityType<SeaBaneAquaticStarEntity> SEA_BANE_AQUATIC_STAR_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "sea_bane_aquatic_star"),
+		FabricEntityTypeBuilder.<SeaBaneAquaticStarEntity>create(SpawnGroup.MISC, SeaBaneAquaticStarEntity::new)
+			.dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+			.trackRangeBlocks(16)
+			.trackedUpdateRate(10)
+			.build()
+	);
+
 	public static final EntityType<FrostedSnowballEntity> FROSTED_SNOWBALL_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "frosted_snowball"),
@@ -476,9 +486,10 @@ public class AquaticPlusEntities {
 	}
 
 	public static void registerProjectileRenderers() {
-		EntityRendererRegistry.register(AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
-		EntityRendererRegistry.register(NUMBING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
-		EntityRendererRegistry.register(LAND_DROWNING_AQUATIC_STAR_ENTITY, (ctx) -> new AquaticStarRenderer(ctx, 1, false));
+		EntityRendererRegistry.register(AQUATIC_STAR_ENTITY, ctx -> new AquaticStarRenderer(ctx, 1, false));
+		EntityRendererRegistry.register(NUMBING_AQUATIC_STAR_ENTITY, ctx -> new AquaticStarRenderer(ctx, 1, false));
+		EntityRendererRegistry.register(LAND_DROWNING_AQUATIC_STAR_ENTITY, ctx -> new AquaticStarRenderer(ctx, 1, false));
+		EntityRendererRegistry.register(SEA_BANE_AQUATIC_STAR_ENTITY, ctx -> new AquaticStarRenderer(ctx, 1, false));
 		EntityRendererRegistry.register(FROSTED_SNOWBALL_ENTITY, FlyingItemEntityRenderer::new);
 		EntityRendererRegistry.register(AURORA_ENTITY, FlyingItemEntityRenderer::new);
 	}

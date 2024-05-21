@@ -14,10 +14,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class LandDrowningAquaticStarItem extends AbstractAquaticStarItem {
-	public LandDrowningAquaticStarItem(Settings settings) {
-		super(settings);
-	}
-
 	@Override
 	public AbstractAquaticStarEntity getEntity(World world, PlayerEntity user) {
 		return new LandDrowningAquaticStarEntity(world, user);
@@ -25,7 +21,7 @@ public class LandDrowningAquaticStarItem extends AbstractAquaticStarItem {
 
 	@Override
 	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-		tooltip.add(Text.translatable("aquaticplus.land_drowning_aquatic_star.tooltip").formatted(Formatting.BLUE));
+		tooltip.add(Text.translatable("aquaticplus.land_drowning_aquatic_star.tooltip").formatted(Formatting.AQUA));
 		super.appendTooltip(stack, world, tooltip, context);
 	}
 }

@@ -12,8 +12,8 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public abstract class AbstractAquaticStarItem extends Item {
-	public AbstractAquaticStarItem(Settings settings) {
-		super(settings);
+	public AbstractAquaticStarItem() {
+		super(new Item.Settings().maxCount(1).maxCount(16));
 	}
 
 	@Override
