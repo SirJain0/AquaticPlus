@@ -12,20 +12,14 @@ import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.world.World;
 
-public class KelpEelEntity extends AbstractEelEntity {
-	public KelpEelEntity(EntityType<? extends AbstractEelEntity> entityType, World world) {
+public class RibbonEelEntity extends AbstractEelEntity {
+	public RibbonEelEntity(EntityType<? extends AbstractEelEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
-	@Override
-	protected void initGoals() {
-		super.initGoals();
-		this.goalSelector.add(2, new TemptGoal(this, 0.8f, Ingredient.ofItems(Items.KELP), false));
-	}
-
-	public static DefaultAttributeContainer.Builder createKelpEelAttributes() {
+	public static DefaultAttributeContainer.Builder createRibbonEelAttributes() {
 		return AbstractEelEntity
 			.createGenericEelAttributes()
-			.add(EntityAttributes.GENERIC_MAX_HEALTH, 12);
+			.add(EntityAttributes.GENERIC_MAX_HEALTH, 8);
 	}
 }

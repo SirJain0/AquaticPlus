@@ -88,6 +88,7 @@ public class AquaticPlusItems {
 	public static Item SEA_PEN_SPAWN_EGG;
 	public static Item VOLAN_AURORA_SPAWN_EGG;
 	public static Item PIKE_SPAWN_EGG;
+	public static Item RIBBON_EEL_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -188,6 +189,7 @@ public class AquaticPlusItems {
 		SEA_PEN_SPAWN_EGG = registerSpawnEggItem("sea_pen_spawn_egg", AquaticPlusEntities.SEA_PEN_ENTITY, 0xd2a746, 0x9a5f32);
 		VOLAN_AURORA_SPAWN_EGG = registerSpawnEggItem("volan_aurora_spawn_egg", AquaticPlusEntities.VOLAN_AURORA_ENTITY, 0x4d9fd8, 0xb3a6e8); // TODO: Make this have a custom texture to incorporate purple
 		PIKE_SPAWN_EGG = registerSpawnEggItem("pike_spawn_egg", AquaticPlusEntities.PIKE_ENTITY, 0x544631, 0x7c7051);
+		RIBBON_EEL_SPAWN_EGG = registerSpawnEggItem("ribbon_eel_spawn_egg", AquaticPlusEntities.RIBBON_EEL_ENTITY, 0x50acf2, 0xffd444);
 	}
 
 	public static void registerBucketItems() {
