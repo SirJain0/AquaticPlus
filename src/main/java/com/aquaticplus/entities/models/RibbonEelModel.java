@@ -28,21 +28,19 @@ public class RibbonEelModel extends EntityModel<RibbonEelEntity> {
 	public static TexturedModelData getTexturedModelData() {
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
+
 		ModelPartData ribbon_eel = modelPartData.addChild("ribbon_eel", ModelPartBuilder.create().uv(0, 0).cuboid(-1.5F, -2.6238F, -36.5141F, 3.0F, 5.0F, 4.0F, new Dilation(0.0F))
 			.uv(0, 9).cuboid(-1.0F, -2.6268F, -40.5009F, 2.0F, 2.0F, 4.0F, new Dilation(0.0F))
 			.uv(20, 0).cuboid(-1.0F, 1.3743F, -40.5009F, 2.0F, 1.0F, 4.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 21.6137F, -1.7509F));
-
 		ModelPartData body_seg_1 = ribbon_eel.addChild("body_seg_1", ModelPartBuilder.create().uv(18, 36).cuboid(-1.0F, -2.5F, 0.0F, 2.0F, 5.0F, 18.0F, new Dilation(0.0F))
 			.uv(0, 27).cuboid(0.0F, -4.5F, 0.0F, 0.0F, 9.0F, 18.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, -0.1238F, -32.4841F));
-
 		ModelPartData body_seg_2 = body_seg_1.addChild("body_seg_2", ModelPartBuilder.create().uv(26, 13).cuboid(-1.0F, -2.5F, 0.0F, 2.0F, 5.0F, 18.0F, new Dilation(0.0F))
 			.uv(0, 18).cuboid(0.0F, -4.5F, 0.0F, 0.0F, 9.0F, 18.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 18.0F));
-
 		ModelPartData body_seg_3 = body_seg_2.addChild("body_seg_3", ModelPartBuilder.create().uv(26, 13).cuboid(-1.0F, -2.5F, 0.0F, 2.0F, 5.0F, 18.0F, new Dilation(0.0F))
 			.uv(0, 18).cuboid(0.0F, -4.5F, 0.0F, 0.0F, 9.0F, 18.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 18.0F));
-
 		ModelPartData body_seg_4 = body_seg_3.addChild("body_seg_4", ModelPartBuilder.create().uv(0, 0).cuboid(0.0F, -4.5F, 0.0F, 0.0F, 9.0F, 22.0F, new Dilation(0.0F))
 			.uv(0, 0).cuboid(-1.0F, -2.5F, 0.0F, 2.0F, 5.0F, 16.0F, new Dilation(0.0F)), ModelTransform.pivot(0.0F, 0.0F, 18.0F));
+
 		return TexturedModelData.of(modelData, 128, 128);
 	}
 
