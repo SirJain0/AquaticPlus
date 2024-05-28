@@ -13,6 +13,16 @@ import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+/*
+TODO:
+- Make the texture change depending on the name
+- Animations
+- Droppable shell item
+- Spawns
+- AI (walking around for sure)
+- mountable feature
+- Bellyrubs??
+ */
 public class DeepSeaIsopodEntity extends WaterCreatureEntity {
 	public static final TrackedData<Boolean> IS_FROSTPOD = DataTracker.registerData(DeepSeaIsopodEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
