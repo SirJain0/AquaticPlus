@@ -1,6 +1,9 @@
 package com.aquaticplus.entities.entity;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.ai.goal.EscapeDangerGoal;
+import net.minecraft.entity.ai.goal.LookAroundGoal;
+import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -19,7 +22,6 @@ TODO:
 - Animations
 - Droppable shell item
 - Spawns
-- AI (walking around for sure)
 - mountable feature
 - Bellyrubs??
  */
@@ -28,6 +30,13 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity {
 
 	public DeepSeaIsopodEntity(EntityType<? extends WaterCreatureEntity> entityType, World world) {
 		super(entityType, world);
+	}
+
+	@Override
+	protected void initGoals() {
+		this.goalSelector.add(0, new EscapeDangerGoal(this, 1.4f));
+		this.goalSelector.add(1, new WanderAroundFarGoal(this, 1));
+		this.goalSelector.add(3, new LookAroundGoal(this));
 	}
 
 	@Override
