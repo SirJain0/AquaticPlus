@@ -91,12 +91,11 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 			this.move(MovementType.SELF, this.getRotationVector().multiply(0.16f));
 	}
 
+	// TODO: Make this system not case sensitive
 	@Override
 	public void setCustomName(@Nullable Text name) {
 		super.setCustomName(name);
-
-		if (name != null && name.equals(Text.literal("Fibula")))
-			this.setCanBeRecolored(true);
+		this.setCanBeRecolored(name != null && name.equals(Text.literal("Fibula")));
 	}
 
 	@Override

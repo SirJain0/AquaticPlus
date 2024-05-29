@@ -18,8 +18,6 @@ import org.jetbrains.annotations.Nullable;
 
 /*
 TODO:
-- Make the texture change depending on the name
-- Animations
 - Droppable shell item
 - Spawns
 - mountable feature
@@ -39,12 +37,11 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity {
 		this.goalSelector.add(3, new LookAroundGoal(this));
 	}
 
+	// TODO: Make this system not case sensitive
 	@Override
 	public void setCustomName(@Nullable Text name) {
 		super.setCustomName(name);
-
-		if (name != null && name.equals(Text.literal("Frostpod")))
-			this.setFrostpodState(true);
+		this.setFrostpodState(name != null && name.equals(Text.literal("Frostpod")));
 	}
 
 	@Override
