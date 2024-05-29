@@ -61,6 +61,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.VOLAN_AURORA_SPAWN_EGG);
 					entries.add(AquaticPlusItems.PIKE_SPAWN_EGG);
 					entries.add(AquaticPlusItems.RIBBON_EEL_SPAWN_EGG);
+					entries.add(AquaticPlusItems.DEEP_SEA_ISOPOD_SPAWN_EGG);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
