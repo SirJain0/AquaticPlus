@@ -25,10 +25,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-/*
-TODO:
-- Droppable shell item
- */
 public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 	public static final TrackedData<Boolean> IS_FROSTPOD = DataTracker.registerData(DeepSeaIsopodEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	public static final TrackedData<Boolean> IS_BELLYRUBBED = DataTracker.registerData(DeepSeaIsopodEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
