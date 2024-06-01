@@ -8,6 +8,7 @@ import com.aquaticplus.entities.models.NeonCrabModel;
 import com.aquaticplus.registries.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 
 public class DeepSeaIsopodRenderer extends MobEntityRenderer<DeepSeaIsopodEntity, DeepSeaIsopodModel> {
@@ -23,5 +24,10 @@ public class DeepSeaIsopodRenderer extends MobEntityRenderer<DeepSeaIsopodEntity
 	public Identifier buildTexture(DeepSeaIsopodEntity entity) {
 		String variantName = entity.isFrostpod() ? "frostpod" : "deep_sea_isopod";
 		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/deep_sea_isopod/" + variantName + ".png");
+	}
+
+	@Override
+	protected void scale(DeepSeaIsopodEntity entity, MatrixStack matrices, float amount) {
+		matrices.scale(1.6f, 1.6f, 1.6f);
 	}
 }

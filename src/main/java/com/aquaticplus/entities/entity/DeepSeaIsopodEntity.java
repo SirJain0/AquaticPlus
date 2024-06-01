@@ -15,6 +15,8 @@ import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.text.Text;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
@@ -25,7 +27,6 @@ import org.jetbrains.annotations.Nullable;
 /*
 TODO:
 - Droppable shell item
-- mountable feature
 - Bellyrubs??
  */
 public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
@@ -76,41 +77,59 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 	}
 
 	@Override
-	public void travel(Vec3d movementInput) {
-		if (this.hasPassengers() && getControllingPassenger() instanceof PlayerEntity && this.isSubmergedInWater()) {
-			LivingEntity rider = this.getControllingPassenger();
+	public double getMountedHeightOffset() {
+		return 0.73f;
+	}
 
-			this.setYaw(rider.getYaw());
+	@Nullable
+	@Override
+	public LivingEntity getControllingPassenger() {
+		return (LivingEntity) this.getFirstPassenger();
+	}
+
+	private void setRiding(PlayerEntity pPlayer) {
+		pPlayer.setYaw(this.getYaw());
+		pPlayer.setPitch(this.getPitch());
+		pPlayer.startRiding(this);
+	}
+
+	@Override
+	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+		if (hand == Hand.MAIN_HAND) {
+			this.setRiding(player);
+			return ActionResult.SUCCESS;
+		}
+
+		return super.interactMob(player, hand);
+	}
+
+	@Override
+	public void travel(Vec3d movementInput) {
+		if (this.hasPassengers() && getControllingPassenger() instanceof PlayerEntity) {
+			LivingEntity livingentity = this.getControllingPassenger();
+
+			this.setYaw(livingentity.getYaw());
 			this.prevYaw = this.getYaw();
-			this.setPitch(rider.getPitch() * 0.5F);
+			this.setPitch(livingentity.getPitch() * 0.5F);
 			this.setRotation(this.getYaw(), this.getPitch());
 			this.bodyYaw = this.getYaw();
 			this.headYaw = this.bodyYaw;
-			float sidewaysSpeed = rider.sidewaysSpeed * 0.5F;
-			float forwardSpeed = rider.forwardSpeed;
 
-			if (forwardSpeed <= 0.0F)
-				forwardSpeed *= 0.25F;
+			float sideSpeed = livingentity.sidewaysSpeed * 0.5F;
+			float fwdSpeed = livingentity.forwardSpeed;
+
+			if (fwdSpeed <= 0.0F) fwdSpeed *= 0.25F;
 
 			if (this.isLogicalSideForUpdatingMovement()) {
-				this.setMovementSpeed((float) this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED));
-				this.move(MovementType.SELF, this.getRotationVector().multiply(
-					MinecraftClient.getInstance().options.sprintKey.isPressed()
-						? forwardSpeed / 1.5f
-						: forwardSpeed / 2.5f
-				));
+				float newSpeed = (float)this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED);
 
-				super.travel(new Vec3d(sidewaysSpeed, movementInput.y, forwardSpeed));
+				if (MinecraftClient.getInstance().options.sprintKey.isPressed()) newSpeed *= 1.5f;
+
+				this.setMovementSpeed(newSpeed);
+				super.travel(new Vec3d(sideSpeed, movementInput.y, fwdSpeed));
 			}
 		} else {
-			if (this.isLogicalSideForUpdatingMovement())
-				this.move(MovementType.SELF, this.getRotationVector().multiply(0.11f));
-
-			super.travel(movementInput.multiply(2f));
-		}
-
-		if (!this.isSubmergedInWater() && this.isLogicalSideForUpdatingMovement()) {
-			this.setVelocity(this.getVelocity().x, -0.7f, this.getVelocity().z);
+			super.travel(movementInput);
 		}
 	}
 
@@ -118,20 +137,19 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 	public Vec3d updatePassengerForDismount(LivingEntity passenger) {
 		Direction direction = this.getMovementDirection();
 
-		if (direction.getAxis() == Direction.Axis.Y) {
+		if (direction.getAxis() == Direction.Axis.Y)
 			return super.updatePassengerForDismount(passenger);
-		}
 
 		int[][] is = Dismounting.getDismountOffsets(direction);
 		BlockPos blockPos = this.getBlockPos();
 		BlockPos.Mutable mutable = new BlockPos.Mutable();
+
 		for (EntityPose entityPose : passenger.getPoses()) {
 			Box box = passenger.getBoundingBox(entityPose);
 
 			for (int[] js : is) {
 				mutable.set(blockPos.getX() + js[0], blockPos.getY(), blockPos.getZ() + js[1]);
 				double d = this.getWorld().getDismountHeight(mutable);
-
 				if (!Dismounting.canDismountInBlock(d)) continue;
 				Vec3d vec3d = Vec3d.ofCenter(mutable, d);
 				if (!Dismounting.canPlaceEntityAt(this.getWorld(), passenger, box.offset(vec3d))) continue;
