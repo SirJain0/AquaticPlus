@@ -31,6 +31,7 @@ TODO:
  */
 public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 	public static final TrackedData<Boolean> IS_FROSTPOD = DataTracker.registerData(DeepSeaIsopodEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	public static final TrackedData<Boolean> IS_BELLYRUBBED = DataTracker.registerData(DeepSeaIsopodEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
 	public DeepSeaIsopodEntity(EntityType<? extends WaterCreatureEntity> entityType, World world) {
 		super(entityType, world);
@@ -53,19 +54,25 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
+
 		this.dataTracker.startTracking(IS_FROSTPOD, false);
+		this.dataTracker.startTracking(IS_BELLYRUBBED, false);
 	}
 
 	@Override
 	public void writeCustomDataToNbt(NbtCompound nbt) {
 		super.writeCustomDataToNbt(nbt);
+
 		nbt.putBoolean("is_frostpod", this.isFrostpod());
+		nbt.putBoolean("is_bellyrubbed", this.isBellyrubbed());
 	}
 
 	@Override
 	public void readCustomDataFromNbt(NbtCompound nbt) {
 		super.readCustomDataFromNbt(nbt);
+
 		this.setFrostpodState(nbt.getBoolean("is_frostpod"));
+		this.setIsBellyrubbed(nbt.getBoolean("is_bellyrubbed"));
 	}
 
 	public boolean isFrostpod() {
@@ -74,6 +81,14 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 
 	public void setFrostpodState(boolean val) {
 		this.dataTracker.set(IS_FROSTPOD, val);
+	}
+
+	public boolean isBellyrubbed() {
+		return this.dataTracker.get(IS_BELLYRUBBED);
+	}
+
+	public void setIsBellyrubbed(boolean val) {
+		this.dataTracker.set(IS_BELLYRUBBED, val);
 	}
 
 	@Override
@@ -96,6 +111,11 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
 		if (hand == Hand.MAIN_HAND) {
+			if (player.isSneaking()) {
+				this.setIsBellyrubbed(true);
+				return ActionResult.SUCCESS;
+			}
+
 			this.setRiding(player);
 			return ActionResult.SUCCESS;
 		}
