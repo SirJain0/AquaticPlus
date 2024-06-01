@@ -28,7 +28,6 @@ import org.jetbrains.annotations.Nullable;
 /*
 TODO:
 - Droppable shell item
-- Bellyrubs??
  */
 public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 	public static final TrackedData<Boolean> IS_FROSTPOD = DataTracker.registerData(DeepSeaIsopodEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
