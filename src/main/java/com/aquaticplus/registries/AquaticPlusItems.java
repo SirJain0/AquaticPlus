@@ -45,6 +45,7 @@ public class AquaticPlusItems {
 	public static Item YELLOW_JELLY;
 	public static Item WHITE_JELLY;
 	public static Item NEON_LEAF;
+	public static Item ISOPOD_SHELL;
 
 	public static Item VIPERFISH;
 	public static Item PARROTFISH;
@@ -126,6 +127,7 @@ public class AquaticPlusItems {
 		YELLOW_JELLY = registerBasicItem("yellow_jelly");
 		WHITE_JELLY = registerBasicItem("white_jelly");
 		NEON_LEAF = registerBasicItem("neon_leaf");
+		ISOPOD_SHELL = registerBasicItem("isopod_shell");
 	}
 
 	public static void registerAdvancedItems() {
