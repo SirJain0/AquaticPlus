@@ -66,6 +66,7 @@ public class DeepSeaIsopodModel extends SinglePartEntityModel<DeepSeaIsopodEntit
 	@Override
 	public void setAngles(DeepSeaIsopodEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
+		if (entity.isBellyrubbed()) isopod.roll = 1.6F;
 		this.animateMovement(DeepSeaIsopodAnimations.ISOPOD_WALK, limbSwing, limbSwingAmount, 9.0F, 100.0F);
 	}
 }

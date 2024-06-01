@@ -137,7 +137,7 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 					if (this.random.nextInt(3) == 0)
 						this.heal(1);
 				} else {
-					this.getNavigation().stop();
+					this.setVelocity(0, 0, 0);
 					bellyrubCooldown--;
 				}
 			}
@@ -146,9 +146,6 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 				this.getWorld().addParticle(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 0, 0.1f, 0);
 			}
 		}
-
-		System.out.println("Is bellyrubbed: " + this.isBellyrubbed());
-		System.out.println("Bellyrub countdown: " + this.bellyrubCooldown);
 
 		super.tick();
 	}
