@@ -14,6 +14,7 @@ import net.minecraft.entity.mob.WaterCreatureEntity;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
@@ -32,6 +33,7 @@ TODO:
 public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 	public static final TrackedData<Boolean> IS_FROSTPOD = DataTracker.registerData(DeepSeaIsopodEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	public static final TrackedData<Boolean> IS_BELLYRUBBED = DataTracker.registerData(DeepSeaIsopodEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	public int bellyrubCooldown = 60;
 
 	public DeepSeaIsopodEntity(EntityType<? extends WaterCreatureEntity> entityType, World world) {
 		super(entityType, world);
@@ -109,7 +111,7 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 	}
 
 	@Override
-	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+	public ActionResult interactMob(PlayerEntity player, Hand hand) {
 		if (hand == Hand.MAIN_HAND) {
 			if (player.isSneaking()) {
 				this.setIsBellyrubbed(true);
@@ -121,6 +123,34 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 		}
 
 		return super.interactMob(player, hand);
+	}
+
+	@Override
+	public void tick() {
+		if (this.isBellyrubbed()) {
+			if (!this.getWorld().isClient) {
+				if (this.bellyrubCooldown == 0) {
+					this.setIsBellyrubbed(false);
+					this.bellyrubCooldown = 60;
+					this.getNavigation().recalculatePath();
+
+					if (this.random.nextInt(3) == 0)
+						this.heal(1);
+				} else {
+					this.getNavigation().stop();
+					bellyrubCooldown--;
+				}
+			}
+
+			if (this.getWorld().isClient && this.random.nextInt(10) == 0) {
+				this.getWorld().addParticle(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 0, 0.1f, 0);
+			}
+		}
+
+		System.out.println("Is bellyrubbed: " + this.isBellyrubbed());
+		System.out.println("Bellyrub countdown: " + this.bellyrubCooldown);
+
+		super.tick();
 	}
 
 	@Override
