@@ -41,6 +41,7 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 		this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.add(0, new AttackGoal(this));
 		this.goalSelector.add(0, new MoveIntoWaterGoal(this));
+
 		this.initTargetGoals();
 	}
 
@@ -90,12 +91,11 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 			this.move(MovementType.SELF, this.getRotationVector().multiply(0.16f));
 	}
 
+	// TODO: Make this system not case sensitive
 	@Override
 	public void setCustomName(@Nullable Text name) {
 		super.setCustomName(name);
-
-		if (name != null && name.equals(Text.literal("Fibula")))
-			this.setCanBeRecolored(true);
+		this.setCanBeRecolored(name != null && name.equals(Text.literal("Fibula")));
 	}
 
 	@Override

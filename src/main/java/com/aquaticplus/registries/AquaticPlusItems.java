@@ -45,6 +45,7 @@ public class AquaticPlusItems {
 	public static Item YELLOW_JELLY;
 	public static Item WHITE_JELLY;
 	public static Item NEON_LEAF;
+	public static Item ISOPOD_SHELL;
 
 	public static Item VIPERFISH;
 	public static Item PARROTFISH;
@@ -89,6 +90,7 @@ public class AquaticPlusItems {
 	public static Item VOLAN_AURORA_SPAWN_EGG;
 	public static Item PIKE_SPAWN_EGG;
 	public static Item RIBBON_EEL_SPAWN_EGG;
+	public static Item DEEP_SEA_ISOPOD_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -125,6 +127,7 @@ public class AquaticPlusItems {
 		YELLOW_JELLY = registerBasicItem("yellow_jelly");
 		WHITE_JELLY = registerBasicItem("white_jelly");
 		NEON_LEAF = registerBasicItem("neon_leaf");
+		ISOPOD_SHELL = registerBasicItem("isopod_shell");
 	}
 
 	public static void registerAdvancedItems() {
@@ -190,6 +193,7 @@ public class AquaticPlusItems {
 		VOLAN_AURORA_SPAWN_EGG = registerSpawnEggItem("volan_aurora_spawn_egg", AquaticPlusEntities.VOLAN_AURORA_ENTITY, 0x4d9fd8, 0xb3a6e8); // TODO: Make this have a custom texture to incorporate purple
 		PIKE_SPAWN_EGG = registerSpawnEggItem("pike_spawn_egg", AquaticPlusEntities.PIKE_ENTITY, 0x544631, 0x7c7051);
 		RIBBON_EEL_SPAWN_EGG = registerSpawnEggItem("ribbon_eel_spawn_egg", AquaticPlusEntities.RIBBON_EEL_ENTITY, 0x50acf2, 0xffd444);
+		DEEP_SEA_ISOPOD_SPAWN_EGG = registerSpawnEggItem("deep_sea_isopod_spawn_egg", AquaticPlusEntities.DEEP_SEA_ISOPOD_ENTITY, 0xd6ccab, 0x917f6d);
 	}
 
 	public static void registerBucketItems() {
