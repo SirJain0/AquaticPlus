@@ -16,6 +16,6 @@ public class NeonCrabRenderer extends MobEntityRenderer<NeonCrabEntity, NeonCrab
 	@Override
 	public Identifier getTexture(NeonCrabEntity entity) {
 		String variantName = entity.getVariant().name().toLowerCase();
-		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/neon_crab/neon_crab_" + variantName + ".png");
+		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/crab/neon_crab_" + variantName + ".png");
 	}
 }
