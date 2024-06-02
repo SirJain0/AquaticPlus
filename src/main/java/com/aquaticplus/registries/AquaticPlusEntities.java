@@ -321,7 +321,7 @@ public class AquaticPlusEntities {
 			.dimensions(EntityDimensions.fixed(1, 1))
 			.build()
 	);
-
+  
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "aquatic_star"),
