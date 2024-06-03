@@ -1,14 +1,11 @@
 package com.aquaticplus.entities.entity;
 
+import com.aquaticplus.entities.entity.template.AbstractCrabEntity;
 import com.aquaticplus.registries.AquaticPlusItems;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.goal.*;
-import net.minecraft.entity.attribute.DefaultAttributeContainer;
-import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.mob.WaterCreatureEntity;
 import net.minecraft.item.Item;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.StringIdentifiable;
@@ -20,25 +17,11 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
 
-public class NeonCrabEntity extends WaterCreatureEntity {
+public class NeonCrabEntity extends AbstractCrabEntity {
 	private static final TrackedData<Integer> NEON_CRAB_TYPE = DataTracker.registerData(NeonCrabEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
-	public NeonCrabEntity(EntityType<? extends WaterCreatureEntity> entityType, World world) {
+	public NeonCrabEntity(EntityType<? extends AbstractCrabEntity> entityType, World world) {
 		super(entityType, world);
-	}
-
-	@Override
-	protected void initGoals() {
-		this.goalSelector.add(0, new EscapeDangerGoal(this, 1.4f));
-		this.goalSelector.add(1, new WanderAroundFarGoal(this, 1));
-		this.goalSelector.add(3, new LookAroundGoal(this));
-	}
-
-	public static DefaultAttributeContainer.Builder createNeonCrabAttributes() {
-		return WaterCreatureEntity
-			.createMobAttributes()
-			.add(EntityAttributes.GENERIC_MAX_HEALTH, 7)
-			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 3);
 	}
 
 	@Override

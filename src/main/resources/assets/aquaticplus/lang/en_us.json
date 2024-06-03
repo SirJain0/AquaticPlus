@@ -32,6 +32,7 @@
 	"item.aquaticplus.pike_spawn_egg": "Pike Spawn Egg",
 	"item.aquaticplus.ribbon_eel_spawn_egg": "Ribbon Eel Spawn Egg",
 	"item.aquaticplus.deep_sea_isopod_spawn_egg": "Deep Sea Isopod Spawn Egg",
+	"item.aquaticplus.yeti_crab_spawn_egg": "Yeti Crab Spawn Egg",
 
 	"item.aquaticplus.spirited_fish_bucket": "Spirited Fish Bucket",
 	"item.aquaticplus.parrotfish_bucket": "Parrotfish Bucket",
@@ -69,6 +70,7 @@
 	"item.aquaticplus.white_jelly": "White Jelly",
 	"item.aquaticplus.neon_leaf": "Neon Leaf",
 	"item.aquaticplus.isopod_shell": "Isopod Shell",
+	"item.aquaticplus.yeti_crab_shell": "Yeti Crab Shell",
 
 	"item.aquaticplus.stonifier": "Stonifier",
 	"item.aquaticplus.destonifier": "Destonifier",
@@ -173,6 +175,7 @@
 	"entity.aquaticplus.pike": "Pike",
 	"entity.aquaticplus.ribbon_eel": "Ribbon Eel",
 	"entity.aquaticplus.deep_sea_isopod": "Deep Sea Isopod",
+	"entity.aquaticplus.yeti_crab": "Yeti Crab",
 
 	"entity.aquaticplus.aquatic_star": "Aquatic Star",
 	"entity.aquaticplus.land_drowning_aquatic_star": "Land Drowning Aquatic Star",

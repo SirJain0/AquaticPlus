@@ -62,7 +62,8 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.PIKE_SPAWN_EGG);
 					entries.add(AquaticPlusItems.RIBBON_EEL_SPAWN_EGG);
 					entries.add(AquaticPlusItems.DEEP_SEA_ISOPOD_SPAWN_EGG);
-
+					entries.add(AquaticPlusItems.YETI_CRAB_SPAWN_EGG);
+          
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
 					entries.add(AquaticPlusItems.SHADOW_SARDEL_BUCKET);
@@ -104,6 +105,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.WHITE_JELLY);
 					entries.add(AquaticPlusItems.NEON_LEAF);
 					entries.add(AquaticPlusItems.ISOPOD_SHELL);
+					entries.add(AquaticPlusItems.YETI_CRAB_SHELL);
 					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
 					entries.add(AquaticPlusItems.STONIFIER);
 					entries.add(AquaticPlusItems.DESTONIFIER);

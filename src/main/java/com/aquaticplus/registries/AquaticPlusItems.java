@@ -1,6 +1,7 @@
 package com.aquaticplus.registries;
 
 import com.aquaticplus.AquaticPlus;
+import com.aquaticplus.entities.models.YetiCrabModel;
 import com.aquaticplus.items.*;
 import com.aquaticplus.items.combat.AuroraStaffItem;
 import com.aquaticplus.items.combat.FrostingSpectreItem;
@@ -46,6 +47,7 @@ public class AquaticPlusItems {
 	public static Item WHITE_JELLY;
 	public static Item NEON_LEAF;
 	public static Item ISOPOD_SHELL;
+	public static Item YETI_CRAB_SHELL;
 
 	public static Item VIPERFISH;
 	public static Item PARROTFISH;
@@ -91,6 +93,7 @@ public class AquaticPlusItems {
 	public static Item PIKE_SPAWN_EGG;
 	public static Item RIBBON_EEL_SPAWN_EGG;
 	public static Item DEEP_SEA_ISOPOD_SPAWN_EGG;
+	public static Item YETI_CRAB_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -128,6 +131,7 @@ public class AquaticPlusItems {
 		WHITE_JELLY = registerBasicItem("white_jelly");
 		NEON_LEAF = registerBasicItem("neon_leaf");
 		ISOPOD_SHELL = registerBasicItem("isopod_shell");
+		YETI_CRAB_SHELL = registerBasicItem("yeti_crab_shell");
 	}
 
 	public static void registerAdvancedItems() {
@@ -194,6 +198,7 @@ public class AquaticPlusItems {
 		PIKE_SPAWN_EGG = registerSpawnEggItem("pike_spawn_egg", AquaticPlusEntities.PIKE_ENTITY, 0x544631, 0x7c7051);
 		RIBBON_EEL_SPAWN_EGG = registerSpawnEggItem("ribbon_eel_spawn_egg", AquaticPlusEntities.RIBBON_EEL_ENTITY, 0x50acf2, 0xffd444);
 		DEEP_SEA_ISOPOD_SPAWN_EGG = registerSpawnEggItem("deep_sea_isopod_spawn_egg", AquaticPlusEntities.DEEP_SEA_ISOPOD_ENTITY, 0xd6ccab, 0x917f6d);
+		YETI_CRAB_SPAWN_EGG = registerSpawnEggItem("yeti_crab_spawn_egg", AquaticPlusEntities.YETI_CRAB_ENTITY, 0xc1a489, 0xd7c098);
 	}
 
 	public static void registerBucketItems() {
