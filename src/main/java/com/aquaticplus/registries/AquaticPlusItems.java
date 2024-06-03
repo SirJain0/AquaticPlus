@@ -1,6 +1,7 @@
 package com.aquaticplus.registries;
 
 import com.aquaticplus.AquaticPlus;
+import com.aquaticplus.entities.models.YetiCrabModel;
 import com.aquaticplus.items.*;
 import com.aquaticplus.items.combat.AuroraStaffItem;
 import com.aquaticplus.items.combat.FrostingSpectreItem;
@@ -46,6 +47,7 @@ public class AquaticPlusItems {
 	public static Item WHITE_JELLY;
 	public static Item NEON_LEAF;
 	public static Item ISOPOD_SHELL;
+	public static Item YETI_CRAB_SHELL;
 
 	public static Item VIPERFISH;
 	public static Item PARROTFISH;
@@ -129,6 +131,7 @@ public class AquaticPlusItems {
 		WHITE_JELLY = registerBasicItem("white_jelly");
 		NEON_LEAF = registerBasicItem("neon_leaf");
 		ISOPOD_SHELL = registerBasicItem("isopod_shell");
+		YETI_CRAB_SHELL = registerBasicItem("yeti_crab_shell");
 	}
 
 	public static void registerAdvancedItems() {

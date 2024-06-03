@@ -105,6 +105,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.WHITE_JELLY);
 					entries.add(AquaticPlusItems.NEON_LEAF);
 					entries.add(AquaticPlusItems.ISOPOD_SHELL);
+					entries.add(AquaticPlusItems.YETI_CRAB_SHELL);
 					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
 					entries.add(AquaticPlusItems.STONIFIER);
 					entries.add(AquaticPlusItems.DESTONIFIER);
