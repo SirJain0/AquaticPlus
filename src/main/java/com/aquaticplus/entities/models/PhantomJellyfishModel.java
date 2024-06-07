@@ -125,7 +125,7 @@ public class PhantomJellyfishModel extends SinglePartEntityModel<PhantomJellyfis
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
 		matrices.translate(0, 7f, 0);
-		matrices.scale(3, 3, 3);
+		matrices.scale(2.7f, 2.7f, 2.7f);
 		phantomJellyfish.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}
