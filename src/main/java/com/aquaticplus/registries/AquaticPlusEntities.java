@@ -2,6 +2,7 @@ package com.aquaticplus.registries;
 
 import com.aquaticplus.AquaticPlus;
 import com.aquaticplus.entities.entity.*;
+import com.aquaticplus.entities.entity.boss.PhantomJellyfishEntity;
 import com.aquaticplus.entities.entity.projectile.*;
 import com.aquaticplus.entities.entity.template.AbstractCrabEntity;
 import com.aquaticplus.entities.models.*;
@@ -321,6 +322,15 @@ public class AquaticPlusEntities {
 			.dimensions(EntityDimensions.fixed(1, 1))
 			.build()
 	);
+
+	public static final EntityModelLayer PHANTOM_JELLYFISH_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "phantom_jellyfish"), "root");
+	public static final EntityType<PhantomJellyfishEntity> PHANTOM_JELLYFISH_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "phantom_jellyfish"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, PhantomJellyfishEntity::new)
+			.dimensions(EntityDimensions.fixed(3, 3))
+			.build()
+	);
   
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
@@ -410,7 +420,8 @@ public class AquaticPlusEntities {
 		ALLIGATOR_GAR_ENTITY,
 		VOLAN_AURORA_ENTITY,
 		PIKE_ENTITY,
-		RIBBON_EEL_ENTITY
+		RIBBON_EEL_ENTITY,
+		PHANTOM_JELLYFISH_ENTITY
 	);
 
 	public static final List<EntityType<? extends WaterCreatureEntity>> GROUND_ENTITIES = Arrays.asList(
@@ -453,6 +464,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(RIBBON_EEL_ENTITY, RibbonEelEntity.createRibbonEelAttributes());
 		FabricDefaultAttributeRegistry.register(DEEP_SEA_ISOPOD_ENTITY, DeepSeaIsopodEntity.createIsopodAttributes());
 		FabricDefaultAttributeRegistry.register(YETI_CRAB_ENTITY, NeonCrabEntity.createCrabAttributes());
+		FabricDefaultAttributeRegistry.register(PHANTOM_JELLYFISH_ENTITY, PhantomJellyfishEntity.createPhantomJellyfishAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -490,6 +502,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(RIBBON_EEL_ENTITY, RibbonEelRenderer::new);
 		EntityRendererRegistry.register(DEEP_SEA_ISOPOD_ENTITY, DeepSeaIsopodRenderer::new);
 		EntityRendererRegistry.register(YETI_CRAB_ENTITY, YetiCrabRenderer::new);
+		EntityRendererRegistry.register(PHANTOM_JELLYFISH_ENTITY, PhantomJellyfishRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -523,6 +536,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(RIBBON_EEL_LAYER, RibbonEelModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(DEEP_SEA_ISOPOD_LAYER, DeepSeaIsopodModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(YETI_CRAB_LAYER, YetiCrabModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(PHANTOM_JELLYFISH_LAYER, PhantomJellyfishModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {

@@ -96,6 +96,7 @@ public class AquaticPlusItems {
 	public static Item RIBBON_EEL_SPAWN_EGG;
 	public static Item DEEP_SEA_ISOPOD_SPAWN_EGG;
 	public static Item YETI_CRAB_SPAWN_EGG;
+	public static Item PHANTOM_JELLYFISH_SPAWN_EGG;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -202,6 +203,7 @@ public class AquaticPlusItems {
 		RIBBON_EEL_SPAWN_EGG = registerSpawnEggItem("ribbon_eel_spawn_egg", AquaticPlusEntities.RIBBON_EEL_ENTITY, 0x50acf2, 0xffd444);
 		DEEP_SEA_ISOPOD_SPAWN_EGG = registerSpawnEggItem("deep_sea_isopod_spawn_egg", AquaticPlusEntities.DEEP_SEA_ISOPOD_ENTITY, 0xd6ccab, 0x917f6d);
 		YETI_CRAB_SPAWN_EGG = registerSpawnEggItem("yeti_crab_spawn_egg", AquaticPlusEntities.YETI_CRAB_ENTITY, 0xc1a489, 0xd7c098);
+		PHANTOM_JELLYFISH_SPAWN_EGG = registerSpawnEggItem("phantom_jellyfish_spawn_egg", AquaticPlusEntities.PHANTOM_JELLYFISH_ENTITY, 0x883e53, 0x444244);
 	}
 
 	public static void registerBucketItems() {
