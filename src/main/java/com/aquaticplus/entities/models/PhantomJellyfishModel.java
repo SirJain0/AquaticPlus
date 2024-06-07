@@ -117,12 +117,15 @@ public class PhantomJellyfishModel extends SinglePartEntityModel<PhantomJellyfis
 	@Override
 	public void setAngles(PhantomJellyfishEntity entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
+		phantomJellyfish.pivotY = MathHelper.cos(13 + animationProgress * 0.08f) * 2;
 		this.updateAnimation(entity.swimAnimationState, PhantomJellyfishAnimations.SWIM, animationProgress, 1f);
 	}
 
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
+		matrices.translate(0, 7f, 0);
+		matrices.scale(3, 3, 3);
 		phantomJellyfish.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}

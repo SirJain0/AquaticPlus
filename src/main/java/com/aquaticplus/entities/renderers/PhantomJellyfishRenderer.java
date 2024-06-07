@@ -22,16 +22,12 @@ public class PhantomJellyfishRenderer extends MobEntityRenderer<PhantomJellyfish
 
 	public PhantomJellyfishRenderer(EntityRendererFactory.Context context) {
 		super(context, new PhantomJellyfishModel(context.getPart(AquaticPlusEntities.PHANTOM_JELLYFISH_LAYER)), 0.75f);
+		this.addFeature(new APEmissiveTextureFeature<>(this, TEXTURE));
 	}
 
 	@Override
 	public Identifier getTexture(PhantomJellyfishEntity entity) {
 		return TEXTURE;
-	}
-
-	@Override
-	protected void scale(PhantomJellyfishEntity entity, MatrixStack matrices, float amount) {
-		matrices.scale(3, 3, 3);
 	}
 
 	@Nullable
