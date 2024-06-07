@@ -5,6 +5,7 @@ import com.aquaticplus.entities.models.YetiCrabModel;
 import com.aquaticplus.items.*;
 import com.aquaticplus.items.combat.AuroraStaffItem;
 import com.aquaticplus.items.combat.FrostingSpectreItem;
+import com.aquaticplus.items.combat.VermillionGloomStaffItem;
 import com.aquaticplus.items.projectile.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
@@ -26,6 +27,7 @@ public class AquaticPlusItems {
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
 	public static Item AURORA_STAFF;
+	public static Item VERMILLION_GLOOM_STAFF;
 	public static Item MIDNIGHT_PIKE;
 	public static Item CYAN_CRAB_CLAW;
 	public static Item ORANGE_CRAB_CLAW;
@@ -144,6 +146,7 @@ public class AquaticPlusItems {
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
+		VERMILLION_GLOOM_STAFF = registerCustomItem("vermillion_gloom_staff", new VermillionGloomStaffItem());
 		MIDNIGHT_PIKE = registerCustomItem("midnight_pike", new MidnightPikeItem());
 		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem());
 		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem());
