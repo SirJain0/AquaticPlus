@@ -1,6 +1,6 @@
 package com.aquaticplus.entities.entity.template;
 
-import com.aquaticplus.entities.goals.APSwimAroundGoal;
+import com.aquaticplus.entities.ai.APSwimAroundGoal;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;

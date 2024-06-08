@@ -1,5 +1,8 @@
 package com.aquaticplus.entities.entity.boss;
 
+import com.aquaticplus.entities.ai.AwesomeRangedAttack;
+import com.aquaticplus.entities.ai.CoolRangedAttack;
+import com.aquaticplus.entities.ai.LegendaryRangedAttack;
 import com.aquaticplus.entities.entity.template.APFishEntity;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.entity.AnimationState;
@@ -28,12 +31,17 @@ import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyPlayersSensor;
 import java.util.List;
 
 public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOwner<PhantomJellyfishEntity> {
+	public final AnimationState swimAnimationState = new AnimationState();
+	public int idleAnimationTimeout = 0;
+
 	public PhantomJellyfishEntity(EntityType<? extends FishEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
-	public final AnimationState swimAnimationState = new AnimationState();
-	public int idleAnimationTimeout = 0;
+	// We are using brains for this entity
+	@Override
+	protected void initGoals() {
+	}
 
 	@Override
 	public void tick() {
@@ -115,7 +123,9 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 
 			// Pick a random one
 			new OneRandomBehaviour<>(
-				new AnimatableRangedAttack<>(10)
+				new CoolRangedAttack<>(50),     // Attack #1
+				new AwesomeRangedAttack<>(50),  // Attack #2
+				new LegendaryRangedAttack<>(50) // Attack #3
 			)
 		);
 	}

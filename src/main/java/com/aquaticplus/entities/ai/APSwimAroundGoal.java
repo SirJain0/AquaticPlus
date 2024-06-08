@@ -1,4 +1,4 @@
-package com.aquaticplus.entities.goals;
+package com.aquaticplus.entities.ai;
 
 import net.minecraft.entity.ai.brain.task.LookTargetUtil;
 import net.minecraft.entity.ai.goal.WanderAroundGoal;

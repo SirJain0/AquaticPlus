@@ -1,4 +1,4 @@
-package com.aquaticplus.entities.goals;
+package com.aquaticplus.entities.ai;
 
 import com.aquaticplus.entities.entity.PinkSunfishEntity;
 import net.minecraft.entity.LivingEntity;
