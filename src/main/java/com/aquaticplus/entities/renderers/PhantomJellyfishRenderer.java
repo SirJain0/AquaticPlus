@@ -17,8 +17,7 @@ import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
 public class PhantomJellyfishRenderer extends MobEntityRenderer<PhantomJellyfishEntity, PhantomJellyfishModel> {
-	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/phantom_jellyfish/phantom_jellyfish.png");
-	public static final Identifier EMISSIVE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/phantom_jellyfish/phantom_jellyfish_e.png");
+	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/phantom_jellyfish.png");
 
 	public PhantomJellyfishRenderer(EntityRendererFactory.Context context) {
 		super(context, new PhantomJellyfishModel(context.getPart(AquaticPlusEntities.PHANTOM_JELLYFISH_LAYER)), 0.75f);

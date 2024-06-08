@@ -6,8 +6,10 @@ import com.aquaticplus.entities.entity.boss.PhantomJellyfishEntity;
 import com.aquaticplus.entities.entity.projectile.*;
 import com.aquaticplus.entities.entity.template.AbstractCrabEntity;
 import com.aquaticplus.entities.models.*;
+import com.aquaticplus.entities.models.projectile.PlasmaModel;
 import com.aquaticplus.entities.renderers.*;
 import com.aquaticplus.entities.renderers.projectile.AquaticStarRenderer;
+import com.aquaticplus.entities.renderers.projectile.PlasmaRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -392,6 +394,17 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer PLASMA_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "plasma"), "root");
+	public static final EntityType<PlasmaEntity> PLASMA_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "plasma"),
+		FabricEntityTypeBuilder.<PlasmaEntity>create(SpawnGroup.MISC, PlasmaEntity::new)
+			.dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+			.trackRangeBlocks(16)
+			.trackedUpdateRate(20)
+			.build()
+	);
+
 	public static final List<EntityType<? extends MobEntity>> SWIMMING_ENTITIES = Arrays.asList(
 		JOHNSON_ENTITY,
 		MINDINATOR_ENTITY,
@@ -537,6 +550,9 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(DEEP_SEA_ISOPOD_LAYER, DeepSeaIsopodModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(YETI_CRAB_LAYER, YetiCrabModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(PHANTOM_JELLYFISH_LAYER, PhantomJellyfishModel::getTexturedModelData);
+
+		// Projectiles
+		EntityModelLayerRegistry.registerModelLayer(PLASMA_LAYER, PlasmaModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {
@@ -546,5 +562,6 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(SEA_BANE_AQUATIC_STAR_ENTITY, ctx -> new AquaticStarRenderer(ctx, 1, false));
 		EntityRendererRegistry.register(FROSTED_SNOWBALL_ENTITY, FlyingItemEntityRenderer::new);
 		EntityRendererRegistry.register(AURORA_ENTITY, FlyingItemEntityRenderer::new);
+		EntityRendererRegistry.register(PLASMA_ENTITY, PlasmaRenderer::new);
 	}
 }
