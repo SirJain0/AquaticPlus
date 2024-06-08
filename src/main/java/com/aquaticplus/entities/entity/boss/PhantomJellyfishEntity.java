@@ -91,7 +91,7 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 
 	// Tasks run when nothing else is happening
 	@Override
-	public BrainActivityGroup<PhantomJellyfishEntity> getIdleTasks() { // These are the tasks that run when the mob isn't doing anything else (usually)
+	public BrainActivityGroup<PhantomJellyfishEntity> getIdleTasks() {
 		return BrainActivityGroup.idleTasks(
 			// Try each one in order
 			new FirstApplicableBehaviour<PhantomJellyfishEntity>(
@@ -102,7 +102,7 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 			// Pick a random one
 			new OneRandomBehaviour<>(
 				new SetRandomWalkTarget<>(),    // Set a random walk target to a nearby position
-				new Idle<>().runFor(entity -> entity.getRandom().nextBetween(20, 40))
+				new Idle<>().runFor(entity -> entity.getRandom().nextBetween(20, 40))  // Idle task
 			)
 		);
 	}
@@ -112,6 +112,8 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 	public BrainActivityGroup<PhantomJellyfishEntity> getFightTasks() {
 		return BrainActivityGroup.fightTasks(
 			new InvalidateAttackTarget<>(),         // Cancel fighting if the target is no longer valid
+
+			// Pick a random one
 			new OneRandomBehaviour<>(
 				new AnimatableRangedAttack<>(10)
 			)
