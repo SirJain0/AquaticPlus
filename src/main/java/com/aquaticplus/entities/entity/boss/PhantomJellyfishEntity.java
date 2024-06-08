@@ -11,13 +11,13 @@ import net.minecraft.entity.ai.brain.Brain;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 import net.tslat.smartbrainlib.api.SmartBrainOwner;
 import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
 import net.tslat.smartbrainlib.api.core.SmartBrainProvider;
 import net.tslat.smartbrainlib.api.core.behaviour.FirstApplicableBehaviour;
 import net.tslat.smartbrainlib.api.core.behaviour.OneRandomBehaviour;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.attack.AnimatableRangedAttack;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.misc.Idle;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.move.MoveToWalkTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetRandomWalkTarget;
@@ -84,8 +84,9 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 	@Override
 	public List<? extends ExtendedSensor<? extends PhantomJellyfishEntity>> getSensors() {
 		return ObjectArrayList.of(
-			new NearbyPlayersSensor<>(),            // Tracks nearby players
-			new NearbyLivingEntitySensor<>()        // Tracks nearby entities
+			new NearbyPlayersSensor<>(),
+			new NearbyLivingEntitySensor<PhantomJellyfishEntity>()
+				.setPredicate((target, entity) -> target instanceof PlayerEntity)
 		);
 	}
 
