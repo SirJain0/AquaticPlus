@@ -13,8 +13,6 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RotationAxis;
 
 public class PlasmaRenderer extends EntityRenderer<PlasmaEntity> {
 	private static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/plasma.png");
@@ -27,6 +25,11 @@ public class PlasmaRenderer extends EntityRenderer<PlasmaEntity> {
 
 	@Override
 	protected int getBlockLight(PlasmaEntity entity, BlockPos pos) {
+		return 15;
+	}
+
+	@Override
+	protected int getSkyLight(PlasmaEntity entity, BlockPos pos) {
 		return 15;
 	}
 
