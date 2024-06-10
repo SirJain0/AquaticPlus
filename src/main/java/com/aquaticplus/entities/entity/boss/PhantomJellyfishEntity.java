@@ -10,8 +10,12 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.brain.Brain;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.boss.BossBar;
+import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import net.tslat.smartbrainlib.api.SmartBrainOwner;
 import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
@@ -31,6 +35,7 @@ import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyPlayersSensor;
 import java.util.List;
 
 public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOwner<PhantomJellyfishEntity> {
+	private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Phantom Jellyfish"), BossBar.Color.RED, BossBar.Style.NOTCHED_10);
 	public final AnimationState swimAnimationState = new AnimationState();
 	public int idleAnimationTimeout = 0;
 
@@ -47,14 +52,17 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 	public void tick() {
 		super.tick();
 
+		// Set up animations
 		if (this.getWorld().isClient)
 			this.setupAnimationStates();
 
+		// Natural regen if under half its health
 		if (!this.getWorld().isClient && this.getHealth() < this.getMaxHealth() / 2 && this.age % 35 == 0) {
 			this.heal(2);
 		}
 	}
 
+	// Handles the animation
 	private void setupAnimationStates() {
 		if (this.idleAnimationTimeout <= 0) {
 			this.idleAnimationTimeout = 80;
@@ -64,6 +72,7 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 		}
 	}
 
+	// Attributes
 	public static DefaultAttributeContainer.Builder createPhantomJellyfishAttributes() {
 		return FishEntity
 			.createFishAttributes()
@@ -71,7 +80,21 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 			.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 10);
 	}
 
-	// Brain
+	// == BOSS BAR ==
+
+	@Override
+	public void onStartedTrackingBy(ServerPlayerEntity player) {
+		super.onStartedTrackingBy(player);
+		this.bossBar.addPlayer(player);
+	}
+
+	@Override
+	public void onStoppedTrackingBy(ServerPlayerEntity player) {
+		super.onStoppedTrackingBy(player);
+		this.bossBar.removePlayer(player);
+	}
+
+	// == BRAIN ==
 
 	// Replaces Vanilla brain
 	@Override
@@ -79,11 +102,13 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 		return new SmartBrainProvider<>(this);
 	}
 
-	// Tick the brain so it functions
+	// Tick the brain so it functions, and update bossbar percent
 	@Override
 	protected void mobTick() {
 		super.mobTick();
+
 		this.tickBrain(this);
+		this.bossBar.setPercent(this.getHealth() / this.getMaxHealth());
 	}
 
 	// Gives the entity sensors - things it is conscious of
