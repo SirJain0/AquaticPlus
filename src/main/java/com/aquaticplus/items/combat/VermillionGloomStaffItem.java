@@ -7,8 +7,11 @@ import com.google.common.collect.Lists;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.*;
+import net.minecraft.util.Hand;
+import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 import java.util.ArrayList;
@@ -31,7 +34,7 @@ public class VermillionGloomStaffItem extends ShootingStaffItem {
 		}
 
 		if (attacker.getRandom().nextInt(4) == 0) {
-			attacker.heal(3);
+			attacker.heal(2);
 		}
 
 		return super.postHit(stack, target, attacker);
@@ -46,6 +49,19 @@ public class VermillionGloomStaffItem extends ShootingStaffItem {
 		ArmorMaterial diamond = ArmorMaterials.DIAMOND;
 
 		return armorItems.stream().filter(stack -> stack.getItem() instanceof ArmorItem armor && (armor.getMaterial() == gold || armor.getMaterial() == iron || armor.getMaterial() == chain || armor.getMaterial() == diamond)).count() == 4;
+	}
+
+	@Override
+	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
+		if (world.random.nextInt(6) == 0) {
+			user.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 20*30, 0));
+		}
+
+		if (user.getRandom().nextInt(5) == 0 && !user.getAbilities().creativeMode) {
+			user.heal(3);
+		}
+
+		return super.use(world, user, hand);
 	}
 
 	@Override
