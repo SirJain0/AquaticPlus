@@ -20,7 +20,7 @@ public abstract class ShootingStaffItem extends Item {
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 		if (world.isClient) return TypedActionResult.pass(user.getStackInHand(hand));
 
-		if (!user.getAbilities().creativeMode && this.hasAmmoItem()) {
+		if (!user.getAbilities().creativeMode) {
 			if (this.hasAmmoItem()) {
 				int slotWithProjectile = user.getInventory().getSlotWithStack(getAmmoItem());
 
