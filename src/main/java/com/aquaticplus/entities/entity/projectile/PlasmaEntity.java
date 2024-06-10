@@ -5,6 +5,7 @@ import com.aquaticplus.registries.AquaticPlusEntities;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.thrown.ThrownEntity;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
@@ -39,6 +40,10 @@ public class PlasmaEntity extends ThrownEntity {
 
 		if (this.isSubmergedInWater())
 			this.setVelocity(this.getVelocity().multiply(AquaticPlusUtil.UNDERWATER_PARTICLE_MULTIPLIER));
+
+		if (this.getWorld().isClient() && this.age % 3 == 0) {
+			this.getWorld().addParticle(ParticleTypes.LAVA, this.getParticleX(1), this.getRandomBodyY(), this.getParticleZ(0.2), 0, 0, 0);
+		}
 	}
 
 	@Override

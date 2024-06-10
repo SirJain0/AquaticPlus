@@ -56,7 +56,7 @@ public class VermillionGloomStaffItem extends ShootingStaffItem {
 
 	@Override
 	public float getProjectileVelocity() {
-		return 1f;
+		return 0.9f;
 	}
 
 	@Override
@@ -66,7 +66,7 @@ public class VermillionGloomStaffItem extends ShootingStaffItem {
 
 	@Override
 	public int getDivergence() {
-		return 1;
+		return 8;
 	}
 
 	@Override
