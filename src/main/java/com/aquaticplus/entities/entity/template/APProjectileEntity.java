@@ -16,7 +16,7 @@ public abstract class APProjectileEntity extends ThrownItemEntity {
 		super(entityType, owner, world);
 	}
 
-	// Destroys the particle if the particle has stopped moving
+	// Destroys the particle if the particle has stopped moving and propels it in water
 	@Override
 	public void tick() {
 		super.tick();

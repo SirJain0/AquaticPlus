@@ -379,7 +379,7 @@ public class AquaticPlusEntities {
 		new Identifier(AquaticPlus.MOD_ID, "frosted_snowball"),
 		FabricEntityTypeBuilder.<FrostedSnowballEntity>create(SpawnGroup.MISC, FrostedSnowballEntity::new)
 			.dimensions(EntityDimensions.fixed(0.25F, 0.25F))
-			.trackRangeBlocks(16)
+			.trackRangeBlocks(22)
 			.trackedUpdateRate(20)
 			.build()
 	);
@@ -389,7 +389,7 @@ public class AquaticPlusEntities {
 		new Identifier(AquaticPlus.MOD_ID, "aurora"),
 		FabricEntityTypeBuilder.<AuroraEntity>create(SpawnGroup.MISC, AuroraEntity::new)
 			.dimensions(EntityDimensions.fixed(0.25F, 0.25F))
-			.trackRangeBlocks(16)
+			.trackRangeBlocks(22)
 			.trackedUpdateRate(20)
 			.build()
 	);
@@ -400,7 +400,7 @@ public class AquaticPlusEntities {
 		new Identifier(AquaticPlus.MOD_ID, "plasma"),
 		FabricEntityTypeBuilder.<PlasmaEntity>create(SpawnGroup.MISC, PlasmaEntity::new)
 			.dimensions(EntityDimensions.fixed(0.25F, 0.25F))
-			.trackRangeBlocks(16)
+			.trackRangeBlocks(30)
 			.trackedUpdateRate(20)
 			.build()
 	);

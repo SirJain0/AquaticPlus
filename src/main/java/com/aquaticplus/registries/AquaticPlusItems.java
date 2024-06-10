@@ -145,7 +145,7 @@ public class AquaticPlusItems {
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem());
 		SEA_BANE_AQUATIC_STAR = registerCustomItem("sea_bane_aquatic_star", new SeaBaneAquaticStarItem());
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
-		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
+		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(200)));
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
 		VERMILLION_GLOOM_STAFF = registerCustomItem("vermillion_gloom_staff", new VermillionGloomStaffItem());
 		MIDNIGHT_PIKE = registerCustomItem("midnight_pike", new MidnightPikeItem());

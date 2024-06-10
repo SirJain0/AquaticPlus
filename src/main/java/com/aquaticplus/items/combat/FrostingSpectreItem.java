@@ -31,6 +31,21 @@ public class FrostingSpectreItem extends ShootingStaffItem {
 	}
 
 	@Override
+	public boolean hasAmmoItem() {
+		return true;
+	}
+
+	@Override
+	public boolean hasDurability() {
+		return true;
+	}
+
+	@Override
+	public int durabilityDecrement() {
+		return 1;
+	}
+
+	@Override
 	public ItemStack getAmmoItem() {
 		return new ItemStack(AquaticPlusItems.FROSTED_BALL);
 	}
