@@ -46,7 +46,13 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 	@Override
 	public void tick() {
 		super.tick();
-		if (this.getWorld().isClient) this.setupAnimationStates();
+
+		if (this.getWorld().isClient)
+			this.setupAnimationStates();
+
+		if (!this.getWorld().isClient && this.getHealth() < this.getMaxHealth() / 2 && this.age % 35 == 0) {
+			this.heal(2);
+		}
 	}
 
 	private void setupAnimationStates() {
