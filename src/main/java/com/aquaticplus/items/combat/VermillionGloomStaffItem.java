@@ -30,6 +30,10 @@ public class VermillionGloomStaffItem extends ShootingStaffItem {
 			target.damage(target.getDamageSources().mobAttack(attacker), 3);
 		}
 
+		if (attacker.getRandom().nextInt(4) == 0) {
+			attacker.heal(3);
+		}
+
 		return super.postHit(stack, target, attacker);
 	}
 
