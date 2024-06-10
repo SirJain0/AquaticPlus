@@ -2,6 +2,7 @@ package com.aquaticplus.items.combat;
 
 import com.aquaticplus.entities.entity.projectile.PlasmaEntity;
 import com.aquaticplus.items.abstract_item.ShootingStaffItem;
+import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Lists;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -9,6 +10,8 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.*;
 import net.minecraft.world.World;
+
+import java.util.ArrayList;
 
 public class VermillionGloomStaffItem extends ShootingStaffItem {
 	public VermillionGloomStaffItem() {
@@ -31,14 +34,14 @@ public class VermillionGloomStaffItem extends ShootingStaffItem {
 	}
 
 	public boolean isWearingMetalArmor(LivingEntity wearer) {
-		var list = Lists.newArrayList(wearer.getArmorItems());
+		ArrayList<ItemStack> armorItems = Lists.newArrayList(wearer.getArmorItems());
 
 		ArmorMaterial gold = ArmorMaterials.GOLD;
 		ArmorMaterial iron = ArmorMaterials.IRON;
 		ArmorMaterial chain = ArmorMaterials.CHAIN;
 		ArmorMaterial diamond = ArmorMaterials.DIAMOND;
 
-		return list.stream().filter(stack -> stack.getItem() instanceof ArmorItem armor && (armor.getMaterial() == gold || armor.getMaterial() == iron || armor.getMaterial() == chain || armor.getMaterial() == diamond)).count() == 4;
+		return armorItems.stream().filter(stack -> stack.getItem() instanceof ArmorItem armor && (armor.getMaterial() == gold || armor.getMaterial() == iron || armor.getMaterial() == chain || armor.getMaterial() == diamond)).count() == 4;
 	}
 
 	@Override
