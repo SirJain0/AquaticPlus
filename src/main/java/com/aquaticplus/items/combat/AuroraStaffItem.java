@@ -10,7 +10,7 @@ import net.minecraft.util.Hand;
 
 public class AuroraStaffItem extends Item {
 	public AuroraStaffItem() {
-		super(new Item.Settings().maxCount(1).maxDamage(65));
+		super(new Item.Settings().maxCount(1).maxDamage(500));
 	}
 
 	@Override
