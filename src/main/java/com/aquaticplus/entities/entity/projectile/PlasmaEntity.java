@@ -65,7 +65,7 @@ public class PlasmaEntity extends ThrownEntity {
 		final boolean hasStoppedMoving = this.getVelocity().x == 0 || this.getVelocity().y == 0 || this.getVelocity().z == 0;
 		final boolean isIdle = hasStoppedMoving && this.age > 5;
 
-		if (isIdle)
+		if (isIdle || this.age > 20*10)
 			this.kill();
 
 		if (this.isSubmergedInWater())
