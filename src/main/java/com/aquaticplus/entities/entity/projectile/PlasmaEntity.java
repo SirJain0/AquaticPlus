@@ -32,6 +32,7 @@ public class PlasmaEntity extends ThrownEntity {
 		this.refreshPositionAndAngles(d, e, f, this.getYaw(), this.getPitch());
 	}
 
+	// TODO: Idea - Add rare chance of explosion when I sort out the claim mod?
 	@Override
 	protected void onEntityHit(EntityHitResult entityHitResult) {
 		Entity entity = entityHitResult.getEntity();
