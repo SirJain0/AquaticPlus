@@ -155,7 +155,7 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 			// Pick a random one
 			new OneRandomBehaviour<>(
 //				new CoolRangedAttack<>(50),     // Attack #1
-//				new PlasmaBallShootAttack<>(50),       // Attack #2
+				new PlasmaBallShootAttack<>(50),       // Attack #2
 				new PlasmaBeamShootAttack<>(50)        // Attack #3
 			)
 		);

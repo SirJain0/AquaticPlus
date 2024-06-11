@@ -399,7 +399,7 @@ public class AquaticPlusEntities {
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "plasma"),
 		FabricEntityTypeBuilder.<PlasmaEntity>create(SpawnGroup.MISC, PlasmaEntity::new)
-			.dimensions(EntityDimensions.fixed(0.25F, 0.25F))
+			.dimensions(EntityDimensions.fixed(0.75f, 0.75f))
 			.trackRangeBlocks(30)
 			.trackedUpdateRate(20)
 			.build()

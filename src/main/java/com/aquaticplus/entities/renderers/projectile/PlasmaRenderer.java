@@ -5,7 +5,6 @@ import com.aquaticplus.entities.entity.projectile.PlasmaEntity;
 import com.aquaticplus.entities.models.projectile.PlasmaModel;
 import com.aquaticplus.registries.AquaticPlusEntities;
 import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.EntityRenderer;
@@ -34,13 +33,14 @@ public class PlasmaRenderer extends EntityRenderer<PlasmaEntity> {
 	}
 
 	@Override
-	public void render(PlasmaEntity entity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
+	public void render(PlasmaEntity entity, float yaw, float tickDelta, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int light) {
 		matrixStack.push();
 		VertexConsumer vertexConsumer = vertexConsumerProvider.getBuffer(this.model.getLayer(TEXTURE));
-		this.model.render(matrixStack, vertexConsumer, i, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
-		matrixStack.pop();
 
-		super.render(entity, f, g, matrixStack, vertexConsumerProvider, i);
+		if (!entity.isShotAsBeam())
+			this.model.render(matrixStack, vertexConsumer, light, OverlayTexture.DEFAULT_UV, 1.0F, 1.0F, 1.0F, 1.0F);
+
+		matrixStack.pop();
 	}
 
 	@Override

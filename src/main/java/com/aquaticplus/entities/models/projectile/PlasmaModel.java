@@ -19,9 +19,9 @@ public class PlasmaModel<T extends PlasmaEntity> extends SinglePartEntityModel<T
 		ModelData modelData = new ModelData();
 		ModelPartData modelPartData = modelData.getRoot();
 
-		ModelPartData bone = modelPartData.addChild("plasma", ModelPartBuilder.create().uv(30, 10).cuboid(-5.0F, -13.0F, -5.0F, 10.0F, 10.0F, 10.0F, new Dilation(0.0F))
+		ModelPartData plasma = modelPartData.addChild("plasma", ModelPartBuilder.create().uv(30, 10).cuboid(-5.0F, -13.0F, -5.0F, 10.0F, 10.0F, 10.0F, new Dilation(0.0F))
 			.uv(0, 20).cuboid(-5.0F, -13.0F, -5.0F, 10.0F, 10.0F, 10.0F, new Dilation(0.3F))
-			.uv(0, 0).cuboid(-5.0F, -13.0F, -5.0F, 10.0F, 10.0F, 10.0F, new Dilation(-0.6F)), ModelTransform.pivot(0.0F, 24.0F, 0.0F));
+			.uv(0, 0).cuboid(-5.0F, -13.0F, -5.0F, 10.0F, 10.0F, 10.0F, new Dilation(-0.6F)), ModelTransform.pivot(0.0F, 31.0F, 0.0F));
 
 		return TexturedModelData.of(modelData, 128, 128);
 	}
@@ -40,6 +40,6 @@ public class PlasmaModel<T extends PlasmaEntity> extends SinglePartEntityModel<T
 
 	@Override
 	public void setAngles(T entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-		plasma.visible = false;
+
 	}
 }
