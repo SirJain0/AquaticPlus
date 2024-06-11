@@ -75,7 +75,7 @@ public class VermillionGloomStaffItem extends ShootingStaffItem {
 
 	@Override
 	public ProjectileEntity getEntity(World world, LivingEntity user) {
-		return new PlasmaEntity(world, user);
+		return new PlasmaEntity(world, user, false);
 	}
 
 	@Override

@@ -1,13 +1,12 @@
 package com.aquaticplus.entities.models.projectile;
 
+import com.aquaticplus.entities.entity.projectile.PlasmaEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.Entity;
 
-public class PlasmaModel<T extends Entity> extends SinglePartEntityModel<T> {
-	private static final String MAIN = "main";
+public class PlasmaModel<T extends PlasmaEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart root;
 	private final ModelPart plasma;
 
@@ -41,6 +40,6 @@ public class PlasmaModel<T extends Entity> extends SinglePartEntityModel<T> {
 
 	@Override
 	public void setAngles(T entity, float limbAngle, float limbDistance, float animationProgress, float headYaw, float headPitch) {
-
+		plasma.visible = false;
 	}
 }

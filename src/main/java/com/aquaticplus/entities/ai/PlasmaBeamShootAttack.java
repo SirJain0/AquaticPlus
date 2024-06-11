@@ -1,18 +1,15 @@
 package com.aquaticplus.entities.ai;
 
-import com.aquaticplus.entities.entity.projectile.AuroraEntity;
 import com.aquaticplus.entities.entity.projectile.PlasmaEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
-import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.thrown.ThrownEntity;
-import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.attack.AnimatableRangedAttack;
 import net.tslat.smartbrainlib.util.BrainUtils;
 
-public class PlasmaShootAttack<E extends LivingEntity & RangedAttackMob> extends AnimatableRangedAttack<E> {
-	public PlasmaShootAttack(int delayTicks) {
+public class PlasmaBeamShootAttack<E extends LivingEntity & RangedAttackMob> extends AnimatableRangedAttack<E> {
+	public PlasmaBeamShootAttack(int delayTicks) {
 		super(delayTicks);
 	}
 
@@ -25,19 +22,17 @@ public class PlasmaShootAttack<E extends LivingEntity & RangedAttackMob> extends
 			return;
 
 		// Attack here
-		System.out.println("Plasma attack!");
+		System.out.println("Plasma beam attack!");
 
 		double xCoord = target.getX() - entity.getX();
 		double zCoord = target.getZ() - entity.getZ();
 		double velPath = Math.sqrt(xCoord * xCoord + zCoord * zCoord);
 
-		for (int i = 0; i < 5; i++) {
-			ThrownEntity projectile = new PlasmaEntity(entity.getWorld(), entity);
-			double yCoord = target.getBodyY(0.3f) - projectile.getY() - 2;
+		ThrownEntity projectile = new PlasmaEntity(entity.getWorld(), entity, true);
+		double yCoord = target.getBodyY(0.3f) - projectile.getY() - 2;
 
-			projectile.setVelocity(xCoord, yCoord + velPath * (double) 0.2f, zCoord, 1, 10);
-			entity.getWorld().spawnEntity(projectile);
-		}
+		projectile.setVelocity(xCoord, yCoord + velPath * (double) 0.2f, zCoord, 1, 0);
+		entity.getWorld().spawnEntity(projectile);
 
 		BrainUtils.setForgettableMemory(entity, MemoryModuleType.ATTACK_COOLING_DOWN, true, this.attackIntervalSupplier.apply(entity));
 	}

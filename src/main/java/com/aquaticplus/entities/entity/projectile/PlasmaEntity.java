@@ -10,19 +10,22 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.thrown.ThrownEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.EntityHitResult;
-import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
 
 public class PlasmaEntity extends ThrownEntity {
+	public boolean isShotAsBeam;
+
 	public PlasmaEntity(EntityType<? extends PlasmaEntity> entityType, World world) {
 		super(entityType, world);
 	}
 
-	public PlasmaEntity(World world, LivingEntity owner) {
+	public PlasmaEntity(World world, LivingEntity owner, boolean isShotAsBeam) {
 		super(AquaticPlusEntities.PLASMA_ENTITY, world);
+
 		this.setOwner(owner);
+		this.isShotAsBeam = isShotAsBeam;
 
 		BlockPos blockPos = owner.getBlockPos();
 		double d = (double) blockPos.getX() + 0.5;
@@ -55,6 +58,9 @@ public class PlasmaEntity extends ThrownEntity {
 	@Override
 	public void tick() {
 		super.tick();
+
+		if (!this.getWorld().isClient)
+			System.out.println(isShotAsBeam);
 
 		final boolean hasStoppedMoving = this.getVelocity().x == 0 || this.getVelocity().y == 0 || this.getVelocity().z == 0;
 		final boolean isIdle = hasStoppedMoving && this.age > 5;
