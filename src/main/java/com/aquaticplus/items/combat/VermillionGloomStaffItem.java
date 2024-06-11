@@ -23,18 +23,22 @@ public class VermillionGloomStaffItem extends ShootingStaffItem {
 
 	@Override
 	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 8*20, 0));
+		if (!target.getWorld().isClient) {
+			target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 8*20, 0));
 
-		if (target.getRandom().nextInt(3) == 0) {
-			target.setOnFireFor(3);
-		}
+			if (target.getRandom().nextInt(3) == 0) {
+				target.setOnFireFor(3);
+			}
 
-		if (isWearingMetalArmor(attacker)) {
-			target.damage(target.getDamageSources().mobAttack(attacker), 3);
-		}
+			if (isWearingMetalArmor(attacker)) {
+				target.damage(target.getDamageSources().mobAttack(attacker), 3);
+			}
 
-		if (attacker.getRandom().nextInt(4) == 0) {
-			attacker.heal(2);
+			if (attacker.getRandom().nextInt(4) == 0) {
+				attacker.heal(2);
+			}
+
+			return true;
 		}
 
 		return super.postHit(stack, target, attacker);
@@ -53,12 +57,12 @@ public class VermillionGloomStaffItem extends ShootingStaffItem {
 
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-		if (world.random.nextInt(6) == 0) {
-			user.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 20*30, 0));
-		}
+		if (!world.isClient) {
+			if (world.random.nextInt(6) == 0)
+				user.addStatusEffect(new StatusEffectInstance(StatusEffects.INVISIBILITY, 20*30, 0));
 
-		if (user.getRandom().nextInt(5) == 0 && !user.getAbilities().creativeMode) {
-			user.heal(3);
+			if (user.getRandom().nextInt(5) == 0 && !user.getAbilities().creativeMode)
+				user.heal(3);
 		}
 
 		return super.use(world, user, hand);

@@ -2,10 +2,15 @@ package com.aquaticplus.entities.entity.projectile;
 
 import com.aquaticplus.AquaticPlusUtil;
 import com.aquaticplus.registries.AquaticPlusEntities;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.thrown.ThrownEntity;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.hit.HitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.Difficulty;
 import net.minecraft.world.World;
@@ -25,6 +30,24 @@ public class PlasmaEntity extends ThrownEntity {
 		double f = (double) blockPos.getZ() + 0.5;
 
 		this.refreshPositionAndAngles(d, e, f, this.getYaw(), this.getPitch());
+	}
+
+	@Override
+	protected void onEntityHit(EntityHitResult entityHitResult) {
+		Entity entity = entityHitResult.getEntity();
+
+		if (entity instanceof LivingEntity target && !this.getWorld().isClient) {
+			target.damage(target.getDamageSources().mobProjectile(this, (LivingEntity) this.getOwner()), 2);
+			target.setOnFireFor(4);
+
+			if (target.getRandom().nextInt(4) == 0)
+				target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 4*20, 1));
+
+			if (target.getRandom().nextInt(5) == 0)
+				target.addStatusEffect(new StatusEffectInstance(StatusEffects.DARKNESS, 4*20, 1));
+		}
+
+		super.onEntityHit(entityHitResult);
 	}
 
 	// Destroys the particle if the particle has stopped moving
