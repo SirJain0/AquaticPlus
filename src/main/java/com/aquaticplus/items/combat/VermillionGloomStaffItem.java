@@ -38,6 +38,11 @@ public class VermillionGloomStaffItem extends ShootingStaffItem {
 				attacker.heal(2);
 			}
 
+			if (attacker instanceof PlayerEntity player && !player.getAbilities().creativeMode) {
+				Hand hand = player.getActiveHand();
+				player.getStackInHand(hand).damage(1, player, p -> p.sendToolBreakStatus(hand));
+			}
+
 			return true;
 		}
 
