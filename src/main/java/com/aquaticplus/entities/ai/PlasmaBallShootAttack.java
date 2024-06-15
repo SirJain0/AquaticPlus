@@ -32,7 +32,7 @@ public class PlasmaBallShootAttack<E extends LivingEntity & RangedAttackMob> ext
 			ThrownEntity projectile = new PlasmaEntity(entity.getWorld(), entity, false);
 			double yCoord = target.getBodyY(0.3f) - projectile.getY() - 2;
 
-			projectile.setVelocity(xCoord, yCoord + velPath * (double) 0.2f, zCoord, 1, 20);
+			projectile.setVelocity(xCoord, yCoord + velPath * (double) 0.2f, zCoord, 1.3f, 20);
 			entity.getWorld().spawnEntity(projectile);
 		}
 
