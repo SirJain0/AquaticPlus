@@ -7,6 +7,7 @@ import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
+import net.minecraft.entity.projectile.thrown.ThrownEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.world.ServerWorld;
@@ -35,7 +36,6 @@ public class ShockwaveAttack<E extends LivingEntity & RangedAttackMob> extends A
 		ServerWorld world = (ServerWorld) boss.getWorld();
 		int particleAmount = 12;
 		float angleInterval = 360f / (float) particleAmount;
-		List<Entity> entities = world.getOtherEntities(boss, boss.getBoundingBox().expand(10), EntityPredicates.VALID_LIVING_ENTITY);
 
 		for (int i = 0; i < particleAmount; i++) {
 			double rotationIncrement = angleInterval * i;
@@ -43,11 +43,12 @@ public class ShockwaveAttack<E extends LivingEntity & RangedAttackMob> extends A
 			float velocityX = (float) Math.cos(rotationIncrement);
 			float velocityZ = (float) Math.sin(rotationIncrement);
 
-			ProjectileEntity lavaProjectile = new PlasmaEntity(boss.getWorld(), boss, false);
-			lavaProjectile.setPos(boss.getX(), boss.getY(), boss.getZ());
+			ThrownEntity lavaProjectile = new PlasmaEntity(boss.getWorld(), boss, false);
+			lavaProjectile.setPos(boss.getX(), boss.getY() + 3.2f, boss.getZ());
 			lavaProjectile.setVelocity(velocityX, 0, velocityZ, 1.3f, 0);
+			lavaProjectile.velocityDirty = true;
 
-			boss.getWorld().spawnEntity(lavaProjectile);
+			world.spawnEntity(lavaProjectile);
 		}
 
 		BrainUtils.setForgettableMemory(boss, MemoryModuleType.ATTACK_COOLING_DOWN, true, this.attackIntervalSupplier.apply(boss));

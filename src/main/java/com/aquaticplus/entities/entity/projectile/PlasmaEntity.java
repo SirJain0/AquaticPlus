@@ -70,11 +70,10 @@ public class PlasmaEntity extends ThrownEntity {
 		super.tick();
 
 		final boolean hasStoppedMoving = this.getVelocity().x == 0 || this.getVelocity().y == 0 || this.getVelocity().z == 0;
-		final boolean isIdle = hasStoppedMoving && this.age > 5;
 		int ageTicksUntilParticleSpawns = this.isShotAsBeam() ? 1 : 3;
 		int numParticlesSpawned = this.isShotAsBeam() ? 3 : 1;
 
-		if (isIdle || this.age > 20*10) {
+		if (this.age > 20*10) {
 			this.kill();
 		}
 
