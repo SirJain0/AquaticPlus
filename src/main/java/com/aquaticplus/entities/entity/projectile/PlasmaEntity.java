@@ -1,7 +1,6 @@
 package com.aquaticplus.entities.entity.projectile;
 
 import com.aquaticplus.AquaticPlusUtil;
-import com.aquaticplus.entities.entity.OculiMagniEntity;
 import com.aquaticplus.registries.AquaticPlusEntities;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
@@ -78,7 +77,7 @@ public class PlasmaEntity extends ThrownEntity {
 		}
 
 		if (this.isSubmergedInWater()) {
-			this.setVelocity(this.getVelocity().multiply(AquaticPlusUtil.UNDERWATER_PARTICLE_MULTIPLIER));
+			this.setVelocity(this.getVelocity().multiply(AquaticPlusUtil.UNDERWATER_VELOCITY_MULTIPLIER));
 		}
 
 		if (this.getWorld().isClient() && this.age % ageTicksUntilParticleSpawns == 0) {

@@ -1,5 +1,6 @@
 package com.aquaticplus.entities.ai;
 
+import com.aquaticplus.AquaticPlusUtil;
 import com.aquaticplus.entities.entity.projectile.PlasmaEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
@@ -33,29 +34,7 @@ public class ShockwaveAttack<E extends LivingEntity & RangedAttackMob> extends A
 
 		// Attack here
 		System.out.println("Cool attack!");
-		ServerWorld world = (ServerWorld) boss.getWorld();
-		int particleAmount = 12;
-		float angleInterval = 360f / (float) particleAmount;
-
-		for (int i = 0; i < particleAmount; i++) {
-			double rotationIncrement = angleInterval * i;
-
-			float velocityX = (float) Math.cos(rotationIncrement);
-			float velocityZ = (float) Math.sin(rotationIncrement);
-
-			ThrownEntity lavaProjectile = new PlasmaEntity(boss.getWorld(), boss, false);
-
-			double xCoord = target.getX() - boss.getX();
-			double zCoord = target.getZ() - boss.getZ();
-			double yPath = Math.sqrt(xCoord * xCoord + zCoord * zCoord);
-			double yCoord = target.getY() - lavaProjectile.getY();
-
-			lavaProjectile.setPos(boss.getX(), boss.getY() + 3.2f, boss.getZ());
-			lavaProjectile.setVelocity(velocityX, yCoord * (double) 0.2f, velocityZ, 1.2f, 0);
-			lavaProjectile.velocityDirty = true;
-
-			world.spawnEntity(lavaProjectile);
-		}
+		AquaticPlusUtil.performShockwaveAttack(boss, target);
 
 		BrainUtils.setForgettableMemory(boss, MemoryModuleType.ATTACK_COOLING_DOWN, true, this.attackIntervalSupplier.apply(boss));
 	}

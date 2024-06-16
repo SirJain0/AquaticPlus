@@ -1,5 +1,6 @@
 package com.aquaticplus.entities.ai;
 
+import com.aquaticplus.AquaticPlusUtil;
 import com.aquaticplus.entities.entity.projectile.PlasmaEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
@@ -14,26 +15,17 @@ public class PlasmaBeamShootAttack<E extends LivingEntity & RangedAttackMob> ext
 	}
 
 	@Override
-	protected void doDelayedAction(E entity) {
+	protected void doDelayedAction(E boss) {
 		if (this.target == null)
 			return;
 
-		if (!BrainUtils.canSee(entity, this.target) || entity.squaredDistanceTo(this.target) > this.attackRadius)
+		if (!BrainUtils.canSee(boss, this.target) || boss.squaredDistanceTo(this.target) > this.attackRadius)
 			return;
 
 		// Attack here
 		System.out.println("Plasma beam attack!");
+		AquaticPlusUtil.performPlasmaBeamShootAttack(boss, target);
 
-		double xCoord = target.getX() - entity.getX();
-		double zCoord = target.getZ() - entity.getZ();
-		double velPath = Math.sqrt(xCoord * xCoord + zCoord * zCoord);
-
-		ThrownEntity projectile = new PlasmaEntity(entity.getWorld(), entity, true);
-		double yCoord = target.getBodyY(0.3f) - projectile.getY() - 2;
-
-		projectile.setVelocity(xCoord, yCoord + velPath * (double) 0.2f, zCoord, 1.3f, 0);
-		entity.getWorld().spawnEntity(projectile);
-
-		BrainUtils.setForgettableMemory(entity, MemoryModuleType.ATTACK_COOLING_DOWN, true, this.attackIntervalSupplier.apply(entity));
+		BrainUtils.setForgettableMemory(boss, MemoryModuleType.ATTACK_COOLING_DOWN, true, this.attackIntervalSupplier.apply(boss));
 	}
 }

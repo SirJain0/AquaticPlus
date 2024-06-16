@@ -1,5 +1,6 @@
 package com.aquaticplus.items.combat;
 
+import com.aquaticplus.AquaticPlusUtil;
 import com.aquaticplus.entities.entity.projectile.PlasmaEntity;
 import com.aquaticplus.items.abstract_item.ShootingStaffItem;
 import com.google.common.collect.ArrayListMultimap;
@@ -16,9 +17,9 @@ import net.minecraft.world.World;
 
 import java.util.ArrayList;
 
-public class VermillionGloomStaffItem extends ShootingStaffItem {
+public class VermillionGloomStaffItem extends Item {
 	public VermillionGloomStaffItem() {
-		super(new Item.Settings().maxCount(1).maxDamage(1704));
+		super(new Item.Settings().maxCount(1).maxDamage(620));
 	}
 
 	@Override
@@ -70,46 +71,20 @@ public class VermillionGloomStaffItem extends ShootingStaffItem {
 				user.heal(3);
 		}
 
+		if (user.isSneaking()) {
+			AquaticPlusUtil.performShockwaveAttack(user, null);
+
+			if (!user.getAbilities().creativeMode) {
+				user.getStackInHand(hand).damage(1, user, p -> p.sendToolBreakStatus(hand));
+			}
+		} else {
+			if (user.getRandom().nextInt(3) == 0) {
+				AquaticPlusUtil.performPlasmaBallShootAttack(user, null, 4);
+			} else {
+				AquaticPlusUtil.performPlasmaBeamShootAttack(user, null);
+			}
+		}
+
 		return super.use(world, user, hand);
-	}
-
-	@Override
-	public ProjectileEntity getEntity(World world, LivingEntity user) {
-		return new PlasmaEntity(world, user, false);
-	}
-
-	@Override
-	public ItemStack getAmmoItem() {
-		return null;
-	}
-
-	@Override
-	public float getProjectileVelocity() {
-		return 0.9f;
-	}
-
-	@Override
-	public int getNumProjectiles() {
-		return 2;
-	}
-
-	@Override
-	public int getDivergence() {
-		return 8;
-	}
-
-	@Override
-	public boolean hasAmmoItem() {
-		return false;
-	}
-
-	@Override
-	public boolean hasDurability() {
-		return false;
-	}
-
-	@Override
-	public int durabilityDecrement() {
-		return 0;
 	}
 }

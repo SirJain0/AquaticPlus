@@ -28,7 +28,7 @@ public abstract class APProjectileEntity extends ThrownItemEntity {
 			this.kill();
 
 		if (this.isSubmergedInWater())
-			this.setVelocity(this.getVelocity().multiply(AquaticPlusUtil.UNDERWATER_PARTICLE_MULTIPLIER));
+			this.setVelocity(this.getVelocity().multiply(AquaticPlusUtil.UNDERWATER_VELOCITY_MULTIPLIER));
 	}
 
 	@Override

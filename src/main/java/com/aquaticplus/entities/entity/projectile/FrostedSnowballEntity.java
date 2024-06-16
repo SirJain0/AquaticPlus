@@ -64,7 +64,7 @@ public class FrostedSnowballEntity extends APProjectileEntity {
 		super.tick();
 
 		if (this.isSubmergedInWater())
-			this.setVelocity(this.getVelocity().multiply(AquaticPlusUtil.UNDERWATER_PARTICLE_MULTIPLIER));
+			this.setVelocity(this.getVelocity().multiply(AquaticPlusUtil.UNDERWATER_VELOCITY_MULTIPLIER));
 	}
 
 	@Override
