@@ -44,8 +44,14 @@ public class ShockwaveAttack<E extends LivingEntity & RangedAttackMob> extends A
 			float velocityZ = (float) Math.sin(rotationIncrement);
 
 			ThrownEntity lavaProjectile = new PlasmaEntity(boss.getWorld(), boss, false);
+
+			double xCoord = target.getX() - boss.getX();
+			double zCoord = target.getZ() - boss.getZ();
+			double yPath = Math.sqrt(xCoord * xCoord + zCoord * zCoord);
+			double yCoord = target.getY() - lavaProjectile.getY();
+
 			lavaProjectile.setPos(boss.getX(), boss.getY() + 3.2f, boss.getZ());
-			lavaProjectile.setVelocity(velocityX, 0, velocityZ, 1.3f, 0);
+			lavaProjectile.setVelocity(velocityX, yCoord * (double) 0.2f, velocityZ, 1.2f, 0);
 			lavaProjectile.velocityDirty = true;
 
 			world.spawnEntity(lavaProjectile);
