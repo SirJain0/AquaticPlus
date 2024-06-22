@@ -1,10 +1,12 @@
 package com.aquaticplus.entities.models;
 
 import com.aquaticplus.entities.entity.VermillionJellyEntity;
+import com.aquaticplus.entities.entity.animation.VermillionJellyAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import net.minecraft.util.math.MathHelper;
 
 public class VermillionJellyModel extends SinglePartEntityModel<VermillionJellyEntity> {
 	private final ModelPart root;
@@ -73,6 +75,7 @@ public class VermillionJellyModel extends SinglePartEntityModel<VermillionJellyE
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
+		matrices.translate(0, -1.5f, 0);
 		root.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}
@@ -83,9 +86,10 @@ public class VermillionJellyModel extends SinglePartEntityModel<VermillionJellyE
 	}
 
 	@Override
-	public void setAngles(VermillionJellyEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
+	public void setAngles(VermillionJellyEntity entity, float limbSwing, float limbSwingAmount, float animTime, float netHeadYaw, float headPitch) {
 		this.getPart().traverse().forEach(ModelPart::resetTransform);
-		// animations
-//		this.updateAnimation(entity.bobAnimationState, DumboBlobAnimations.DUMBO_BLOB_BOB, ageInTicks, 1f);
+
+
+		this.updateAnimation(entity.swimAnimationState, VermillionJellyAnimations.SWIM, animTime, 1f);
 	}
 }

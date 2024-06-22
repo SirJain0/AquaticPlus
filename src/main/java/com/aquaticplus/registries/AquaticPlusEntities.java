@@ -330,7 +330,7 @@ public class AquaticPlusEntities {
 		Registries.ENTITY_TYPE,
 		new Identifier(AquaticPlus.MOD_ID, "vermillion_jelly"),
 		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, VermillionJellyEntity::new)
-			.dimensions(EntityDimensions.fixed(1, 1))
+			.dimensions(EntityDimensions.fixed(0.7f, 0.7f))
 			.build()
 	);
 

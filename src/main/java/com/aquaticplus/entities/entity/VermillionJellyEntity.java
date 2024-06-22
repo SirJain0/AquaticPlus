@@ -2,10 +2,7 @@ package com.aquaticplus.entities.entity;
 
 import com.aquaticplus.AquaticPlusUtil;
 import com.aquaticplus.entities.entity.template.APSchoolingFishEntity;
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -30,6 +27,9 @@ TODO:
 - Render layer fix translucency bug
  */
 public class VermillionJellyEntity extends APSchoolingFishEntity implements RangedAttackMob {
+	public final AnimationState swimAnimationState = new AnimationState();
+	public int idleAnimationTimeout = 0;
+
 	public static final TrackedData<Boolean> IS_MUTATED = DataTracker.registerData(VermillionJellyEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
 	public VermillionJellyEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
@@ -61,7 +61,19 @@ public class VermillionJellyEntity extends APSchoolingFishEntity implements Rang
 		if (this.age % 40 == 0)
 			this.heal(1);
 
+		if (this.getWorld().isClient)
+			this.setupAnimationStates();
+
 		super.tick();
+	}
+
+	private void setupAnimationStates() {
+		if (this.idleAnimationTimeout <= 0) {
+			this.idleAnimationTimeout = 80;
+			this.swimAnimationState.start(this.age);
+		} else {
+			--this.idleAnimationTimeout;
+		}
 	}
 
 	@Override
