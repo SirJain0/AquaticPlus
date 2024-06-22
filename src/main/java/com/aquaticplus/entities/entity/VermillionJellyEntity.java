@@ -4,12 +4,16 @@ import com.aquaticplus.AquaticPlusUtil;
 import com.aquaticplus.entities.entity.template.APSchoolingFishEntity;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.RangedAttackMob;
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
+import net.minecraft.entity.ai.goal.ProjectileAttackGoal;
+import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.mob.GuardianEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -21,8 +25,7 @@ import org.jetbrains.annotations.Nullable;
 
 /*
 TODO:
-- Animations
-- Attacks
+- Fix/finish animations
 - Item drop
 - Render layer fix translucency bug
  */
@@ -40,6 +43,9 @@ public class VermillionJellyEntity extends APSchoolingFishEntity implements Rang
 	protected void initGoals() {
 		super.initGoals();
 		this.goalSelector.add(2, new FleeEntityGoal<>(this, PlayerEntity.class, 10, 1.4, 2));
+		this.goalSelector.add(0, new ProjectileAttackGoal(this, 1, 40, 15));
+
+		this.targetSelector.add(0, new RevengeGoal(this));
 	}
 
 	@Override
@@ -110,6 +116,12 @@ public class VermillionJellyEntity extends APSchoolingFishEntity implements Rang
 
 	@Override
 	public void attack(LivingEntity target, float pullProgress) {
-		AquaticPlusUtil.performPlasmaBeamShootAttack(this, this.getTarget());
+		if (this.age % 3 == 0) {
+			if (this.isMutated() && this.random.nextInt(4) == 0) {
+				AquaticPlusUtil.performPlasmaBallShootAttack(this, this.getTarget(), 2);
+			} else {
+				AquaticPlusUtil.performPlasmaBeamShootAttack(this, this.getTarget());
+			}
+		}
 	}
 }
