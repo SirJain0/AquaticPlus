@@ -325,6 +325,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer VERMILLION_JELLY_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "vermillion_jelly"), "root");
+	public static final EntityType<VermillionJellyEntity> VERMILLION_JELLY_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "vermillion_jelly"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, VermillionJellyEntity::new)
+			.dimensions(EntityDimensions.fixed(1, 1))
+			.build()
+	);
+
 	public static final EntityModelLayer PHANTOM_JELLYFISH_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "phantom_jellyfish"), "root");
 	public static final EntityType<PhantomJellyfishEntity> PHANTOM_JELLYFISH_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
@@ -434,6 +443,7 @@ public class AquaticPlusEntities {
 		VOLAN_AURORA_ENTITY,
 		PIKE_ENTITY,
 		RIBBON_EEL_ENTITY,
+		VERMILLION_JELLY_ENTITY,
 		PHANTOM_JELLYFISH_ENTITY
 	);
 
@@ -478,6 +488,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(DEEP_SEA_ISOPOD_ENTITY, DeepSeaIsopodEntity.createIsopodAttributes());
 		FabricDefaultAttributeRegistry.register(YETI_CRAB_ENTITY, NeonCrabEntity.createCrabAttributes());
 		FabricDefaultAttributeRegistry.register(PHANTOM_JELLYFISH_ENTITY, PhantomJellyfishEntity.createPhantomJellyfishAttributes());
+		FabricDefaultAttributeRegistry.register(VERMILLION_JELLY_ENTITY, VermillionJellyEntity.createVermillionJellyAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -516,6 +527,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(DEEP_SEA_ISOPOD_ENTITY, DeepSeaIsopodRenderer::new);
 		EntityRendererRegistry.register(YETI_CRAB_ENTITY, YetiCrabRenderer::new);
 		EntityRendererRegistry.register(PHANTOM_JELLYFISH_ENTITY, PhantomJellyfishRenderer::new);
+		EntityRendererRegistry.register(VERMILLION_JELLY_ENTITY, VermillionJellyRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -550,6 +562,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(DEEP_SEA_ISOPOD_LAYER, DeepSeaIsopodModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(YETI_CRAB_LAYER, YetiCrabModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(PHANTOM_JELLYFISH_LAYER, PhantomJellyfishModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(VERMILLION_JELLY_LAYER, VermillionJellyModel::getTexturedModelData);
 
 		// Projectiles
 		EntityModelLayerRegistry.registerModelLayer(PLASMA_LAYER, PlasmaModel::getTexturedModelData);

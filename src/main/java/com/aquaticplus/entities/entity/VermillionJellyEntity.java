@@ -1,0 +1,96 @@
+package com.aquaticplus.entities.entity;
+
+import com.aquaticplus.AquaticPlusUtil;
+import com.aquaticplus.entities.entity.template.APSchoolingFishEntity;
+import net.minecraft.entity.EntityData;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.SpawnReason;
+import net.minecraft.entity.ai.RangedAttackMob;
+import net.minecraft.entity.attribute.DefaultAttributeContainer;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.passive.SchoolingFishEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+/*
+TODO:
+- Animations
+- Make them scale occasionally
+- Attacks
+- Item drop
+- Render layer fix translucency bug
+ */
+public class VermillionJellyEntity extends APSchoolingFishEntity implements RangedAttackMob {
+	public static final TrackedData<Boolean> IS_MUTATED = DataTracker.registerData(VermillionJellyEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+
+	public VermillionJellyEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
+		super(entityType, world);
+	}
+
+	@Override
+	public ItemStack getBucketItem() {
+		return null;
+	}
+
+	@Nullable
+	@Override
+	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+		if (this.random.nextInt(7) == 0)
+			this.setMutatedState(true);
+
+		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+	}
+
+	@Override
+	public void tick() {
+		if (this.age % 40 == 0)
+			this.heal(1);
+
+		super.tick();
+	}
+
+	@Override
+	protected void initDataTracker() {
+		super.initDataTracker();
+		this.dataTracker.startTracking(IS_MUTATED, false);
+	}
+
+	@Override
+	public void writeCustomDataToNbt(NbtCompound nbt) {
+		super.writeCustomDataToNbt(nbt);
+		nbt.putBoolean("is_mutated", this.isMutated());
+	}
+
+	@Override
+	public void readCustomDataFromNbt(NbtCompound nbt) {
+		super.readCustomDataFromNbt(nbt);
+		this.dataTracker.set(IS_MUTATED, nbt.getBoolean("is_mutated"));
+	}
+
+	public boolean isMutated() {
+		return this.dataTracker.get(IS_MUTATED);
+	}
+
+	public void setMutatedState(boolean value) {
+		this.dataTracker.set(IS_MUTATED, value);
+	}
+
+	public static DefaultAttributeContainer.Builder createVermillionJellyAttributes() {
+		return JellyfishEntity
+			.createJellyfishAttributes()
+			.add(EntityAttributes.GENERIC_MAX_HEALTH, 10);
+	}
+
+	@Override
+	public void attack(LivingEntity target, float pullProgress) {
+		AquaticPlusUtil.performPlasmaBeamShootAttack(this, this.getTarget());
+	}
+}
