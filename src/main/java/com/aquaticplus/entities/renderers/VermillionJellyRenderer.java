@@ -31,7 +31,7 @@ public class VermillionJellyRenderer extends MobEntityRenderer<VermillionJellyEn
 
 	@Override
 	protected void scale(VermillionJellyEntity entity, MatrixStack matrices, float amount) {
-		float scaleAmount = entity.isMutated() ? 1.6f : 1;
+		float scaleAmount = entity.isMutated() ? 2.3f : 1;
 		matrices.scale(scaleAmount, scaleAmount, scaleAmount);
 	}
 }

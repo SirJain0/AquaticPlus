@@ -25,7 +25,6 @@ import org.jetbrains.annotations.Nullable;
 /*
 TODO:
 - Animations
-- Make them scale occasionally
 - Attacks
 - Item drop
 - Render layer fix translucency bug
