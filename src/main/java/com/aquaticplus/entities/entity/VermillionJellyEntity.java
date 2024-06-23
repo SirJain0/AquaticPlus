@@ -21,11 +21,6 @@ import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-/*
-TODO:
-- Fix/finish animations
-- Render layer fix translucency bug
- */
 public class VermillionJellyEntity extends APSchoolingFishEntity implements RangedAttackMob {
 	public final AnimationState swimAnimationState = new AnimationState();
 	public int idleAnimationTimeout = 0;
