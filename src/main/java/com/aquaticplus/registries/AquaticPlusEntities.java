@@ -340,6 +340,7 @@ public class AquaticPlusEntities {
 		new Identifier(AquaticPlus.MOD_ID, "phantom_jellyfish"),
 		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, PhantomJellyfishEntity::new)
 			.dimensions(EntityDimensions.fixed(3, 3))
+			.fireImmune()
 			.build()
 	);
   
