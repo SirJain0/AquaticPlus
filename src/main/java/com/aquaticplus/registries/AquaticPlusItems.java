@@ -15,6 +15,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 public class AquaticPlusItems {
 	public static Item STONIFIER;
@@ -204,7 +205,7 @@ public class AquaticPlusItems {
 		DEEP_SEA_ISOPOD_SPAWN_EGG = registerSpawnEggItem("deep_sea_isopod_spawn_egg", AquaticPlusEntities.DEEP_SEA_ISOPOD_ENTITY, 0xd6ccab, 0x917f6d);
 		YETI_CRAB_SPAWN_EGG = registerSpawnEggItem("yeti_crab_spawn_egg", AquaticPlusEntities.YETI_CRAB_ENTITY, 0xc1a489, 0xd7c098);
 		VERMILLION_JELLY_SPAWN_EGG = registerSpawnEggItem("vermillion_jelly_spawn_egg", AquaticPlusEntities.VERMILLION_JELLY_ENTITY, 0x83546c, 0x454245);
-		PHANTOM_JELLYFISH_SUMMONER = registerSpawnEggItem("phantom_jellyfish_summoner", AquaticPlusEntities.PHANTOM_JELLYFISH_ENTITY, -1, -1);
+		PHANTOM_JELLYFISH_SUMMONER = registerCustomItem("phantom_jellyfish_summoner", new PhantomJellyfishSummonerItem()); //TODO: Animate the item
 	}
 
 	public static void registerBucketItems() {
