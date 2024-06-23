@@ -58,7 +58,7 @@ public class AquaticPlusUtil {
 	// Phantom Jellyfish Attack: Shoots particles in a radius circle
 	public static void performShockwaveAttack(LivingEntity attacker, @Nullable LivingEntity target) {
 		ServerWorld world = (ServerWorld) attacker.getWorld();
-		int particleAmount = 12;
+		int particleAmount = 15;
 		float angleInterval = 360f / (float) particleAmount;
 
 		for (int i = 0; i < particleAmount; i++) {
@@ -73,7 +73,7 @@ public class AquaticPlusUtil {
 				double yCoord = target.getY() - lavaProjectile.getY();
 
 				lavaProjectile.setPos(attacker.getX(), attacker.getY() + 3.2f, attacker.getZ());
-				lavaProjectile.setVelocity(velocityX, yCoord * (double) 0.2f, velocityZ, 1.2f, 0);
+				lavaProjectile.setVelocity(velocityX, (yCoord * (double) 0.1f) - 0.25f, velocityZ, 1.2f, 0);
 			}  else {
 				lavaProjectile.setPos(attacker.getX(), attacker.getY() + 3.2f, attacker.getZ());
 				lavaProjectile.setVelocity(velocityX, 0, velocityZ, 1.2f, 0);

@@ -2,13 +2,12 @@ package com.aquaticplus.entities.entity.boss;
 
 import com.aquaticplus.entities.ai.PlasmaBallShootAttack;
 import com.aquaticplus.entities.ai.PlasmaBeamShootAttack;
-import com.aquaticplus.entities.ai.ShockwaveAttack;
+import com.aquaticplus.entities.ai.PlasmaShockwaveAttack;
 import com.aquaticplus.entities.entity.template.APFishEntity;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.brain.Brain;
-import net.minecraft.entity.ai.brain.WalkTarget;
 import net.minecraft.entity.ai.brain.task.WanderAroundTask;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -158,7 +157,7 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 
 			// Pick a random one
 			new OneRandomBehaviour<>(
-				new ShockwaveAttack<>(50),             // Attack #1
+				new PlasmaShockwaveAttack<>(50),       // Attack #1
 				new PlasmaBallShootAttack<>(50),       // Attack #2
 				new PlasmaBeamShootAttack<>(50)        // Attack #3
 			)
