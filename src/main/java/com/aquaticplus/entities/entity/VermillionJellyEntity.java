@@ -24,7 +24,6 @@ import org.jetbrains.annotations.Nullable;
 /*
 TODO:
 - Fix/finish animations
-- Item drop
 - Render layer fix translucency bug
  */
 public class VermillionJellyEntity extends APSchoolingFishEntity implements RangedAttackMob {
