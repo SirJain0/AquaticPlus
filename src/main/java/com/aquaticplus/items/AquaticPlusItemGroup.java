@@ -64,7 +64,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.DEEP_SEA_ISOPOD_SPAWN_EGG);
 					entries.add(AquaticPlusItems.YETI_CRAB_SPAWN_EGG);
 					entries.add(AquaticPlusItems.VERMILLION_JELLY_SPAWN_EGG);
-					entries.add(AquaticPlusItems.PHANTOM_JELLYFISH_SPAWN_EGG);
+					entries.add(AquaticPlusItems.PHANTOM_JELLYFISH_SUMMONER);
 
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
