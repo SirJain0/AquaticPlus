@@ -22,8 +22,7 @@ public class PlasmaBallShootAttack<E extends LivingEntity & RangedAttackMob> ext
 		if (!BrainUtils.canSee(boss, this.target) || boss.squaredDistanceTo(this.target) > this.attackRadius)
 			return;
 
-		// Attack here
-		System.out.println("Plasma ball attack!");
+		// Attack
 		AquaticPlusUtil.performPlasmaBallShootAttack(boss, target, 5);
 
 		BrainUtils.setForgettableMemory(boss, MemoryModuleType.ATTACK_COOLING_DOWN, true, this.attackIntervalSupplier.apply(boss));

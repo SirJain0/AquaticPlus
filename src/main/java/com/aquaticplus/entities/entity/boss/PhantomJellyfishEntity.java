@@ -6,6 +6,7 @@ import com.aquaticplus.entities.ai.PlasmaShockwaveAttack;
 import com.aquaticplus.entities.entity.template.APFishEntity;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.entity.AnimationState;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.brain.Brain;
 import net.minecraft.entity.ai.brain.task.WanderAroundTask;
@@ -13,17 +14,18 @@ import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.BossBar;
 import net.minecraft.entity.boss.ServerBossBar;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 import net.tslat.smartbrainlib.api.SmartBrainOwner;
 import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
 import net.tslat.smartbrainlib.api.core.SmartBrainProvider;
 import net.tslat.smartbrainlib.api.core.behaviour.FirstApplicableBehaviour;
 import net.tslat.smartbrainlib.api.core.behaviour.OneRandomBehaviour;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.misc.Idle;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.move.MoveToWalkTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetRandomWalkTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
@@ -35,6 +37,11 @@ import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyPlayersSensor;
 
 import java.util.List;
 
+/*
+TODO
+- Add advancement upon killing
+- Particles
+ */
 public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOwner<PhantomJellyfishEntity> {
 	private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Phantom Jellyfish"), BossBar.Color.RED, BossBar.Style.NOTCHED_10);
 	public final AnimationState swimAnimationState = new AnimationState();
@@ -71,6 +78,19 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 		} else {
 			--this.idleAnimationTimeout;
 		}
+	}
+
+	// Sends a message to player when the boss is killed
+	@Override
+	public void onDeath(DamageSource damageSource) {
+		Entity attacker = damageSource.getAttacker();
+
+		if (attacker instanceof PlayerEntity player) {
+			String deathMessage = player.getEntityName() + " has slain the bright, water-burning Phantom Jellyfish!";
+			player.sendMessage(Text.literal(deathMessage).formatted(Formatting.RED));
+		}
+
+		super.onDeath(damageSource);
 	}
 
 	// Attributes
@@ -143,8 +163,7 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 
 			// Pick a random one
 			new OneRandomBehaviour<>(
-				new SetRandomWalkTarget<>(),    // Set a random walk target to a nearby position
-				new Idle<>().runFor(entity -> entity.getRandom().nextBetween(20, 40))  // Idle task
+				new SetRandomWalkTarget<>()    // Set a random walk target to a nearby position
 			)
 		);
 	}

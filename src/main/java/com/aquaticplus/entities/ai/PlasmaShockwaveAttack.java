@@ -20,8 +20,7 @@ public class PlasmaShockwaveAttack<E extends LivingEntity & RangedAttackMob> ext
 		if (!BrainUtils.canSee(boss, this.target) || boss.squaredDistanceTo(this.target) > this.attackRadius)
 			return;
 
-		// Attack here
-		System.out.println("Cool attack!");
+		// Attack
 		AquaticPlusUtil.performShockwaveAttack(boss, target);
 
 		BrainUtils.setForgettableMemory(boss, MemoryModuleType.ATTACK_COOLING_DOWN, true, this.attackIntervalSupplier.apply(boss));
