@@ -58,6 +58,7 @@ public class AquaticPlusEntitySpawns {
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.WARM_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.RIBBON_EEL_ENTITY, 62, 1, 2);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DEEP_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_COLD_OCEAN, BiomeKeys.DEEP_FROZEN_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.DEEP_SEA_ISOPOD_ENTITY, 54, 2, 3);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DEEP_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.DEEP_COLD_OCEAN, BiomeKeys.DEEP_FROZEN_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.YETI_CRAB_ENTITY, 56, 1, 1);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.YETI_CRAB_ENTITY, 64, 2, 4);
 	}
 
 	public static void initRestrictions() {
