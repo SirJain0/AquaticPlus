@@ -4,6 +4,7 @@ import com.aquaticplus.entities.ai.PlasmaBallShootAttack;
 import com.aquaticplus.entities.ai.PlasmaBeamShootAttack;
 import com.aquaticplus.entities.ai.PlasmaShockwaveAttack;
 import com.aquaticplus.entities.entity.template.APFishEntity;
+import com.aquaticplus.particle.AquaticPlusParticles;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.Entity;
@@ -17,6 +18,8 @@ import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -40,7 +43,6 @@ import java.util.List;
 /*
 TODO
 - Add advancement upon killing
-- Particles
  */
 public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOwner<PhantomJellyfishEntity> {
 	private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Phantom Jellyfish"), BossBar.Color.RED, BossBar.Style.NOTCHED_10);
@@ -51,7 +53,7 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 		super(entityType, world);
 	}
 
-	// We are using brains for this entity
+	// Ensure there is no goal AI since we are using brain system
 	@Override
 	protected void initGoals() {
 	}
@@ -60,9 +62,14 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 	public void tick() {
 		super.tick();
 
-		// Set up animations
-		if (this.getWorld().isClient)
+		// Set up animations and display particles
+		if (this.getWorld().isClient) {
 			this.setupAnimationStates();
+
+			if (this.age % 6 == 0) {
+				this.getWorld().addParticle(AquaticPlusParticles.VERMILLION_RADIATION, this.getX(), this.getY() + 3, this.getZ(), 0, -0.5, 0);
+			}
+		}
 
 		// Natural regen if under half its health
 		if (!this.getWorld().isClient && this.getHealth() < this.getMaxHealth() / 2 && this.age % 35 == 0) {

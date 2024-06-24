@@ -1,6 +1,6 @@
 package com.aquaticplus;
 
-import com.aquaticplus.registries.AquaticPlusRegistryUtil;
+import com.aquaticplus.registries.util.AquaticPlusRegistryUtil;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
