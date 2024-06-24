@@ -28,7 +28,7 @@ public class AquaticPlusItemGroup {
 
 			FabricItemGroup.builder()
 				.displayName(Text.translatable("itemGroup.aquaticplus"))
-				.icon(() -> new ItemStack(Items.BEDROCK)) // TODO: Change later
+				.icon(() -> new ItemStack(AquaticPlusItems.AQUATIC_STAR))
 
 				.entries((displayContext, entries) -> {
 					entries.add(AquaticPlusItems.JOHNSON_SPAWN_EGG);
