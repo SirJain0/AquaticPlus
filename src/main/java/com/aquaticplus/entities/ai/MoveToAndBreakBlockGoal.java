@@ -1,4 +1,4 @@
-package com.aquaticplus.entities.goals;
+package com.aquaticplus.entities.ai;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;

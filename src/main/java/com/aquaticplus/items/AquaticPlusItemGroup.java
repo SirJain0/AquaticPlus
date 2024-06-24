@@ -28,7 +28,7 @@ public class AquaticPlusItemGroup {
 
 			FabricItemGroup.builder()
 				.displayName(Text.translatable("itemGroup.aquaticplus"))
-				.icon(() -> new ItemStack(Items.BEDROCK)) // TODO: Change later
+				.icon(() -> new ItemStack(AquaticPlusItems.AQUATIC_STAR))
 
 				.entries((displayContext, entries) -> {
 					entries.add(AquaticPlusItems.JOHNSON_SPAWN_EGG);
@@ -63,7 +63,9 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.RIBBON_EEL_SPAWN_EGG);
 					entries.add(AquaticPlusItems.DEEP_SEA_ISOPOD_SPAWN_EGG);
 					entries.add(AquaticPlusItems.YETI_CRAB_SPAWN_EGG);
-          
+					entries.add(AquaticPlusItems.VERMILLION_JELLY_SPAWN_EGG);
+					entries.add(AquaticPlusItems.PHANTOM_JELLYFISH_SUMMONER);
+
 					entries.add(AquaticPlusItems.SPIRITED_FISH_BUCKET);
 					entries.add(AquaticPlusItems.PARROTFISH_BUCKET);
 					entries.add(AquaticPlusItems.SHADOW_SARDEL_BUCKET);
@@ -111,6 +113,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.DESTONIFIER);
 					entries.add(AquaticPlusItems.FROSTING_SPECTRE);
 					entries.add(AquaticPlusItems.AURORA_STAFF);
+					entries.add(AquaticPlusItems.VERMILLION_GLOOM_STAFF);
 					entries.add(AquaticPlusItems.MIDNIGHT_PIKE);
 					entries.add(AquaticPlusItems.CYAN_CRAB_CLAW);
 					entries.add(AquaticPlusItems.ORANGE_CRAB_CLAW);

@@ -2,11 +2,14 @@ package com.aquaticplus.registries;
 
 import com.aquaticplus.AquaticPlus;
 import com.aquaticplus.entities.entity.*;
+import com.aquaticplus.entities.entity.boss.PhantomJellyfishEntity;
 import com.aquaticplus.entities.entity.projectile.*;
 import com.aquaticplus.entities.entity.template.AbstractCrabEntity;
 import com.aquaticplus.entities.models.*;
+import com.aquaticplus.entities.models.projectile.PlasmaModel;
 import com.aquaticplus.entities.renderers.*;
 import com.aquaticplus.entities.renderers.projectile.AquaticStarRenderer;
+import com.aquaticplus.entities.renderers.projectile.PlasmaRenderer;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
@@ -321,6 +324,25 @@ public class AquaticPlusEntities {
 			.dimensions(EntityDimensions.fixed(1, 1))
 			.build()
 	);
+
+	public static final EntityModelLayer VERMILLION_JELLY_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "vermillion_jelly"), "root");
+	public static final EntityType<VermillionJellyEntity> VERMILLION_JELLY_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "vermillion_jelly"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, VermillionJellyEntity::new)
+			.dimensions(EntityDimensions.fixed(0.7f, 0.7f))
+			.build()
+	);
+
+	public static final EntityModelLayer PHANTOM_JELLYFISH_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "phantom_jellyfish"), "root");
+	public static final EntityType<PhantomJellyfishEntity> PHANTOM_JELLYFISH_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "phantom_jellyfish"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, PhantomJellyfishEntity::new)
+			.dimensions(EntityDimensions.fixed(3, 3))
+			.fireImmune()
+			.build()
+	);
   
 	public static final EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
@@ -367,7 +389,7 @@ public class AquaticPlusEntities {
 		new Identifier(AquaticPlus.MOD_ID, "frosted_snowball"),
 		FabricEntityTypeBuilder.<FrostedSnowballEntity>create(SpawnGroup.MISC, FrostedSnowballEntity::new)
 			.dimensions(EntityDimensions.fixed(0.25F, 0.25F))
-			.trackRangeBlocks(16)
+			.trackRangeBlocks(22)
 			.trackedUpdateRate(20)
 			.build()
 	);
@@ -377,7 +399,18 @@ public class AquaticPlusEntities {
 		new Identifier(AquaticPlus.MOD_ID, "aurora"),
 		FabricEntityTypeBuilder.<AuroraEntity>create(SpawnGroup.MISC, AuroraEntity::new)
 			.dimensions(EntityDimensions.fixed(0.25F, 0.25F))
-			.trackRangeBlocks(16)
+			.trackRangeBlocks(22)
+			.trackedUpdateRate(20)
+			.build()
+	);
+
+	public static final EntityModelLayer PLASMA_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "plasma"), "root");
+	public static final EntityType<PlasmaEntity> PLASMA_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "plasma"),
+		FabricEntityTypeBuilder.<PlasmaEntity>create(SpawnGroup.MISC, PlasmaEntity::new)
+			.dimensions(EntityDimensions.fixed(0.75f, 0.75f))
+			.trackRangeBlocks(30)
 			.trackedUpdateRate(20)
 			.build()
 	);
@@ -410,7 +443,9 @@ public class AquaticPlusEntities {
 		ALLIGATOR_GAR_ENTITY,
 		VOLAN_AURORA_ENTITY,
 		PIKE_ENTITY,
-		RIBBON_EEL_ENTITY
+		RIBBON_EEL_ENTITY,
+		VERMILLION_JELLY_ENTITY,
+		PHANTOM_JELLYFISH_ENTITY
 	);
 
 	public static final List<EntityType<? extends WaterCreatureEntity>> GROUND_ENTITIES = Arrays.asList(
@@ -453,6 +488,8 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(RIBBON_EEL_ENTITY, RibbonEelEntity.createRibbonEelAttributes());
 		FabricDefaultAttributeRegistry.register(DEEP_SEA_ISOPOD_ENTITY, DeepSeaIsopodEntity.createIsopodAttributes());
 		FabricDefaultAttributeRegistry.register(YETI_CRAB_ENTITY, NeonCrabEntity.createCrabAttributes());
+		FabricDefaultAttributeRegistry.register(PHANTOM_JELLYFISH_ENTITY, PhantomJellyfishEntity.createPhantomJellyfishAttributes());
+		FabricDefaultAttributeRegistry.register(VERMILLION_JELLY_ENTITY, VermillionJellyEntity.createVermillionJellyAttributes());
 	}
 
 	public static void registerEntityRenderers() {
@@ -490,6 +527,8 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(RIBBON_EEL_ENTITY, RibbonEelRenderer::new);
 		EntityRendererRegistry.register(DEEP_SEA_ISOPOD_ENTITY, DeepSeaIsopodRenderer::new);
 		EntityRendererRegistry.register(YETI_CRAB_ENTITY, YetiCrabRenderer::new);
+		EntityRendererRegistry.register(PHANTOM_JELLYFISH_ENTITY, PhantomJellyfishRenderer::new);
+		EntityRendererRegistry.register(VERMILLION_JELLY_ENTITY, VermillionJellyRenderer::new);
 
 		EntityModelLayerRegistry.registerModelLayer(JOHNNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
@@ -523,6 +562,11 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(RIBBON_EEL_LAYER, RibbonEelModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(DEEP_SEA_ISOPOD_LAYER, DeepSeaIsopodModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(YETI_CRAB_LAYER, YetiCrabModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(PHANTOM_JELLYFISH_LAYER, PhantomJellyfishModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(VERMILLION_JELLY_LAYER, VermillionJellyModel::getTexturedModelData);
+
+		// Projectiles
+		EntityModelLayerRegistry.registerModelLayer(PLASMA_LAYER, PlasmaModel::getTexturedModelData);
 	}
 
 	public static void registerProjectileRenderers() {
@@ -532,5 +576,6 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(SEA_BANE_AQUATIC_STAR_ENTITY, ctx -> new AquaticStarRenderer(ctx, 1, false));
 		EntityRendererRegistry.register(FROSTED_SNOWBALL_ENTITY, FlyingItemEntityRenderer::new);
 		EntityRendererRegistry.register(AURORA_ENTITY, FlyingItemEntityRenderer::new);
+		EntityRendererRegistry.register(PLASMA_ENTITY, PlasmaRenderer::new);
 	}
 }

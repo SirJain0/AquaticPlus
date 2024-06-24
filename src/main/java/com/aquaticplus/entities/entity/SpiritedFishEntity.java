@@ -1,7 +1,7 @@
 package com.aquaticplus.entities.entity;
 
 import com.aquaticplus.entities.entity.template.APFishEntity;
-import com.aquaticplus.entities.goals.APSwimAroundGoal;
+import com.aquaticplus.entities.ai.APSwimAroundGoal;
 import com.aquaticplus.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;

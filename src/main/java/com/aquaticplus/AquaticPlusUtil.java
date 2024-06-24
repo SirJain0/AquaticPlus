@@ -1,6 +1,86 @@
 package com.aquaticplus;
 
+import com.aquaticplus.entities.entity.projectile.PlasmaEntity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.projectile.thrown.ThrownEntity;
+import net.minecraft.server.world.ServerWorld;
+import org.jetbrains.annotations.Nullable;
+
 // TODO: Populate this with random helper methods and fields in mod code
 public class AquaticPlusUtil {
-	public static final double UNDERWATER_PARTICLE_MULTIPLIER = 1 / 0.8;
+	// Makes the entity go the same speed underwater as in air
+	public static final double UNDERWATER_VELOCITY_MULTIPLIER = 1 / 0.8;
+
+	// Phantom Jellyfish Attack: Shoots Plasma particles in line to target
+	public static void performPlasmaBeamShootAttack(LivingEntity attacker, @Nullable LivingEntity target) {
+		ThrownEntity projectile = new PlasmaEntity(attacker.getWorld(), attacker, true);
+
+		if (target != null) {
+			double xCoord = target.getX() - attacker.getX();
+			double zCoord = target.getZ() - attacker.getZ();
+			double velPath = Math.sqrt(xCoord * xCoord + zCoord * zCoord);
+
+			double yCoord = target.getBodyY(0.3f) - projectile.getY() - 2;
+
+			projectile.setVelocity(xCoord, yCoord + velPath * (double) 0.2f, zCoord, 1.3f, 0);
+			attacker.getWorld().spawnEntity(projectile);
+		} else {
+			projectile.setVelocity(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, 1.3f, 0);
+		}
+
+		attacker.getWorld().spawnEntity(projectile);
+	}
+
+	// Phantom Jellyfish Attack: Shoots Plasma core particles to target
+	public static void performPlasmaBallShootAttack(LivingEntity attacker, @Nullable LivingEntity target, int numParticles) {
+		if (target != null) {
+			double xCoord = target.getX() - attacker.getX();
+			double zCoord = target.getZ() - attacker.getZ();
+			double velPath = Math.sqrt(xCoord * xCoord + zCoord * zCoord);
+
+			for (int i = 0; i < numParticles; i++) {
+				ThrownEntity projectile = new PlasmaEntity(attacker.getWorld(), attacker, false);
+				double yCoord = target.getBodyY(0.3f) - projectile.getY() - 2;
+
+				projectile.setVelocity(xCoord, yCoord + velPath * (double) 0.2f, zCoord, 1.3f, 16);
+				attacker.getWorld().spawnEntity(projectile);
+			}
+		} else {
+			for (int i = 0; i < numParticles; i++) {
+				ThrownEntity projectile = new PlasmaEntity(attacker.getWorld(), attacker, false);
+
+				projectile.setVelocity(attacker, attacker.getPitch(), attacker.getYaw(), 0.0F, 1.3f, 14);
+				attacker.getWorld().spawnEntity(projectile);
+			}
+		}
+	}
+
+	// Phantom Jellyfish Attack: Shoots particles in a radius circle
+	public static void performShockwaveAttack(LivingEntity attacker, @Nullable LivingEntity target) {
+		ServerWorld world = (ServerWorld) attacker.getWorld();
+		int particleAmount = 15;
+		float angleInterval = 360f / (float) particleAmount;
+
+		for (int i = 0; i < particleAmount; i++) {
+			double rotationIncrement = angleInterval * i;
+
+			float velocityX = (float) Math.cos(rotationIncrement);
+			float velocityZ = (float) Math.sin(rotationIncrement);
+
+			ThrownEntity lavaProjectile = new PlasmaEntity(attacker.getWorld(), attacker, false);
+
+			if (target != null) {
+				double yCoord = target.getY() - lavaProjectile.getY();
+
+				lavaProjectile.setPos(attacker.getX(), attacker.getY() + 3.2f, attacker.getZ());
+				lavaProjectile.setVelocity(velocityX, (yCoord * (double) 0.1f) - 0.25f, velocityZ, 1.2f, 0);
+			}  else {
+				lavaProjectile.setPos(attacker.getX(), attacker.getY() + 3.2f, attacker.getZ());
+				lavaProjectile.setVelocity(velocityX, 0, velocityZ, 1.2f, 0);
+			}
+
+			lavaProjectile.velocityDirty = true;
+			world.spawnEntity(lavaProjectile);
+		}
+	}
 }

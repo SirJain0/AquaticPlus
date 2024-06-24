@@ -1,10 +1,10 @@
 package com.aquaticplus.registries;
 
 import com.aquaticplus.AquaticPlus;
-import com.aquaticplus.entities.models.YetiCrabModel;
 import com.aquaticplus.items.*;
 import com.aquaticplus.items.combat.AuroraStaffItem;
 import com.aquaticplus.items.combat.FrostingSpectreItem;
+import com.aquaticplus.items.combat.VermillionGloomStaffItem;
 import com.aquaticplus.items.projectile.*;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
@@ -15,6 +15,7 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 
 public class AquaticPlusItems {
 	public static Item STONIFIER;
@@ -26,6 +27,7 @@ public class AquaticPlusItems {
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
 	public static Item AURORA_STAFF;
+	public static Item VERMILLION_GLOOM_STAFF;
 	public static Item MIDNIGHT_PIKE;
 	public static Item CYAN_CRAB_CLAW;
 	public static Item ORANGE_CRAB_CLAW;
@@ -94,6 +96,8 @@ public class AquaticPlusItems {
 	public static Item RIBBON_EEL_SPAWN_EGG;
 	public static Item DEEP_SEA_ISOPOD_SPAWN_EGG;
 	public static Item YETI_CRAB_SPAWN_EGG;
+	public static Item VERMILLION_JELLY_SPAWN_EGG;
+	public static Item PHANTOM_JELLYFISH_SUMMONER;
 
 	public static Item SPIRITED_FISH_BUCKET;
 	public static Item PARROTFISH_BUCKET;
@@ -142,8 +146,9 @@ public class AquaticPlusItems {
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem());
 		SEA_BANE_AQUATIC_STAR = registerCustomItem("sea_bane_aquatic_star", new SeaBaneAquaticStarItem());
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
-		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(70)));
+		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(200)));
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
+		VERMILLION_GLOOM_STAFF = registerCustomItem("vermillion_gloom_staff", new VermillionGloomStaffItem());
 		MIDNIGHT_PIKE = registerCustomItem("midnight_pike", new MidnightPikeItem());
 		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem());
 		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem());
@@ -199,6 +204,8 @@ public class AquaticPlusItems {
 		RIBBON_EEL_SPAWN_EGG = registerSpawnEggItem("ribbon_eel_spawn_egg", AquaticPlusEntities.RIBBON_EEL_ENTITY, 0x50acf2, 0xffd444);
 		DEEP_SEA_ISOPOD_SPAWN_EGG = registerSpawnEggItem("deep_sea_isopod_spawn_egg", AquaticPlusEntities.DEEP_SEA_ISOPOD_ENTITY, 0xd6ccab, 0x917f6d);
 		YETI_CRAB_SPAWN_EGG = registerSpawnEggItem("yeti_crab_spawn_egg", AquaticPlusEntities.YETI_CRAB_ENTITY, 0xc1a489, 0xd7c098);
+		VERMILLION_JELLY_SPAWN_EGG = registerSpawnEggItem("vermillion_jelly_spawn_egg", AquaticPlusEntities.VERMILLION_JELLY_ENTITY, 0x83546c, 0x454245);
+		PHANTOM_JELLYFISH_SUMMONER = registerCustomItem("phantom_jellyfish_summoner", new PhantomJellyfishSummonerItem()); //TODO: Animate the item
 	}
 
 	public static void registerBucketItems() {

@@ -1,7 +1,7 @@
 package com.aquaticplus.entities.entity;
 
 import com.aquaticplus.entities.entity.template.NoBucketSchoolingFishEntity;
-import com.aquaticplus.entities.goals.TeleportAttackerGoal;
+import com.aquaticplus.entities.ai.TeleportAttackerGoal;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;

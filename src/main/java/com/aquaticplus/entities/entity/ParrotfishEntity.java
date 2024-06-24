@@ -1,7 +1,7 @@
 package com.aquaticplus.entities.entity;
 
 import com.aquaticplus.entities.entity.template.APSchoolingFishEntity;
-import com.aquaticplus.entities.goals.MoveToAndBreakBlockGoal;
+import com.aquaticplus.entities.ai.MoveToAndBreakBlockGoal;
 import com.aquaticplus.registries.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;

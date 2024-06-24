@@ -1,6 +1,7 @@
 package com.aquaticplus;
 
 import com.aquaticplus.registries.AquaticPlusBlocks;
+import com.aquaticplus.registries.util.AquaticPlusClientRegistryUtil;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
@@ -15,5 +16,7 @@ public class AquaticPlusClient implements ClientModInitializer {
 		ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> new ModelIdentifier(AquaticPlus.MOD_ID, "cyan_crab_claw_model", "inventory"));
 		ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> new ModelIdentifier(AquaticPlus.MOD_ID, "pink_crab_claw_model", "inventory"));
 		ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> new ModelIdentifier(AquaticPlus.MOD_ID, "orange_crab_claw_model", "inventory"));
+
+		AquaticPlusClientRegistryUtil.registerClientContent();
 	}
 }

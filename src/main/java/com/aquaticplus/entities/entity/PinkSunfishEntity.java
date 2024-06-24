@@ -1,7 +1,7 @@
 package com.aquaticplus.entities.entity;
 
 import com.aquaticplus.entities.entity.template.NoBucketSchoolingFishEntity;
-import com.aquaticplus.entities.goals.HurtAttackerGoal;
+import com.aquaticplus.entities.ai.HurtAttackerGoal;
 import com.aquaticplus.registries.AquaticPlusStatusEffects;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
