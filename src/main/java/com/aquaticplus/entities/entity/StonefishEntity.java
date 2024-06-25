@@ -20,6 +20,13 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
 
+/*
+TODO:
+- Stonefish venom item + brewing recipe
+- AI
+- Spawns
+- Drops
+ */
 public class StonefishEntity extends NoBucketFishEntity {
 	private static final TrackedData<Integer> STONEFISH_TYPE = DataTracker.registerData(StonefishEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
