@@ -12,6 +12,7 @@ public class AquaticPlusUtil {
 	public static final double UNDERWATER_VELOCITY_MULTIPLIER = 1 / 0.8;
 
 	// Phantom Jellyfish Attack: Shoots Plasma particles in line to target
+	// TODO: Add shooting sound
 	public static void performPlasmaBeamShootAttack(LivingEntity attacker, @Nullable LivingEntity target) {
 		ThrownEntity projectile = new PlasmaEntity(attacker.getWorld(), attacker, true);
 
@@ -32,6 +33,7 @@ public class AquaticPlusUtil {
 	}
 
 	// Phantom Jellyfish Attack: Shoots Plasma core particles to target
+	// TODO: Add shooting sound
 	public static void performPlasmaBallShootAttack(LivingEntity attacker, @Nullable LivingEntity target, int numParticles) {
 		if (target != null) {
 			double xCoord = target.getX() - attacker.getX();
@@ -56,6 +58,7 @@ public class AquaticPlusUtil {
 	}
 
 	// Phantom Jellyfish Attack: Shoots particles in a radius circle
+	// TODO: Add shooting sound
 	public static void performShockwaveAttack(LivingEntity attacker, @Nullable LivingEntity target) {
 		ServerWorld world = (ServerWorld) attacker.getWorld();
 		int particleAmount = 15;
