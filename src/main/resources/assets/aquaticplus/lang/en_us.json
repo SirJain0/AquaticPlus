@@ -33,6 +33,7 @@
 	"item.aquaticplus.ribbon_eel_spawn_egg": "Ribbon Eel Spawn Egg",
 	"item.aquaticplus.deep_sea_isopod_spawn_egg": "Deep Sea Isopod Spawn Egg",
 	"item.aquaticplus.yeti_crab_spawn_egg": "Yeti Crab Spawn Egg",
+	"item.aquaticplus.stonefish_spawn_egg": "Stonefish Spawn Egg",
 	"item.aquaticplus.vermillion_jelly_spawn_egg": "Vermillion Jelly Spawn Egg",
 	"item.aquaticplus.phantom_jellyfish_summoner": "Phantom Jellyfish Summoner",
 
@@ -178,6 +179,7 @@
 	"entity.aquaticplus.ribbon_eel": "Ribbon Eel",
 	"entity.aquaticplus.deep_sea_isopod": "Deep Sea Isopod",
 	"entity.aquaticplus.yeti_crab": "Yeti Crab",
+	"entity.aquaticplus.stonefish": "Stonefish",
 	"entity.aquaticplus.vermillion_jelly": "Vermillion Jelly",
 	"entity.aquaticplus.phantom_jellyfish": "Phantom Jellyfish",
 
