@@ -53,6 +53,7 @@ public class StonefishModel extends EntityModel<StonefishEntity> {
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
+		matrices.scale(1.3f, 1.3f, 1.3f);
 		root.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}
