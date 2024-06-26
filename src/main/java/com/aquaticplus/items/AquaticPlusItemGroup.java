@@ -97,6 +97,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.FROST_SHARDS);
 					entries.add(AquaticPlusItems.STONE_ESSENCE);
 					entries.add(AquaticPlusItems.STONE_CORRODER);
+					entries.add(AquaticPlusItems.STONEFISH_VENOM);
 					entries.add(AquaticPlusItems.MORTIS_VENOM);
 					entries.add(AquaticPlusItems.MAXILLA_MORTIS_TOOTH);
 					entries.add(AquaticPlusItems.VIPER_TOOTH);

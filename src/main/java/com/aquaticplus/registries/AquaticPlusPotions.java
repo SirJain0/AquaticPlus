@@ -73,9 +73,9 @@ public class AquaticPlusPotions {
 		registerSeaBanePotions();
 	}
 
-	// TODO: Add numbing potion recipe with Stonefish venom
 	public static void registerNumbingRecipes() {
 		FabricBrewingRecipeRegistry.registerPotionRecipe(Potions.WATER, Ingredient.ofItems(AquaticPlusItems.MORTIS_VENOM), NUMBING_POTION);
+		FabricBrewingRecipeRegistry.registerPotionRecipe(Potions.WATER, Ingredient.ofItems(AquaticPlusItems.STONEFISH_VENOM), NUMBING_POTION);
 
 		FabricBrewingRecipeRegistry.registerPotionRecipe(NUMBING_POTION, Ingredient.ofItems(Items.REDSTONE), NUMBING_LONG_POTION);
 		FabricBrewingRecipeRegistry.registerPotionRecipe(NUMBING_LONG_POTION, Ingredient.ofItems(Items.GLOWSTONE), NUMBING_STRONG_POTION);

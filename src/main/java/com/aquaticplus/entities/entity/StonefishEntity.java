@@ -22,10 +22,7 @@ import java.util.function.IntFunction;
 
 /*
 TODO:
-- Stonefish venom item + brewing recipe
 - AI
-- Spawns
-- Drops
  */
 public class StonefishEntity extends NoBucketFishEntity {
 	private static final TrackedData<Integer> STONEFISH_TYPE = DataTracker.registerData(StonefishEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -80,6 +77,7 @@ public class StonefishEntity extends NoBucketFishEntity {
 	public static DefaultAttributeContainer.Builder createStonefishAttributes() {
 		return SchoolingFishEntity
 			.createFishAttributes()
+			.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 12)
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 14);
 	}
 
