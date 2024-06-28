@@ -63,6 +63,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.RIBBON_EEL_SPAWN_EGG);
 					entries.add(AquaticPlusItems.DEEP_SEA_ISOPOD_SPAWN_EGG);
 					entries.add(AquaticPlusItems.YETI_CRAB_SPAWN_EGG);
+					entries.add(AquaticPlusItems.STONEFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.VERMILLION_JELLY_SPAWN_EGG);
 					entries.add(AquaticPlusItems.PHANTOM_JELLYFISH_SUMMONER);
 
@@ -96,6 +97,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.FROST_SHARDS);
 					entries.add(AquaticPlusItems.STONE_ESSENCE);
 					entries.add(AquaticPlusItems.STONE_CORRODER);
+					entries.add(AquaticPlusItems.STONEFISH_VENOM);
 					entries.add(AquaticPlusItems.MORTIS_VENOM);
 					entries.add(AquaticPlusItems.MAXILLA_MORTIS_TOOTH);
 					entries.add(AquaticPlusItems.VIPER_TOOTH);

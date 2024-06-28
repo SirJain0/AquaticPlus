@@ -325,6 +325,15 @@ public class AquaticPlusEntities {
 			.build()
 	);
 
+	public static final EntityModelLayer STONEFISH_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "stonefish"), "root");
+	public static final EntityType<StonefishEntity> STONEFISH_ENTITY = Registry.register(
+		Registries.ENTITY_TYPE,
+		new Identifier(AquaticPlus.MOD_ID, "stonefish"),
+		FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, StonefishEntity::new)
+			.dimensions(EntityDimensions.fixed(0.7f, 0.7f))
+			.build()
+	);
+
 	public static final EntityModelLayer VERMILLION_JELLY_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "vermillion_jelly"), "root");
 	public static final EntityType<VermillionJellyEntity> VERMILLION_JELLY_ENTITY = Registry.register(
 		Registries.ENTITY_TYPE,
@@ -444,6 +453,7 @@ public class AquaticPlusEntities {
 		VOLAN_AURORA_ENTITY,
 		PIKE_ENTITY,
 		RIBBON_EEL_ENTITY,
+		STONEFISH_ENTITY,
 		VERMILLION_JELLY_ENTITY,
 		PHANTOM_JELLYFISH_ENTITY
 	);
@@ -488,6 +498,7 @@ public class AquaticPlusEntities {
 		FabricDefaultAttributeRegistry.register(RIBBON_EEL_ENTITY, RibbonEelEntity.createRibbonEelAttributes());
 		FabricDefaultAttributeRegistry.register(DEEP_SEA_ISOPOD_ENTITY, DeepSeaIsopodEntity.createIsopodAttributes());
 		FabricDefaultAttributeRegistry.register(YETI_CRAB_ENTITY, NeonCrabEntity.createCrabAttributes());
+		FabricDefaultAttributeRegistry.register(STONEFISH_ENTITY, StonefishEntity.createStonefishAttributes());
 		FabricDefaultAttributeRegistry.register(PHANTOM_JELLYFISH_ENTITY, PhantomJellyfishEntity.createPhantomJellyfishAttributes());
 		FabricDefaultAttributeRegistry.register(VERMILLION_JELLY_ENTITY, VermillionJellyEntity.createVermillionJellyAttributes());
 	}
@@ -527,6 +538,7 @@ public class AquaticPlusEntities {
 		EntityRendererRegistry.register(RIBBON_EEL_ENTITY, RibbonEelRenderer::new);
 		EntityRendererRegistry.register(DEEP_SEA_ISOPOD_ENTITY, DeepSeaIsopodRenderer::new);
 		EntityRendererRegistry.register(YETI_CRAB_ENTITY, YetiCrabRenderer::new);
+		EntityRendererRegistry.register(STONEFISH_ENTITY, StonefishRenderer::new);
 		EntityRendererRegistry.register(PHANTOM_JELLYFISH_ENTITY, PhantomJellyfishRenderer::new);
 		EntityRendererRegistry.register(VERMILLION_JELLY_ENTITY, VermillionJellyRenderer::new);
 
@@ -562,6 +574,7 @@ public class AquaticPlusEntities {
 		EntityModelLayerRegistry.registerModelLayer(RIBBON_EEL_LAYER, RibbonEelModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(DEEP_SEA_ISOPOD_LAYER, DeepSeaIsopodModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(YETI_CRAB_LAYER, YetiCrabModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(STONEFISH_LAYER, StonefishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(PHANTOM_JELLYFISH_LAYER, PhantomJellyfishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(VERMILLION_JELLY_LAYER, VermillionJellyModel::getTexturedModelData);
 

@@ -2,6 +2,7 @@ package com.aquaticplus.entities.entity;
 
 import com.aquaticplus.entities.entity.template.NoBucketSchoolingFishEntity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.AttackGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
