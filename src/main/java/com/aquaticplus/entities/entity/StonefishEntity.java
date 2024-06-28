@@ -1,14 +1,8 @@
 package com.aquaticplus.entities.entity;
 
 import com.aquaticplus.entities.entity.template.NoBucketFishEntity;
-import it.unimi.dsi.fastutil.objects.ObjectArrayList;
-import net.minecraft.entity.EntityData;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.SpawnReason;
-import net.minecraft.entity.ai.brain.Brain;
-import net.minecraft.entity.ai.brain.WalkTarget;
-import net.minecraft.entity.ai.brain.task.WalkTowardsPosTask;
+import com.aquaticplus.registries.AquaticPlusStatusEffects;
+import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
@@ -17,40 +11,20 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.function.ValueLists;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
-import net.tslat.smartbrainlib.api.SmartBrainOwner;
-import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
-import net.tslat.smartbrainlib.api.core.SmartBrainProvider;
-import net.tslat.smartbrainlib.api.core.behaviour.FirstApplicableBehaviour;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.attack.AnimatableMeleeAttack;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.look.LookAtTarget;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.misc.Idle;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.move.WalkOrRunToWalkTarget;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetRandomLookTarget;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.target.TargetOrRetaliate;
-import net.tslat.smartbrainlib.api.core.sensor.ExtendedSensor;
-import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyLivingEntitySensor;
-import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyPlayersSensor;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.IntFunction;
 
-/*
-TODO:
-- Make it sink to ground and stop animation when it has no target
-- Make it give numbing effect when biting target
- */
 public class StonefishEntity extends NoBucketFishEntity/* implements SmartBrainOwner<StonefishEntity>*/ {
 	private static final TrackedData<Integer> STONEFISH_TYPE = DataTracker.registerData(StonefishEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
@@ -58,7 +32,6 @@ public class StonefishEntity extends NoBucketFishEntity/* implements SmartBrainO
 		super(entityType, world);
 	}
 
-	// Overriding with nothing because the entity uses brain system
 	@Override
 	protected void initGoals() {
 		this.goalSelector.add(1, new LookAroundGoal(this));
@@ -115,70 +88,28 @@ public class StonefishEntity extends NoBucketFishEntity/* implements SmartBrainO
 		return SchoolingFishEntity
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 12)
-			.add(EntityAttributes.GENERIC_FOLLOW_RANGE, 6)
+			.add(EntityAttributes.GENERIC_FOLLOW_RANGE, 4)
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 14);
 	}
 
-//	@Override
-//	protected Brain.Profile<?> createBrainProfile() {
-//		return new SmartBrainProvider<>(this);
-//	}
+	@Override
+	public void tickMovement() {
+		super.tickMovement();
 
-//	@Override
-//	public float getSpeedAmplifier() {
-//		return 0.06f;
-//	}
+		if (this.getTarget() == null) {
+			this.setVelocity(this.getVelocity().add(0.0, -0.002, 0.0));
+			this.velocityDirty = true;
+		}
+	}
 
-//	// Tick the brain so it functions, and update bossbar percent
-//	@Override
-//	protected void mobTick() {
-//		super.mobTick();
-//
-//		this.tickBrain(this);
-//	}
-//
-//	// Gives the entity sensors - things it is conscious of
-//	@Override
-//	public List<? extends ExtendedSensor<? extends StonefishEntity>> getSensors() {
-//		return ObjectArrayList.of(
-//			new NearbyPlayersSensor<>(),
-//			new NearbyLivingEntitySensor<StonefishEntity>()
-//				.setPredicate((target, entity) -> target instanceof PlayerEntity)
-//		);
-//	}
-//
-//	// Usually run all the time
-//	@Override
-//	public BrainActivityGroup<StonefishEntity> getCoreTasks() {
-//		return BrainActivityGroup.coreTasks(
-//			new LookAtTarget<>(),
-//			new WalkOrRunToWalkTarget<>()
-//		);
-//	}
-//
-//	// Run when the entity is idle
-//	@Override
-//	public BrainActivityGroup<StonefishEntity> getIdleTasks() {
-//		return BrainActivityGroup.idleTasks(
-//			// Try each one in order
-//			new FirstApplicableBehaviour(
-//				new TargetOrRetaliate<>()
-//					.attackablePredicate(target ->
-//						target.isAlive() && this.getBoundingBox().expand(6).contains(target.getPos())),
-//				new SetRandomLookTarget<>(),
-//				new Idle<>().stopIf(target -> this.getTarget() != null)
-//			)
-//		);
-//	}
-//
-//	@Override
-//	public BrainActivityGroup<? extends StonefishEntity> getFightTasks() {
-//		return BrainActivityGroup.fightTasks(
-//			new InvalidateAttackTarget<>().invalidateIf((entity, target) -> !entity.getBoundingBox().expand(9).contains(target.getPos())),
-//			new SetWalkTargetToAttackTarget<>(),
-//			new AnimatableMeleeAttack<>(40)
-//		);
-//	}
+	@Override
+	public boolean tryAttack(Entity entity) {
+		boolean canAttack = super.tryAttack(entity) && entity instanceof LivingEntity;
+		if (canAttack && this.random.nextInt(3) == 0)
+			((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 4 * 20, 0), this);
+
+		return canAttack;
+	}
 
 	public enum StonefishType implements StringIdentifiable {
 		GRAY(0, "grey"),

@@ -101,7 +101,7 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 	@Override
 	public boolean tryAttack(Entity entity) {
 		boolean canAttack = super.tryAttack(entity) && entity instanceof LivingEntity;
-		if (canAttack)
+		if (canAttack && this.random.nextInt(2) == 0)
 			((LivingEntity) entity).addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.NUMBING, 6 * 20, 0), this);
 
 		return canAttack;
