@@ -6,6 +6,8 @@ import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.brain.Brain;
+import net.minecraft.entity.ai.brain.WalkTarget;
+import net.minecraft.entity.ai.brain.task.WalkTowardsPosTask;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -16,6 +18,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.function.ValueLists;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
@@ -25,6 +28,8 @@ import net.tslat.smartbrainlib.api.core.SmartBrainProvider;
 import net.tslat.smartbrainlib.api.core.behaviour.FirstApplicableBehaviour;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.attack.AnimatableMeleeAttack;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.look.LookAtTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.misc.Idle;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.move.WalkOrRunToWalkTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetRandomLookTarget;
@@ -39,7 +44,8 @@ import java.util.function.IntFunction;
 
 /*
 TODO:
-- AI
+- Make it sink to ground and stop animation when it has no target
+- Make it give numbing effect when biting target
  */
 public class StonefishEntity extends NoBucketFishEntity implements SmartBrainOwner<StonefishEntity> {
 	private static final TrackedData<Integer> STONEFISH_TYPE = DataTracker.registerData(StonefishEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -109,10 +115,16 @@ public class StonefishEntity extends NoBucketFishEntity implements SmartBrainOwn
 		return new SmartBrainProvider<>(this);
 	}
 
+	@Override
+	public float getSpeedAmplifier() {
+		return 0.06f;
+	}
+
 	// Tick the brain so it functions, and update bossbar percent
 	@Override
 	protected void mobTick() {
 		super.mobTick();
+
 		this.tickBrain(this);
 	}
 
@@ -129,9 +141,10 @@ public class StonefishEntity extends NoBucketFishEntity implements SmartBrainOwn
 	// Usually run all the time
 	@Override
 	public BrainActivityGroup<StonefishEntity> getCoreTasks() {
-		return BrainActivityGroup.coreTasks((
-			new LookAtTarget<>()
-		));
+		return BrainActivityGroup.coreTasks(
+			new LookAtTarget<>(),
+			new WalkOrRunToWalkTarget<>()
+		);
 	}
 
 	// Run when the entity is idle
@@ -142,8 +155,9 @@ public class StonefishEntity extends NoBucketFishEntity implements SmartBrainOwn
 			new FirstApplicableBehaviour(
 				new TargetOrRetaliate<>()
 					.attackablePredicate(target ->
-						target.isAlive() && this.getBoundingBox().expand(3).contains(target.getPos())),
-				new SetRandomLookTarget<>()
+						target.isAlive() && this.getBoundingBox().expand(6).contains(target.getPos())),
+				new SetRandomLookTarget<>(),
+				new Idle<>().stopIf(target -> this.getTarget() != null)
 			)
 		);
 	}
@@ -151,7 +165,7 @@ public class StonefishEntity extends NoBucketFishEntity implements SmartBrainOwn
 	@Override
 	public BrainActivityGroup<? extends StonefishEntity> getFightTasks() {
 		return BrainActivityGroup.fightTasks(
-			new InvalidateAttackTarget<>().invalidateIf((entity, target) -> !this.getBoundingBox().expand(3).contains(target.getPos())),
+			new InvalidateAttackTarget<>().invalidateIf((entity, target) -> !entity.getBoundingBox().expand(9).contains(target.getPos())),
 			new SetWalkTargetToAttackTarget<>(),
 			new AnimatableMeleeAttack<>(40)
 		);
