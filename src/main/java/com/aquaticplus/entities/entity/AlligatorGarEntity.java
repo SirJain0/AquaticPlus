@@ -20,7 +20,7 @@ public class AlligatorGarEntity extends NoBucketSchoolingFishEntity {
 	protected void initGoals() {
 		super.initGoals();
 		this.goalSelector.add(1, new AttackGoal(this));
-		this.targetSelector.add(1, new ActiveTargetGoal<>(this, TurtleEntity.class, 5, false, false, entity -> entity instanceof TurtleEntity));
+		this.targetSelector.add(1, new ActiveTargetGoal<>(this, TurtleEntity.class, 5, false, false, entity -> entity.isBaby()));
 	}
 
 	@Override
