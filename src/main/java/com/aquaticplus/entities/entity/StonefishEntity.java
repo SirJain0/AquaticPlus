@@ -1,7 +1,5 @@
 package com.aquaticplus.entities.entity;
 
-import com.aquaticplus.entities.ai.IdleIfNoTarget;
-import com.aquaticplus.entities.entity.boss.PhantomJellyfishEntity;
 import com.aquaticplus.entities.entity.template.NoBucketFishEntity;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.entity.EntityData;
@@ -25,12 +23,9 @@ import net.tslat.smartbrainlib.api.SmartBrainOwner;
 import net.tslat.smartbrainlib.api.core.BrainActivityGroup;
 import net.tslat.smartbrainlib.api.core.SmartBrainProvider;
 import net.tslat.smartbrainlib.api.core.behaviour.FirstApplicableBehaviour;
-import net.tslat.smartbrainlib.api.core.behaviour.OneRandomBehaviour;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.attack.AnimatableMeleeAttack;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.move.FollowEntity;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.move.FollowOwner;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.move.MoveToWalkTarget;
-import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetRandomWalkTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.look.LookAtTarget;
+import net.tslat.smartbrainlib.api.core.behaviour.custom.path.SetWalkTargetToAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.InvalidateAttackTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.SetRandomLookTarget;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.target.TargetOrRetaliate;
@@ -134,12 +129,9 @@ public class StonefishEntity extends NoBucketFishEntity implements SmartBrainOwn
 	// Usually run all the time
 	@Override
 	public BrainActivityGroup<StonefishEntity> getCoreTasks() {
-		return BrainActivityGroup.coreTasks(
-			new FirstApplicableBehaviour<StonefishEntity>(
-				new IdleIfNoTarget<>(),
-				new MoveToWalkTarget<>()
-			)
-		);
+		return BrainActivityGroup.coreTasks((
+			new LookAtTarget<>()
+		));
 	}
 
 	// Run when the entity is idle
@@ -147,8 +139,10 @@ public class StonefishEntity extends NoBucketFishEntity implements SmartBrainOwn
 	public BrainActivityGroup<StonefishEntity> getIdleTasks() {
 		return BrainActivityGroup.idleTasks(
 			// Try each one in order
-			new FirstApplicableBehaviour<StonefishEntity>(
-				new TargetOrRetaliate<>(),
+			new FirstApplicableBehaviour(
+				new TargetOrRetaliate<>()
+					.attackablePredicate(target ->
+						target.isAlive() && this.getBoundingBox().expand(3).contains(target.getPos())),
 				new SetRandomLookTarget<>()
 			)
 		);
@@ -157,9 +151,9 @@ public class StonefishEntity extends NoBucketFishEntity implements SmartBrainOwn
 	@Override
 	public BrainActivityGroup<? extends StonefishEntity> getFightTasks() {
 		return BrainActivityGroup.fightTasks(
-			new InvalidateAttackTarget<>(),
-			new AnimatableMeleeAttack<>(40),
-			new FollowEntity<>()
+			new InvalidateAttackTarget<>().invalidateIf((entity, target) -> !this.getBoundingBox().expand(3).contains(target.getPos())),
+			new SetWalkTargetToAttackTarget<>(),
+			new AnimatableMeleeAttack<>(40)
 		);
 	}
 
