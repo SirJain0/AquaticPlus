@@ -5,9 +5,9 @@
 	"mixins": [
 	],
 	"client": [
-		"ItemRendererAccessor",
-		"ItemRendererMixin",
-		"ModelLoaderMixin"
+		"sirjain.aquaticplus.mixins.ItemRendererAccessor",
+		"sirjain.aquaticplus.mixins.ItemRendererMixin",
+		"sirjain.aquaticplus.mixins.ModelLoaderMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
