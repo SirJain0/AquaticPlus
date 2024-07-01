@@ -1,14 +1,13 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
-import sirjain.aquaticplus.entity.entities.SeaPenEntity;
-import sirjain.aquaticplus.client.entity.models.SeaPenModel;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
+import sirjain.aquaticplus.client.entity.models.SeaPenModel;
+import sirjain.aquaticplus.entity.entities.SeaPenEntity;
 
 public class SeaPenRenderer extends MobEntityRenderer<SeaPenEntity, SeaPenModel> {
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/sea_pen.png");

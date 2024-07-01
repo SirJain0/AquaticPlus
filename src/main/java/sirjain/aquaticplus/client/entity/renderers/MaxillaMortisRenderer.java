@@ -1,14 +1,13 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
-import sirjain.aquaticplus.entity.entities.MaxillaMortisEntity;
-import sirjain.aquaticplus.client.entity.features.MaxillaMortisEmissiveTextureFeature;
-import sirjain.aquaticplus.client.entity.models.MaxillaMortisModel;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
+import sirjain.aquaticplus.client.entity.features.MaxillaMortisEmissiveTextureFeature;
+import sirjain.aquaticplus.client.entity.models.MaxillaMortisModel;
+import sirjain.aquaticplus.entity.entities.MaxillaMortisEntity;
 
 public class MaxillaMortisRenderer extends MobEntityRenderer<MaxillaMortisEntity, MaxillaMortisModel> {
 	private static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/maxilla_mortis/maxilla_mortis.png");

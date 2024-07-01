@@ -1,13 +1,12 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
-import sirjain.aquaticplus.entity.entities.ShadowSardelEasterEggEntity;
-import sirjain.aquaticplus.client.entity.models.JohnsonModel;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
+import sirjain.aquaticplus.client.entity.models.JohnsonModel;
+import sirjain.aquaticplus.entity.entities.ShadowSardelEasterEggEntity;
 
 public class JohnsonRenderer extends MobEntityRenderer<ShadowSardelEasterEggEntity, JohnsonModel> {
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/shadow_sardel/johnson.png");

@@ -1,8 +1,5 @@
 package sirjain.aquaticplus.item.projectile;
 
-import sirjain.aquaticplus.entity.entities.projectile.NumbingAquaticStarEntity;
-import sirjain.aquaticplus.entity.entities.template.AbstractAquaticStarEntity;
-import sirjain.aquaticplus.item.abstract_item.AbstractAquaticStarItem;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -10,6 +7,9 @@ import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.entity.entities.projectile.NumbingAquaticStarEntity;
+import sirjain.aquaticplus.entity.entities.template.AbstractAquaticStarEntity;
+import sirjain.aquaticplus.item.abstract_item.AbstractAquaticStarItem;
 
 import java.util.List;
 

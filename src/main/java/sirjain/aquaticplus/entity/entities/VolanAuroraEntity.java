@@ -1,7 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.projectile.AuroraEntity;
-import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
@@ -22,6 +20,8 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.entity.entities.projectile.AuroraEntity;
+import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 
 public class VolanAuroraEntity extends NoBucketSchoolingFishEntity implements RangedAttackMob {
 	public static final TrackedData<Boolean> IS_ANGRY = DataTracker.registerData(VolanAuroraEntity.class, TrackedDataHandlerRegistry.BOOLEAN);

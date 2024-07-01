@@ -1,10 +1,10 @@
 package sirjain.aquaticplus.client.entity.models.projectile;
 
-import sirjain.aquaticplus.entity.entities.projectile.PlasmaEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import sirjain.aquaticplus.entity.entities.projectile.PlasmaEntity;
 
 public class PlasmaModel<T extends PlasmaEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart root;

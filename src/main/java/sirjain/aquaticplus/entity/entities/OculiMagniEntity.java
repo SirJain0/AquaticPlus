@@ -1,7 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
-import sirjain.aquaticplus.entity.ai.TeleportAttackerGoal;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -11,6 +9,8 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.ai.TeleportAttackerGoal;
+import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 
 public class OculiMagniEntity extends NoBucketSchoolingFishEntity {
 	public static final TrackedData<Boolean> HAS_TELEPORTED_ATTACKER = DataTracker.registerData(OculiMagniEntity.class, TrackedDataHandlerRegistry.BOOLEAN);

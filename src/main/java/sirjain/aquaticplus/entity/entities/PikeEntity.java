@@ -1,7 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
-import sirjain.aquaticplus.item.AquaticPlusItems;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -21,6 +19,8 @@ import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
+import sirjain.aquaticplus.item.AquaticPlusItems;
 
 import java.util.Objects;
 import java.util.function.IntFunction;

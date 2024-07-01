@@ -1,16 +1,15 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
-import sirjain.aquaticplus.entity.entities.VermillionJellyEntity;
-import sirjain.aquaticplus.client.entity.models.VermillionJellyModel;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
+import sirjain.aquaticplus.client.entity.models.VermillionJellyModel;
+import sirjain.aquaticplus.entity.entities.VermillionJellyEntity;
 
 public class VermillionJellyRenderer extends MobEntityRenderer<VermillionJellyEntity, VermillionJellyModel> {
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/vermillion_jelly.png");

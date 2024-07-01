@@ -1,11 +1,11 @@
 package sirjain.aquaticplus.client.entity.models;
 
-import sirjain.aquaticplus.entity.entities.PinkSunfishEntity;
-import sirjain.aquaticplus.entity.entities.animation.PinkSunfishAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import sirjain.aquaticplus.entity.entities.PinkSunfishEntity;
+import sirjain.aquaticplus.entity.entities.animation.PinkSunfishAnimations;
 
 public class PinkSunfishModel extends SinglePartEntityModel<PinkSunfishEntity> {
 	private final ModelPart root;

@@ -1,8 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
-import sirjain.aquaticplus.entity.ai.APSwimAroundGoal;
-import sirjain.aquaticplus.item.AquaticPlusItems;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
@@ -29,6 +26,9 @@ import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.entity.ai.APSwimAroundGoal;
+import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
+import sirjain.aquaticplus.item.AquaticPlusItems;
 
 import java.util.List;
 import java.util.function.IntFunction;

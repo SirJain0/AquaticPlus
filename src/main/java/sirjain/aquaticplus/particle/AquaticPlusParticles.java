@@ -1,12 +1,12 @@
 package sirjain.aquaticplus.particle;
 
-import sirjain.aquaticplus.AquaticPlus;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
 
 public class AquaticPlusParticles {
 	public static DefaultParticleType VERMILLION_RADIATION;

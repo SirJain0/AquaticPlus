@@ -1,9 +1,9 @@
 package sirjain.aquaticplus.client.entity.models;
 
-import sirjain.aquaticplus.entity.entities.NeonCrabEntity;
-import sirjain.aquaticplus.entity.entities.animation.NeonCrabAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
+import sirjain.aquaticplus.entity.entities.NeonCrabEntity;
+import sirjain.aquaticplus.entity.entities.animation.NeonCrabAnimations;
 
 public class NeonCrabModel extends SinglePartEntityModel<NeonCrabEntity> {
 	private final ModelPart root;

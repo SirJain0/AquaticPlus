@@ -1,11 +1,11 @@
 package sirjain.aquaticplus.client.entity.models;
 
-import sirjain.aquaticplus.entity.entities.ShadowSardelEasterEggEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
+import sirjain.aquaticplus.entity.entities.ShadowSardelEasterEggEntity;
 
 public class JohnsonModel extends EntityModel<ShadowSardelEasterEggEntity> {
 	private final ModelPart main;

@@ -1,12 +1,5 @@
 package sirjain.aquaticplus.item;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
-import sirjain.aquaticplus.item.combat.AuroraStaffItem;
-import sirjain.aquaticplus.item.combat.FrostingSpectreItem;
-import sirjain.aquaticplus.item.combat.VermillionGloomStaffItem;
-import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
@@ -16,7 +9,14 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
+import sirjain.aquaticplus.entity.AquaticPlusEntities;
+import sirjain.aquaticplus.item.combat.AuroraStaffItem;
+import sirjain.aquaticplus.item.combat.FrostingSpectreItem;
+import sirjain.aquaticplus.item.combat.VermillionGloomStaffItem;
 import sirjain.aquaticplus.item.projectile.*;
+import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
 
 public class AquaticPlusItems {
 	public static Item STONIFIER;

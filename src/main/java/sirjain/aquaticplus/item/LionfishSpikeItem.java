@@ -1,10 +1,10 @@
 package sirjain.aquaticplus.item;
 
-import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 
 public class LionfishSpikeItem extends Item {
 	public LionfishSpikeItem() {

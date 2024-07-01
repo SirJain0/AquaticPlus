@@ -1,6 +1,5 @@
 package sirjain.aquaticplus.item.projectile;
 
-import sirjain.aquaticplus.entity.entities.projectile.AuroraEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
@@ -9,6 +8,7 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.entities.projectile.AuroraEntity;
 
 public class AuroraItem extends Item {
 	public AuroraItem(Settings settings) {

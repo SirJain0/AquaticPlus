@@ -1,13 +1,12 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
-import sirjain.aquaticplus.entity.entities.YetiCrabEntity;
-import sirjain.aquaticplus.client.entity.models.YetiCrabModel;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
+import sirjain.aquaticplus.client.entity.models.YetiCrabModel;
+import sirjain.aquaticplus.entity.entities.YetiCrabEntity;
 
 public class YetiCrabRenderer extends MobEntityRenderer<YetiCrabEntity, YetiCrabModel> {
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/crab/yeti_crab.png");

@@ -1,11 +1,11 @@
 package sirjain.aquaticplus.client.entity.models;
 
-import sirjain.aquaticplus.entity.entities.VermillionJellyEntity;
-import sirjain.aquaticplus.entity.entities.animation.VermillionJellyAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import sirjain.aquaticplus.entity.entities.VermillionJellyEntity;
+import sirjain.aquaticplus.entity.entities.animation.VermillionJellyAnimations;
 
 public class VermillionJellyModel extends SinglePartEntityModel<VermillionJellyEntity> {
 	private final ModelPart root;

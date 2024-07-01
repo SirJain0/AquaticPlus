@@ -1,11 +1,11 @@
 package sirjain.aquaticplus.blocks;
 
-import sirjain.aquaticplus.AquaticPlus;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
 
 public class AquaticPlusBlocks {
 	public static Block GHOSTLY_GEL_BLOCK;

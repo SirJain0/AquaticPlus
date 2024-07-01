@@ -1,13 +1,12 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
-import sirjain.aquaticplus.entity.entities.LionfishEntity;
-import sirjain.aquaticplus.client.entity.models.LionfishModel;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
+import sirjain.aquaticplus.client.entity.models.LionfishModel;
+import sirjain.aquaticplus.entity.entities.LionfishEntity;
 
 public class LionfishRenderer extends MobEntityRenderer<LionfishEntity, LionfishModel> {
 	public LionfishRenderer(EntityRendererFactory.Context context) {

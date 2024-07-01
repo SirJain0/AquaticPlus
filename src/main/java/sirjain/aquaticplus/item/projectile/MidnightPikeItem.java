@@ -1,12 +1,15 @@
 package sirjain.aquaticplus.item.projectile;
 
-import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.*;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.SwordItem;
+import net.minecraft.item.ToolMaterials;
 import net.minecraft.util.math.random.Random;
+import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 
 public class MidnightPikeItem extends SwordItem {
 	public MidnightPikeItem() {

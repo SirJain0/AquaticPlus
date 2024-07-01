@@ -1,11 +1,11 @@
 package sirjain.aquaticplus.client.entity.models;
 
-import sirjain.aquaticplus.entity.entities.ParrotfishEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
+import sirjain.aquaticplus.entity.entities.ParrotfishEntity;
 
 public class ParrotfishModel extends EntityModel<ParrotfishEntity> {
 	private final ModelPart root;

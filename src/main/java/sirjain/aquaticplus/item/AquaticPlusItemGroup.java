@@ -1,7 +1,5 @@
 package sirjain.aquaticplus.item;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
@@ -16,6 +14,8 @@ import net.minecraft.registry.RegistryKeys;
 import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
 
 public class AquaticPlusItemGroup {
 	public static ItemGroup AQUATICPLUS_ITEM_GROUP;

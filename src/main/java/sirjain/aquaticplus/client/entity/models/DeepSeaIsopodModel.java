@@ -1,9 +1,9 @@
 package sirjain.aquaticplus.client.entity.models;
 
-import sirjain.aquaticplus.entity.entities.DeepSeaIsopodEntity;
-import sirjain.aquaticplus.entity.entities.animation.DeepSeaIsopodAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
+import sirjain.aquaticplus.entity.entities.DeepSeaIsopodEntity;
+import sirjain.aquaticplus.entity.entities.animation.DeepSeaIsopodAnimations;
 
 public class DeepSeaIsopodModel extends SinglePartEntityModel<DeepSeaIsopodEntity> {
 	private final ModelPart root;

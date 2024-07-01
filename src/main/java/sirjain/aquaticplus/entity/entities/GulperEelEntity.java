@@ -1,6 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.AbstractEelEntity;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -14,6 +13,7 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.entity.entities.template.AbstractEelEntity;
 
 public class GulperEelEntity extends AbstractEelEntity {
 	public static TrackedData<Boolean> IS_ATTACKING = DataTracker.registerData(GulperEelEntity.class, TrackedDataHandlerRegistry.BOOLEAN);

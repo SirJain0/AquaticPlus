@@ -1,7 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.APSchoolingFishEntity;
-import sirjain.aquaticplus.item.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.AttackGoal;
@@ -11,6 +9,8 @@ import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.entities.template.APSchoolingFishEntity;
+import sirjain.aquaticplus.item.AquaticPlusItems;
 
 public class BluefinTunaEntity extends APSchoolingFishEntity {
 	public BluefinTunaEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {

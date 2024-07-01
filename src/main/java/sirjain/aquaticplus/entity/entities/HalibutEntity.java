@@ -1,13 +1,13 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.APSchoolingFishEntity;
-import sirjain.aquaticplus.item.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.entities.template.APSchoolingFishEntity;
+import sirjain.aquaticplus.item.AquaticPlusItems;
 
 public class HalibutEntity extends APSchoolingFishEntity {
 	public HalibutEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {

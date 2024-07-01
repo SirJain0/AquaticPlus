@@ -1,7 +1,5 @@
 package sirjain.aquaticplus.entity.entities.projectile;
 
-import sirjain.aquaticplus.AquaticPlusUtil;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -16,6 +14,8 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.AquaticPlusUtil;
+import sirjain.aquaticplus.entity.AquaticPlusEntities;
 
 public class PlasmaEntity extends ThrownEntity {
 	public static final TrackedData<Boolean> IS_SHOT_AS_BEAM = DataTracker.registerData(PlasmaEntity.class, TrackedDataHandlerRegistry.BOOLEAN);

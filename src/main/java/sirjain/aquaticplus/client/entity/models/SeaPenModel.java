@@ -1,10 +1,10 @@
 package sirjain.aquaticplus.client.entity.models;
 
-import sirjain.aquaticplus.entity.entities.SeaPenEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
+import sirjain.aquaticplus.entity.entities.SeaPenEntity;
 
 public class SeaPenModel extends EntityModel<SeaPenEntity> {
 	private final ModelPart root;

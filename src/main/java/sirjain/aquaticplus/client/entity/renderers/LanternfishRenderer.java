@@ -1,14 +1,13 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
-import sirjain.aquaticplus.entity.entities.LanternfishEntity;
-import sirjain.aquaticplus.client.entity.features.APEmissiveTextureFeature;
-import sirjain.aquaticplus.client.entity.models.LanternfishModel;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
+import sirjain.aquaticplus.client.entity.features.APEmissiveTextureFeature;
+import sirjain.aquaticplus.client.entity.models.LanternfishModel;
+import sirjain.aquaticplus.entity.entities.LanternfishEntity;
 
 public class LanternfishRenderer extends MobEntityRenderer<LanternfishEntity, LanternfishModel> {
 	// TODO: Fix black z-fighting with planes

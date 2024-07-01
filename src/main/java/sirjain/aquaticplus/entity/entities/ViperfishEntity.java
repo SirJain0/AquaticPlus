@@ -1,6 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.NoBucketFishEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -20,6 +19,7 @@ import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.entities.template.NoBucketFishEntity;
 
 public class ViperfishEntity extends NoBucketFishEntity {
 	public static final TrackedData<Boolean> SHOULD_ILLUMINATE = DataTracker.registerData(ViperfishEntity.class, TrackedDataHandlerRegistry.BOOLEAN);

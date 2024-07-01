@@ -1,12 +1,12 @@
 package sirjain.aquaticplus.client.entity.models;
 
-import sirjain.aquaticplus.entity.entities.GulperEelEntity;
-import sirjain.aquaticplus.entity.entities.animation.GulperEelAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
+import sirjain.aquaticplus.entity.entities.GulperEelEntity;
+import sirjain.aquaticplus.entity.entities.animation.GulperEelAnimations;
 
 public class GulperEelModel extends SinglePartEntityModel<GulperEelEntity> {
 	private final ModelPart root;

@@ -1,6 +1,5 @@
 package sirjain.aquaticplus.entity.ai;
 
-import sirjain.aquaticplus.entity.entities.OculiMagniEntity;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
@@ -8,6 +7,7 @@ import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.entities.OculiMagniEntity;
 
 public class TeleportAttackerGoal extends Goal {
 	private final OculiMagniEntity oculiMagni;

@@ -1,11 +1,11 @@
 package sirjain.aquaticplus.entity.ai;
 
-import sirjain.aquaticplus.AquaticPlusUtil;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.tslat.smartbrainlib.api.core.behaviour.custom.attack.AnimatableRangedAttack;
 import net.tslat.smartbrainlib.util.BrainUtils;
+import sirjain.aquaticplus.AquaticPlusUtil;
 
 public class PlasmaShockwaveAttack<E extends LivingEntity & RangedAttackMob> extends AnimatableRangedAttack<E> {
 	public PlasmaShockwaveAttack(int delayTicks) {

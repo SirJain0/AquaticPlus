@@ -1,12 +1,12 @@
 package sirjain.aquaticplus;
 
-import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
-import sirjain.aquaticplus.client.AquaticPlusClientRegistryUtil;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.model.ModelLoadingRegistry;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.util.ModelIdentifier;
+import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
+import sirjain.aquaticplus.client.AquaticPlusClientRegistryUtil;
 
 public class AquaticPlusClient implements ClientModInitializer {
 	@Override

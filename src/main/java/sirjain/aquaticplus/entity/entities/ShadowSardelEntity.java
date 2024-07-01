@@ -1,8 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.APSchoolingFishEntity;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
-import sirjain.aquaticplus.item.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -11,6 +8,9 @@ import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.AquaticPlusEntities;
+import sirjain.aquaticplus.entity.entities.template.APSchoolingFishEntity;
+import sirjain.aquaticplus.item.AquaticPlusItems;
 
 public class ShadowSardelEntity extends APSchoolingFishEntity {
 	public boolean variantSpawned = false;

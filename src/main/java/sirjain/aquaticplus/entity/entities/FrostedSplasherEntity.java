@@ -1,7 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.projectile.FrostedSnowballEntity;
-import sirjain.aquaticplus.entity.entities.template.APFishEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.RangedAttackMob;
@@ -13,6 +11,8 @@ import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.entities.projectile.FrostedSnowballEntity;
+import sirjain.aquaticplus.entity.entities.template.APFishEntity;
 
 public class FrostedSplasherEntity extends APFishEntity implements RangedAttackMob {
 	public FrostedSplasherEntity(EntityType<? extends FishEntity> entityType, World world) {

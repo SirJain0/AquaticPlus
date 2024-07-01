@@ -1,8 +1,11 @@
 package sirjain.aquaticplus;
 
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.mob.WaterCreatureEntity;
+import net.minecraft.entity.projectile.thrown.ThrownEntity;
+import net.minecraft.server.world.ServerWorld;
+import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import sirjain.aquaticplus.entity.AquaticPlusEntitySpawns;
@@ -11,12 +14,8 @@ import sirjain.aquaticplus.item.AquaticPlusFoodItems;
 import sirjain.aquaticplus.item.AquaticPlusItemGroup;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 import sirjain.aquaticplus.particle.AquaticPlusParticles;
-import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
 import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.projectile.thrown.ThrownEntity;
-import net.minecraft.server.world.ServerWorld;
-import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,7 +1,5 @@
 package sirjain.aquaticplus.mixins;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.item.AquaticPlusItems;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.render.model.BakedModel;
@@ -12,6 +10,8 @@ import net.minecraft.item.ItemStack;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.ModifyVariable;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.item.AquaticPlusItems;
 
 @Mixin(ItemRenderer.class)
 public abstract class ItemRendererMixin {

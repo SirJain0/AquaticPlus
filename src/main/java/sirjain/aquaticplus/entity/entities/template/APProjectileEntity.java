@@ -1,11 +1,11 @@
 package sirjain.aquaticplus.entity.entities.template;
 
-import sirjain.aquaticplus.AquaticPlusUtil;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.AquaticPlusUtil;
 
 public abstract class APProjectileEntity extends ThrownItemEntity {
 	public APProjectileEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {

@@ -1,6 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.AttackGoal;
@@ -9,6 +8,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.TurtleEntity;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 
 public class AlligatorGarEntity extends NoBucketSchoolingFishEntity {
 	public AlligatorGarEntity(EntityType<? extends NoBucketSchoolingFishEntity> entityType, World world) {

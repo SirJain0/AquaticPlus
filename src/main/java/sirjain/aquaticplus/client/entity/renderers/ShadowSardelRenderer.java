@@ -1,13 +1,12 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
-import sirjain.aquaticplus.entity.entities.ShadowSardelEntity;
-import sirjain.aquaticplus.client.entity.models.ShadowSardelModel;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
+import sirjain.aquaticplus.client.entity.models.ShadowSardelModel;
+import sirjain.aquaticplus.entity.entities.ShadowSardelEntity;
 
 public class ShadowSardelRenderer extends MobEntityRenderer<ShadowSardelEntity, ShadowSardelModel> {
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/shadow_sardel/shadow_sardel.png");

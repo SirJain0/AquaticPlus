@@ -1,8 +1,8 @@
 package sirjain.aquaticplus.entity.ai;
 
-import sirjain.aquaticplus.entity.entities.PinkSunfishEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
+import sirjain.aquaticplus.entity.entities.PinkSunfishEntity;
 
 public class HurtAttackerGoal extends Goal {
 	private final PinkSunfishEntity pinkSunfish;

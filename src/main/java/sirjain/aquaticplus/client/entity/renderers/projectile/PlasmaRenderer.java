@@ -1,10 +1,5 @@
 package sirjain.aquaticplus.client.entity.renderers.projectile;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
-import sirjain.aquaticplus.entity.entities.projectile.PlasmaEntity;
-import sirjain.aquaticplus.client.entity.models.projectile.PlasmaModel;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.client.render.OverlayTexture;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.VertexConsumerProvider;
@@ -13,6 +8,10 @@ import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
+import sirjain.aquaticplus.client.entity.models.projectile.PlasmaModel;
+import sirjain.aquaticplus.entity.entities.projectile.PlasmaEntity;
 
 public class PlasmaRenderer extends EntityRenderer<PlasmaEntity> {
 	private static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/plasma.png");

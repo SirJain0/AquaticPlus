@@ -1,8 +1,5 @@
 package sirjain.aquaticplus.item.combat;
 
-import sirjain.aquaticplus.entity.entities.projectile.FrostedSnowballEntity;
-import sirjain.aquaticplus.item.abstract_item.ShootingStaffItem;
-import sirjain.aquaticplus.item.AquaticPlusItems;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -17,6 +14,9 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.entity.entities.projectile.FrostedSnowballEntity;
+import sirjain.aquaticplus.item.AquaticPlusItems;
+import sirjain.aquaticplus.item.abstract_item.ShootingStaffItem;
 
 import java.util.List;
 

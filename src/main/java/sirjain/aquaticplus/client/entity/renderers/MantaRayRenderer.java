@@ -1,13 +1,12 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
-import sirjain.aquaticplus.entity.entities.MantaRayEntity;
-import sirjain.aquaticplus.client.entity.models.MantaRayModel;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
+import sirjain.aquaticplus.client.entity.models.MantaRayModel;
+import sirjain.aquaticplus.entity.entities.MantaRayEntity;
 
 public class MantaRayRenderer extends MobEntityRenderer<MantaRayEntity, MantaRayModel> {
 	public MantaRayRenderer(EntityRendererFactory.Context context) {

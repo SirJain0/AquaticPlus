@@ -1,36 +1,20 @@
 package sirjain.aquaticplus.entity;
 
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
-import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.mob.WaterCreatureEntity;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.models.PhantomJellyfishModel;
-import sirjain.aquaticplus.client.entity.models.projectile.PlasmaModel;
-import sirjain.aquaticplus.client.entity.renderers.BluefinTunaRenderer;
-import sirjain.aquaticplus.client.entity.renderers.JohnsonRenderer;
-import sirjain.aquaticplus.client.entity.renderers.MindinatorRenderer;
-import sirjain.aquaticplus.client.entity.renderers.SpiritedFishRenderer;
-import sirjain.aquaticplus.client.entity.renderers.projectile.AquaticStarRenderer;
-import sirjain.aquaticplus.client.entity.renderers.projectile.PlasmaRenderer;
 import sirjain.aquaticplus.entity.entities.*;
 import sirjain.aquaticplus.entity.entities.boss.PhantomJellyfishEntity;
 import sirjain.aquaticplus.entity.entities.projectile.*;
 import sirjain.aquaticplus.entity.entities.template.AbstractCrabEntity;
-
-import java.util.Arrays;
-import java.util.List;
 
 /*
 TODO for entities:

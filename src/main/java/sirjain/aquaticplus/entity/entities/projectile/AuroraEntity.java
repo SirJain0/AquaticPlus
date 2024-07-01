@@ -1,8 +1,5 @@
 package sirjain.aquaticplus.entity.entities.projectile;
 
-import sirjain.aquaticplus.entity.entities.template.APProjectileEntity;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
-import sirjain.aquaticplus.item.AquaticPlusItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -12,6 +9,9 @@ import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.AquaticPlusEntities;
+import sirjain.aquaticplus.entity.entities.template.APProjectileEntity;
+import sirjain.aquaticplus.item.AquaticPlusItems;
 
 public class AuroraEntity extends APProjectileEntity {
 	public AuroraEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {

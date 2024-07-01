@@ -1,14 +1,13 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
-import sirjain.aquaticplus.entity.entities.DumboBlobEntity;
-import sirjain.aquaticplus.client.entity.features.DumboBlobEmissiveTextureFeature;
-import sirjain.aquaticplus.client.entity.models.DumboBlobModel;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
+import sirjain.aquaticplus.client.entity.features.DumboBlobEmissiveTextureFeature;
+import sirjain.aquaticplus.client.entity.models.DumboBlobModel;
+import sirjain.aquaticplus.entity.entities.DumboBlobEntity;
 
 public class DumboBlobRenderer extends MobEntityRenderer<DumboBlobEntity, DumboBlobModel> {
 	public DumboBlobRenderer(EntityRendererFactory.Context context) {

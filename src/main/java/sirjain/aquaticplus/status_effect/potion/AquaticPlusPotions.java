@@ -1,8 +1,5 @@
 package sirjain.aquaticplus.status_effect.potion;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.item.AquaticPlusItems;
-import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Items;
@@ -12,6 +9,9 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.item.AquaticPlusItems;
+import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 
 import java.util.Arrays;
 import java.util.List;

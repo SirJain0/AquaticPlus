@@ -1,11 +1,11 @@
 package sirjain.aquaticplus.status_effect;
 
-import sirjain.aquaticplus.AquaticPlus;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
 
 public class AquaticPlusStatusEffects {
 	public static StatusEffect NUMBING;

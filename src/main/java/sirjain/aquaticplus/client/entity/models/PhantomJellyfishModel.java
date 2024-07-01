@@ -1,12 +1,12 @@
 package sirjain.aquaticplus.client.entity.models;
 
-import sirjain.aquaticplus.entity.entities.animation.PhantomJellyfishAnimations;
-import sirjain.aquaticplus.entity.entities.boss.PhantomJellyfishEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
+import sirjain.aquaticplus.entity.entities.animation.PhantomJellyfishAnimations;
+import sirjain.aquaticplus.entity.entities.boss.PhantomJellyfishEntity;
 
 public class PhantomJellyfishModel extends SinglePartEntityModel<PhantomJellyfishEntity> {
 	private final ModelPart root;

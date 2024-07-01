@@ -1,7 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.NoBucketFishEntity;
-import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -21,6 +19,8 @@ import net.minecraft.text.Text;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.entity.entities.template.NoBucketFishEntity;
+import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 
 import java.util.Arrays;
 import java.util.List;

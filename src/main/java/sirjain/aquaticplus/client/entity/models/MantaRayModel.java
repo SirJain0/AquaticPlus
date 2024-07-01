@@ -1,11 +1,11 @@
 package sirjain.aquaticplus.client.entity.models;
 
-import sirjain.aquaticplus.entity.entities.MantaRayEntity;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
+import sirjain.aquaticplus.entity.entities.MantaRayEntity;
 
 public class MantaRayModel extends EntityModel<MantaRayEntity> {
 	public ModelPart root;

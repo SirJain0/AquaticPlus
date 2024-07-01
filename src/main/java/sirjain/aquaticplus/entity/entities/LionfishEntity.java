@@ -1,7 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
-import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.ActiveTargetGoal;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
@@ -26,6 +24,8 @@ import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
+import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 
 import java.util.UUID;
 import java.util.function.IntFunction;

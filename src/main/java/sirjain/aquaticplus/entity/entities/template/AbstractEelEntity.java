@@ -1,6 +1,5 @@
 package sirjain.aquaticplus.entity.entities.template;
 
-import sirjain.aquaticplus.entity.ai.APSwimAroundGoal;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
@@ -10,6 +9,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.ai.APSwimAroundGoal;
 
 public abstract class AbstractEelEntity extends NoBucketFishEntity {
 	public AbstractEelEntity(EntityType<? extends FishEntity> entityType, World world) {

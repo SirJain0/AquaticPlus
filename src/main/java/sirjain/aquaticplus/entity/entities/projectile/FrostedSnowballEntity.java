@@ -1,9 +1,5 @@
 package sirjain.aquaticplus.entity.entities.projectile;
 
-import sirjain.aquaticplus.AquaticPlusUtil;
-import sirjain.aquaticplus.entity.entities.template.APProjectileEntity;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
-import sirjain.aquaticplus.item.AquaticPlusItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -16,6 +12,10 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.AquaticPlusUtil;
+import sirjain.aquaticplus.entity.AquaticPlusEntities;
+import sirjain.aquaticplus.entity.entities.template.APProjectileEntity;
+import sirjain.aquaticplus.item.AquaticPlusItems;
 
 public class FrostedSnowballEntity extends APProjectileEntity {
 	public FrostedSnowballEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {

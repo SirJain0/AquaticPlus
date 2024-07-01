@@ -1,8 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.APFishEntity;
-import sirjain.aquaticplus.entity.ai.APSwimAroundGoal;
-import sirjain.aquaticplus.item.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.ai.goal.MoveIntoWaterGoal;
@@ -12,6 +9,9 @@ import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.ai.APSwimAroundGoal;
+import sirjain.aquaticplus.entity.entities.template.APFishEntity;
+import sirjain.aquaticplus.item.AquaticPlusItems;
 
 public class SpiritedFishEntity extends APFishEntity {
 	public SpiritedFishEntity(EntityType<? extends FishEntity> entityType, World world) {

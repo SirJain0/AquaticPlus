@@ -1,6 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.NoBucketFishEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
 import net.minecraft.entity.ai.goal.LookAroundGoal;
@@ -11,6 +10,7 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.entities.template.NoBucketFishEntity;
 
 public class ShadowSardelEasterEggEntity extends NoBucketFishEntity {
 	public ShadowSardelEasterEggEntity(EntityType<? extends FishEntity> entityType, World world) {

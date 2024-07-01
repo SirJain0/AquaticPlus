@@ -1,7 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.AquaticPlusUtil;
-import sirjain.aquaticplus.entity.entities.template.APSchoolingFishEntity;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.RangedAttackMob;
 import net.minecraft.entity.ai.goal.FleeEntityGoal;
@@ -20,6 +18,8 @@ import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.AquaticPlusUtil;
+import sirjain.aquaticplus.entity.entities.template.APSchoolingFishEntity;
 
 public class VermillionJellyEntity extends APSchoolingFishEntity implements RangedAttackMob {
 	public final AnimationState swimAnimationState = new AnimationState();

@@ -1,14 +1,14 @@
 package sirjain.aquaticplus.entity.entities.projectile;
 
-import sirjain.aquaticplus.entity.entities.template.AbstractAquaticStarEntity;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
-import sirjain.aquaticplus.item.AquaticPlusItems;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.AquaticPlusEntities;
+import sirjain.aquaticplus.entity.entities.template.AbstractAquaticStarEntity;
+import sirjain.aquaticplus.item.AquaticPlusItems;
 
 public class AquaticStarEntity extends AbstractAquaticStarEntity {
 	public AquaticStarEntity(EntityType<? extends ThrownItemEntity> entityType, World world) {

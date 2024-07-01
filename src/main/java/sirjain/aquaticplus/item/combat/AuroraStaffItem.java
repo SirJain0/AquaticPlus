@@ -1,12 +1,12 @@
 package sirjain.aquaticplus.item.combat;
 
-import sirjain.aquaticplus.entity.entities.VolanAuroraEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import sirjain.aquaticplus.entity.entities.VolanAuroraEntity;
 
 public class AuroraStaffItem extends Item {
 	public AuroraStaffItem() {

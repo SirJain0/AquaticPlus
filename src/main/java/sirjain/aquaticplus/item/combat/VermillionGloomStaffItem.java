@@ -1,6 +1,5 @@
 package sirjain.aquaticplus.item.combat;
 
-import sirjain.aquaticplus.AquaticPlusUtil;
 import com.google.common.collect.Lists;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -10,6 +9,7 @@ import net.minecraft.item.*;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.AquaticPlusUtil;
 
 import java.util.ArrayList;
 

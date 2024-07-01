@@ -1,13 +1,12 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
-import sirjain.aquaticplus.AquaticPlus;
-import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
-import sirjain.aquaticplus.entity.entities.PikeEntity;
-import sirjain.aquaticplus.client.entity.models.PikeModel;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
+import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
+import sirjain.aquaticplus.client.entity.models.PikeModel;
+import sirjain.aquaticplus.entity.entities.PikeEntity;
 
 public class PikeRenderer extends MobEntityRenderer<PikeEntity, PikeModel> {
 	public PikeRenderer(EntityRendererFactory.Context context) {

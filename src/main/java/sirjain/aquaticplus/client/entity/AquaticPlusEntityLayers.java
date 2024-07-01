@@ -5,7 +5,6 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 import sirjain.aquaticplus.AquaticPlus;
 import sirjain.aquaticplus.client.entity.models.*;
-import sirjain.aquaticplus.client.entity.models.PhantomJellyfishModel;
 import sirjain.aquaticplus.client.entity.models.projectile.PlasmaModel;
 
 public class AquaticPlusEntityLayers {

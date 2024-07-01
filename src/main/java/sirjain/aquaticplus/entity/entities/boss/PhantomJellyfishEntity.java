@@ -1,10 +1,5 @@
 package sirjain.aquaticplus.entity.entities.boss;
 
-import sirjain.aquaticplus.entity.ai.PlasmaBallShootAttack;
-import sirjain.aquaticplus.entity.ai.PlasmaBeamShootAttack;
-import sirjain.aquaticplus.entity.ai.PlasmaShockwaveAttack;
-import sirjain.aquaticplus.entity.entities.template.APFishEntity;
-import sirjain.aquaticplus.particle.AquaticPlusParticles;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.Entity;
@@ -35,6 +30,11 @@ import net.tslat.smartbrainlib.api.core.behaviour.custom.target.TargetOrRetaliat
 import net.tslat.smartbrainlib.api.core.sensor.ExtendedSensor;
 import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyLivingEntitySensor;
 import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyPlayersSensor;
+import sirjain.aquaticplus.entity.ai.PlasmaBallShootAttack;
+import sirjain.aquaticplus.entity.ai.PlasmaBeamShootAttack;
+import sirjain.aquaticplus.entity.ai.PlasmaShockwaveAttack;
+import sirjain.aquaticplus.entity.entities.template.APFishEntity;
+import sirjain.aquaticplus.particle.AquaticPlusParticles;
 
 import java.util.List;
 

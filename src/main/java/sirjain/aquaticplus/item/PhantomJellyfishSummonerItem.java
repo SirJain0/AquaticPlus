@@ -1,6 +1,5 @@
 package sirjain.aquaticplus.item;
 
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
@@ -14,6 +13,7 @@ import net.minecraft.util.Rarity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.entity.AquaticPlusEntities;
 
 import java.util.List;
 

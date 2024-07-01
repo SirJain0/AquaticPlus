@@ -1,8 +1,5 @@
 package sirjain.aquaticplus.entity.entities;
 
-import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
-import sirjain.aquaticplus.entity.ai.HurtAttackerGoal;
-import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -16,6 +13,9 @@ import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.entity.ai.HurtAttackerGoal;
+import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
+import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 
 import java.util.List;
 

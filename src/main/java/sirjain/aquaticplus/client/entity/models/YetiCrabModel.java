@@ -1,9 +1,9 @@
 package sirjain.aquaticplus.client.entity.models;
 
-import sirjain.aquaticplus.entity.entities.YetiCrabEntity;
-import sirjain.aquaticplus.entity.entities.animation.YetiCrabAnimations;
 import net.minecraft.client.model.*;
 import net.minecraft.client.render.entity.model.SinglePartEntityModel;
+import sirjain.aquaticplus.entity.entities.YetiCrabEntity;
+import sirjain.aquaticplus.entity.entities.animation.YetiCrabAnimations;
 
 public class YetiCrabModel extends SinglePartEntityModel<YetiCrabEntity> {
 	private final ModelPart root;
