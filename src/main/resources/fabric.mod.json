@@ -14,10 +14,10 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.aquaticplus.AquaticPlus"
+			"sirjain.aquaticplus.AquaticPlus"
 		],
 		"client": [
-			"com.aquaticplus.AquaticPlusClient"
+			"sirjain.aquaticplus.AquaticPlusClient"
 		]
 	},
 	"mixins": [
