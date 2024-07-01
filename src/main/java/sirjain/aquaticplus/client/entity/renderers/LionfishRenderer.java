@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.LionfishEntity;
 import sirjain.aquaticplus.client.entity.models.LionfishModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -10,7 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class LionfishRenderer extends MobEntityRenderer<LionfishEntity, LionfishModel> {
 	public LionfishRenderer(EntityRendererFactory.Context context) {
-		super(context, new LionfishModel(context.getPart(AquaticPlusEntities.LIONFISH_LAYER)), 0.5f);
+		super(context, new LionfishModel(context.getPart(AquaticPlusEntityLayers.LIONFISH_LAYER)), 0.5f);
 	}
 
 	@Override

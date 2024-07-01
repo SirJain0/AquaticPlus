@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.PinkSunfishEntity;
 import sirjain.aquaticplus.client.entity.models.PinkSunfishModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -12,7 +13,7 @@ public class PinkSunfishRenderer extends MobEntityRenderer<PinkSunfishEntity, Pi
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/pink_sunfish.png");
 
 	public PinkSunfishRenderer(EntityRendererFactory.Context context) {
-		super(context, new PinkSunfishModel(context.getPart(AquaticPlusEntities.PINK_SUNFISH_LAYER)), 0.75f);
+		super(context, new PinkSunfishModel(context.getPart(AquaticPlusEntityLayers.PINK_SUNFISH_LAYER)), 0.75f);
 	}
 
 	@Override

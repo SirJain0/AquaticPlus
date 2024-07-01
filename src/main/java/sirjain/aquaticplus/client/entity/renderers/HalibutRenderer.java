@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.HalibutEntity;
 import sirjain.aquaticplus.client.entity.models.HalibutModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -13,7 +14,7 @@ public class HalibutRenderer extends MobEntityRenderer<HalibutEntity, HalibutMod
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/halibut.png");
 
 	public HalibutRenderer(EntityRendererFactory.Context context) {
-		super(context, new HalibutModel(context.getPart(AquaticPlusEntities.HALIBUT_LAYER)), 0.5f);
+		super(context, new HalibutModel(context.getPart(AquaticPlusEntityLayers.HALIBUT_LAYER)), 0.5f);
 	}
 
 	@Override

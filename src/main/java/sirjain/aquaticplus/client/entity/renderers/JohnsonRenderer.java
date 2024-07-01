@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.ShadowSardelEasterEggEntity;
 import sirjain.aquaticplus.client.entity.models.JohnsonModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -12,7 +13,7 @@ public class JohnsonRenderer extends MobEntityRenderer<ShadowSardelEasterEggEnti
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/shadow_sardel/johnson.png");
 
 	public JohnsonRenderer(EntityRendererFactory.Context context) {
-		super(context, new JohnsonModel(context.getPart(AquaticPlusEntities.JOHNNSON_LAYER)), 0.5f);
+		super(context, new JohnsonModel(context.getPart(AquaticPlusEntityLayers.JOHNSON_LAYER)), 0.5f);
 	}
 
 	@Override

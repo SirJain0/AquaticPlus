@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.NarwhalEntity;
 import sirjain.aquaticplus.client.entity.models.NarwhalModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -13,7 +14,7 @@ public class NarwhalRenderer extends MobEntityRenderer<NarwhalEntity, NarwhalMod
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/narwhal.png");
 
 	public NarwhalRenderer(EntityRendererFactory.Context context) {
-		super(context, new NarwhalModel(context.getPart(AquaticPlusEntities.NARWHAL_LAYER)), 0.5f);
+		super(context, new NarwhalModel(context.getPart(AquaticPlusEntityLayers.NARWHAL_LAYER)), 0.5f);
 	}
 
 	@Override

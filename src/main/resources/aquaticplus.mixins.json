@@ -1,13 +1,13 @@
 {
 	"required": true,
-	"package": "com.aquaticplus.mixins",
+	"package": "sirjain.aquaticplus.mixins",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
 	],
 	"client": [
-		"sirjain.aquaticplus.mixins.ItemRendererAccessor",
-		"sirjain.aquaticplus.mixins.ItemRendererMixin",
-		"sirjain.aquaticplus.mixins.ModelLoaderMixin"
+//		"sirjain.aquaticplus.mixins.ItemRendererAccessor",
+//		"sirjain.aquaticplus.mixins.ItemRendererMixin",
+//		"sirjain.aquaticplus.mixins.ModelLoaderMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.LanternfishEntity;
 import sirjain.aquaticplus.client.entity.features.APEmissiveTextureFeature;
 import sirjain.aquaticplus.client.entity.models.LanternfishModel;
@@ -15,7 +16,7 @@ public class LanternfishRenderer extends MobEntityRenderer<LanternfishEntity, La
 	public static final Identifier EMISSIVE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/lanternfish/lanternfish_e.png");
 
 	public LanternfishRenderer(EntityRendererFactory.Context context) {
-		super(context, new LanternfishModel(context.getPart(AquaticPlusEntities.LANTERNFISH_LAYER)), 0.5f);
+		super(context, new LanternfishModel(context.getPart(AquaticPlusEntityLayers.LANTERNFISH_LAYER)), 0.5f);
 		this.addFeature(new APEmissiveTextureFeature<>(this, EMISSIVE));
 	}
 

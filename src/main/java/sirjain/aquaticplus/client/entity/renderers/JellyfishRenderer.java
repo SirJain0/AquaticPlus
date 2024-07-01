@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.JellyfishEntity;
 import sirjain.aquaticplus.client.entity.models.JellyfishModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -11,7 +12,7 @@ import net.minecraft.util.Identifier;
 
 public class JellyfishRenderer extends MobEntityRenderer<JellyfishEntity, JellyfishModel> {
 	public JellyfishRenderer(EntityRendererFactory.Context context) {
-		super(context, new JellyfishModel(context.getPart(AquaticPlusEntities.JELLYFISH_LAYER)), 0.5f);
+		super(context, new JellyfishModel(context.getPart(AquaticPlusEntityLayers.JELLYFISH_LAYER)), 0.5f);
 	}
 
 	@Override

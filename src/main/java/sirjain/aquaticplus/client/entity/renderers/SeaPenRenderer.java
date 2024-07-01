@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.SeaPenEntity;
 import sirjain.aquaticplus.client.entity.models.SeaPenModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -13,7 +14,7 @@ public class SeaPenRenderer extends MobEntityRenderer<SeaPenEntity, SeaPenModel>
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/sea_pen.png");
 
 	public SeaPenRenderer(EntityRendererFactory.Context context) {
-		super(context, new SeaPenModel(context.getPart(AquaticPlusEntities.SEA_PEN_LAYER)), 0.3f);
+		super(context, new SeaPenModel(context.getPart(AquaticPlusEntityLayers.SEA_PEN_LAYER)), 0.3f);
 	}
 
 	@Override

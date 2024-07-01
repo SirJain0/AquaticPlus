@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.DeepSeaIsopodEntity;
 import sirjain.aquaticplus.client.entity.models.DeepSeaIsopodModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -11,7 +12,7 @@ import net.minecraft.util.Identifier;
 
 public class DeepSeaIsopodRenderer extends MobEntityRenderer<DeepSeaIsopodEntity, DeepSeaIsopodModel> {
 	public DeepSeaIsopodRenderer(EntityRendererFactory.Context context) {
-		super(context, new DeepSeaIsopodModel(context.getPart(AquaticPlusEntities.DEEP_SEA_ISOPOD_LAYER)), 0.5f);
+		super(context, new DeepSeaIsopodModel(context.getPart(AquaticPlusEntityLayers.DEEP_SEA_ISOPOD_LAYER)), 0.5f);
 	}
 
 	@Override

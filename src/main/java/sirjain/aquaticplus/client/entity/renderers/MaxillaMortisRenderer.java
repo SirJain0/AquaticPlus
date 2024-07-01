@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.MaxillaMortisEntity;
 import sirjain.aquaticplus.client.entity.features.MaxillaMortisEmissiveTextureFeature;
 import sirjain.aquaticplus.client.entity.models.MaxillaMortisModel;
@@ -14,7 +15,7 @@ public class MaxillaMortisRenderer extends MobEntityRenderer<MaxillaMortisEntity
 	private static final Identifier PURPLE_TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/maxilla_mortis/maxilla_mortis_purple.png");
 
 	public MaxillaMortisRenderer(EntityRendererFactory.Context context) {
-		super(context, new MaxillaMortisModel(context.getPart(AquaticPlusEntities.MAXILLA_MORTIS_LAYER)), 0.5f);
+		super(context, new MaxillaMortisModel(context.getPart(AquaticPlusEntityLayers.MAXILLA_MORTIS_LAYER)), 0.5f);
 		this.addFeature(new MaxillaMortisEmissiveTextureFeature<>(this));
 	}
 

@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.GulperEelEntity;
 import sirjain.aquaticplus.client.entity.models.GulperEelModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -12,7 +13,7 @@ public class GulperEelRenderer extends MobEntityRenderer<GulperEelEntity, Gulper
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/eels/gulper_eel.png");
 
 	public GulperEelRenderer(EntityRendererFactory.Context context) {
-		super(context, new GulperEelModel(context.getPart(AquaticPlusEntities.GULPER_EEL_LAYER)), 0.5f);
+		super(context, new GulperEelModel(context.getPart(AquaticPlusEntityLayers.GULPER_EEL_LAYER)), 0.5f);
 	}
 
 	@Override

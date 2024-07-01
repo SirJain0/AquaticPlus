@@ -6,7 +6,6 @@ import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import sirjain.aquaticplus.item.combat.AuroraStaffItem;
 import sirjain.aquaticplus.item.combat.FrostingSpectreItem;
 import sirjain.aquaticplus.item.combat.VermillionGloomStaffItem;
-import com.aquaticplus.item.projectile.*;
 import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;

@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.ShadowSardelEntity;
 import sirjain.aquaticplus.client.entity.models.ShadowSardelModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -12,7 +13,7 @@ public class ShadowSardelRenderer extends MobEntityRenderer<ShadowSardelEntity, 
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/shadow_sardel/shadow_sardel.png");
 
 	public ShadowSardelRenderer(EntityRendererFactory.Context context) {
-		super(context, new ShadowSardelModel(context.getPart(AquaticPlusEntities.SHADOW_SARDEL_LAYER)), 0.5f);
+		super(context, new ShadowSardelModel(context.getPart(AquaticPlusEntityLayers.SHADOW_SARDEL_LAYER)), 0.5f);
 	}
 
 	@Override

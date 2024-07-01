@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.OculiMagniEntity;
 import sirjain.aquaticplus.client.entity.models.OculiMagniModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -12,7 +13,7 @@ public class OculiMagniRenderer extends MobEntityRenderer<OculiMagniEntity, Ocul
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/oculi_magni.png");
 
 	public OculiMagniRenderer(EntityRendererFactory.Context context) {
-		super(context, new OculiMagniModel(context.getPart(AquaticPlusEntities.OCULI_MAGNI_LAYER)), 0.5f);
+		super(context, new OculiMagniModel(context.getPart(AquaticPlusEntityLayers.OCULI_MAGNI_LAYER)), 0.5f);
 	}
 
 	@Override

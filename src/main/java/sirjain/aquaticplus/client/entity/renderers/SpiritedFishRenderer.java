@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.SpiritedFishEntity;
 import sirjain.aquaticplus.client.entity.models.SpiritedFishModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -16,7 +17,7 @@ public class SpiritedFishRenderer extends MobEntityRenderer<SpiritedFishEntity, 
 	public static final Identifier TEXTURE_2 = new Identifier(AquaticPlus.MOD_ID, "textures/entity/spirited_fish/spirited_fish_2.png");
 
 	public SpiritedFishRenderer(EntityRendererFactory.Context context) {
-		super(context, new SpiritedFishModel(context.getPart(AquaticPlusEntities.SPIRITED_FISH_LAYER)), 0.5f);
+		super(context, new SpiritedFishModel(context.getPart(AquaticPlusEntityLayers.SPIRITED_FISH_LAYER)), 0.5f);
 	}
 
 	@Override

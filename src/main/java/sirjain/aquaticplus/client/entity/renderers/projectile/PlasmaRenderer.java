@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers.projectile;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.projectile.PlasmaEntity;
 import sirjain.aquaticplus.client.entity.models.projectile.PlasmaModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -19,7 +20,7 @@ public class PlasmaRenderer extends EntityRenderer<PlasmaEntity> {
 
 	public PlasmaRenderer(EntityRendererFactory.Context context) {
 		super(context);
-		this.model = new PlasmaModel<>(context.getPart(AquaticPlusEntities.PLASMA_LAYER));
+		this.model = new PlasmaModel<>(context.getPart(AquaticPlusEntityLayers.PLASMA_LAYER));
 	}
 
 	@Override

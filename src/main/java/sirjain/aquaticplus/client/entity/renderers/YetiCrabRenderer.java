@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.YetiCrabEntity;
 import sirjain.aquaticplus.client.entity.models.YetiCrabModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -12,7 +13,7 @@ public class YetiCrabRenderer extends MobEntityRenderer<YetiCrabEntity, YetiCrab
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/crab/yeti_crab.png");
 
 	public YetiCrabRenderer(EntityRendererFactory.Context context) {
-		super(context, new YetiCrabModel(context.getPart(AquaticPlusEntities.YETI_CRAB_LAYER)), 0.5f);
+		super(context, new YetiCrabModel(context.getPart(AquaticPlusEntityLayers.YETI_CRAB_LAYER)), 0.5f);
 	}
 
 	@Override

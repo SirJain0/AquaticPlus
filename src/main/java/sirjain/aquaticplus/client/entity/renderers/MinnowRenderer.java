@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.MinnowEntity;
 import sirjain.aquaticplus.client.entity.models.MinnowModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -11,7 +12,7 @@ import net.minecraft.util.Identifier;
 
 public class MinnowRenderer extends MobEntityRenderer<MinnowEntity, MinnowModel> {
 	public MinnowRenderer(EntityRendererFactory.Context context) {
-		super(context, new MinnowModel(context.getPart(AquaticPlusEntities.MINNOW_LAYER)), 0.5f);
+		super(context, new MinnowModel(context.getPart(AquaticPlusEntityLayers.MINNOW_LAYER)), 0.5f);
 	}
 
 	@Override

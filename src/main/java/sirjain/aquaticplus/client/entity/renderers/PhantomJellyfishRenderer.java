@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.boss.PhantomJellyfishEntity;
 import sirjain.aquaticplus.client.entity.features.APEmissiveTextureFeature;
 import sirjain.aquaticplus.client.entity.models.PhantomJellyfishModel;
@@ -15,7 +16,7 @@ public class PhantomJellyfishRenderer extends MobEntityRenderer<PhantomJellyfish
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/phantom_jellyfish.png");
 
 	public PhantomJellyfishRenderer(EntityRendererFactory.Context context) {
-		super(context, new PhantomJellyfishModel(context.getPart(AquaticPlusEntities.PHANTOM_JELLYFISH_LAYER)), 0.75f);
+		super(context, new PhantomJellyfishModel(context.getPart(AquaticPlusEntityLayers.PHANTOM_JELLYFISH_LAYER)), 0.75f);
 		this.addFeature(new APEmissiveTextureFeature<>(this, TEXTURE));
 	}
 

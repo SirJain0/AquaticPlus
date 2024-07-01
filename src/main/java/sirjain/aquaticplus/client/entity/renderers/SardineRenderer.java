@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.SardineEntity;
 import sirjain.aquaticplus.client.entity.models.SardineModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -11,7 +12,7 @@ import net.minecraft.util.Identifier;
 
 public class SardineRenderer extends MobEntityRenderer<SardineEntity, SardineModel> {
 	public SardineRenderer(EntityRendererFactory.Context context) {
-		super(context, new SardineModel(context.getPart(AquaticPlusEntities.SARDINE_LAYER)), 0.5f);
+		super(context, new SardineModel(context.getPart(AquaticPlusEntityLayers.SARDINE_LAYER)), 0.5f);
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.VolanAuroraEntity;
 import sirjain.aquaticplus.client.entity.features.VolanAuroraEmissiveTextureFeature;
 import sirjain.aquaticplus.client.entity.models.VolanAuroraModel;
@@ -11,7 +12,7 @@ import net.minecraft.util.Identifier;
 
 public class VolanAuroraRenderer extends MobEntityRenderer<VolanAuroraEntity, VolanAuroraModel> {
 	public VolanAuroraRenderer(EntityRendererFactory.Context context) {
-		super(context, new VolanAuroraModel(context.getPart(AquaticPlusEntities.VOLAN_AURORA_LAYER)), 0.5f);
+		super(context, new VolanAuroraModel(context.getPart(AquaticPlusEntityLayers.VOLAN_AURORA_LAYER)), 0.5f);
 		this.addFeature(new VolanAuroraEmissiveTextureFeature<>(this));
 	}
 

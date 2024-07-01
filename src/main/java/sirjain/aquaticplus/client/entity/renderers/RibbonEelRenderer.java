@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.RibbonEelEntity;
 import sirjain.aquaticplus.client.entity.models.RibbonEelModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -12,7 +13,7 @@ public class RibbonEelRenderer extends MobEntityRenderer<RibbonEelEntity, Ribbon
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/eels/ribbon_eel.png");
 
 	public RibbonEelRenderer(EntityRendererFactory.Context context) {
-		super(context, new RibbonEelModel(context.getPart(AquaticPlusEntities.RIBBON_EEL_LAYER)), 0.5f);
+		super(context, new RibbonEelModel(context.getPart(AquaticPlusEntityLayers.RIBBON_EEL_LAYER)), 0.5f);
 	}
 
 	@Override

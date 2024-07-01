@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.LongBonefishEntity;
 import sirjain.aquaticplus.client.entity.models.LongBonefishModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -12,7 +13,7 @@ public class LongBonefishRenderer extends MobEntityRenderer<LongBonefishEntity, 
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/bonefish/long_bonefish.png");
 
 	public LongBonefishRenderer(EntityRendererFactory.Context context) {
-		super(context, new LongBonefishModel(context.getPart(AquaticPlusEntities.LONG_BONEFISH_LAYER)), 0.5f);
+		super(context, new LongBonefishModel(context.getPart(AquaticPlusEntityLayers.LONG_BONEFISH_LAYER)), 0.5f);
 	}
 
 	@Override

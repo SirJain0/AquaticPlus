@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.PikeEntity;
 import sirjain.aquaticplus.client.entity.models.PikeModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -10,7 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class PikeRenderer extends MobEntityRenderer<PikeEntity, PikeModel> {
 	public PikeRenderer(EntityRendererFactory.Context context) {
-		super(context, new PikeModel(context.getPart(AquaticPlusEntities.PIKE_LAYER)), 0.5f);
+		super(context, new PikeModel(context.getPart(AquaticPlusEntityLayers.PIKE_LAYER)), 0.5f);
 	}
 
 	@Override

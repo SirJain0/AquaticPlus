@@ -88,7 +88,7 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 		super.travel(movementInput);
 
 		if (this.hasActiveTarget() && this.isLogicalSideForUpdatingMovement())
-			this.move(MovementType.SELF, this.getRotationVector().multiply(0.16f));
+			this.move(MovementType.SELF, this.getRotationVector().multiply(0.12f));
 	}
 
 	// TODO: Make this system not case sensitive

@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.NeonCrabEntity;
 import sirjain.aquaticplus.client.entity.models.NeonCrabModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -10,7 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class NeonCrabRenderer extends MobEntityRenderer<NeonCrabEntity, NeonCrabModel> {
 	public NeonCrabRenderer(EntityRendererFactory.Context context) {
-		super(context, new NeonCrabModel(context.getPart(AquaticPlusEntities.NEON_CRAB_LAYER)), 0.5f);
+		super(context, new NeonCrabModel(context.getPart(AquaticPlusEntityLayers.NEON_CRAB_LAYER)), 0.5f);
 	}
 
 	@Override

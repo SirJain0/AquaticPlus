@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.ShadowSardelEasterEggEntity;
 import sirjain.aquaticplus.client.entity.models.MindinatorModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -12,7 +13,7 @@ public class MindinatorRenderer extends MobEntityRenderer<ShadowSardelEasterEggE
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/shadow_sardel/mindinator.png");
 
 	public MindinatorRenderer(EntityRendererFactory.Context context) {
-		super(context, new MindinatorModel(context.getPart(AquaticPlusEntities.MINDINATOR_LAYER)), 0.5f);
+		super(context, new MindinatorModel(context.getPart(AquaticPlusEntityLayers.MINDINATOR_LAYER)), 0.5f);
 	}
 
 	@Override

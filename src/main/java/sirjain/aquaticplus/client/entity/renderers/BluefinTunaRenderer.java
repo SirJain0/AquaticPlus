@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.BluefinTunaEntity;
 import sirjain.aquaticplus.client.entity.models.BluefinTunaModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -13,7 +14,7 @@ public class BluefinTunaRenderer extends MobEntityRenderer<BluefinTunaEntity, Bl
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/bluefin_tuna.png");
 
 	public BluefinTunaRenderer(EntityRendererFactory.Context context) {
-		super(context, new BluefinTunaModel(context.getPart(AquaticPlusEntities.BLUEFIN_TUNA_LAYER)), 0.5f);
+		super(context, new BluefinTunaModel(context.getPart(AquaticPlusEntityLayers.BLUEFIN_TUNA_LAYER)), 0.5f);
 	}
 
 	@Override

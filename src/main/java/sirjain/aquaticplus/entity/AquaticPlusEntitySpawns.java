@@ -8,6 +8,7 @@ import net.minecraft.entity.SpawnRestriction;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.BiomeKeys;
+import sirjain.aquaticplus.AquaticPlusUtil;
 
 public class AquaticPlusEntitySpawns {
 	public static void initEntitySpawns() {
@@ -62,10 +63,10 @@ public class AquaticPlusEntitySpawns {
 	}
 
 	public static void initRestrictions() {
-		for (EntityType<? extends MobEntity> entity : AquaticPlusEntities.SWIMMING_ENTITIES)
+		for (EntityType<? extends MobEntity> entity : AquaticPlusUtil.SWIMMING_ENTITIES)
 			SpawnRestriction.register(entity, SpawnRestriction.Location.IN_WATER, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MobEntity::canMobSpawn);
 
-		for (EntityType<? extends MobEntity> entity : AquaticPlusEntities.GROUND_ENTITIES)
+		for (EntityType<? extends MobEntity> entity : AquaticPlusUtil.GROUND_ENTITIES)
 			SpawnRestriction.register(entity, SpawnRestriction.Location.ON_GROUND, Heightmap.Type.MOTION_BLOCKING_NO_LEAVES, MobEntity::canMobSpawn);
 	}
 }

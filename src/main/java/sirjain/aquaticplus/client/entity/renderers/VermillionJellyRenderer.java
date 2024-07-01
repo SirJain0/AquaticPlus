@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.VermillionJellyEntity;
 import sirjain.aquaticplus.client.entity.models.VermillionJellyModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -15,7 +16,7 @@ public class VermillionJellyRenderer extends MobEntityRenderer<VermillionJellyEn
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/vermillion_jelly.png");
 
 	public VermillionJellyRenderer(EntityRendererFactory.Context context) {
-		super(context, new VermillionJellyModel(context.getPart(AquaticPlusEntities.VERMILLION_JELLY_LAYER)), 0.75f);
+		super(context, new VermillionJellyModel(context.getPart(AquaticPlusEntityLayers.VERMILLION_JELLY_LAYER)), 0.75f);
 	}
 
 	@Override

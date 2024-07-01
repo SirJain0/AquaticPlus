@@ -1,5 +1,8 @@
 package sirjain.aquaticplus;
 
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.WaterCreatureEntity;
 import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import sirjain.aquaticplus.entity.AquaticPlusEntitySpawns;
@@ -15,10 +18,17 @@ import net.minecraft.entity.projectile.thrown.ThrownEntity;
 import net.minecraft.server.world.ServerWorld;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Arrays;
+import java.util.List;
+
 // TODO: Populate this with random helper methods and fields in mod code
 public class AquaticPlusUtil {
 	// Makes the entity go the same speed underwater as in air
 	public static final double UNDERWATER_VELOCITY_MULTIPLIER = 1 / 0.8;
+
+	// Used in the registerEntityLists() method - vars declared here so they can be used elsewhere
+	public static List<EntityType<? extends MobEntity>> SWIMMING_ENTITIES;
+	public static List<EntityType<? extends MobEntity>> GROUND_ENTITIES;
 
 	// Phantom Jellyfish Attack: Shoots Plasma particles in line to target
 	// TODO: Add shooting sound
@@ -96,10 +106,56 @@ public class AquaticPlusUtil {
 		}
 	}
 
-	// Method that registers all of the mod's (non-client) content
+	// Registers lists of swimming and ground entities, used in spawning
+	public static void registerEntityLists() {
+
+		SWIMMING_ENTITIES = Arrays.asList(
+			AquaticPlusEntities.JOHNSON_ENTITY,
+			AquaticPlusEntities.MINDINATOR_ENTITY,
+			AquaticPlusEntities.SPIRITED_FISH_ENTITY,
+			AquaticPlusEntities.MAXILLA_MORTIS_ENTITY,
+			AquaticPlusEntities.PARROTFISH_ENTITY,
+			AquaticPlusEntities.KELP_EEL_ENTITY,
+			AquaticPlusEntities.SHADOW_SARDEL_ENTITY,
+			AquaticPlusEntities.BONEFISH_ENTITY,
+			AquaticPlusEntities.LONG_BONEFISH_ENTITY,
+			AquaticPlusEntities.OCULI_MAGNI_ENTITY,
+			AquaticPlusEntities.MANTA_RAY_ENTITY,
+			AquaticPlusEntities.VIPERFISH_ENTITY,
+			AquaticPlusEntities.DUMBO_BLOB_ENTITY,
+			AquaticPlusEntities.PINK_SUNFISH_ENTITY,
+			AquaticPlusEntities.LANTERNFISH_ENTITY,
+			AquaticPlusEntities.BLUEFIN_TUNA_ENTITY,
+			AquaticPlusEntities.GULPER_EEL_ENTITY,
+			AquaticPlusEntities.HALIBUT_ENTITY,
+			AquaticPlusEntities.SARDINE_ENTITY,
+			AquaticPlusEntities.MINNOW_ENTITY,
+			AquaticPlusEntities.LIONFISH_ENTITY,
+			AquaticPlusEntities.FROSTED_SPLASHER_ENTITY,
+			AquaticPlusEntities.JELLYFISH_ENTITY,
+			AquaticPlusEntities.NARWHAL_ENTITY,
+			AquaticPlusEntities.ALLIGATOR_GAR_ENTITY,
+			AquaticPlusEntities.VOLAN_AURORA_ENTITY,
+			AquaticPlusEntities.PIKE_ENTITY,
+			AquaticPlusEntities.RIBBON_EEL_ENTITY,
+			AquaticPlusEntities.STONEFISH_ENTITY,
+			AquaticPlusEntities.VERMILLION_JELLY_ENTITY,
+			AquaticPlusEntities.PHANTOM_JELLYFISH_ENTITY
+		);
+
+		GROUND_ENTITIES = Arrays.asList(
+			AquaticPlusEntities.NEON_CRAB_ENTITY,
+			AquaticPlusEntities.SEA_PEN_ENTITY,
+			AquaticPlusEntities.DEEP_SEA_ISOPOD_ENTITY,
+			AquaticPlusEntities.YETI_CRAB_ENTITY
+		);
+	}
+
+	// Registers all of the mod's (non-client) content
 	public static void registerContent() {
+		AquaticPlusEntities.registerEntityTypes();
+		AquaticPlusUtil.registerEntityLists();
 		AquaticPlusEntities.registerAttributes();
-		AquaticPlusEntities.registerEntityRenderers();
 		AquaticPlusStatusEffects.registerModEffects();
 		AquaticPlusFoodItems.registerFoodComponents();
 		AquaticPlusParticles.registerParticles();

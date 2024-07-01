@@ -1,6 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
 import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.entity.entities.DumboBlobEntity;
 import sirjain.aquaticplus.client.entity.features.DumboBlobEmissiveTextureFeature;
 import sirjain.aquaticplus.client.entity.models.DumboBlobModel;
@@ -11,7 +12,7 @@ import net.minecraft.util.Identifier;
 
 public class DumboBlobRenderer extends MobEntityRenderer<DumboBlobEntity, DumboBlobModel> {
 	public DumboBlobRenderer(EntityRendererFactory.Context context) {
-		super(context, new DumboBlobModel(context.getPart(AquaticPlusEntities.DUMBO_BLOB_LAYER)), 0.75f);
+		super(context, new DumboBlobModel(context.getPart(AquaticPlusEntityLayers.DUMBO_BLOB_LAYER)), 0.75f);
 		this.addFeature(new DumboBlobEmissiveTextureFeature<>(this));
 	}
 
