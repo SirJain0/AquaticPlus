@@ -29,8 +29,6 @@ import sirjain.aquaticplus.item.AquaticPlusItems;
 
 /*
 TODO:
-- Make and add model
-- Animate
 - Attack ability when riding
  */
 public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
