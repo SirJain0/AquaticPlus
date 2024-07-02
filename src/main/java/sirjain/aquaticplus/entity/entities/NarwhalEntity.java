@@ -47,7 +47,7 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	protected void initGoals() {
 		super.initGoals();
 		this.goalSelector.add(4, new EscapeDangerGoal(this, 1.45));
-		this.goalSelector.add(2, new TemptGoal(this, this.isSaddled() ? 1 : 0.7f, Ingredient.ofItems(AquaticPlusItems.HALIBUT), this.isSaddled()));
+		this.goalSelector.add(2, new TemptGoal(this, 0.7f, Ingredient.ofItems(AquaticPlusItems.HALIBUT), false));
 	}
 
 	@Nullable
@@ -164,7 +164,7 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 			if (this.isLogicalSideForUpdatingMovement())
 				this.move(MovementType.SELF, this.getRotationVector().multiply(0.11f));
 
-			super.travel(movementInput.multiply(2f));
+			super.travel(movementInput);
 		}
 
 		if (!this.isSubmergedInWater() && this.isLogicalSideForUpdatingMovement()) {

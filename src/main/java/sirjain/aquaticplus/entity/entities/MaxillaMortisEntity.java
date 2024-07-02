@@ -88,7 +88,7 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 		super.travel(movementInput);
 
 		if (this.hasActiveTarget() && this.isLogicalSideForUpdatingMovement())
-			this.move(MovementType.SELF, this.getRotationVector().multiply(0.12f));
+			this.move(MovementType.SELF, this.getRotationVector().multiply(0.08f));
 	}
 
 	// TODO: Make this system not case sensitive
@@ -143,7 +143,7 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 		return FishEntity
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 36)
-			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 4)
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 2.5f)
 			.add(EntityAttributes.GENERIC_ATTACK_KNOCKBACK, 2)
 			.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 7);
 	}

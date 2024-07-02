@@ -50,9 +50,9 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 		super.initGoals();
 		this.goalSelector.add(4, new EscapeDangerGoal(this, 1.45));
 		this.goalSelector.add(2, new TemptGoal(
-			this, this.isSaddled() ? 1 : 0.7f,
+			this, 0.7f,
 			Ingredient.ofItems(AquaticPlusItems.PINK_JELLY, AquaticPlusItems.WHITE_JELLY, AquaticPlusItems.YELLOW_JELLY),
-			this.isSaddled()
+			false
 		));
 	}
 
