@@ -47,6 +47,7 @@ public class AquaticPlusEntities<T extends Entity> {
 	public static EntityType<FrostedSplasherEntity> FROSTED_SPLASHER_ENTITY;
 	public static EntityType<JellyfishEntity> JELLYFISH_ENTITY;
 	public static EntityType<NarwhalEntity> NARWHAL_ENTITY;
+	public static EntityType<SwordfishEntity> SWORDFISH_ENTITY;
 	public static EntityType<NeonCrabEntity> NEON_CRAB_ENTITY;
 	public static EntityType<AlligatorGarEntity> ALLIGATOR_GAR_ENTITY;
 	public static EntityType<SeaPenEntity> SEA_PEN_ENTITY;
@@ -91,6 +92,7 @@ public class AquaticPlusEntities<T extends Entity> {
 		FROSTED_SPLASHER_ENTITY = registerEntityType("frosted_splasher", FrostedSplasherEntity::new, 0.6f, 0.5f);
 		JELLYFISH_ENTITY = registerEntityType("jellyfish", JellyfishEntity::new, 0.4f, 0.4f);
 		NARWHAL_ENTITY = registerEntityType("narwhal", NarwhalEntity::new, 0.6f, 0.6f);
+		SWORDFISH_ENTITY = registerEntityType("swordfish", SwordfishEntity::new, 0.6f, 0.6f);
 		NEON_CRAB_ENTITY = registerEntityType("neon_crab_entity", NeonCrabEntity::new, 0.4f, 0.3f);
 		ALLIGATOR_GAR_ENTITY = registerEntityType("alligator_gar", AlligatorGarEntity::new, 0.5f, 0.5f);
 		SEA_PEN_ENTITY = registerEntityType("sea_pen", SeaPenEntity::new, 0.5f, 0.5f);

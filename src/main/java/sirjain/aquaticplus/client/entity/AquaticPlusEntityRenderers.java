@@ -35,6 +35,7 @@ public class AquaticPlusEntityRenderers {
 		EntityRendererRegistry.register(AquaticPlusEntities.FROSTED_SPLASHER_ENTITY, FrostedSplasherRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.JELLYFISH_ENTITY, JellyfishRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.NARWHAL_ENTITY, NarwhalRenderer::new);
+		EntityRendererRegistry.register(AquaticPlusEntities.SWORDFISH_ENTITY, SwordfishRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.NEON_CRAB_ENTITY, NeonCrabRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.ALLIGATOR_GAR_ENTITY, AlligatorGarRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.SEA_PEN_ENTITY, SeaPenRenderer::new);
