@@ -56,9 +56,11 @@ public class VermillionJellyEntity extends APSchoolingFishEntity implements Rang
 
 	@Override
 	public void tick() {
+		// Heals entity every 2 seconds
 		if (this.age % 40 == 0)
 			this.heal(1);
 
+		// Sets up animations
 		if (this.getWorld().isClient)
 			this.setupAnimationStates();
 

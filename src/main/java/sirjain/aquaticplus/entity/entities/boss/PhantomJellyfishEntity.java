@@ -4,6 +4,7 @@ import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.entity.AnimationState;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.brain.Brain;
 import net.minecraft.entity.ai.brain.task.WanderAroundTask;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
@@ -13,6 +14,7 @@ import net.minecraft.entity.boss.ServerBossBar;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -54,7 +56,10 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 
 	@Override
 	public void tick() {
-		super.tick();
+		// Stores entities in direct proximity of entity
+		List<Entity> entities = this.getWorld()
+			.getOtherEntities(this, this.getBoundingBox()
+				.expand(0.6f), EntityPredicates.VALID_LIVING_ENTITY);
 
 		// Set up animations and display particles
 		if (this.getWorld().isClient) {
@@ -69,6 +74,14 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 		if (!this.getWorld().isClient && this.getHealth() < this.getMaxHealth() / 2 && this.age % 35 == 0) {
 			this.heal(2);
 		}
+
+		// Hurts entities that "touch" it
+		for (Entity entity : entities) {
+			if (!(entity instanceof LivingEntity)) continue;
+			entity.damage(entity.getDamageSources().mobAttackNoAggro(this), 1);
+		}
+
+		super.tick();
 	}
 
 	// Handles the animation
