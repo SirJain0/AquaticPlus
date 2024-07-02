@@ -19,7 +19,6 @@ import sirjain.aquaticplus.entity.entities.template.AbstractCrabEntity;
 /*
 TODO for entities:
 - Check all hitboxes and shadow radiuses
-- Refactor system? + separate into two classes
 - Make API for being saddleable/mountable
  */
 
