@@ -1,5 +1,7 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
+import net.minecraft.client.render.VertexConsumerProvider;
+import net.minecraft.client.render.debug.DebugRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.client.util.math.MatrixStack;
@@ -26,5 +28,11 @@ public class SwordfishRenderer extends MobEntityRenderer<SwordfishEntity, Swordf
 	@Override
 	protected void scale(SwordfishEntity entity, MatrixStack matrices, float amount) {
 		matrices.scale(1.25f, 1.25f, 1.25f);
+	}
+
+	@Override
+	public void render(SwordfishEntity mobEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
+//		DebugRenderer.drawBox(matrixStack, vertexConsumerProvider, mobEntity.box, 1, 1, 1, 1);
+		super.render(mobEntity, f, g, matrixStack, vertexConsumerProvider, i);
 	}
 }

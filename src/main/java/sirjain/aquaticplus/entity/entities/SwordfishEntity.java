@@ -22,21 +22,23 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 
-/*
-TODO:
-- Attack ability when riding
- */
+import java.util.List;
+
 public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(SwordfishEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(SwordfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Boolean> SITTING = DataTracker.registerData(SwordfishEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
 	private final SaddledComponent saddledComponent;
+	private boolean isAccelerating;
+//	public Box box;
 
 	public SwordfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
@@ -52,6 +54,12 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 			Ingredient.ofItems(AquaticPlusItems.PINK_JELLY, AquaticPlusItems.WHITE_JELLY, AquaticPlusItems.YELLOW_JELLY),
 			false
 		));
+	}
+
+	@Nullable
+	@Override
+	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
 	}
 
 	// Code for dealing with making it mountable and ridable
@@ -112,12 +120,13 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 				forwardSpeed *= 0.25F;
 
 			if (this.isLogicalSideForUpdatingMovement()) {
+				boolean isSprinting = MinecraftClient.getInstance().options.sprintKey.isPressed();
+				float movementSpeed = isSprinting ? forwardSpeed / 1.5f : forwardSpeed / 2.5f;
+
 				this.setMovementSpeed((float) this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED));
-				this.move(MovementType.SELF, this.getRotationVector().multiply(
-					MinecraftClient.getInstance().options.sprintKey.isPressed()
-						? forwardSpeed / 1.5f
-						: forwardSpeed / 2.5f
-				));
+				this.move(MovementType.SELF, this.getRotationVector().multiply(movementSpeed));
+
+				this.setAccelerating(isSprinting);
 
 				super.travel(new Vec3d(sidewaysSpeed, movementInput.y, forwardSpeed));
 			}
@@ -125,12 +134,20 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 			if (this.isLogicalSideForUpdatingMovement())
 				this.move(MovementType.SELF, this.getRotationVector().multiply(0.11f));
 
-			super.travel(movementInput.multiply(2f));
+			super.travel(movementInput);
 		}
 
 		if (!this.isSubmergedInWater() && this.isLogicalSideForUpdatingMovement()) {
 			this.setVelocity(this.getVelocity().x, -0.7f, this.getVelocity().z);
 		}
+	}
+
+	public boolean isAccelerating() {
+		return this.isAccelerating;
+	}
+
+	public void setAccelerating(boolean newAccelerationState) {
+		this.isAccelerating = newAccelerationState;
 	}
 
 	@Override
@@ -184,6 +201,27 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 	@Override
 	public void tickMovement() {
 		if (!this.isSitting()) super.tickMovement();
+	}
+
+	@Override
+	protected void mobTick() {
+		BlockPos pos = this.getBlockPos();
+
+		// TODO: Make this the right coordinates
+		Box box = new Box(new BlockPos(pos.getX() + 2, pos.getY(), pos.getZ())).expand(1).stretch(0.3f, 0, 0);
+		List<Entity> targetEntities = this.getWorld().getOtherEntities(this, box);
+
+		// TODO: Get them to hurt
+		for (var entity : targetEntities) {
+			if (this.isAccelerating()) {
+				entity.damage(entity.getDamageSources().mobAttack(this), 3);
+				System.out.println("hurt entity");
+			}
+
+			System.out.println("targeted entity");
+		}
+
+		super.mobTick();
 	}
 
 	@Override
