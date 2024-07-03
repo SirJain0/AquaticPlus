@@ -107,7 +107,6 @@ public class AquaticPlusUtil {
 
 	// Registers lists of swimming and ground entities, used in spawning
 	public static void registerEntityLists() {
-
 		SWIMMING_ENTITIES = Arrays.asList(
 			AquaticPlusEntities.JOHNSON_ENTITY,
 			AquaticPlusEntities.MINDINATOR_ENTITY,

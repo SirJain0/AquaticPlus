@@ -52,7 +52,7 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 		this.goalSelector.add(2, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
 		this.goalSelector.add(0, new AttackGoal(this));
 		// TODO: Make the bait item shrimp when it is added
-		this.goalSelector.add(2, new TemptGoal(this, this.isSaddled() ? 1 : 0.7f, Ingredient.ofItems(AquaticPlusItems.HALIBUT), this.isSaddled()));
+		this.goalSelector.add(2, new TemptGoal(this, 0.7f, Ingredient.ofItems(AquaticPlusItems.HALIBUT), false));
 
 		this.targetSelector.add(0, new ActiveTargetGoal<>(this, LanternfishEntity.class, true, true));
 	}

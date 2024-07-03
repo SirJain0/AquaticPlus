@@ -2,6 +2,7 @@ package sirjain.aquaticplus.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
+import net.minecraft.client.render.entity.feature.EnergySwirlOverlayFeatureRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -19,7 +20,6 @@ import sirjain.aquaticplus.entity.entities.template.AbstractCrabEntity;
 /*
 TODO for entities:
 - Check all hitboxes and shadow radiuses
-- Refactor system? + separate into two classes
 - Make API for being saddleable/mountable
  */
 
@@ -48,6 +48,7 @@ public class AquaticPlusEntities<T extends Entity> {
 	public static EntityType<FrostedSplasherEntity> FROSTED_SPLASHER_ENTITY;
 	public static EntityType<JellyfishEntity> JELLYFISH_ENTITY;
 	public static EntityType<NarwhalEntity> NARWHAL_ENTITY;
+	public static EntityType<SwordfishEntity> SWORDFISH_ENTITY;
 	public static EntityType<NeonCrabEntity> NEON_CRAB_ENTITY;
 	public static EntityType<AlligatorGarEntity> ALLIGATOR_GAR_ENTITY;
 	public static EntityType<SeaPenEntity> SEA_PEN_ENTITY;
@@ -92,6 +93,7 @@ public class AquaticPlusEntities<T extends Entity> {
 		FROSTED_SPLASHER_ENTITY = registerEntityType("frosted_splasher", FrostedSplasherEntity::new, 0.6f, 0.5f);
 		JELLYFISH_ENTITY = registerEntityType("jellyfish", JellyfishEntity::new, 0.4f, 0.4f);
 		NARWHAL_ENTITY = registerEntityType("narwhal", NarwhalEntity::new, 0.6f, 0.6f);
+		SWORDFISH_ENTITY = registerEntityType("swordfish", SwordfishEntity::new, 0.6f, 0.6f);
 		NEON_CRAB_ENTITY = registerEntityType("neon_crab_entity", NeonCrabEntity::new, 0.4f, 0.3f);
 		ALLIGATOR_GAR_ENTITY = registerEntityType("alligator_gar", AlligatorGarEntity::new, 0.5f, 0.5f);
 		SEA_PEN_ENTITY = registerEntityType("sea_pen", SeaPenEntity::new, 0.5f, 0.5f);
@@ -172,6 +174,7 @@ public class AquaticPlusEntities<T extends Entity> {
 		FabricDefaultAttributeRegistry.register(FROSTED_SPLASHER_ENTITY, FrostedSplasherEntity.createFrostedSplasherAttributes());
 		FabricDefaultAttributeRegistry.register(JELLYFISH_ENTITY, JellyfishEntity.createJellyfishAttributes());
 		FabricDefaultAttributeRegistry.register(NARWHAL_ENTITY, NarwhalEntity.createNarwhalAttributes());
+		FabricDefaultAttributeRegistry.register(SWORDFISH_ENTITY, SwordfishEntity.createSwordfishAttributes());
 		FabricDefaultAttributeRegistry.register(NEON_CRAB_ENTITY, AbstractCrabEntity.createCrabAttributes());
 		FabricDefaultAttributeRegistry.register(ALLIGATOR_GAR_ENTITY, AlligatorGarEntity.createAlligatorGarAttributes());
 		FabricDefaultAttributeRegistry.register(SEA_PEN_ENTITY, SeaPenEntity.createSeaPenAttributes());

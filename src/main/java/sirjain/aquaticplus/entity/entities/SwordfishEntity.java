@@ -14,7 +14,6 @@ import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
@@ -30,15 +29,18 @@ import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 
-public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
-	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.INTEGER);
-	private static final TrackedData<Boolean> DOUBLE_TUSKED = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
-	private static final TrackedData<Boolean> SITTING = DataTracker.registerData(NarwhalEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+import java.util.List;
+
+public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
+	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(SwordfishEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+	private static final TrackedData<Integer> BOOST_TIME = DataTracker.registerData(SwordfishEntity.class, TrackedDataHandlerRegistry.INTEGER);
+	private static final TrackedData<Boolean> SITTING = DataTracker.registerData(SwordfishEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
 	private final SaddledComponent saddledComponent;
+	private boolean isAccelerating;
+//	public Box box;
 
-	public NarwhalEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
+	public SwordfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
 		this.saddledComponent = new SaddledComponent(this.dataTracker, BOOST_TIME, SADDLED);
 	}
@@ -47,39 +49,17 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	protected void initGoals() {
 		super.initGoals();
 		this.goalSelector.add(4, new EscapeDangerGoal(this, 1.45));
-		this.goalSelector.add(2, new TemptGoal(this, 0.7f, Ingredient.ofItems(AquaticPlusItems.HALIBUT), false));
+		this.goalSelector.add(2, new TemptGoal(
+			this, 0.7f,
+			Ingredient.ofItems(AquaticPlusItems.PINK_JELLY, AquaticPlusItems.WHITE_JELLY, AquaticPlusItems.YELLOW_JELLY),
+			false
+		));
 	}
 
 	@Nullable
 	@Override
 	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-		if (this.getRandom().nextInt(40) == 0) {
-			this.setDoubleTusked(true);
-			this.getAttributeInstance(EntityAttributes.GENERIC_MAX_HEALTH).setBaseValue(30);
-			this.heal(this.getMaxHealth());
-		}
-
 		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
-	}
-
-	@Override
-	public void tickControlled(PlayerEntity controllingPlayer, Vec3d movementInput) {
-		super.tickControlled(controllingPlayer, movementInput);
-
-		if (this.age % 20*5 == 0 && controllingPlayer.getHealth() < controllingPlayer.getMaxHealth()) {
-			if (!this.getWorld().isClient) this.heal(1);
-			if (this.getWorld().isClient) this.spawnHealingParticle(controllingPlayer);
-		}
-	}
-
-	public void spawnHealingParticle(PlayerEntity controllingPlayer) {
-		this.getWorld().addParticle(
-			ParticleTypes.HEART,
-			controllingPlayer.getX(),
-			controllingPlayer.getRandomBodyY(),
-			controllingPlayer.getZ(),
-			0, 0.04f, 0
-		);
 	}
 
 	// Code for dealing with making it mountable and ridable
@@ -88,7 +68,6 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		super.initDataTracker();
 
 		this.dataTracker.startTracking(SADDLED, false);
-		this.dataTracker.startTracking(DOUBLE_TUSKED, false);
 		this.dataTracker.startTracking(BOOST_TIME, 0);
 		this.dataTracker.startTracking(SITTING, false);
 	}
@@ -98,7 +77,6 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		super.writeCustomDataToNbt(nbt);
 
 		this.saddledComponent.writeNbt(nbt);
-		nbt.putBoolean("double_tusked", this.isDoubleTusked());
 		nbt.putBoolean("sitting", this.isSitting());
 	}
 
@@ -107,16 +85,7 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		super.readCustomDataFromNbt(nbt);
 
 		this.saddledComponent.readNbt(nbt);
-		this.setDoubleTusked(nbt.getBoolean("double_tusked"));
 		this.setSitting(nbt.getBoolean("sitting"));
-	}
-
-	public boolean isDoubleTusked() {
-		return this.dataTracker.get(DOUBLE_TUSKED);
-	}
-
-	public void setDoubleTusked(boolean val) {
-		this.dataTracker.set(DOUBLE_TUSKED, val);
 	}
 
 	public boolean isSitting() {
@@ -151,12 +120,13 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 				forwardSpeed *= 0.25F;
 
 			if (this.isLogicalSideForUpdatingMovement()) {
+				boolean isSprinting = MinecraftClient.getInstance().options.sprintKey.isPressed();
+				float movementSpeed = isSprinting ? forwardSpeed / 1.5f : forwardSpeed / 2.5f;
+
 				this.setMovementSpeed((float) this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED));
-				this.move(MovementType.SELF, this.getRotationVector().multiply(
-					MinecraftClient.getInstance().options.sprintKey.isPressed()
-						? forwardSpeed / 1.5f
-						: forwardSpeed / 2.5f
-				));
+				this.move(MovementType.SELF, this.getRotationVector().multiply(movementSpeed));
+
+				this.setAccelerating(isSprinting);
 
 				super.travel(new Vec3d(sidewaysSpeed, movementInput.y, forwardSpeed));
 			}
@@ -170,6 +140,14 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		if (!this.isSubmergedInWater() && this.isLogicalSideForUpdatingMovement()) {
 			this.setVelocity(this.getVelocity().x, -0.7f, this.getVelocity().z);
 		}
+	}
+
+	public boolean isAccelerating() {
+		return this.isAccelerating;
+	}
+
+	public void setAccelerating(boolean newAccelerationState) {
+		this.isAccelerating = newAccelerationState;
 	}
 
 	@Override
@@ -211,7 +189,7 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
 		if (hand == Hand.MAIN_HAND && this.isSaddled()) {
-			if (player.getStackInHand(hand).isOf(AquaticPlusItems.HALIBUT)) this.setSitting(!this.isSitting());
+			if (player.getStackInHand(hand).isOf(Items.COD)) this.setSitting(!this.isSitting());
 			else this.setRiding(player);
 
 			return ActionResult.SUCCESS;
@@ -223,6 +201,27 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 	@Override
 	public void tickMovement() {
 		if (!this.isSitting()) super.tickMovement();
+	}
+
+	@Override
+	protected void mobTick() {
+		BlockPos pos = this.getBlockPos();
+
+		// TODO: Make this the right coordinates
+		Box box = new Box(new BlockPos(pos.getX() + 2, pos.getY(), pos.getZ())).expand(1).stretch(0.3f, 0, 0);
+		List<Entity> targetEntities = this.getWorld().getOtherEntities(this, box);
+
+		// TODO: Get them to hurt
+		for (var entity : targetEntities) {
+			if (this.isAccelerating()) {
+				entity.damage(entity.getDamageSources().mobAttack(this), 3);
+				System.out.println("hurt entity");
+			}
+
+			System.out.println("targeted entity");
+		}
+
+		super.mobTick();
 	}
 
 	@Override
@@ -246,9 +245,9 @@ public class NarwhalEntity extends NoBucketSchoolingFishEntity implements Saddle
 		if (this.isSaddled()) this.dropItem(Items.SADDLE);
 	}
 
-	public static DefaultAttributeContainer.Builder createNarwhalAttributes() {
+	public static DefaultAttributeContainer.Builder createSwordfishAttributes() {
 		return FishEntity
 			.createFishAttributes()
-			.add(EntityAttributes.GENERIC_MAX_HEALTH, 18);
+			.add(EntityAttributes.GENERIC_MAX_HEALTH, 20);
 	}
 }

@@ -32,6 +32,7 @@ public class AquaticPlusEntityLayers {
 	public static EntityModelLayer FROSTED_SPLASHER_LAYER;
 	public static EntityModelLayer JELLYFISH_LAYER;
 	public static EntityModelLayer NARWHAL_LAYER;
+	public static EntityModelLayer SWORDFISH_LAYER;
 	public static EntityModelLayer NEON_CRAB_LAYER;
 	public static EntityModelLayer ALLIGATOR_GAR_LAYER;
 	public static EntityModelLayer SEA_PEN_LAYER;
@@ -70,6 +71,7 @@ public class AquaticPlusEntityLayers {
 		FROSTED_SPLASHER_LAYER = registerEntityLayer("frosted_splasher");
 		JELLYFISH_LAYER = registerEntityLayer("jellyfish");
 		NARWHAL_LAYER = registerEntityLayer("narwhal");
+		SWORDFISH_LAYER = registerEntityLayer("swordfish");
 		NEON_CRAB_LAYER = registerEntityLayer("neon_crab");
 		ALLIGATOR_GAR_LAYER = registerEntityLayer("alligator_gar");
 		SEA_PEN_LAYER = registerEntityLayer("sea_pen");
@@ -111,6 +113,7 @@ public class AquaticPlusEntityLayers {
 		EntityModelLayerRegistry.registerModelLayer(FROSTED_SPLASHER_LAYER, FrostedSplasherModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(JELLYFISH_LAYER, JellyfishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(NARWHAL_LAYER, NarwhalModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(SWORDFISH_LAYER, SwordfishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(NEON_CRAB_LAYER, NeonCrabModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(ALLIGATOR_GAR_LAYER, AlligatorGarModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SEA_PEN_LAYER, SeaPenModel::getTexturedModelData);
