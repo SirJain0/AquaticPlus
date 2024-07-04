@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" v ",
+		"vav",
+		" v "
+	],
+	"key": {
+		"v": {
+			"item": "aquaticplus:stonefish_venom"
+		},
+		"a": {
+			"item": "aquaticplus:aquatic_star"
+		}
+	},
+	"result": {
+		"item": "aquaticplus:numbing_aquatic_star",
+		"count": 1
+	}
+}
