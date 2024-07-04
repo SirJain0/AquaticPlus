@@ -7,6 +7,7 @@ import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.util.math.MathHelper;
 import sirjain.aquaticplus.entity.entities.OculiMagniEntity;
 
+// TODO: Remodel
 public class OculiMagniModel extends EntityModel<OculiMagniEntity> {
 	private final ModelPart root;
 	private final ModelPart main;

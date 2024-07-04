@@ -5,6 +5,7 @@ import net.minecraft.client.world.ClientWorld;
 import net.minecraft.particle.DefaultParticleType;
 import org.jetbrains.annotations.Nullable;
 
+// TODO: Redo texture
 public class VermillionRadiationParticle extends AbstractSlowingParticle {
 	public VermillionRadiationParticle(ClientWorld clientWorld, double d, double e, double f, double g, double h, double i) {
 		super(clientWorld, d, e, f, g, h, i);
