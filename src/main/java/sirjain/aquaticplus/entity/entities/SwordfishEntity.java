@@ -215,10 +215,10 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 		for (var entity : targetEntities) {
 			if (this.isAccelerating()) {
 				entity.damage(entity.getDamageSources().mobAttack(this), 3);
-				System.out.println("hurt entity");
+//				System.out.println("hurt entity");
 			}
 
-			System.out.println("targeted entity");
+//			System.out.println("targeted entity");
 		}
 
 		super.mobTick();
