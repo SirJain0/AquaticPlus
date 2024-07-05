@@ -5,6 +5,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.projectile.thrown.ThrownEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
+import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
@@ -30,7 +33,6 @@ public class AquaticPlusUtil {
 	public static List<EntityType<? extends MobEntity>> GROUND_ENTITIES;
 
 	// Phantom Jellyfish Attack: Shoots Plasma particles in line to target
-	// TODO: Add shooting sound
 	public static void performPlasmaBeamShootAttack(LivingEntity attacker, @Nullable LivingEntity target) {
 		ThrownEntity projectile = new PlasmaEntity(attacker.getWorld(), attacker, true);
 
@@ -48,10 +50,10 @@ public class AquaticPlusUtil {
 		}
 
 		attacker.getWorld().spawnEntity(projectile);
+		playPlasmaFireSound(attacker);
 	}
 
 	// Phantom Jellyfish Attack: Shoots Plasma core particles to target
-	// TODO: Add shooting sound
 	public static void performPlasmaBallShootAttack(LivingEntity attacker, @Nullable LivingEntity target, int numParticles) {
 		if (target != null) {
 			double xCoord = target.getX() - attacker.getX();
@@ -73,12 +75,13 @@ public class AquaticPlusUtil {
 				attacker.getWorld().spawnEntity(projectile);
 			}
 		}
+
+		playPlasmaFireSound(attacker);
 	}
 
 	// Phantom Jellyfish Attack: Shoots particles in a radius circle
-	// TODO: Add shooting sound
 	public static void performShockwaveAttack(LivingEntity attacker, @Nullable LivingEntity target) {
-		ServerWorld world = (ServerWorld) attacker.getWorld();
+		World world = attacker.getWorld();
 		int particleAmount = 15;
 		float angleInterval = 360f / (float) particleAmount;
 
@@ -96,13 +99,20 @@ public class AquaticPlusUtil {
 				lavaProjectile.setPos(attacker.getX(), attacker.getY() + 3.2f, attacker.getZ());
 				lavaProjectile.setVelocity(velocityX, (yCoord * (double) 0.1f) - 0.25f, velocityZ, 1.2f, 0);
 			}  else {
-				lavaProjectile.setPos(attacker.getX(), attacker.getY() + 3.2f, attacker.getZ());
+				lavaProjectile.setPos(attacker.getX(), attacker.getY(), attacker.getZ());
 				lavaProjectile.setVelocity(velocityX, 0, velocityZ, 1.2f, 0);
 			}
 
 			lavaProjectile.velocityDirty = true;
 			world.spawnEntity(lavaProjectile);
 		}
+
+		playPlasmaFireSound(attacker);
+	}
+
+	// Helper method that plays the shoot sound of the plasma
+	public static void playPlasmaFireSound(LivingEntity attacker) {
+		attacker.getWorld().playSound(attacker, attacker.getBlockPos(), SoundEvents.ENTITY_BLAZE_SHOOT, SoundCategory.NEUTRAL, 0.8f,0.7f);
 	}
 
 	// Registers lists of swimming and ground entities, used in spawning
