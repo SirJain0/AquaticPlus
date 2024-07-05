@@ -94,7 +94,7 @@ public class MaxillaMortisEntity extends NoBucketFishEntity {
 	@Override
 	public void setCustomName(@Nullable Text name) {
 		super.setCustomName(name);
-		this.setCanBeRecolored(name != null && name.getString().equalsIgnoreCase("fibula"));
+		this.setCanBeRecolored(name != null && name.getString().equalsIgnoreCase("porple"));
 	}
 
 	@Override
