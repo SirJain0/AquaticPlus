@@ -6,6 +6,8 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
@@ -49,9 +51,6 @@ public abstract class ShootingStaffItem extends Item {
 			projectile.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, getProjectileVelocity(), divergence);
 			world.spawnEntity(projectile);
 		}
-
-		// TODO: Add custom staff sound
-		// world.playSound(null, user.getX(), user.getY(), user.getZ(), MythicManiaSoundEvents.SHOCK_BOLT_STAFF_FIRE, SoundCategory.NEUTRAL, 0.7F, 2.5F);
 
 		return super.use(world, user, hand);
 	}
