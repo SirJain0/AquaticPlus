@@ -206,7 +206,7 @@ public class AquaticPlusItems {
 		NEON_CRAB_SPAWN_EGG = registerSpawnEggItem("neon_crab", AquaticPlusEntities.NEON_CRAB_ENTITY, 0x4bb7b0, 0x5bc33b);
 		ALLIGATOR_GAR_SPAWN_EGG = registerSpawnEggItem("alligator_gar", AquaticPlusEntities.ALLIGATOR_GAR_ENTITY, 0xbba461, 0x51566d);
 		SEA_PEN_SPAWN_EGG = registerSpawnEggItem("sea_pen", AquaticPlusEntities.SEA_PEN_ENTITY, 0xd2a746, 0x9a5f32);
-		VOLAN_AURORA_SPAWN_EGG = registerCustomItem("volan_aurora_spawn_egg", new VolanAuroraSpawnEggItem());
+		VOLAN_AURORA_SPAWN_EGG = registerSpawnEggItem("volan_aurora", AquaticPlusEntities.VOLAN_AURORA_ENTITY, -1, -1);
 		PIKE_SPAWN_EGG = registerSpawnEggItem("pike", AquaticPlusEntities.PIKE_ENTITY, 0x544631, 0x7c7051);
 		RIBBON_EEL_SPAWN_EGG = registerSpawnEggItem("ribbon_eel", AquaticPlusEntities.RIBBON_EEL_ENTITY, 0x50acf2, 0xffd444);
 		DEEP_SEA_ISOPOD_SPAWN_EGG = registerSpawnEggItem("deep_sea_isopod", AquaticPlusEntities.DEEP_SEA_ISOPOD_ENTITY, 0xd6ccab, 0x917f6d);
