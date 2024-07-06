@@ -7,6 +7,7 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
@@ -61,7 +62,7 @@ public class TeleportAttackerGoal extends Goal {
 			}
 		}
 
-//		if (world.isClient) world.addParticle(ParticleTypes.PORTAL, attacker.getX(), attacker.getRandomBodyY(), attacker.getZ(), 0, -0.02, 0);
+		((ServerWorld) world).spawnParticles(ParticleTypes.PORTAL, attacker.getX(), attacker.getRandomBodyY(), attacker.getZ(), 10, 0, -0.02, 0, 0.4f);
 		attacker.teleport(attackerPos.x - randX, yPos, attackerPos.z - randZ);
 
 		oculiMagni.setTeleportationTracker(true);
