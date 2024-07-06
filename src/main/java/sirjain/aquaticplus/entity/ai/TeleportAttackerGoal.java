@@ -4,6 +4,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -56,8 +58,9 @@ public class TeleportAttackerGoal extends Goal {
 			}
 		}
 
-		// TODO: Add sound and particles when teleportation happens
+		((ServerWorld) world).spawnParticles(ParticleTypes.PORTAL, attacker.getX(), attacker.getRandomBodyY(), attacker.getZ(), 10, 0, -0.02, 0, 0.4f);
 		attacker.teleport(attackerPos.x - randX, yPos, attackerPos.z - randZ);
+
 		oculiMagni.setTeleportationTracker(true);
 	}
 
