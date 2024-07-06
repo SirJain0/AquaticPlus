@@ -2,8 +2,13 @@ package sirjain.aquaticplus.entity.ai;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.particle.Particle;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.ai.goal.Goal;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -56,10 +61,14 @@ public class TeleportAttackerGoal extends Goal {
 			}
 		}
 
-		// TODO: Add sound and particles when teleportation happens
+//		if (world.isClient) world.addParticle(ParticleTypes.PORTAL, attacker.getX(), attacker.getRandomBodyY(), attacker.getZ(), 0, -0.02, 0);
 		attacker.teleport(attackerPos.x - randX, yPos, attackerPos.z - randZ);
+		attacker.teleportTo
+
 		oculiMagni.setTeleportationTracker(true);
 	}
+
+
 
 	private boolean isBlock(World world, BlockPos attackerBlockPos, int yCounter, Block block) {
 		return world.getBlockState(attackerBlockPos.up(yCounter)).isOf(block);
