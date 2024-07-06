@@ -63,7 +63,6 @@ public class TeleportAttackerGoal extends Goal {
 
 //		if (world.isClient) world.addParticle(ParticleTypes.PORTAL, attacker.getX(), attacker.getRandomBodyY(), attacker.getZ(), 0, -0.02, 0);
 		attacker.teleport(attackerPos.x - randX, yPos, attackerPos.z - randZ);
-		attacker.teleportTo
 
 		oculiMagni.setTeleportationTracker(true);
 	}
