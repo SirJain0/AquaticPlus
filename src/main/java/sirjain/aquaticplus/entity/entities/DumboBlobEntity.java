@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -59,9 +60,9 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-		// TODO: Change to proper plant item
-		if (player.getStackInHand(hand).getItem() == Items.WHEAT_SEEDS) {
+		if (player.getStackInHand(hand).getItem() == Items.FIREWORK_STAR) {
 			this.summonHeartParticles();
+			this.heal(2);
 			player.addStatusEffect(new StatusEffectInstance(StatusEffects.NIGHT_VISION, 10*20, 0));
 
 			return ActionResult.SUCCESS;
@@ -238,9 +239,10 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 	@Override
 	protected void tickControlled(PlayerEntity controllingPlayer, Vec3d movementInput) {
 		BlockPos posAbove = this.getBlockPos().up();
+		World world = this.getWorld();
 
-		if (this.getWorld().getBlockState(posAbove).isAir()) {
-			// TODO: Show colorful particles coming out of the death here
+		if (world.getBlockState(posAbove).isAir()) {
+			this.discard();
 			this.kill();
 		} else if (this.isLogicalSideForUpdatingMovement()) {
 			this.setMovementSpeed((float) this.getAttributeValue(EntityAttributes.GENERIC_MOVEMENT_SPEED));
@@ -248,6 +250,17 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 
 			super.travel(new Vec3d(0, movementInput.y, forwardSpeed));
 		}
+	}
+
+	@Override
+	public void kill() {
+		World world = this.getWorld();
+
+		if (!world.isClient) {
+			((ServerWorld) world).spawnParticles(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 6, 0, -0.1, 0, 0.1);
+		}
+
+		super.kill();
 	}
 
 	@Override

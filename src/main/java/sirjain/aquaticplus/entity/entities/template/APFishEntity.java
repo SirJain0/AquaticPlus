@@ -18,7 +18,7 @@ public abstract class APFishEntity extends FishEntity {
 		super(entityType, world);
 
 		// Sets some movement AI for all fish
-		this.moveControl = new AquaticMoveControl(this, 85, 10, 1, 0.04F, false);
+		this.moveControl = new AquaticMoveControl(this, 85, 10, 1, 0.04F, true);
 		this.lookControl = new YawAdjustingLookControl(this, 10);
 	}
 
