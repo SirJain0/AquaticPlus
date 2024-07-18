@@ -104,7 +104,7 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 		if (this.getWorld().isClient)
 			this.setupAnimationStates();
 
-		AquaticPlusUtil.summonAmbientParticles(this, AquaticPlusParticles.DUMBO_SPARK, 20);
+		AquaticPlusUtil.summonAmbientParticles(this, AquaticPlusParticles.DUMBO_SPARK, 20, true);
 	}
 
 	private void setupAnimationStates() {

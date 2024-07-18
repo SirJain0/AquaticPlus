@@ -163,11 +163,16 @@ public class AquaticPlusUtil {
 
 	// Summons ambient particles with configurable particle and frequency
 	// TODO: Add check throw/catch statement for interval
-	public static void summonAmbientParticles(LivingEntity entity, ParticleEffect particle, int interval) {
+	public static void summonAmbientParticles(LivingEntity entity, ParticleEffect particle, int interval, boolean alwaysSpawns) {
+		summonAmbientParticles(entity, particle, interval, alwaysSpawns, 0, 0, 0);
+	}
+
+	// Summons ambient particles with configurable particle, frequency, and velocity
+	public static void summonAmbientParticles(LivingEntity entity, ParticleEffect particle, int interval, boolean alwaysSpawns, float velX, float velY, float velZ) {
 		World world = entity.getWorld();
 
-		if (world.isClient && entity.getRandom().nextInt(interval) == 0) {
-			world.addParticle(particle, entity.getX(), entity.getRandomBodyY(), entity.getZ(), 0, 0, 0);
+		if (world.isClient && entity.getRandom().nextInt(interval) == 0 && alwaysSpawns) {
+			world.addParticle(particle, entity.getX(), entity.getRandomBodyY(), entity.getZ(), velX, velY, velZ);
 		}
 	}
 

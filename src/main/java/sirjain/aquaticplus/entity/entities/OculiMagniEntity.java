@@ -55,7 +55,7 @@ public class OculiMagniEntity extends NoBucketSchoolingFishEntity {
 		if (canResetTeleportationTracker())
 			setTeleportationTracker(false);
 
-		AquaticPlusUtil.summonAmbientParticles(this, ParticleTypes.REVERSE_PORTAL, 12);
+		AquaticPlusUtil.summonAmbientParticles(this, ParticleTypes.REVERSE_PORTAL, 12, true);
 	}
 
 	public boolean canResetTeleportationTracker() {
