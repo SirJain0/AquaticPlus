@@ -32,15 +32,16 @@ import net.tslat.smartbrainlib.api.core.behaviour.custom.target.TargetOrRetaliat
 import net.tslat.smartbrainlib.api.core.sensor.ExtendedSensor;
 import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyLivingEntitySensor;
 import net.tslat.smartbrainlib.api.core.sensor.vanilla.NearbyPlayersSensor;
+import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import sirjain.aquaticplus.entity.ai.PlasmaBallShootAttack;
 import sirjain.aquaticplus.entity.ai.PlasmaBeamShootAttack;
 import sirjain.aquaticplus.entity.ai.PlasmaShockwaveAttack;
+import sirjain.aquaticplus.entity.entities.JellyfishEntity;
 import sirjain.aquaticplus.entity.entities.template.APFishEntity;
 import sirjain.aquaticplus.particle.AquaticPlusParticles;
 
 import java.util.List;
 
-// TODO: Summon jellyfish on death
 public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOwner<PhantomJellyfishEntity> {
 	private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Phantom Jellyfish"), BossBar.Color.RED, BossBar.Style.NOTCHED_10);
 	public final AnimationState swimAnimationState = new AnimationState();
@@ -95,7 +96,7 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 		}
 	}
 
-	// Sends a message to player when the boss is killed
+	// Sends a message to player when the boss is killed and summons jellyfish
 	@Override
 	public void onDeath(DamageSource damageSource) {
 		Entity attacker = damageSource.getAttacker();
@@ -103,6 +104,15 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 		if (attacker instanceof PlayerEntity player) {
 			String deathMessage = player.getEntityName() + " has slain the bright, water-burning Phantom Jellyfish!";
 			player.sendMessage(Text.literal(deathMessage).formatted(Formatting.RED));
+		}
+
+		if (!this.getWorld().isClient) {
+			for (int i = 0; i < 3; i++) {
+				JellyfishEntity jellyfish = AquaticPlusEntities.JELLYFISH_ENTITY.create(this.getWorld());
+				if (jellyfish == null) return;
+				jellyfish.refreshPositionAndAngles(this.getX(), this.getY(), this.getZ(), this.getYaw(), 0.0F);
+				this.getWorld().spawnEntity(jellyfish);
+			}
 		}
 
 		super.onDeath(damageSource);
