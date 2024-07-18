@@ -42,7 +42,6 @@ public class PlasmaEntity extends ThrownEntity {
 	}
 
 	// Handles what happens when an entity is hit
-	// TODO: Idea - Add rare chance of explosion when I sort out the claim mod?
 	@Override
 	protected void onEntityHit(EntityHitResult entityHitResult) {
 		Entity entity = entityHitResult.getEntity();

@@ -36,7 +36,6 @@ import sirjain.aquaticplus.item.AquaticPlusItems;
 
 import java.util.function.IntFunction;
 
-// TODO: Particles when swimming
 public class DumboBlobEntity extends APFishEntity implements Mount {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> BURST_TICKER = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);

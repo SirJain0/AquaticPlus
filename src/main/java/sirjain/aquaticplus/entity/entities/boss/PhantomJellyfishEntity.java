@@ -40,6 +40,7 @@ import sirjain.aquaticplus.particle.AquaticPlusParticles;
 
 import java.util.List;
 
+// TODO: Summon jellyfish on death
 public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOwner<PhantomJellyfishEntity> {
 	private final ServerBossBar bossBar = new ServerBossBar(Text.literal("Phantom Jellyfish"), BossBar.Color.RED, BossBar.Style.NOTCHED_10);
 	public final AnimationState swimAnimationState = new AnimationState();
