@@ -8,7 +8,9 @@ import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.AquaticPlusUtil;
 import sirjain.aquaticplus.entity.ai.TeleportAttackerGoal;
 import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 
@@ -49,7 +51,11 @@ public class OculiMagniEntity extends NoBucketSchoolingFishEntity {
 	@Override
 	public void tick() {
 		super.tick();
-		if (canResetTeleportationTracker()) setTeleportationTracker(false);
+
+		if (canResetTeleportationTracker())
+			setTeleportationTracker(false);
+
+		AquaticPlusUtil.summonAmbientParticles(this, ParticleTypes.REVERSE_PORTAL, 12);
 	}
 
 	public boolean canResetTeleportationTracker() {

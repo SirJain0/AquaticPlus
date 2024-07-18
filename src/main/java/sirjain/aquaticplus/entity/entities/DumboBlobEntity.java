@@ -30,6 +30,7 @@ import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.AquaticPlusUtil;
 import sirjain.aquaticplus.entity.entities.template.APFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 
@@ -99,7 +100,11 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 	@Override
 	public void tick() {
 		super.tick();
-		if (this.getWorld().isClient) this.setupAnimationStates();
+
+		if (this.getWorld().isClient)
+			this.setupAnimationStates();
+
+		AquaticPlusUtil.summonAmbientParticles(this, ParticleTypes.END_ROD, 20);
 	}
 
 	private void setupAnimationStates() {
