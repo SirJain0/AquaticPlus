@@ -10,7 +10,6 @@ import sirjain.aquaticplus.client.entity.models.LanternfishModel;
 import sirjain.aquaticplus.entity.entities.LanternfishEntity;
 
 public class LanternfishRenderer extends MobEntityRenderer<LanternfishEntity, LanternfishModel> {
-	// TODO: Fix black z-fighting with planes
 	public static final Identifier TEXTURE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/lanternfish/lanternfish.png");
 	public static final Identifier EMISSIVE = new Identifier(AquaticPlus.MOD_ID, "textures/entity/lanternfish/lanternfish_e.png");
 
