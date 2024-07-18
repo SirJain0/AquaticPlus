@@ -33,6 +33,7 @@ import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.AquaticPlusUtil;
 import sirjain.aquaticplus.entity.entities.template.APFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
+import sirjain.aquaticplus.particle.AquaticPlusParticles;
 
 import java.util.function.IntFunction;
 
@@ -103,7 +104,7 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 		if (this.getWorld().isClient)
 			this.setupAnimationStates();
 
-		AquaticPlusUtil.summonAmbientParticles(this, ParticleTypes.END_ROD, 20);
+		AquaticPlusUtil.summonAmbientParticles(this, AquaticPlusParticles.DUMBO_SPARK, 20);
 	}
 
 	private void setupAnimationStates() {
