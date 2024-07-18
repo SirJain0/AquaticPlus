@@ -4,6 +4,8 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.projectile.thrown.ThrownEntity;
+import net.minecraft.particle.ParticleEffect;
+import net.minecraft.particle.ParticleType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
@@ -157,6 +159,21 @@ public class AquaticPlusUtil {
 			AquaticPlusEntities.DEEP_SEA_ISOPOD_ENTITY,
 			AquaticPlusEntities.YETI_CRAB_ENTITY
 		);
+	}
+
+	// Summons ambient particles with configurable particle and frequency
+	// TODO: Add check throw/catch statement for interval
+	public static void summonAmbientParticles(LivingEntity entity, ParticleEffect particle, int interval, boolean alwaysSpawns) {
+		summonAmbientParticles(entity, particle, interval, alwaysSpawns, 0, 0, 0);
+	}
+
+	// Summons ambient particles with configurable particle, frequency, and velocity
+	public static void summonAmbientParticles(LivingEntity entity, ParticleEffect particle, int interval, boolean alwaysSpawns, float velX, float velY, float velZ) {
+		World world = entity.getWorld();
+
+		if (world.isClient && entity.getRandom().nextInt(interval) == 0 && alwaysSpawns) {
+			world.addParticle(particle, entity.getX(), entity.getRandomBodyY(), entity.getZ(), velX, velY, velZ);
+		}
 	}
 
 	// Registers all of the mod's (non-client) content

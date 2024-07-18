@@ -30,12 +30,13 @@ import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.AquaticPlusUtil;
 import sirjain.aquaticplus.entity.entities.template.APFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
+import sirjain.aquaticplus.particle.AquaticPlusParticles;
 
 import java.util.function.IntFunction;
 
-// TODO: Particles when swimming
 public class DumboBlobEntity extends APFishEntity implements Mount {
 	private static final TrackedData<Integer> DUMBO_BLOB_TYPE = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	private static final TrackedData<Integer> BURST_TICKER = DataTracker.registerData(DumboBlobEntity.class, TrackedDataHandlerRegistry.INTEGER);
@@ -99,7 +100,11 @@ public class DumboBlobEntity extends APFishEntity implements Mount {
 	@Override
 	public void tick() {
 		super.tick();
-		if (this.getWorld().isClient) this.setupAnimationStates();
+
+		if (this.getWorld().isClient)
+			this.setupAnimationStates();
+
+		AquaticPlusUtil.summonAmbientParticles(this, AquaticPlusParticles.DUMBO_SPARK, 20, true);
 	}
 
 	private void setupAnimationStates() {

@@ -9,9 +9,11 @@ import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.GameRules;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.AquaticPlusUtil;
 import sirjain.aquaticplus.entity.ai.APSwimAroundGoal;
 import sirjain.aquaticplus.entity.entities.template.APFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
+import sirjain.aquaticplus.particle.AquaticPlusParticles;
 
 public class SpiritedFishEntity extends APFishEntity {
 	public SpiritedFishEntity(EntityType<? extends FishEntity> entityType, World world) {
@@ -39,8 +41,6 @@ public class SpiritedFishEntity extends APFishEntity {
 
 	@Override
 	public void mobTick() {
-		if (isTouchingWaterOrRain()) return;
-
 		boolean isMobExplosionType = this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING);
 		World.ExplosionSourceType destructionType = isMobExplosionType
 			? World.ExplosionSourceType.MOB
@@ -51,5 +51,13 @@ public class SpiritedFishEntity extends APFishEntity {
 			world.createExplosion(this, this.getX(), this.getY(), this.getZ(), 1, destructionType);
 			this.kill();
 		}
+	}
+
+	@Override
+	public void tick() {
+		boolean isLowOnHealth = this.getHealth() == 0 || this.getHealth() == 1 || this.getHealth() == 2;
+		AquaticPlusUtil.summonAmbientParticles(this, AquaticPlusParticles.SPIRIT, 13, isLowOnHealth, 0, 0.1f, 0);
+
+		super.tick();
 	}
 }

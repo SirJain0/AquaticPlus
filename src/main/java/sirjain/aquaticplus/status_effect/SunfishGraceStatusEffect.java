@@ -13,7 +13,7 @@ public class SunfishGraceStatusEffect extends StatusEffect {
 
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-		if (entity.isInsideWaterOrBubbleColumn() && entity.isLogicalSideForUpdatingMovement())
+		if (entity.isInsideWaterOrBubbleColumn() && entity.isLogicalSideForUpdatingMovement() && !entity.isSneaking())
 			entity.move(MovementType.SELF, entity.getRotationVector().multiply(0.16f + (amplifier / 50f)));
 	}
 
