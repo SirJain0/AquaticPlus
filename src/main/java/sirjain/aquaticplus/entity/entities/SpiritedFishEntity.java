@@ -41,6 +41,8 @@ public class SpiritedFishEntity extends APFishEntity {
 
 	@Override
 	public void mobTick() {
+		if (isTouchingWaterOrRain()) return;
+
 		boolean isMobExplosionType = this.getWorld().getGameRules().getBoolean(GameRules.DO_MOB_GRIEFING);
 		World.ExplosionSourceType destructionType = isMobExplosionType
 			? World.ExplosionSourceType.MOB

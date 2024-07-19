@@ -187,7 +187,7 @@ public class AquaticPlusItems {
 		SHADOW_SARDEL_SPAWN_EGG = registerSpawnEggItem("shadow_sardel", AquaticPlusEntities.SHADOW_SARDEL_ENTITY, 0x34353b, 0x222124);
 		BONEFISH_SPAWN_EGG = registerSpawnEggItem("bonefish", AquaticPlusEntities.BONEFISH_ENTITY, 0xd3d3d3, 0x989898);
 		LONG_BONEFISH_SPAWN_EGG = registerSpawnEggItem("long_bonefish", AquaticPlusEntities.LONG_BONEFISH_ENTITY, 0xd3d3d3, 0x989898);
-		OCULI_MAGNI_SPAWN_EGG = registerSpawnEggItem("oculi_magni", AquaticPlusEntities.OCULI_MAGNI_ENTITY, 0x2f2f2f, 0x3d5456);
+		OCULI_MAGNI_SPAWN_EGG = registerSpawnEggItem("oculi_magni", AquaticPlusEntities.OCULI_MAGNI_ENTITY, 0x343537, 0Xb36cb4);
 		VIPERFISH_SPAWN_EGG = registerSpawnEggItem("viperfish", AquaticPlusEntities.VIPERFISH_ENTITY, 0x263641, 0xdfe18e);
 		MANTA_RAY_SPAWN_EGG = registerSpawnEggItem("manta_ray", AquaticPlusEntities.MANTA_RAY_ENTITY, 0x282a34, 0x999daa);
 		DUMBO_BLOB_SPAWN_EGG = registerSpawnEggItem("dumbo_blob", AquaticPlusEntities.DUMBO_BLOB_ENTITY, 0x3981d2, 0xc36afa);
