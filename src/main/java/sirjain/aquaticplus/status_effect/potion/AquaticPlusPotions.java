@@ -17,7 +17,6 @@ import java.util.Arrays;
 import java.util.List;
 
 // TODO: Refactor this system
-// TODO: Change water bottles to whatever suitable starter potion (awk, mundane, etc)
 public class AquaticPlusPotions {
 	public static Potion NUMBING_POTION, NUMBING_LONG_POTION, NUMBING_STRONG_POTION;
 	public static Potion LAND_DROWNING_POTION, LAND_DROWNING_LONG_POTION, LAND_DROWNING_STRONG_POTION;
