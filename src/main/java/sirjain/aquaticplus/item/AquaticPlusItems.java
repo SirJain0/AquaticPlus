@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier;
 import sirjain.aquaticplus.AquaticPlus;
 import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
 import sirjain.aquaticplus.client.entity.models.SwordfishModel;
+import sirjain.aquaticplus.client.entity.renderers.SlimyShrimpRenderer;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import sirjain.aquaticplus.item.combat.AuroraStaffItem;
 import sirjain.aquaticplus.item.combat.FrostingSpectreItem;
@@ -101,6 +102,7 @@ public class AquaticPlusItems {
 	public static Item DEEP_SEA_ISOPOD_SPAWN_EGG;
 	public static Item YETI_CRAB_SPAWN_EGG;
 	public static Item STONEFISH_SPAWN_EGG;
+	public static Item SLIMY_SHRIMP_SPAWN_EGG;
 	public static Item VERMILLION_JELLY_SPAWN_EGG;
 	public static Item PHANTOM_JELLYFISH_SUMMONER;
 
@@ -112,6 +114,7 @@ public class AquaticPlusItems {
 	public static Item HALIBUT_BUCKET;
 	public static Item SARDINE_BUCKET;
 	public static Item MINNOW_BUCKET;
+	public static Item SLIMY_SHRIMP_BUCKET;
 
 	public static Item GHOSTLY_GEL_ITEM;
 
@@ -212,6 +215,7 @@ public class AquaticPlusItems {
 		DEEP_SEA_ISOPOD_SPAWN_EGG = registerSpawnEggItem("deep_sea_isopod", AquaticPlusEntities.DEEP_SEA_ISOPOD_ENTITY, 0xd6ccab, 0x917f6d);
 		YETI_CRAB_SPAWN_EGG = registerSpawnEggItem("yeti_crab", AquaticPlusEntities.YETI_CRAB_ENTITY, 0xc1a489, 0xd7c098);
 		STONEFISH_SPAWN_EGG = registerSpawnEggItem("stonefish", AquaticPlusEntities.STONEFISH_ENTITY, 0x575959, 0x555151);
+		SLIMY_SHRIMP_SPAWN_EGG = registerSpawnEggItem("slimy_shrimp", AquaticPlusEntities.SLIMY_SHRIMP_ENTITY, 0x575959, 0x555151);
 		VERMILLION_JELLY_SPAWN_EGG = registerSpawnEggItem("vermillion_jelly", AquaticPlusEntities.VERMILLION_JELLY_ENTITY, 0x83546c, 0x454245);
 		PHANTOM_JELLYFISH_SUMMONER = registerCustomItem("phantom_jellyfish_summoner", new PhantomJellyfishSummonerItem());
 	}
@@ -225,6 +229,7 @@ public class AquaticPlusItems {
 		HALIBUT_BUCKET = registerBucketItem("halibut_bucket", AquaticPlusEntities.HALIBUT_ENTITY);
 		SARDINE_BUCKET = registerBucketItem("sardine_bucket", AquaticPlusEntities.SARDINE_ENTITY);
 		MINNOW_BUCKET = registerBucketItem("minnow_bucket", AquaticPlusEntities.MINNOW_ENTITY);
+		SLIMY_SHRIMP_BUCKET = registerBucketItem("slimy_shrimp_bucket", AquaticPlusEntities.SLIMY_SHRIMP_ENTITY);
 	}
 
 	public static void registerBlockItems() {

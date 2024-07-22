@@ -35,6 +35,7 @@
 	"item.aquaticplus.deep_sea_isopod_spawn_egg": "Deep Sea Isopod Spawn Egg",
 	"item.aquaticplus.yeti_crab_spawn_egg": "Yeti Crab Spawn Egg",
 	"item.aquaticplus.stonefish_spawn_egg": "Stonefish Spawn Egg",
+	"item.aquaticplus.slimy_shrimp_spawn_egg": "Slimy Shrimp Spawn Egg",
 	"item.aquaticplus.vermillion_jelly_spawn_egg": "Vermillion Jelly Spawn Egg",
 	"item.aquaticplus.phantom_jellyfish_summoner": "Phantom Jellyfish Summoner",
 
@@ -46,6 +47,7 @@
 	"item.aquaticplus.halibut_bucket": "Halibut Bucket",
 	"item.aquaticplus.sardine_bucket": "Sardine Bucket",
 	"item.aquaticplus.minnow_bucket": "Minnow Bucket",
+	"item.aquaticplus.slimy_shrimp_bucket": "Slimy Shrimp Bucket",
 
 	"item.aquaticplus.viperfish": "Viperfish",
 	"item.aquaticplus.parrotfish": "Parrotfish",
@@ -183,6 +185,7 @@
 	"entity.aquaticplus.deep_sea_isopod": "Deep Sea Isopod",
 	"entity.aquaticplus.yeti_crab": "Yeti Crab",
 	"entity.aquaticplus.stonefish": "Stonefish",
+	"entity.aquaticplus.slimy_shrimp": "Slimy Shrimp",
 	"entity.aquaticplus.vermillion_jelly": "Vermillion Jelly",
 	"entity.aquaticplus.phantom_jellyfish": "Phantom Jellyfish",
 

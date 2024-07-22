@@ -57,8 +57,10 @@ public class AquaticPlusEntities<T extends Entity> {
 	public static EntityType<DeepSeaIsopodEntity> DEEP_SEA_ISOPOD_ENTITY;
 	public static EntityType<YetiCrabEntity> YETI_CRAB_ENTITY;
 	public static EntityType<StonefishEntity> STONEFISH_ENTITY;
+	public static EntityType<SlimyShrimpEntity> SLIMY_SHRIMP_ENTITY;
 	public static EntityType<VermillionJellyEntity> VERMILLION_JELLY_ENTITY;
 	public static EntityType<PhantomJellyfishEntity> PHANTOM_JELLYFISH_ENTITY;
+
 	public static EntityType<AquaticStarEntity> AQUATIC_STAR_ENTITY;
 	public static EntityType<NumbingAquaticStarEntity> NUMBING_AQUATIC_STAR_ENTITY;
 	public static EntityType<LandDrowningAquaticStarEntity> LAND_DROWNING_AQUATIC_STAR_ENTITY;
@@ -102,6 +104,7 @@ public class AquaticPlusEntities<T extends Entity> {
 		DEEP_SEA_ISOPOD_ENTITY = registerEntityType("deep_sea_isopod", DeepSeaIsopodEntity::new, 0.4f, 0.4f);
 		YETI_CRAB_ENTITY = registerFireImmuneEntityType("yeti_crab", YetiCrabEntity::new, 0.5f, 0.5f);
 		STONEFISH_ENTITY = registerEntityType("stonefish", StonefishEntity::new, 0.6f, 0.6f);
+		SLIMY_SHRIMP_ENTITY = registerEntityType("slimy_shrimp", SlimyShrimpEntity::new, 0.3f, 0.3f);
 		VERMILLION_JELLY_ENTITY = registerFireImmuneEntityType("vermillion_jelly", VermillionJellyEntity::new, 0.5f, 0.5f);
 		PHANTOM_JELLYFISH_ENTITY = registerFireImmuneEntityType("phantom_jellyfish", PhantomJellyfishEntity::new, 3, 3);
 

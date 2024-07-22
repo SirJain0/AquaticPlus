@@ -1,0 +1,6 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "aquaticplus:item/fish_bucket/slimy_shrimp_bucket"
+	}
+}
