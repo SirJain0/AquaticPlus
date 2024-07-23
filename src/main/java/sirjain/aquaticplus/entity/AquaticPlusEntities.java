@@ -186,6 +186,7 @@ public class AquaticPlusEntities<T extends Entity> {
 		FabricDefaultAttributeRegistry.register(DEEP_SEA_ISOPOD_ENTITY, DeepSeaIsopodEntity.createIsopodAttributes());
 		FabricDefaultAttributeRegistry.register(YETI_CRAB_ENTITY, NeonCrabEntity.createCrabAttributes());
 		FabricDefaultAttributeRegistry.register(STONEFISH_ENTITY, StonefishEntity.createStonefishAttributes());
+		FabricDefaultAttributeRegistry.register(SLIMY_SHRIMP_ENTITY, SlimyShrimpEntity.createSlimyShrimpAttributes());
 		FabricDefaultAttributeRegistry.register(PHANTOM_JELLYFISH_ENTITY, PhantomJellyfishEntity.createPhantomJellyfishAttributes());
 		FabricDefaultAttributeRegistry.register(VERMILLION_JELLY_ENTITY, VermillionJellyEntity.createVermillionJellyAttributes());
 	}

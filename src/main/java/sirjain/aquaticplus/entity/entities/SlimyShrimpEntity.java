@@ -15,7 +15,9 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.recipe.Ingredient;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -35,7 +37,7 @@ public class SlimyShrimpEntity extends APSchoolingFishEntity implements Shearabl
 	@Override
 	protected void initGoals() {
 		super.initGoals();
-		this.goalSelector.add(2, new TemptGoal(this, 0.8f, Ingredient.ofItems(Items.SUGAR_CANE), true));
+		this.goalSelector.add(2, new TemptGoal(this, 0.8f, Ingredient.ofItems(Items.SUGAR_CANE), false));
 	}
 
 	@Override
@@ -46,12 +48,13 @@ public class SlimyShrimpEntity extends APSchoolingFishEntity implements Shearabl
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
 		ItemStack itemStack = player.getStackInHand(hand);
+		World world = this.getWorld();
 
 		if (itemStack.isOf(Items.SHEARS) && this.isShearable()) {
 			this.sheared(SoundCategory.PLAYERS);
 			this.emitGameEvent(GameEvent.SHEAR, player);
 
-			if (!this.getWorld().isClient) {
+			if (!world.isClient) {
 				itemStack.damage(1, player, (playerx) -> {
 					playerx.sendToolBreakStatus(hand);
 				});
@@ -65,6 +68,18 @@ public class SlimyShrimpEntity extends APSchoolingFishEntity implements Shearabl
 
 			if (this.random.nextInt(3) == 0) {
 				player.heal(4);
+
+				if (!world.isClient) {
+					((ServerWorld) world).spawnParticles(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 2, 0, 0.2f, 0, 1);
+				}
+			}
+
+			if (this.random.nextInt(6) == 0) {
+				this.setShearedState(false);
+
+				if (!world.isClient) {
+					((ServerWorld) world).spawnParticles(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 2, 0, 0.2f, 0, 1);
+				}
 			}
 
 			return ActionResult.CONSUME;
@@ -109,7 +124,7 @@ public class SlimyShrimpEntity extends APSchoolingFishEntity implements Shearabl
 		this.setShearedState(true);
 
 		for(int i = 0; i < random + 1; ++i) {
-			this.getWorld().spawnEntity(new ItemEntity(this.getWorld(), this.getX(), this.getBodyY(1.0), this.getZ(), new ItemStack(AquaticPlusItems.GHOSTLY_GEL_ITEM)));
+			this.getWorld().spawnEntity(new ItemEntity(this.getWorld(), this.getX(), this.getBodyY(1.0), this.getZ(), new ItemStack(AquaticPlusItems.GHOSTLY_MEMBRANE)));
 		}
 	}
 

@@ -1,8 +1,10 @@
 package sirjain.aquaticplus.client.entity.renderers;
 
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
 import net.minecraft.client.render.entity.MobEntityRenderer;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.AquaticPlus;
 import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.client.entity.models.GulperEelModel;
@@ -20,5 +22,11 @@ public class SlimyShrimpRenderer extends MobEntityRenderer<SlimyShrimpEntity, Sl
 	@Override
 	public Identifier getTexture(SlimyShrimpEntity entity) {
 		return TEXTURE;
+	}
+
+	@Nullable
+	@Override
+	protected RenderLayer getRenderLayer(SlimyShrimpEntity entity, boolean showBody, boolean translucent, boolean showOutline) {
+		return super.getRenderLayer(entity, showBody, true, showOutline);
 	}
 }
