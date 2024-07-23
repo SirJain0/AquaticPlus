@@ -42,8 +42,10 @@ public class AquaticPlusEntityLayers {
 	public static EntityModelLayer DEEP_SEA_ISOPOD_LAYER;
 	public static EntityModelLayer YETI_CRAB_LAYER;
 	public static EntityModelLayer STONEFISH_LAYER;
+	public static EntityModelLayer SLIMY_SHRIMP_LAYER;
 	public static EntityModelLayer VERMILLION_JELLY_LAYER;
 	public static EntityModelLayer PHANTOM_JELLYFISH_LAYER;
+
 	public static EntityModelLayer PLASMA_LAYER;
 
 	public static void registerEntityLayers() {
@@ -81,6 +83,7 @@ public class AquaticPlusEntityLayers {
 		DEEP_SEA_ISOPOD_LAYER = registerEntityLayer("deep_sea_isopod");
 		YETI_CRAB_LAYER = registerEntityLayer("yeti_crab");
 		STONEFISH_LAYER = registerEntityLayer("stonefish");
+		SLIMY_SHRIMP_LAYER = registerEntityLayer("slimy_shrimp");
 		VERMILLION_JELLY_LAYER = registerEntityLayer("vermillion_jelly");
 		PHANTOM_JELLYFISH_LAYER = registerEntityLayer("phantom_jellyfish");
 
@@ -123,6 +126,7 @@ public class AquaticPlusEntityLayers {
 		EntityModelLayerRegistry.registerModelLayer(DEEP_SEA_ISOPOD_LAYER, DeepSeaIsopodModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(YETI_CRAB_LAYER, YetiCrabModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(STONEFISH_LAYER, StonefishModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(SLIMY_SHRIMP_LAYER, SlimyShrimpModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(PHANTOM_JELLYFISH_LAYER, PhantomJellyfishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(VERMILLION_JELLY_LAYER, VermillionJellyModel::getTexturedModelData);
 

@@ -64,6 +64,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.DEEP_SEA_ISOPOD_SPAWN_EGG);
 					entries.add(AquaticPlusItems.YETI_CRAB_SPAWN_EGG);
 					entries.add(AquaticPlusItems.STONEFISH_SPAWN_EGG);
+					entries.add(AquaticPlusItems.SLIMY_SHRIMP_SPAWN_EGG);
 					entries.add(AquaticPlusItems.VERMILLION_JELLY_SPAWN_EGG);
 					entries.add(AquaticPlusItems.PHANTOM_JELLYFISH_SUMMONER);
 
@@ -75,6 +76,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.HALIBUT_BUCKET);
 					entries.add(AquaticPlusItems.SARDINE_BUCKET);
 					entries.add(AquaticPlusItems.MINNOW_BUCKET);
+					entries.add(AquaticPlusItems.SHRIMP_BUCKET);
 
 					entries.add(AquaticPlusItems.VIPERFISH);
 					entries.add(AquaticPlusItems.PARROTFISH);
@@ -84,6 +86,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.SARDINE);
 					entries.add(AquaticPlusItems.MINNOW);
 					entries.add(AquaticPlusItems.MORTIS_FLESH);
+					entries.add(AquaticPlusItems.SHRIMP);
 					entries.add(AquaticPlusItems.GAR_FLESH);
 					entries.add(AquaticPlusItems.PIKE_FLESH);
 					entries.add(AquaticPlusItems.BREAD_AND_JELLY);
