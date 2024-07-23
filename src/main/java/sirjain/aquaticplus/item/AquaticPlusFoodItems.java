@@ -13,6 +13,7 @@ public class AquaticPlusFoodItems {
 	public static FoodComponent SARDINE;
 	public static FoodComponent MINNOW;
 	public static FoodComponent MORTIS_FLESH;
+	public static FoodComponent SHRIMP;
 	public static FoodComponent GAR_FLESH;
 	public static FoodComponent PIKE_FLESH;
 	public static FoodComponent BREAD_AND_JELLY;
@@ -24,6 +25,7 @@ public class AquaticPlusFoodItems {
 		HALIBUT = registerBasicFoodComponent(4);
 		SARDINE = registerBasicFoodComponent(3);
 		MORTIS_FLESH = registerBasicFoodComponent(5);
+		SHRIMP = registerBasicFoodComponent(2);
 		GAR_FLESH = registerBasicFoodComponent(4);
 		PIKE_FLESH = registerBasicFoodComponent(4);
 		BREAD_AND_JELLY = registerBasicFoodComponent(4);

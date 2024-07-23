@@ -70,7 +70,7 @@ public class SlimyShrimpEntity extends APSchoolingFishEntity implements Shearabl
 				player.heal(4);
 
 				if (!world.isClient) {
-					((ServerWorld) world).spawnParticles(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 2, 0, 0.2f, 0, 1);
+					((ServerWorld) world).spawnParticles(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 1, 0, 0.2f, 0, 1);
 				}
 			}
 
@@ -78,7 +78,7 @@ public class SlimyShrimpEntity extends APSchoolingFishEntity implements Shearabl
 				this.setShearedState(false);
 
 				if (!world.isClient) {
-					((ServerWorld) world).spawnParticles(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 2, 0, 0.2f, 0, 1);
+					((ServerWorld) world).spawnParticles(ParticleTypes.HEART, this.getX(), this.getRandomBodyY(), this.getZ(), 1, 0, 0.2f, 0, 1);
 				}
 			}
 
