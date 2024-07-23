@@ -76,7 +76,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.HALIBUT_BUCKET);
 					entries.add(AquaticPlusItems.SARDINE_BUCKET);
 					entries.add(AquaticPlusItems.MINNOW_BUCKET);
-					entries.add(AquaticPlusItems.SLIMY_SHRIMP_BUCKET);
+					entries.add(AquaticPlusItems.SHRIMP_BUCKET);
 
 					entries.add(AquaticPlusItems.VIPERFISH);
 					entries.add(AquaticPlusItems.PARROTFISH);
