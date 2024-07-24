@@ -182,7 +182,7 @@ public class AquaticPlusItems {
 
 	public static void registerSpawnEggs() {
 		JOHNSON_SPAWN_EGG = registerSpawnEggItem("johnson", AquaticPlusEntities.JOHNSON_ENTITY, 0x564529, 0x2b2a28);
-		MINDINATOR_SPAWN_EGG = registerSpawnEggItem("mindinator", AquaticPlusEntities.MINDINATOR_ENTITY, 0x6b3469, 0x2b2a28);
+		MINDINATOR_SPAWN_EGG = registerSpawnEggItem("mindinator", AquaticPlusEntities.MINDINATOR_ENTITY, 0Xcdbddc, 0Xbcd4eb);
 		SPIRITED_FISH_SPAWN_EGG = registerSpawnEggItem("spirited_fish", AquaticPlusEntities.SPIRITED_FISH_ENTITY, 0xc7cae0, 0xd2c3d3);
 		MAXILLA_MORTIS_SPAWN_EGG = registerSpawnEggItem("maxilla_mortis", AquaticPlusEntities.MAXILLA_MORTIS_ENTITY, 0x323334, 0x31948e);
 		PARROTFISH_SPAWN_EGG = registerSpawnEggItem("parrotfish", AquaticPlusEntities.PARROTFISH_ENTITY, 0x55b3dd, 0x48ff8d);
