@@ -42,11 +42,10 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 		this.goalSelector.add(3, new LookAroundGoal(this));
 	}
 
-	// TODO: Make this system not case sensitive
 	@Override
 	public void setCustomName(@Nullable Text name) {
 		super.setCustomName(name);
-		this.setFrostpodState(name != null && name.equals(Text.literal("Frostpod")));
+		this.setFrostpodState(name != null && name.getString().equalsIgnoreCase("frostpod"));
 	}
 
 	@Override
