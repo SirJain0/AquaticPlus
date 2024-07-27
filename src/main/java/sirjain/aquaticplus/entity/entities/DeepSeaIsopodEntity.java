@@ -18,17 +18,24 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.StringIdentifiable;
+import net.minecraft.util.function.ValueLists;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
+import net.minecraft.world.LocalDifficulty;
+import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
-// TODO: Add variants
+import java.util.function.IntFunction;
+
 public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
+	private static final TrackedData<Integer> ISOPOD_TYPE = DataTracker.registerData(DeepSeaIsopodEntity.class, TrackedDataHandlerRegistry.INTEGER);
 	public static final TrackedData<Boolean> IS_FROSTPOD = DataTracker.registerData(DeepSeaIsopodEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 	public static final TrackedData<Boolean> IS_BELLYRUBBED = DataTracker.registerData(DeepSeaIsopodEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
+
 	public int bellyrubCooldown = 60;
 
 	public DeepSeaIsopodEntity(EntityType<? extends WaterCreatureEntity> entityType, World world) {
@@ -54,6 +61,7 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 
 		this.dataTracker.startTracking(IS_FROSTPOD, false);
 		this.dataTracker.startTracking(IS_BELLYRUBBED, false);
+		this.dataTracker.startTracking(ISOPOD_TYPE, IsopodType.SAND.id);
 	}
 
 	@Override
@@ -62,6 +70,7 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 
 		nbt.putBoolean("is_frostpod", this.isFrostpod());
 		nbt.putBoolean("is_bellyrubbed", this.isBellyrubbed());
+		nbt.putInt("isopod_type", this.getVariant().id);
 	}
 
 	@Override
@@ -70,6 +79,7 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 
 		this.setFrostpodState(nbt.getBoolean("is_frostpod"));
 		this.setIsBellyrubbed(nbt.getBoolean("is_bellyrubbed"));
+		this.setVariant(IsopodType.byId(nbt.getInt("isopod_type")));
 	}
 
 	public boolean isFrostpod() {
@@ -210,5 +220,60 @@ public class DeepSeaIsopodEntity extends WaterCreatureEntity implements Mount {
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 16)
 			.add(EntityAttributes.GENERIC_KNOCKBACK_RESISTANCE, 3)
 			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.7f);
+	}
+
+	// == VARIANTS ==
+	
+	@Nullable
+	@Override
+	public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
+		this.initVariant();
+		return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
+	}
+
+	protected void initVariant() {
+		int textureID = this.random.nextInt(3);
+
+		if (textureID == 0) this.setVariant(IsopodType.SAND);
+		else if (textureID == 1) this.setVariant(IsopodType.COAL);
+		else if (textureID == 2) this.setVariant(IsopodType.GILDED);
+	}
+
+	public void setVariant(IsopodType sardineType) {
+		this.dataTracker.set(ISOPOD_TYPE, sardineType.id);
+	}
+
+	public IsopodType getVariant() {
+		return IsopodType.byId(this.dataTracker.get(ISOPOD_TYPE));
+	}
+
+	public enum IsopodType implements StringIdentifiable {
+		SAND(0, "sand"),
+		COAL(1, "coal"),
+		GILDED(2, "gilded");
+
+		private static final IntFunction<IsopodType> BY_ID = ValueLists.createIdToValueFunction(
+			DeepSeaIsopodEntity.IsopodType::getId, values(), SAND
+		);
+
+		final int id;
+		private final String name;
+
+		IsopodType(int id, String name) {
+			this.id = id;
+			this.name = name;
+		}
+
+		public String asString() {
+			return this.name;
+		}
+
+		public int getId() {
+			return this.id;
+		}
+
+		public static IsopodType byId(int id) {
+			return BY_ID.apply(id);
+		}
 	}
 }

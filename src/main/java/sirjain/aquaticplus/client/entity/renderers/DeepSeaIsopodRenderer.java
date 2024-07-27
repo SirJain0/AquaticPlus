@@ -8,6 +8,7 @@ import sirjain.aquaticplus.AquaticPlus;
 import sirjain.aquaticplus.client.entity.AquaticPlusEntityLayers;
 import sirjain.aquaticplus.client.entity.models.DeepSeaIsopodModel;
 import sirjain.aquaticplus.entity.entities.DeepSeaIsopodEntity;
+import sirjain.aquaticplus.entity.entities.SardineEntity;
 
 public class DeepSeaIsopodRenderer extends MobEntityRenderer<DeepSeaIsopodEntity, DeepSeaIsopodModel> {
 	public DeepSeaIsopodRenderer(EntityRendererFactory.Context context) {
@@ -16,12 +17,12 @@ public class DeepSeaIsopodRenderer extends MobEntityRenderer<DeepSeaIsopodEntity
 
 	@Override
 	public Identifier getTexture(DeepSeaIsopodEntity entity) {
-		return buildTexture(entity);
-	}
-
-	public Identifier buildTexture(DeepSeaIsopodEntity entity) {
-		String variantName = entity.isFrostpod() ? "frostpod" : "deep_sea_isopod";
-		return new Identifier(AquaticPlus.MOD_ID, "textures/entity/deep_sea_isopod/" + variantName + ".png");
+		if (entity.isFrostpod()) {
+			return new Identifier(AquaticPlus.MOD_ID, "textures/entity/deep_sea_isopod/frostpod.png");
+		} else {
+			String variantName = entity.getVariant().name().toLowerCase();
+			return new Identifier(AquaticPlus.MOD_ID, "textures/entity/deep_sea_isopod/deep_sea_isopod_" + variantName + ".png");
+		}
 	}
 
 	@Override
