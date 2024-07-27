@@ -205,9 +205,8 @@ public class MantaRayEntity extends NoBucketSchoolingFishEntity implements Saddl
 
 	@Override
 	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
-		// TODO: change halibut to slimy shrimp when it is added
 		if (hand == Hand.MAIN_HAND && this.isSaddled()) {
-			if (player.getStackInHand(hand).isOf(AquaticPlusItems.HALIBUT)) this.setSitting(!this.isSitting());
+			if (player.getStackInHand(hand).isOf(AquaticPlusItems.SHRIMP)) this.setSitting(!this.isSitting());
 			else this.setRiding(player);
 
 			return ActionResult.SUCCESS;
