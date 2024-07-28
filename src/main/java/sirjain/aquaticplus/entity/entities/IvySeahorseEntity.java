@@ -23,7 +23,7 @@ import sirjain.aquaticplus.entity.entities.template.AbstractEelEntity;
 import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 
-// TODO: Drops, status effects
+// TODO: Drops, status effects, animation
 public class IvySeahorseEntity extends NoBucketSchoolingFishEntity implements Shearable {
 	public static final TrackedData<Boolean> IS_SHEARED = DataTracker.registerData(IvySeahorseEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
