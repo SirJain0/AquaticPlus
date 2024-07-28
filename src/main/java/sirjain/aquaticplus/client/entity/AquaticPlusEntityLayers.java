@@ -6,6 +6,7 @@ import net.minecraft.util.Identifier;
 import sirjain.aquaticplus.AquaticPlus;
 import sirjain.aquaticplus.client.entity.models.*;
 import sirjain.aquaticplus.client.entity.models.projectile.PlasmaModel;
+import sirjain.aquaticplus.entity.entities.IvySeahorseEntity;
 
 public class AquaticPlusEntityLayers {
 	public static EntityModelLayer JOHNSON_LAYER;
@@ -43,6 +44,7 @@ public class AquaticPlusEntityLayers {
 	public static EntityModelLayer YETI_CRAB_LAYER;
 	public static EntityModelLayer STONEFISH_LAYER;
 	public static EntityModelLayer SLIMY_SHRIMP_LAYER;
+	public static EntityModelLayer IVY_SEAHORSE_LAYER;
 	public static EntityModelLayer VERMILLION_JELLY_LAYER;
 	public static EntityModelLayer PHANTOM_JELLYFISH_LAYER;
 
@@ -84,6 +86,7 @@ public class AquaticPlusEntityLayers {
 		YETI_CRAB_LAYER = registerEntityLayer("yeti_crab");
 		STONEFISH_LAYER = registerEntityLayer("stonefish");
 		SLIMY_SHRIMP_LAYER = registerEntityLayer("slimy_shrimp");
+		IVY_SEAHORSE_LAYER = registerEntityLayer("ivy_seahorse");
 		VERMILLION_JELLY_LAYER = registerEntityLayer("vermillion_jelly");
 		PHANTOM_JELLYFISH_LAYER = registerEntityLayer("phantom_jellyfish");
 
@@ -127,6 +130,7 @@ public class AquaticPlusEntityLayers {
 		EntityModelLayerRegistry.registerModelLayer(YETI_CRAB_LAYER, YetiCrabModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(STONEFISH_LAYER, StonefishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SLIMY_SHRIMP_LAYER, SlimyShrimpModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(IVY_SEAHORSE_LAYER, IvySeahorseModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(PHANTOM_JELLYFISH_LAYER, PhantomJellyfishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(VERMILLION_JELLY_LAYER, VermillionJellyModel::getTexturedModelData);
 

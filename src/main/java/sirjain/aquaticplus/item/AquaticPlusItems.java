@@ -11,6 +11,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import sirjain.aquaticplus.AquaticPlus;
 import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
+import sirjain.aquaticplus.client.entity.models.IvySeahorseModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import sirjain.aquaticplus.item.combat.AuroraStaffItem;
 import sirjain.aquaticplus.item.combat.FrostingSpectreItem;
@@ -65,6 +66,7 @@ public class AquaticPlusItems {
 	public static Item GAR_FLESH;
 	public static Item PIKE_FLESH;
 	public static Item BREAD_AND_JELLY;
+	public static Item IVY_BERRIES;
 
 	public static Item JOHNSON_SPAWN_EGG;
 	public static Item MINDINATOR_SPAWN_EGG;
@@ -102,6 +104,7 @@ public class AquaticPlusItems {
 	public static Item YETI_CRAB_SPAWN_EGG;
 	public static Item STONEFISH_SPAWN_EGG;
 	public static Item SLIMY_SHRIMP_SPAWN_EGG;
+	public static Item IVY_SEAHORSE_SPAWN_EGG;
 	public static Item VERMILLION_JELLY_SPAWN_EGG;
 	public static Item PHANTOM_JELLYFISH_SUMMONER;
 
@@ -178,6 +181,7 @@ public class AquaticPlusItems {
 		GAR_FLESH = registerFoodItem("gar_flesh", AquaticPlusFoodItems.GAR_FLESH);
 		PIKE_FLESH = registerFoodItem("pike_flesh", AquaticPlusFoodItems.PIKE_FLESH);
 		BREAD_AND_JELLY = registerFoodItem("bread_and_jelly", AquaticPlusFoodItems.BREAD_AND_JELLY);
+		IVY_BERRIES = registerCustomItem("ivy_berries", new IvyBerriesItem(new Item.Settings().food(AquaticPlusFoodItems.IVY_BERRIES)));
 	}
 
 	public static void registerSpawnEggs() {
@@ -216,6 +220,7 @@ public class AquaticPlusItems {
 		YETI_CRAB_SPAWN_EGG = registerSpawnEggItem("yeti_crab", AquaticPlusEntities.YETI_CRAB_ENTITY, 0xc1a489, 0xd7c098);
 		STONEFISH_SPAWN_EGG = registerSpawnEggItem("stonefish", AquaticPlusEntities.STONEFISH_ENTITY, 0x575959, 0x555151);
 		SLIMY_SHRIMP_SPAWN_EGG = registerSpawnEggItem("slimy_shrimp", AquaticPlusEntities.SLIMY_SHRIMP_ENTITY, 0xbabfcb, 0xdb8d68);
+		IVY_SEAHORSE_SPAWN_EGG = registerSpawnEggItem("ivy_seahorse", AquaticPlusEntities.IVY_SEAHORSE_ENTITY, 0x674f32, 0x459b4f);
 		VERMILLION_JELLY_SPAWN_EGG = registerSpawnEggItem("vermillion_jelly", AquaticPlusEntities.VERMILLION_JELLY_ENTITY, 0x83546c, 0x454245);
 		PHANTOM_JELLYFISH_SUMMONER = registerCustomItem("phantom_jellyfish_summoner", new PhantomJellyfishSummonerItem());
 	}

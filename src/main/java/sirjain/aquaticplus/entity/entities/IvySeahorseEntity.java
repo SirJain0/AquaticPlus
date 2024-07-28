@@ -8,21 +8,59 @@ import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.passive.SchoolingFishEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.Hand;
 import net.minecraft.world.World;
+import net.minecraft.world.event.GameEvent;
 import sirjain.aquaticplus.entity.entities.template.AbstractEelEntity;
 import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 
+// TODO: Drops, status effects
 public class IvySeahorseEntity extends NoBucketSchoolingFishEntity implements Shearable {
 	public static final TrackedData<Boolean> IS_SHEARED = DataTracker.registerData(IvySeahorseEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
-	public IvySeahorseEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
+	public IvySeahorseEntity(EntityType<? extends NoBucketSchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
+	}
+
+	@Override
+	protected ActionResult interactMob(PlayerEntity player, Hand hand) {
+		ItemStack itemStack = player.getStackInHand(hand);
+		World world = this.getWorld();
+
+		if (itemStack.isOf(Items.SHEARS) && this.isShearable()) {
+			this.sheared(SoundCategory.PLAYERS);
+			this.emitGameEvent(GameEvent.SHEAR, player);
+
+			if (!world.isClient) {
+				itemStack.damage(1, player, (playerx) -> playerx.sendToolBreakStatus(hand));
+			}
+
+			return ActionResult.success(this.getWorld().isClient);
+		}
+
+		if (itemStack.isOf(Items.BONE_MEAL) && this.isSheared()) {
+			itemStack.decrement(1);
+
+			if (this.random.nextInt(5) == 0) {
+				this.setShearedState(false);
+				BoneMealItem.createParticles(this.getWorld(), this.getBlockPos(), 15);
+
+				return ActionResult.success(this.getWorld().isClient);
+			}
+
+			return ActionResult.CONSUME;
+		}
+
+		return super.interactMob(player, hand);
 	}
 
 	@Override
@@ -59,7 +97,7 @@ public class IvySeahorseEntity extends NoBucketSchoolingFishEntity implements Sh
 		this.setShearedState(true);
 
 		for(int i = 0; i < random + 2; ++i) {
-			this.getWorld().spawnEntity(new ItemEntity(this.getWorld(), this.getX(), this.getBodyY(1.0), this.getZ(), new ItemStack(AquaticPlusItems.GHOSTLY_MEMBRANE)));
+			this.getWorld().spawnEntity(new ItemEntity(this.getWorld(), this.getX(), this.getBodyY(1.0), this.getZ(), new ItemStack(AquaticPlusItems.IVY_BERRIES)));
 		}
 	}
 
