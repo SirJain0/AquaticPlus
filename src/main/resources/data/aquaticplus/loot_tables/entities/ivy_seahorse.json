@@ -6,29 +6,6 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "aquaticplus:stonefish_venom",
-					"functions": [
-						{
-							"function": "minecraft:set_count",
-							"count": {
-								"min": 0,
-								"max": 1
-							}
-						}
-					],
-					"conditions": [
-						{
-							"condition": "minecraft:killed_by_player"
-						}
-					]
-				}
-			]
-		},
-		{
-			"rolls": 1,
-			"entries": [
-				{
-					"type": "minecraft:item",
 					"name": "aquaticplus:antivenom_essence",
 					"functions": [
 						{
@@ -49,7 +26,7 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "minecraft:stone",
+					"name": "minecraft:vines",
 					"functions": [
 						{
 							"function": "minecraft:set_count",
@@ -72,13 +49,13 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "aquaticplus:stone_essence",
+					"name": "aquaticplus:ivy_berries",
 					"functions": [
 						{
 							"function": "minecraft:set_count",
 							"count": {
 								"min": 0,
-								"max": 2
+								"max": 1
 							}
 						}
 					],

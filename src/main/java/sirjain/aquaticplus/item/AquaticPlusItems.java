@@ -40,6 +40,7 @@ public class AquaticPlusItems {
 	public static Item FROST_SHARDS;
 	public static Item STONE_ESSENCE;
 	public static Item STONE_CORRODER;
+	public static Item ANTIVENOM_ESSENCE;
 	public static Item MORTIS_VENOM;
 	public static Item STONEFISH_VENOM;
 	public static Item MAXILLA_MORTIS_TOOTH;
@@ -135,6 +136,7 @@ public class AquaticPlusItems {
 		FROST_SHARDS = registerBasicItem("frost_shards");
 		STONE_ESSENCE = registerBasicItem("stone_essence");
 		STONE_CORRODER = registerBasicItem("stone_corroder");
+		ANTIVENOM_ESSENCE = registerBasicItem("antivenom_essence");
 		MORTIS_VENOM = registerBasicItem("mortis_venom");
 		STONEFISH_VENOM = registerBasicItem("stonefish_venom");
 		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth");
