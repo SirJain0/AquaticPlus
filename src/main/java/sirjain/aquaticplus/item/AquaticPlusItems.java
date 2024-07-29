@@ -11,12 +11,12 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
 import sirjain.aquaticplus.AquaticPlus;
 import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
-import sirjain.aquaticplus.client.entity.models.IvySeahorseModel;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import sirjain.aquaticplus.item.combat.AuroraStaffItem;
 import sirjain.aquaticplus.item.combat.FrostingSpectreItem;
 import sirjain.aquaticplus.item.combat.VermillionGloomStaffItem;
 import sirjain.aquaticplus.item.projectile.*;
+import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
 
 public class AquaticPlusItems {
@@ -26,6 +26,9 @@ public class AquaticPlusItems {
 	public static Item NUMBING_AQUATIC_STAR;
 	public static Item LAND_DROWNING_AQUATIC_STAR;
 	public static Item SEA_BANE_AQUATIC_STAR;
+	public static Item LAND_DROWNING_ANTIVENOM;
+	public static Item NUMBING_ANTIVENOM;
+	public static Item SEA_BANE_ANTIVENOM;
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
 	public static Item AURORA_STAFF;
@@ -158,6 +161,9 @@ public class AquaticPlusItems {
 		NUMBING_AQUATIC_STAR = registerCustomItem("numbing_aquatic_star", new NumbingAquaticStarItem());
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem());
 		SEA_BANE_AQUATIC_STAR = registerCustomItem("sea_bane_aquatic_star", new SeaBaneAquaticStarItem());
+		LAND_DROWNING_ANTIVENOM = registerCustomItem("land_drowning_antivenom", new AntivenomItem(AquaticPlusStatusEffects.LAND_DROWNING));
+		NUMBING_ANTIVENOM = registerCustomItem("numbing_antivenom", new AntivenomItem(AquaticPlusStatusEffects.NUMBING));
+		SEA_BANE_ANTIVENOM = registerCustomItem("sea_bane_antivenom", new AntivenomItem(AquaticPlusStatusEffects.SEA_BANE));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(200)));
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());

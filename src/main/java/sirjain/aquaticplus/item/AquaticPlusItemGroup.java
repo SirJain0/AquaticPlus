@@ -105,6 +105,9 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.ANTIVENOM_ESSENCE);
 					entries.add(AquaticPlusItems.STONEFISH_VENOM);
 					entries.add(AquaticPlusItems.MORTIS_VENOM);
+					entries.add(AquaticPlusItems.LAND_DROWNING_ANTIVENOM);
+					entries.add(AquaticPlusItems.NUMBING_ANTIVENOM);
+					entries.add(AquaticPlusItems.SEA_BANE_ANTIVENOM);
 					entries.add(AquaticPlusItems.MAXILLA_MORTIS_TOOTH);
 					entries.add(AquaticPlusItems.VIPER_TOOTH);
 					entries.add(AquaticPlusItems.LIONFISH_SPIKE);
