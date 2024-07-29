@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" v ",
+		"vav",
+		" v "
+	],
+	"key": {
+		"v": {
+			"item": "aquaticplus:lionfish_spike"
+		},
+		"a": {
+			"item": "aquaticplus:antivenom_essence"
+		}
+	},
+	"result": {
+		"item": "aquaticplus:sea_bane_antivenom",
+		"count": 1
+	}
+}
