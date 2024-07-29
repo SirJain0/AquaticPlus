@@ -1,18 +1,21 @@
 package sirjain.aquaticplus.entity.entities;
 
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.Shearable;
+import net.minecraft.entity.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
@@ -23,12 +26,38 @@ import sirjain.aquaticplus.entity.entities.template.AbstractEelEntity;
 import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 
-// TODO: Status effects, animation, texture for antivenom essence, textures for antivenoms
+import java.util.List;
+
+// TODO: Animation, texture for antivenom essence, textures for antivenoms
 public class IvySeahorseEntity extends NoBucketSchoolingFishEntity implements Shearable {
 	public static final TrackedData<Boolean> IS_SHEARED = DataTracker.registerData(IvySeahorseEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
 	public IvySeahorseEntity(EntityType<? extends NoBucketSchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
+	}
+
+	@Override
+	public void tick() {
+		super.tick();
+
+		List<Entity> entitiesAround = this.getWorld().getOtherEntities(null, this.getBoundingBox().expand(5), EntityPredicates.VALID_LIVING_ENTITY);
+
+		for (Entity entity : entitiesAround) {
+			if (entity instanceof LivingEntity mob && !(mob instanceof FishEntity) && !mob.hasStatusEffect(StatusEffects.POISON)) {
+				mob.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20*5, 0));
+			}
+		}
+	}
+
+	@Override
+	public boolean damage(DamageSource source, float amount) {
+		Entity attacker = source.getAttacker();
+
+		if (attacker instanceof LivingEntity livingAttacker && this.random.nextInt(3) == 0 && !this.getWorld().isClient) {
+			livingAttacker.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 20*2, 1));
+		}
+
+		return super.damage(source, amount);
 	}
 
 	@Override
