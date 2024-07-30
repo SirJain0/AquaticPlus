@@ -106,7 +106,7 @@ public class AquaticPlusEntities<T extends Entity> {
 		YETI_CRAB_ENTITY = registerFireImmuneEntityType("yeti_crab", YetiCrabEntity::new, 0.5f, 0.5f);
 		STONEFISH_ENTITY = registerEntityType("stonefish", StonefishEntity::new, 0.6f, 0.6f);
 		SLIMY_SHRIMP_ENTITY = registerEntityType("slimy_shrimp", SlimyShrimpEntity::new, 0.3f, 0.3f);
-		IVY_SEAHORSE_ENTITY = registerEntityType("ivy_seahorse", IvySeahorseEntity::new, 0.3f, 0.3f);
+		IVY_SEAHORSE_ENTITY = registerEntityType("ivy_seahorse", IvySeahorseEntity::new, 0.6f, 0.6f);
 		VERMILLION_JELLY_ENTITY = registerFireImmuneEntityType("vermillion_jelly", VermillionJellyEntity::new, 0.5f, 0.5f);
 		PHANTOM_JELLYFISH_ENTITY = registerFireImmuneEntityType("phantom_jellyfish", PhantomJellyfishEntity::new, 3, 3);
 

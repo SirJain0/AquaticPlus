@@ -28,7 +28,6 @@ import sirjain.aquaticplus.item.AquaticPlusItems;
 
 import java.util.List;
 
-// TODO: Animation
 public class IvySeahorseEntity extends NoBucketSchoolingFishEntity implements Shearable {
 	public static final TrackedData<Boolean> IS_SHEARED = DataTracker.registerData(IvySeahorseEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
 
