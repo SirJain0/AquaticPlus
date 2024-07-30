@@ -3,6 +3,7 @@ package sirjain.aquaticplus.item;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
+import net.minecraft.item.FoodComponents;
 
 public class AquaticPlusFoodItems {
 	public static FoodComponent VIPERFISH;
@@ -17,6 +18,7 @@ public class AquaticPlusFoodItems {
 	public static FoodComponent GAR_FLESH;
 	public static FoodComponent PIKE_FLESH;
 	public static FoodComponent BREAD_AND_JELLY;
+	public static FoodComponent IVY_BERRIES;
 
 	public static void registerFoodComponents() {
 		VIPERFISH = registerBasicFoodComponent(3);
@@ -29,6 +31,7 @@ public class AquaticPlusFoodItems {
 		GAR_FLESH = registerBasicFoodComponent(4);
 		PIKE_FLESH = registerBasicFoodComponent(4);
 		BREAD_AND_JELLY = registerBasicFoodComponent(4);
+		IVY_BERRIES = registerBasicFoodComponent(3);
 
 		SHADOW_SARDEL = new FoodComponent.Builder()
 			.hunger(2)

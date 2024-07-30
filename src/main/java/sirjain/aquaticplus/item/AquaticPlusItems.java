@@ -16,6 +16,7 @@ import sirjain.aquaticplus.item.combat.AuroraStaffItem;
 import sirjain.aquaticplus.item.combat.FrostingSpectreItem;
 import sirjain.aquaticplus.item.combat.VermillionGloomStaffItem;
 import sirjain.aquaticplus.item.projectile.*;
+import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
 
 public class AquaticPlusItems {
@@ -25,6 +26,9 @@ public class AquaticPlusItems {
 	public static Item NUMBING_AQUATIC_STAR;
 	public static Item LAND_DROWNING_AQUATIC_STAR;
 	public static Item SEA_BANE_AQUATIC_STAR;
+	public static Item LAND_DROWNING_ANTIVENOM;
+	public static Item NUMBING_ANTIVENOM;
+	public static Item SEA_BANE_ANTIVENOM;
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
 	public static Item AURORA_STAFF;
@@ -39,6 +43,7 @@ public class AquaticPlusItems {
 	public static Item FROST_SHARDS;
 	public static Item STONE_ESSENCE;
 	public static Item STONE_CORRODER;
+	public static Item ANTIVENOM_ESSENCE;
 	public static Item MORTIS_VENOM;
 	public static Item STONEFISH_VENOM;
 	public static Item MAXILLA_MORTIS_TOOTH;
@@ -65,6 +70,7 @@ public class AquaticPlusItems {
 	public static Item GAR_FLESH;
 	public static Item PIKE_FLESH;
 	public static Item BREAD_AND_JELLY;
+	public static Item IVY_BERRIES;
 
 	public static Item JOHNSON_SPAWN_EGG;
 	public static Item MINDINATOR_SPAWN_EGG;
@@ -102,6 +108,7 @@ public class AquaticPlusItems {
 	public static Item YETI_CRAB_SPAWN_EGG;
 	public static Item STONEFISH_SPAWN_EGG;
 	public static Item SLIMY_SHRIMP_SPAWN_EGG;
+	public static Item IVY_SEAHORSE_SPAWN_EGG;
 	public static Item VERMILLION_JELLY_SPAWN_EGG;
 	public static Item PHANTOM_JELLYFISH_SUMMONER;
 
@@ -132,6 +139,7 @@ public class AquaticPlusItems {
 		FROST_SHARDS = registerBasicItem("frost_shards");
 		STONE_ESSENCE = registerBasicItem("stone_essence");
 		STONE_CORRODER = registerBasicItem("stone_corroder");
+		ANTIVENOM_ESSENCE = registerBasicItem("antivenom_essence");
 		MORTIS_VENOM = registerBasicItem("mortis_venom");
 		STONEFISH_VENOM = registerBasicItem("stonefish_venom");
 		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth");
@@ -153,6 +161,9 @@ public class AquaticPlusItems {
 		NUMBING_AQUATIC_STAR = registerCustomItem("numbing_aquatic_star", new NumbingAquaticStarItem());
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem());
 		SEA_BANE_AQUATIC_STAR = registerCustomItem("sea_bane_aquatic_star", new SeaBaneAquaticStarItem());
+		LAND_DROWNING_ANTIVENOM = registerCustomItem("land_drowning_antivenom", new AntivenomItem(AquaticPlusStatusEffects.LAND_DROWNING));
+		NUMBING_ANTIVENOM = registerCustomItem("numbing_antivenom", new AntivenomItem(AquaticPlusStatusEffects.NUMBING));
+		SEA_BANE_ANTIVENOM = registerCustomItem("sea_bane_antivenom", new AntivenomItem(AquaticPlusStatusEffects.SEA_BANE));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(200)));
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
@@ -178,6 +189,7 @@ public class AquaticPlusItems {
 		GAR_FLESH = registerFoodItem("gar_flesh", AquaticPlusFoodItems.GAR_FLESH);
 		PIKE_FLESH = registerFoodItem("pike_flesh", AquaticPlusFoodItems.PIKE_FLESH);
 		BREAD_AND_JELLY = registerFoodItem("bread_and_jelly", AquaticPlusFoodItems.BREAD_AND_JELLY);
+		IVY_BERRIES = registerCustomItem("ivy_berries", new IvyBerriesItem(new Item.Settings().food(AquaticPlusFoodItems.IVY_BERRIES)));
 	}
 
 	public static void registerSpawnEggs() {
@@ -216,6 +228,7 @@ public class AquaticPlusItems {
 		YETI_CRAB_SPAWN_EGG = registerSpawnEggItem("yeti_crab", AquaticPlusEntities.YETI_CRAB_ENTITY, 0xc1a489, 0xd7c098);
 		STONEFISH_SPAWN_EGG = registerSpawnEggItem("stonefish", AquaticPlusEntities.STONEFISH_ENTITY, 0x575959, 0x555151);
 		SLIMY_SHRIMP_SPAWN_EGG = registerSpawnEggItem("slimy_shrimp", AquaticPlusEntities.SLIMY_SHRIMP_ENTITY, 0xbabfcb, 0xdb8d68);
+		IVY_SEAHORSE_SPAWN_EGG = registerSpawnEggItem("ivy_seahorse", AquaticPlusEntities.IVY_SEAHORSE_ENTITY, 0x674f32, 0x459b4f);
 		VERMILLION_JELLY_SPAWN_EGG = registerSpawnEggItem("vermillion_jelly", AquaticPlusEntities.VERMILLION_JELLY_ENTITY, 0x83546c, 0x454245);
 		PHANTOM_JELLYFISH_SUMMONER = registerCustomItem("phantom_jellyfish_summoner", new PhantomJellyfishSummonerItem());
 	}

@@ -36,6 +36,7 @@
 	"item.aquaticplus.yeti_crab_spawn_egg": "Yeti Crab Spawn Egg",
 	"item.aquaticplus.stonefish_spawn_egg": "Stonefish Spawn Egg",
 	"item.aquaticplus.slimy_shrimp_spawn_egg": "Slimy Shrimp Spawn Egg",
+	"item.aquaticplus.ivy_seahorse_spawn_egg": "Ivy Seahorse Spawn Egg",
 	"item.aquaticplus.vermillion_jelly_spawn_egg": "Vermillion Jelly Spawn Egg",
 	"item.aquaticplus.phantom_jellyfish_summoner": "Phantom Jellyfish Summoner",
 
@@ -61,12 +62,17 @@
 	"item.aquaticplus.gar_flesh": "Gar Flesh",
 	"item.aquaticplus.pike_flesh": "Pike Flesh",
 	"item.aquaticplus.bread_and_jelly": "Bread and Jelly",
+	"item.aquaticplus.ivy_berries": "Ivy Berries",
 
 	"item.aquaticplus.frost_shards": "Frost Shards",
 	"item.aquaticplus.stone_essence": "Stone Essence",
 	"item.aquaticplus.stone_corroder": "Stone Corroder",
+	"item.aquaticplus.antivenom_essence": "Antivenom Essence",
 	"item.aquaticplus.mortis_venom": "Mortis Venom",
 	"item.aquaticplus.stonefish_venom": "Stonefish Venom",
+	"item.aquaticplus.land_drowning_antivenom": "Land Drowning Antivenom",
+	"item.aquaticplus.numbing_antivenom": "Numbing Antivenom",
+	"item.aquaticplus.sea_bane_antivenom": "Sea Bane Antivenom",
 	"item.aquaticplus.maxilla_mortis_tooth": "Maxilla Mortis Tooth",
 	"item.aquaticplus.viper_tooth": "Viper Tooth",
 	"item.aquaticplus.sunfish_tail": "Sunfish Tail",
@@ -187,6 +193,7 @@
 	"entity.aquaticplus.yeti_crab": "Yeti Crab",
 	"entity.aquaticplus.stonefish": "Stonefish",
 	"entity.aquaticplus.slimy_shrimp": "Slimy Shrimp",
+	"entity.aquaticplus.ivy_seahorse": "Ivy Seahorse",
 	"entity.aquaticplus.vermillion_jelly": "Vermillion Jelly",
 	"entity.aquaticplus.phantom_jellyfish": "Phantom Jellyfish",
 

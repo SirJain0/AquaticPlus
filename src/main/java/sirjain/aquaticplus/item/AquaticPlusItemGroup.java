@@ -65,6 +65,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.YETI_CRAB_SPAWN_EGG);
 					entries.add(AquaticPlusItems.STONEFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.SLIMY_SHRIMP_SPAWN_EGG);
+					entries.add(AquaticPlusItems.IVY_SEAHORSE_SPAWN_EGG);
 					entries.add(AquaticPlusItems.VERMILLION_JELLY_SPAWN_EGG);
 					entries.add(AquaticPlusItems.PHANTOM_JELLYFISH_SUMMONER);
 
@@ -90,6 +91,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.GAR_FLESH);
 					entries.add(AquaticPlusItems.PIKE_FLESH);
 					entries.add(AquaticPlusItems.BREAD_AND_JELLY);
+					entries.add(AquaticPlusItems.IVY_BERRIES);
 
 					entries.add(AquaticPlusItems.AQUATIC_STAR);
 					entries.add(AquaticPlusItems.NUMBING_AQUATIC_STAR);
@@ -100,8 +102,12 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.FROST_SHARDS);
 					entries.add(AquaticPlusItems.STONE_ESSENCE);
 					entries.add(AquaticPlusItems.STONE_CORRODER);
+					entries.add(AquaticPlusItems.ANTIVENOM_ESSENCE);
 					entries.add(AquaticPlusItems.STONEFISH_VENOM);
 					entries.add(AquaticPlusItems.MORTIS_VENOM);
+					entries.add(AquaticPlusItems.LAND_DROWNING_ANTIVENOM);
+					entries.add(AquaticPlusItems.NUMBING_ANTIVENOM);
+					entries.add(AquaticPlusItems.SEA_BANE_ANTIVENOM);
 					entries.add(AquaticPlusItems.MAXILLA_MORTIS_TOOTH);
 					entries.add(AquaticPlusItems.VIPER_TOOTH);
 					entries.add(AquaticPlusItems.LIONFISH_SPIKE);

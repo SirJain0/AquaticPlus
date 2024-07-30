@@ -88,6 +88,8 @@ public class SlimyShrimpEntity extends APSchoolingFishEntity implements Shearabl
 		return super.interactMob(player, hand);
 	}
 
+	// == Shearable ==
+
 	@Override
 	protected void initDataTracker() {
 		super.initDataTracker();
@@ -113,8 +115,6 @@ public class SlimyShrimpEntity extends APSchoolingFishEntity implements Shearabl
 	public void setShearedState(boolean value) {
 		this.dataTracker.set(IS_SHEARED, value);
 	}
-
-	// == Shearable ==
 
 	@Override
 	public void sheared(SoundCategory shearedSoundCategory) {
