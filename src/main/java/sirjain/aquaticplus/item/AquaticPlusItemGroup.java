@@ -112,6 +112,8 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.MAXILLA_MORTIS_TOOTH);
 					entries.add(AquaticPlusItems.VIPER_TOOTH);
 					entries.add(AquaticPlusItems.LIONFISH_SPIKE);
+					entries.add(AquaticPlusItems.CRIMSON_SEAHORSE_SPIKE);
+					entries.add(AquaticPlusItems.AQUA_SEAHORSE_SPIKE);
 					entries.add(AquaticPlusItems.SUNFISH_TAIL);
 					entries.add(AquaticPlusItems.GHOSTLY_MEMBRANE);
 					entries.add(AquaticPlusItems.PINK_JELLY);

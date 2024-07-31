@@ -57,6 +57,8 @@ public class AquaticPlusItems {
 	public static Item NEON_LEAF;
 	public static Item ISOPOD_SHELL;
 	public static Item YETI_CRAB_SHELL;
+	public static Item CRIMSON_SEAHORSE_SPIKE;
+	public static Item AQUA_SEAHORSE_SPIKE;
 
 	public static Item VIPERFISH;
 	public static Item PARROTFISH;
@@ -136,7 +138,6 @@ public class AquaticPlusItems {
 
 	public static void registerBasicItems() {
 		FROSTED_BALL = registerBasicItem("frosted_ball", new Item.Settings().maxCount(1).maxCount(16));
-		AURORA = registerCustomItem("aurora", new AuroraItem(new Item.Settings().maxCount(1).maxCount(16)));
 		FROST_SHARDS = registerBasicItem("frost_shards");
 		STONE_ESSENCE = registerBasicItem("stone_essence");
 		STONE_CORRODER = registerBasicItem("stone_corroder");
@@ -153,6 +154,8 @@ public class AquaticPlusItems {
 		NEON_LEAF = registerBasicItem("neon_leaf");
 		ISOPOD_SHELL = registerBasicItem("isopod_shell");
 		YETI_CRAB_SHELL = registerBasicItem("yeti_crab_shell");
+		CRIMSON_SEAHORSE_SPIKE = registerBasicItem("crimson_seahorse_spike");
+		AQUA_SEAHORSE_SPIKE = registerBasicItem("aqua_seahorse_spike");
 	}
 
 	public static void registerAdvancedItems() {
@@ -167,6 +170,7 @@ public class AquaticPlusItems {
 		SEA_BANE_ANTIVENOM = registerCustomItem("sea_bane_antivenom", new AntivenomItem(AquaticPlusStatusEffects.SEA_BANE));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(200)));
+		AURORA = registerCustomItem("aurora", new AuroraItem(new Item.Settings().maxCount(1).maxCount(16)));
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
 		VERMILLION_GLOOM_STAFF = registerCustomItem("vermillion_gloom_staff", new VermillionGloomStaffItem());
 		MIDNIGHT_PIKE = registerCustomItem("midnight_pike", new MidnightPikeItem());

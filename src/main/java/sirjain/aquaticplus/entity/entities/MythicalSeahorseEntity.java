@@ -24,6 +24,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.entity.entities.projectile.AuroraEntity;
 import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
+import sirjain.aquaticplus.item.AquaticPlusItems;
 
 import java.util.function.IntFunction;
 
@@ -40,6 +41,14 @@ public class MythicalSeahorseEntity extends NoBucketSchoolingFishEntity implemen
 
 		this.goalSelector.add(0, new ProjectileAttackGoal(this, 1, 40, 15));
 		this.targetSelector.add(0, new RevengeGoal(this));
+	}
+
+	@Override
+	protected void dropInventory() {
+		if (this.getVariant().id == 0) this.dropItem(AquaticPlusItems.CRIMSON_SEAHORSE_SPIKE);
+		else if (this.getVariant().id == 1) this.dropItem(AquaticPlusItems.AQUA_SEAHORSE_SPIKE);
+
+		super.dropInventory();
 	}
 
 	@Override

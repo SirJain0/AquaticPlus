@@ -49,6 +49,7 @@ public class MythicalSeahorseModel extends EntityModel<MythicalSeahorseEntity> {
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
 		matrices.scale(1.2f, 1.2f, 1.2f);
+		matrices.translate(0, 0.8f, 0);
 		mythicalSeahorse.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}
