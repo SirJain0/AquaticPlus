@@ -63,6 +63,8 @@ public class AquaticPlusEntitySpawns {
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.OCEAN, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.LUKEWARM_OCEAN, BiomeKeys.RIVER, BiomeKeys.SWAMP), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.STONEFISH_ENTITY, 72, 1, 2);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.OCEAN, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.LUKEWARM_OCEAN, BiomeKeys.RIVER, BiomeKeys.DEEP_OCEAN, BiomeKeys.FROZEN_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.SLIMY_SHRIMP_ENTITY, 80, 4, 7);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.COLD_OCEAN, BiomeKeys.DEEP_COLD_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.IVY_SEAHORSE_ENTITY, 71, 3, 6);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.COLD_OCEAN, BiomeKeys.DEEP_COLD_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.MYTHICAL_SEAHORSE_ENTITY, 65, 2, 4);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER), SpawnGroup.WATER_CREATURE, AquaticPlusEntities.MYTHICAL_SEAHORSE_ENTITY, 55, 2, 4);
 	}
 
 	public static void initRestrictions() {
