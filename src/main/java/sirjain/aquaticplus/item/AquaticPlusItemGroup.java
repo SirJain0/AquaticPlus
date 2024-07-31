@@ -66,6 +66,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.STONEFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.SLIMY_SHRIMP_SPAWN_EGG);
 					entries.add(AquaticPlusItems.IVY_SEAHORSE_SPAWN_EGG);
+					entries.add(AquaticPlusItems.MYTHICAL_SEAHORSE_SPAWN_EGG);
 					entries.add(AquaticPlusItems.VERMILLION_JELLY_SPAWN_EGG);
 					entries.add(AquaticPlusItems.PHANTOM_JELLYFISH_SUMMONER);
 

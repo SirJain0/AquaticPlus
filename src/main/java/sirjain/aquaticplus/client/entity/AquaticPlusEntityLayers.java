@@ -7,6 +7,7 @@ import sirjain.aquaticplus.AquaticPlus;
 import sirjain.aquaticplus.client.entity.models.*;
 import sirjain.aquaticplus.client.entity.models.projectile.PlasmaModel;
 import sirjain.aquaticplus.entity.entities.IvySeahorseEntity;
+import sirjain.aquaticplus.entity.entities.MythicalSeahorseEntity;
 
 public class AquaticPlusEntityLayers {
 	public static EntityModelLayer JOHNSON_LAYER;
@@ -45,6 +46,7 @@ public class AquaticPlusEntityLayers {
 	public static EntityModelLayer STONEFISH_LAYER;
 	public static EntityModelLayer SLIMY_SHRIMP_LAYER;
 	public static EntityModelLayer IVY_SEAHORSE_LAYER;
+	public static EntityModelLayer MYTHICAL_SEAHORSE_LAYER;
 	public static EntityModelLayer VERMILLION_JELLY_LAYER;
 	public static EntityModelLayer PHANTOM_JELLYFISH_LAYER;
 
@@ -87,6 +89,7 @@ public class AquaticPlusEntityLayers {
 		STONEFISH_LAYER = registerEntityLayer("stonefish");
 		SLIMY_SHRIMP_LAYER = registerEntityLayer("slimy_shrimp");
 		IVY_SEAHORSE_LAYER = registerEntityLayer("ivy_seahorse");
+		MYTHICAL_SEAHORSE_LAYER = registerEntityLayer("mythical_seahorse");
 		VERMILLION_JELLY_LAYER = registerEntityLayer("vermillion_jelly");
 		PHANTOM_JELLYFISH_LAYER = registerEntityLayer("phantom_jellyfish");
 
@@ -131,6 +134,7 @@ public class AquaticPlusEntityLayers {
 		EntityModelLayerRegistry.registerModelLayer(STONEFISH_LAYER, StonefishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SLIMY_SHRIMP_LAYER, SlimyShrimpModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(IVY_SEAHORSE_LAYER, IvySeahorseModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(MYTHICAL_SEAHORSE_LAYER, MythicalSeahorseModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(PHANTOM_JELLYFISH_LAYER, PhantomJellyfishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(VERMILLION_JELLY_LAYER, VermillionJellyModel::getTexturedModelData);
 

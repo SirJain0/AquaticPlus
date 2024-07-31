@@ -109,6 +109,7 @@ public class AquaticPlusItems {
 	public static Item STONEFISH_SPAWN_EGG;
 	public static Item SLIMY_SHRIMP_SPAWN_EGG;
 	public static Item IVY_SEAHORSE_SPAWN_EGG;
+	public static Item MYTHICAL_SEAHORSE_SPAWN_EGG;
 	public static Item VERMILLION_JELLY_SPAWN_EGG;
 	public static Item PHANTOM_JELLYFISH_SUMMONER;
 
@@ -229,6 +230,7 @@ public class AquaticPlusItems {
 		STONEFISH_SPAWN_EGG = registerSpawnEggItem("stonefish", AquaticPlusEntities.STONEFISH_ENTITY, 0x575959, 0x555151);
 		SLIMY_SHRIMP_SPAWN_EGG = registerSpawnEggItem("slimy_shrimp", AquaticPlusEntities.SLIMY_SHRIMP_ENTITY, 0xbabfcb, 0xdb8d68);
 		IVY_SEAHORSE_SPAWN_EGG = registerSpawnEggItem("ivy_seahorse", AquaticPlusEntities.IVY_SEAHORSE_ENTITY, 0x674f32, 0x459b4f);
+		MYTHICAL_SEAHORSE_SPAWN_EGG = registerSpawnEggItem("mythical_seahorse", AquaticPlusEntities.MYTHICAL_SEAHORSE_ENTITY, 0xcd5858, 0xe3965b);
 		VERMILLION_JELLY_SPAWN_EGG = registerSpawnEggItem("vermillion_jelly", AquaticPlusEntities.VERMILLION_JELLY_ENTITY, 0x83546c, 0x454245);
 		PHANTOM_JELLYFISH_SUMMONER = registerCustomItem("phantom_jellyfish_summoner", new PhantomJellyfishSummonerItem());
 	}

@@ -59,6 +59,7 @@ public class AquaticPlusEntities<T extends Entity> {
 	public static EntityType<StonefishEntity> STONEFISH_ENTITY;
 	public static EntityType<SlimyShrimpEntity> SLIMY_SHRIMP_ENTITY;
 	public static EntityType<IvySeahorseEntity> IVY_SEAHORSE_ENTITY;
+	public static EntityType<MythicalSeahorseEntity> MYTHICAL_SEAHORSE_ENTITY;
 	public static EntityType<VermillionJellyEntity> VERMILLION_JELLY_ENTITY;
 	public static EntityType<PhantomJellyfishEntity> PHANTOM_JELLYFISH_ENTITY;
 
@@ -107,6 +108,7 @@ public class AquaticPlusEntities<T extends Entity> {
 		STONEFISH_ENTITY = registerEntityType("stonefish", StonefishEntity::new, 0.6f, 0.6f);
 		SLIMY_SHRIMP_ENTITY = registerEntityType("slimy_shrimp", SlimyShrimpEntity::new, 0.3f, 0.3f);
 		IVY_SEAHORSE_ENTITY = registerEntityType("ivy_seahorse", IvySeahorseEntity::new, 0.6f, 0.6f);
+		MYTHICAL_SEAHORSE_ENTITY = registerEntityType("mythical_seahorse", MythicalSeahorseEntity::new, 0.6f, 0.6f);
 		VERMILLION_JELLY_ENTITY = registerFireImmuneEntityType("vermillion_jelly", VermillionJellyEntity::new, 0.5f, 0.5f);
 		PHANTOM_JELLYFISH_ENTITY = registerFireImmuneEntityType("phantom_jellyfish", PhantomJellyfishEntity::new, 3, 3);
 
@@ -190,6 +192,7 @@ public class AquaticPlusEntities<T extends Entity> {
 		FabricDefaultAttributeRegistry.register(STONEFISH_ENTITY, StonefishEntity.createStonefishAttributes());
 		FabricDefaultAttributeRegistry.register(SLIMY_SHRIMP_ENTITY, SlimyShrimpEntity.createSlimyShrimpAttributes());
 		FabricDefaultAttributeRegistry.register(IVY_SEAHORSE_ENTITY, IvySeahorseEntity.createIvySeahorseAttributes());
+		FabricDefaultAttributeRegistry.register(MYTHICAL_SEAHORSE_ENTITY, MythicalSeahorseEntity.createMythicalSeahorseAttributes());
 		FabricDefaultAttributeRegistry.register(PHANTOM_JELLYFISH_ENTITY, PhantomJellyfishEntity.createPhantomJellyfishAttributes());
 		FabricDefaultAttributeRegistry.register(VERMILLION_JELLY_ENTITY, VermillionJellyEntity.createVermillionJellyAttributes());
 	}
