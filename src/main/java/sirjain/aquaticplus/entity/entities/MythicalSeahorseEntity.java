@@ -16,13 +16,14 @@ import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.entity.passive.SchoolingFishEntity;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.particle.ParticleTypes;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.StringIdentifiable;
 import net.minecraft.util.function.ValueLists;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import sirjain.aquaticplus.entity.entities.projectile.SeahorseSpikeEntity;
 import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
@@ -68,6 +69,17 @@ public class MythicalSeahorseEntity extends NoBucketSchoolingFishEntity implemen
 
 		projectile.setVelocity(xCoord, yCoord + velPath * (double) 0.2f + 0.1f, zCoord, 1, 0);
 		this.getWorld().spawnEntity(projectile);
+	}
+
+	@Override
+	public void tick() {
+		World world = this.getWorld();
+
+		if (!world.isClient && this.age % 3 == 0) {
+			((ServerWorld) world).spawnParticles(ParticleTypes.ENCHANT, this.getX(), this.getY() + 1, this.getZ(), 5, 0, 0.2f, 0.1f, 1);
+		}
+
+		super.tick();
 	}
 
 	// == VARIANTS ==
