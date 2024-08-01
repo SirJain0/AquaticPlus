@@ -129,6 +129,8 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.AURORA_STAFF);
 					entries.add(AquaticPlusItems.VERMILLION_GLOOM_STAFF);
 					entries.add(AquaticPlusItems.MIDNIGHT_PIKE);
+					entries.add(AquaticPlusItems.CRIMSON_SEA_SWORD);
+					entries.add(AquaticPlusItems.AQUA_SEA_SWORD);
 					entries.add(AquaticPlusItems.CYAN_CRAB_CLAW);
 					entries.add(AquaticPlusItems.ORANGE_CRAB_CLAW);
 					entries.add(AquaticPlusItems.PINK_CRAB_CLAW);

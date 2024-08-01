@@ -1,0 +1,22 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" c ",
+		"ici",
+		" s "
+	],
+	"key": {
+		"i": {
+			"item": "minecraft:iron_ingot"
+		},
+		"s": {
+			"item": "minecraft:stick"
+		},
+		"c": {
+			"item": "aquaticplus:crimson_spike"
+		}
+	},
+	"result": {
+		"item": "aquaticplus:crimson_sea_sword"
+	}
+}

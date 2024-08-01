@@ -12,9 +12,7 @@ import net.minecraft.util.Identifier;
 import sirjain.aquaticplus.AquaticPlus;
 import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
-import sirjain.aquaticplus.item.combat.AuroraStaffItem;
-import sirjain.aquaticplus.item.combat.FrostingSpectreItem;
-import sirjain.aquaticplus.item.combat.VermillionGloomStaffItem;
+import sirjain.aquaticplus.item.combat.*;
 import sirjain.aquaticplus.item.projectile.*;
 import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
@@ -34,6 +32,8 @@ public class AquaticPlusItems {
 	public static Item AURORA_STAFF;
 	public static Item VERMILLION_GLOOM_STAFF;
 	public static Item MIDNIGHT_PIKE;
+	public static Item CRIMSON_SEA_SWORD;
+	public static Item AQUA_SEA_SWORD;
 	public static Item CYAN_CRAB_CLAW;
 	public static Item ORANGE_CRAB_CLAW;
 	public static Item PINK_CRAB_CLAW;
@@ -174,6 +174,8 @@ public class AquaticPlusItems {
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
 		VERMILLION_GLOOM_STAFF = registerCustomItem("vermillion_gloom_staff", new VermillionGloomStaffItem());
 		MIDNIGHT_PIKE = registerCustomItem("midnight_pike", new MidnightPikeItem());
+		CRIMSON_SEA_SWORD = registerCustomItem("crimson_sea_sword", new CrimsonSeaSwordItem());
+		AQUA_SEA_SWORD = registerCustomItem("aqua_sea_sword", new AquaSeaSwordItem());
 		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem());
 		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem());
 		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem());
