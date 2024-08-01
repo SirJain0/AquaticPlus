@@ -52,6 +52,6 @@ public class SeahorseSpikeEntity extends APProjectileEntity {
 
 	@Override
 	protected float getGravity() {
-		return 0.1f;
+		return 0.05f;
 	}
 }
