@@ -22,7 +22,8 @@ import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
-import sirjain.aquaticplus.entity.entities.projectile.AuroraEntity;
+import sirjain.aquaticplus.entity.AquaticPlusEntities;
+import sirjain.aquaticplus.entity.entities.projectile.SeahorseSpikeEntity;
 import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 
@@ -57,10 +58,15 @@ public class MythicalSeahorseEntity extends NoBucketSchoolingFishEntity implemen
 		double zCoord = target.getZ() - this.getZ();
 		double velPath = Math.sqrt(xCoord * xCoord + zCoord * zCoord);
 
-		ThrownItemEntity projectile = new AuroraEntity(this.getWorld(), this);
+		ThrownItemEntity projectile = new SeahorseSpikeEntity(this.getWorld(), this);
+
+		if (this.getVariant().id == 1) {
+			projectile.setItem(AquaticPlusItems.AQUA_SEAHORSE_SPIKE.getDefaultStack());
+		}
+
 		double yCoord = target.getBodyY(0.3f) - projectile.getY();
 
-		projectile.setVelocity(xCoord, yCoord + velPath * (double) 0.2f, zCoord, 1, 0);
+		projectile.setVelocity(xCoord, yCoord + velPath * (double) 0.2f + 0.1f, zCoord, 1, 0);
 		this.getWorld().spawnEntity(projectile);
 	}
 

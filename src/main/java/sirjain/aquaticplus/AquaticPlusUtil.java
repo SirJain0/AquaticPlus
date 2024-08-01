@@ -1,5 +1,6 @@
 package sirjain.aquaticplus;
 
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
@@ -162,19 +163,19 @@ public class AquaticPlusUtil {
 	}
 
 	// Summons ambient particles with configurable particle and frequency
-	public static void summonAmbientParticles(LivingEntity entity, ParticleEffect particle, int interval, boolean alwaysSpawns) {
+	public static void summonAmbientParticles(Entity entity, ParticleEffect particle, int interval, boolean alwaysSpawns) {
 		summonAmbientParticles(entity, particle, interval, alwaysSpawns, 0, 0, 0);
 	}
 
 	// Summons ambient particles with configurable particle, frequency, and velocity
-	public static void summonAmbientParticles(LivingEntity entity, ParticleEffect particle, int interval, boolean alwaysSpawns, float velX, float velY, float velZ) {
+	public static void summonAmbientParticles(Entity entity, ParticleEffect particle, int interval, boolean alwaysSpawns, float velX, float velY, float velZ) {
 		if (interval <= 0) {
 			interval = 1;
 		}
 
 		World world = entity.getWorld();
 
-		if (world.isClient && entity.getRandom().nextInt(interval) == 0 && alwaysSpawns) {
+		if (world.isClient && entity.getWorld().getRandom().nextInt(interval) == 0 && alwaysSpawns) {
 			world.addParticle(particle, entity.getX(), entity.getRandomBodyY(), entity.getZ(), velX, velY, velZ);
 		}
 	}
