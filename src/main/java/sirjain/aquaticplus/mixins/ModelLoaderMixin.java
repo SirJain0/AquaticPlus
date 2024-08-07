@@ -27,5 +27,7 @@ public abstract class ModelLoaderMixin {
 		this.addModel(new ModelIdentifier(AquaticPlus.MOD_ID, "pink_crab_claw_model", "inventory"));
 		this.addModel(new ModelIdentifier(AquaticPlus.MOD_ID, "orange_crab_claw_model", "inventory"));
 		this.addModel(new ModelIdentifier(AquaticPlus.MOD_ID, "aurora_model", "inventory"));
+		this.addModel(new ModelIdentifier(AquaticPlus.MOD_ID, "crimson_sea_trident_model", "inventory"));
+		this.addModel(new ModelIdentifier(AquaticPlus.MOD_ID, "aqua_sea_trident_model", "inventory"));
 	}
 }
