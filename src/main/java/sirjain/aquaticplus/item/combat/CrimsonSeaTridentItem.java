@@ -1,6 +1,9 @@
 package sirjain.aquaticplus.item.combat;
 
-import sirjain.aquaticplus.item.abstract_item.SeaTridentItem;
+import net.minecraft.item.Item;
 
-public class CrimsonSeaTridentItem extends SeaTridentItem {
+public class CrimsonSeaTridentItem extends Item {
+	public CrimsonSeaTridentItem() {
+		super(new Item.Settings());
+	}
 }

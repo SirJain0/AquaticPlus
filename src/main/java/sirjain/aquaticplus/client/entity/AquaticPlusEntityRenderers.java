@@ -2,9 +2,11 @@ package sirjain.aquaticplus.client.entity;
 
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
+import net.minecraft.client.render.entity.ProjectileEntityRenderer;
 import sirjain.aquaticplus.client.entity.renderers.*;
 import sirjain.aquaticplus.client.entity.renderers.projectile.FlatSpinningProjectileRenderer;
 import sirjain.aquaticplus.client.entity.renderers.projectile.PlasmaRenderer;
+import sirjain.aquaticplus.client.entity.renderers.projectile.SeaTridentRenderer;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
 
 public class AquaticPlusEntityRenderers {
@@ -61,5 +63,6 @@ public class AquaticPlusEntityRenderers {
 		EntityRendererRegistry.register(AquaticPlusEntities.AURORA_ENTITY, FlyingItemEntityRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.PLASMA_ENTITY, PlasmaRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.SEAHORSE_SPIKE_ENTITY, ctx -> new FlatSpinningProjectileRenderer(ctx, 4f, false));
+		EntityRendererRegistry.register(AquaticPlusEntities.AQUA_SEA_TRIDENT_ENTITY, SeaTridentRenderer::new);
 	}
 }
