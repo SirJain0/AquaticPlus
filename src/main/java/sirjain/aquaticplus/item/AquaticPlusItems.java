@@ -34,6 +34,8 @@ public class AquaticPlusItems {
 	public static Item MIDNIGHT_PIKE;
 	public static Item CRIMSON_SEA_SWORD;
 	public static Item AQUA_SEA_SWORD;
+	public static Item CRIMSON_SEA_TRIDENT;
+	public static Item AQUA_SEA_TRIDENT;
 	public static Item CYAN_CRAB_CLAW;
 	public static Item ORANGE_CRAB_CLAW;
 	public static Item PINK_CRAB_CLAW;
@@ -176,6 +178,8 @@ public class AquaticPlusItems {
 		MIDNIGHT_PIKE = registerCustomItem("midnight_pike", new MidnightPikeItem());
 		CRIMSON_SEA_SWORD = registerCustomItem("crimson_sea_sword", new CrimsonSeaSwordItem());
 		AQUA_SEA_SWORD = registerCustomItem("aqua_sea_sword", new AquaSeaSwordItem());
+		CRIMSON_SEA_TRIDENT = registerCustomItem("crimson_sea_trident", new CrimsonSeaTridentItem());
+		AQUA_SEA_TRIDENT = registerCustomItem("aqua_sea_trident", new AquaSeaTridentItem());
 		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem());
 		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem());
 		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem());
