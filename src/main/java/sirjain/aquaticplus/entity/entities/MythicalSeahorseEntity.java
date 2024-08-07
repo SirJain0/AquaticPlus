@@ -30,6 +30,12 @@ import sirjain.aquaticplus.item.AquaticPlusItems;
 
 import java.util.function.IntFunction;
 
+/*
+TODO for tridents
+- Handling when trident hits entity
+- Do everything for crimson version
+- Crafting recipes
+ */
 public class MythicalSeahorseEntity extends NoBucketSchoolingFishEntity implements RangedAttackMob {
 	private static final TrackedData<Integer> MYTHICAL_SEAHORSE_TYPE = DataTracker.registerData(MythicalSeahorseEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
