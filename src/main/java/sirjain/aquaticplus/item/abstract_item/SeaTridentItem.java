@@ -9,7 +9,6 @@ import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import sirjain.aquaticplus.entity.entities.template.AbstractAquaticStarEntity;
 import sirjain.aquaticplus.entity.entities.template.SeaTridentEntity;
 
 public abstract class SeaTridentItem extends Item {
@@ -23,9 +22,9 @@ public abstract class SeaTridentItem extends Item {
 
 		if (world.isClient) return TypedActionResult.pass(stackInHand);
 
-		SeaTridentEntity star = getEntity(world, user);
-		star.setVelocity(user, user.getPitch(), user.getYaw(), 0, 0.75F, 0);
-		world.spawnEntity(star);
+		SeaTridentEntity trident = getEntity(world, user);
+		trident.setVelocity(user, user.getPitch(), user.getYaw(), 0, 1, 0);
+		world.spawnEntity(trident);
 
 		if (!user.getAbilities().creativeMode) {
 			stackInHand.decrement(1);

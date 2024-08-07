@@ -21,15 +21,16 @@ public class SeaTridentModel<T extends SeaTridentEntity> extends SinglePartEntit
 		ModelPartData group = modelPartData.addChild("sea_trident", ModelPartBuilder.create(), ModelTransform.pivot(0.0F, 16.0F, 0.0F));
 
 		ModelPartData head = group.addChild("head", ModelPartBuilder.create().uv(14, 4).cuboid(-3.0F, -23.0F, 0.0F, 1.0F, 4.0F, 1.0F, new Dilation(0.0F))
-			.uv(4, 16).cuboid(-2.0F, -1.0F, 0.5F, 1.0F, 1.0F, 0.0F, new Dilation(0.0F))
-			.uv(14, 12).cuboid(-1.0F, -21.0F, 0.0F, 1.0F, 2.0F, 1.0F, new Dilation(0.0F))
+			.uv(14, 9).cuboid(-1.0F, -21.0F, 0.0F, 1.0F, 2.0F, 1.0F, new Dilation(0.0F))
 			.uv(14, 2).cuboid(-4.0F, -18.0F, 0.0F, 3.0F, 1.0F, 1.0F, new Dilation(0.0F))
 			.uv(14, 0).cuboid(-5.0F, -19.0F, 0.0F, 5.0F, 1.0F, 1.0F, new Dilation(0.0F))
-			.uv(14, 9).cuboid(-5.0F, -21.0F, 0.0F, 1.0F, 2.0F, 1.0F, new Dilation(0.0F))
-			.uv(14, 15).cuboid(-4.0F, -1.0F, 0.5F, 1.0F, 1.0F, 0.0F, new Dilation(0.0F))
-			.uv(4, 8).cuboid(-2.0F, -17.0F, 0.5F, 5.0F, 8.0F, 0.0F, new Dilation(0.0F))
-			.uv(4, 0).cuboid(-8.0F, -17.0F, 0.5F, 5.0F, 8.0F, 0.0F, new Dilation(0.0F))
-			.uv(0, 0).cuboid(-3.0F, -17.0F, 0.0F, 1.0F, 18.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(3.0F, 7.0F, -1.0F));
+			.uv(14, 12).cuboid(-5.0F, -21.0F, 0.0F, 1.0F, 2.0F, 1.0F, new Dilation(0.0F)), ModelTransform.pivot(3.0F, 2.0F, -1.0F));
+
+		ModelPartData handle = group.addChild("handle", ModelPartBuilder.create().uv(0, 0).cuboid(2.0F, -32.0F, 0.0F, 1.0F, 23.0F, 1.0F, new Dilation(0.0F))
+			.uv(4, 8).cuboid(3.0F, -32.0F, 0.5F, 5.0F, 8.0F, 0.0F, new Dilation(0.0F))
+			.uv(4, 0).cuboid(-3.0F, -32.0F, 0.5F, 5.0F, 8.0F, 0.0F, new Dilation(0.0F))
+			.uv(4, 16).cuboid(1.0F, -11.0F, 0.5F, 1.0F, 1.0F, 0.0F, new Dilation(0.0F))
+			.uv(14, 15).cuboid(3.0F, -11.0F, 0.5F, 1.0F, 1.0F, 0.0F, new Dilation(0.0F)), ModelTransform.pivot(-2.0F, 17.0F, -1.0F));
 		return TexturedModelData.of(modelData, 32, 32);
 	}
 
@@ -41,7 +42,6 @@ public class SeaTridentModel<T extends SeaTridentEntity> extends SinglePartEntit
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-		matrices.translate(0, -0.8f, 0);
 		seaTrident.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}

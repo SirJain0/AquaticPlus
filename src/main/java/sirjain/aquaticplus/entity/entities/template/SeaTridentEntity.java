@@ -20,4 +20,9 @@ public abstract class SeaTridentEntity extends PersistentProjectileEntity {
 	protected ItemStack asItemStack() {
 		return AquaticPlusItems.AQUA_SEA_TRIDENT.getDefaultStack();
 	}
+
+	@Override
+	public boolean hasNoGravity() {
+		return true;
+	}
 }
