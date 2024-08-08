@@ -32,6 +32,7 @@ public class AquaticPlusItems {
 	public static Item AURORA_STAFF;
 	public static Item VERMILLION_GLOOM_STAFF;
 	public static Item MIDNIGHT_PIKE;
+	public static Item GULPER_DAGGER;
 	public static Item CRIMSON_SEA_SWORD;
 	public static Item AQUA_SEA_SWORD;
 	public static Item CRIMSON_SEA_TRIDENT;
@@ -176,6 +177,7 @@ public class AquaticPlusItems {
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
 		VERMILLION_GLOOM_STAFF = registerCustomItem("vermillion_gloom_staff", new VermillionGloomStaffItem());
 		MIDNIGHT_PIKE = registerCustomItem("midnight_pike", new MidnightPikeItem());
+		GULPER_DAGGER = registerCustomItem("gulper_dagger", new GulperDaggerItem());
 		CRIMSON_SEA_SWORD = registerCustomItem("crimson_sea_sword", new CrimsonSeaSwordItem());
 		AQUA_SEA_SWORD = registerCustomItem("aqua_sea_sword", new AquaSeaSwordItem());
 		CRIMSON_SEA_TRIDENT = registerCustomItem("crimson_sea_trident", new CrimsonSeaTridentItem());

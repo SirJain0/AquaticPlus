@@ -1,5 +1,6 @@
 package sirjain.aquaticplus.item.combat;
 
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
@@ -7,12 +8,16 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.entity.entities.projectile.SeahorseSpikeEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 import sirjain.aquaticplus.item.abstract_item.SeaSwordItem;
 import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
+
+import java.util.List;
 
 public class AquaSeaSwordItem extends SeaSwordItem {
 	@Override
@@ -69,5 +74,12 @@ public class AquaSeaSwordItem extends SeaSwordItem {
 	@Override
 	public int durabilityDecrement() {
 		return 5;
+	}
+
+	@Override
+	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+		super.appendTooltip(stack, world, tooltip, context);
+		tooltip.add(Text.translatable("aquaticplus.weapons.main_hand.tooltip").formatted(Formatting.GREEN));
+		tooltip.add(Text.translatable("aquaticplus.aqua_sea_Sword.damage.tooltip").formatted(Formatting.GREEN));
 	}
 }
