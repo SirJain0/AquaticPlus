@@ -54,20 +54,6 @@ public class FrostedSnowballEntity extends APProjectileEntity {
 	}
 
 	@Override
-	protected void onCollision(HitResult hitResult) {
-		super.onCollision(hitResult);
-		this.kill();
-	}
-
-	@Override
-	public void tick() {
-		super.tick();
-
-		if (this.isSubmergedInWater())
-			this.setVelocity(this.getVelocity().multiply(AquaticPlusUtil.UNDERWATER_VELOCITY_MULTIPLIER));
-	}
-
-	@Override
 	protected float getGravity() {
 		return 0;
 	}

@@ -3,8 +3,10 @@ package sirjain.aquaticplus.client.entity;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import sirjain.aquaticplus.client.entity.renderers.*;
-import sirjain.aquaticplus.client.entity.renderers.projectile.AquaticStarRenderer;
+import sirjain.aquaticplus.client.entity.renderers.projectile.CrimsonSeaTridentRenderer;
+import sirjain.aquaticplus.client.entity.renderers.projectile.FlatSpinningProjectileRenderer;
 import sirjain.aquaticplus.client.entity.renderers.projectile.PlasmaRenderer;
+import sirjain.aquaticplus.client.entity.renderers.projectile.AquaSeaTridentRenderer;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
 
 public class AquaticPlusEntityRenderers {
@@ -47,17 +49,21 @@ public class AquaticPlusEntityRenderers {
 		EntityRendererRegistry.register(AquaticPlusEntities.STONEFISH_ENTITY, StonefishRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.SLIMY_SHRIMP_ENTITY, SlimyShrimpRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.IVY_SEAHORSE_ENTITY, IvySeahorseRenderer::new);
+		EntityRendererRegistry.register(AquaticPlusEntities.MYTHICAL_SEAHORSE_ENTITY, MythicalSeahorseRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.PHANTOM_JELLYFISH_ENTITY, PhantomJellyfishRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.VERMILLION_JELLY_ENTITY, VermillionJellyRenderer::new);
 	}
 
 	public static void registerProjectileRenderers() {
-		EntityRendererRegistry.register(AquaticPlusEntities.AQUATIC_STAR_ENTITY, ctx -> new AquaticStarRenderer(ctx, 1, false));
-		EntityRendererRegistry.register(AquaticPlusEntities.NUMBING_AQUATIC_STAR_ENTITY, ctx -> new AquaticStarRenderer(ctx, 1, false));
-		EntityRendererRegistry.register(AquaticPlusEntities.LAND_DROWNING_AQUATIC_STAR_ENTITY, ctx -> new AquaticStarRenderer(ctx, 1, false));
-		EntityRendererRegistry.register(AquaticPlusEntities.SEA_BANE_AQUATIC_STAR_ENTITY, ctx -> new AquaticStarRenderer(ctx, 1, false));
+		EntityRendererRegistry.register(AquaticPlusEntities.AQUATIC_STAR_ENTITY, ctx -> new FlatSpinningProjectileRenderer(ctx, 1, false));
+		EntityRendererRegistry.register(AquaticPlusEntities.NUMBING_AQUATIC_STAR_ENTITY, ctx -> new FlatSpinningProjectileRenderer(ctx, 1, false));
+		EntityRendererRegistry.register(AquaticPlusEntities.LAND_DROWNING_AQUATIC_STAR_ENTITY, ctx -> new FlatSpinningProjectileRenderer(ctx, 1, false));
+		EntityRendererRegistry.register(AquaticPlusEntities.SEA_BANE_AQUATIC_STAR_ENTITY, ctx -> new FlatSpinningProjectileRenderer(ctx, 1, false));
 		EntityRendererRegistry.register(AquaticPlusEntities.FROSTED_SNOWBALL_ENTITY, FlyingItemEntityRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.AURORA_ENTITY, FlyingItemEntityRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.PLASMA_ENTITY, PlasmaRenderer::new);
+		EntityRendererRegistry.register(AquaticPlusEntities.SEAHORSE_SPIKE_ENTITY, ctx -> new FlatSpinningProjectileRenderer(ctx, 4f, false));
+		EntityRendererRegistry.register(AquaticPlusEntities.CRIMSON_SEA_TRIDENT_ENTITY, CrimsonSeaTridentRenderer::new);
+		EntityRendererRegistry.register(AquaticPlusEntities.AQUA_SEA_TRIDENT_ENTITY, AquaSeaTridentRenderer::new);
 	}
 }

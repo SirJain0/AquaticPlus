@@ -57,6 +57,8 @@ public abstract class ShootingStaffItem extends Item {
 
 	abstract public ProjectileEntity getEntity(World world, LivingEntity user);
 
+	abstract public boolean hasAmmoItem();
+
 	@Nullable abstract public ItemStack getAmmoItem();
 
 	abstract public float getProjectileVelocity();
@@ -64,8 +66,6 @@ public abstract class ShootingStaffItem extends Item {
 	abstract public int getNumProjectiles();
 
 	abstract public int getDivergence();
-
-	abstract public boolean hasAmmoItem();
 
 	abstract public boolean hasDurability();
 

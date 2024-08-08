@@ -66,6 +66,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.STONEFISH_SPAWN_EGG);
 					entries.add(AquaticPlusItems.SLIMY_SHRIMP_SPAWN_EGG);
 					entries.add(AquaticPlusItems.IVY_SEAHORSE_SPAWN_EGG);
+					entries.add(AquaticPlusItems.MYTHICAL_SEAHORSE_SPAWN_EGG);
 					entries.add(AquaticPlusItems.VERMILLION_JELLY_SPAWN_EGG);
 					entries.add(AquaticPlusItems.PHANTOM_JELLYFISH_SUMMONER);
 
@@ -111,6 +112,8 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.MAXILLA_MORTIS_TOOTH);
 					entries.add(AquaticPlusItems.VIPER_TOOTH);
 					entries.add(AquaticPlusItems.LIONFISH_SPIKE);
+					entries.add(AquaticPlusItems.CRIMSON_SEAHORSE_SPIKE);
+					entries.add(AquaticPlusItems.AQUA_SEAHORSE_SPIKE);
 					entries.add(AquaticPlusItems.SUNFISH_TAIL);
 					entries.add(AquaticPlusItems.GHOSTLY_MEMBRANE);
 					entries.add(AquaticPlusItems.PINK_JELLY);
@@ -126,6 +129,10 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.AURORA_STAFF);
 					entries.add(AquaticPlusItems.VERMILLION_GLOOM_STAFF);
 					entries.add(AquaticPlusItems.MIDNIGHT_PIKE);
+					entries.add(AquaticPlusItems.CRIMSON_SEA_SWORD);
+					entries.add(AquaticPlusItems.AQUA_SEA_SWORD);
+					entries.add(AquaticPlusItems.CRIMSON_SEA_TRIDENT);
+					entries.add(AquaticPlusItems.AQUA_SEA_TRIDENT);
 					entries.add(AquaticPlusItems.CYAN_CRAB_CLAW);
 					entries.add(AquaticPlusItems.ORANGE_CRAB_CLAW);
 					entries.add(AquaticPlusItems.PINK_CRAB_CLAW);

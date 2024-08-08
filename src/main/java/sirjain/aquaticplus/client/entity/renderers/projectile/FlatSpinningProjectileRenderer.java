@@ -10,16 +10,16 @@ import net.minecraft.client.render.model.json.ModelTransformationMode;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.util.math.RotationAxis;
-import sirjain.aquaticplus.entity.entities.template.AbstractAquaticStarEntity;
 
-public class AquaticStarRenderer extends FlyingItemEntityRenderer<AbstractAquaticStarEntity> {
-	public AquaticStarRenderer(EntityRendererFactory.Context ctx, float scale, boolean lit) {
+public class FlatSpinningProjectileRenderer extends FlyingItemEntityRenderer<ThrownItemEntity> {
+	public FlatSpinningProjectileRenderer(EntityRendererFactory.Context ctx, float scale, boolean lit) {
 		super(ctx, scale, lit);
 	}
 
 	@Override
-	public void render(AbstractAquaticStarEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
+	public void render(ThrownItemEntity entity, float yaw, float tickDelta, MatrixStack matrices, VertexConsumerProvider vertexConsumers, int light) {
 		Entity thrower = entity.getOwner();
 		int lightAbove = WorldRenderer.getLightmapCoordinates(entity.getWorld(), entity.getBlockPos().up());
 

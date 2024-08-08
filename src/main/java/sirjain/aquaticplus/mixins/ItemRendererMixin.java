@@ -25,6 +25,8 @@ public abstract class ItemRendererMixin {
 		if (stack.isOf(AquaticPlusItems.CYAN_CRAB_CLAW) && isHeldInHand) return generateModel("cyan_crab_claw_model");
 		if (stack.isOf(AquaticPlusItems.PINK_CRAB_CLAW) && isHeldInHand) return generateModel("pink_crab_claw_model");
 		if (stack.isOf(AquaticPlusItems.ORANGE_CRAB_CLAW) && isHeldInHand) return generateModel("orange_crab_claw_model");
+		if (stack.isOf(AquaticPlusItems.CRIMSON_SEA_TRIDENT) && isHeldInHand) return generateModel("crimson_sea_trident_model");
+		if (stack.isOf(AquaticPlusItems.AQUA_SEA_TRIDENT) && (isHeldInHand || renderMode == ModelTransformationMode.GROUND)) return generateModel("aqua_sea_trident_model");
 		if (stack.isOf(AquaticPlusItems.AURORA) && (!isHeldInHand && !(renderMode == ModelTransformationMode.GUI))) return generateModel("aurora_model");
 
 		return value;

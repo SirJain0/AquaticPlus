@@ -2,7 +2,6 @@ package sirjain.aquaticplus.entity;
 
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
-import net.minecraft.client.render.entity.feature.EnergySwirlOverlayFeatureRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
@@ -59,6 +58,7 @@ public class AquaticPlusEntities<T extends Entity> {
 	public static EntityType<StonefishEntity> STONEFISH_ENTITY;
 	public static EntityType<SlimyShrimpEntity> SLIMY_SHRIMP_ENTITY;
 	public static EntityType<IvySeahorseEntity> IVY_SEAHORSE_ENTITY;
+	public static EntityType<MythicalSeahorseEntity> MYTHICAL_SEAHORSE_ENTITY;
 	public static EntityType<VermillionJellyEntity> VERMILLION_JELLY_ENTITY;
 	public static EntityType<PhantomJellyfishEntity> PHANTOM_JELLYFISH_ENTITY;
 
@@ -69,6 +69,9 @@ public class AquaticPlusEntities<T extends Entity> {
 	public static EntityType<FrostedSnowballEntity> FROSTED_SNOWBALL_ENTITY;
 	public static EntityType<AuroraEntity> AURORA_ENTITY;
 	public static EntityType<PlasmaEntity> PLASMA_ENTITY;
+	public static EntityType<SeahorseSpikeEntity> SEAHORSE_SPIKE_ENTITY;
+	public static EntityType<AquaSeaTridentEntity> AQUA_SEA_TRIDENT_ENTITY;
+	public static EntityType<CrimsonSeaTridentEntity> CRIMSON_SEA_TRIDENT_ENTITY;
 
 	public static void registerEntityTypes() {
 		JOHNSON_ENTITY = registerEntityType("johnson", ShadowSardelEasterEggEntity::new, 0.5f, 0.5f);
@@ -107,17 +110,21 @@ public class AquaticPlusEntities<T extends Entity> {
 		STONEFISH_ENTITY = registerEntityType("stonefish", StonefishEntity::new, 0.6f, 0.6f);
 		SLIMY_SHRIMP_ENTITY = registerEntityType("slimy_shrimp", SlimyShrimpEntity::new, 0.3f, 0.3f);
 		IVY_SEAHORSE_ENTITY = registerEntityType("ivy_seahorse", IvySeahorseEntity::new, 0.6f, 0.6f);
+		MYTHICAL_SEAHORSE_ENTITY = registerEntityType("mythical_seahorse", MythicalSeahorseEntity::new, 0.8f, 0.8f);
 		VERMILLION_JELLY_ENTITY = registerFireImmuneEntityType("vermillion_jelly", VermillionJellyEntity::new, 0.5f, 0.5f);
 		PHANTOM_JELLYFISH_ENTITY = registerFireImmuneEntityType("phantom_jellyfish", PhantomJellyfishEntity::new, 3, 3);
 
 		// Projectiles
-		AQUATIC_STAR_ENTITY = registerProjectileType("aquatic_star", AquaticStarEntity::new, 16, 10);
-		NUMBING_AQUATIC_STAR_ENTITY = registerProjectileType("numbing_aquatic_star", NumbingAquaticStarEntity::new, 16, 10);
-		LAND_DROWNING_AQUATIC_STAR_ENTITY = registerProjectileType("land_drowning_aquatic_star", LandDrowningAquaticStarEntity::new, 16, 10);
-		SEA_BANE_AQUATIC_STAR_ENTITY = registerProjectileType("sea_bane_aquatic_star", SeaBaneAquaticStarEntity::new, 16, 10);
-		FROSTED_SNOWBALL_ENTITY = registerProjectileType("frosted_snowball", FrostedSnowballEntity::new, 22, 20);
-		AURORA_ENTITY = registerProjectileType("aurora", AuroraEntity::new, 22, 20);
-		PLASMA_ENTITY = registerProjectileType("plasma", PlasmaEntity::new, 30, 20);
+		AQUATIC_STAR_ENTITY = registerProjectileType("aquatic_star", AquaticStarEntity::new);
+		NUMBING_AQUATIC_STAR_ENTITY = registerProjectileType("numbing_aquatic_star", NumbingAquaticStarEntity::new);
+		LAND_DROWNING_AQUATIC_STAR_ENTITY = registerProjectileType("land_drowning_aquatic_star", LandDrowningAquaticStarEntity::new);
+		SEA_BANE_AQUATIC_STAR_ENTITY = registerProjectileType("sea_bane_aquatic_star", SeaBaneAquaticStarEntity::new);
+		FROSTED_SNOWBALL_ENTITY = registerProjectileType("frosted_snowball", FrostedSnowballEntity::new);
+		AURORA_ENTITY = registerProjectileType("aurora", AuroraEntity::new);
+		PLASMA_ENTITY = registerProjectileType("plasma", PlasmaEntity::new);
+		SEAHORSE_SPIKE_ENTITY = registerProjectileType("seahorse_spike", SeahorseSpikeEntity::new);
+		AQUA_SEA_TRIDENT_ENTITY = registerProjectileType("aqua_sea_trident", AquaSeaTridentEntity::new);
+		CRIMSON_SEA_TRIDENT_ENTITY = registerProjectileType("crimson_sea_trident", CrimsonSeaTridentEntity::new);
 	}
 
 	public static <T extends Entity> EntityType<T> registerEntityType(String path, EntityType.EntityFactory<T> factory, float hitboxWidth, float hitboxHeight) {
@@ -141,14 +148,14 @@ public class AquaticPlusEntities<T extends Entity> {
 		);
 	}
 
-	public static <T extends Entity> EntityType<T> registerProjectileType(String path, EntityType.EntityFactory<T> factory, int rangeBlocks, int updateRate) {
+	public static <T extends Entity> EntityType<T> registerProjectileType(String path, EntityType.EntityFactory<T> factory) {
 		return Registry.register(
 			Registries.ENTITY_TYPE,
 			new Identifier(AquaticPlus.MOD_ID, path),
 			FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, factory)
 				.dimensions(EntityDimensions.fixed(0.25f, 0.25f))
-				.trackRangeBlocks(rangeBlocks)
-				.trackedUpdateRate(updateRate)
+				.trackRangeBlocks(25)
+				.trackedUpdateRate(20)
 				.build()
 		);
 	}
@@ -190,6 +197,7 @@ public class AquaticPlusEntities<T extends Entity> {
 		FabricDefaultAttributeRegistry.register(STONEFISH_ENTITY, StonefishEntity.createStonefishAttributes());
 		FabricDefaultAttributeRegistry.register(SLIMY_SHRIMP_ENTITY, SlimyShrimpEntity.createSlimyShrimpAttributes());
 		FabricDefaultAttributeRegistry.register(IVY_SEAHORSE_ENTITY, IvySeahorseEntity.createIvySeahorseAttributes());
+		FabricDefaultAttributeRegistry.register(MYTHICAL_SEAHORSE_ENTITY, MythicalSeahorseEntity.createMythicalSeahorseAttributes());
 		FabricDefaultAttributeRegistry.register(PHANTOM_JELLYFISH_ENTITY, PhantomJellyfishEntity.createPhantomJellyfishAttributes());
 		FabricDefaultAttributeRegistry.register(VERMILLION_JELLY_ENTITY, VermillionJellyEntity.createVermillionJellyAttributes());
 	}

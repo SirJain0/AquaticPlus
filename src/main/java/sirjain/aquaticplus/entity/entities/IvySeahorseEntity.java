@@ -42,7 +42,7 @@ public class IvySeahorseEntity extends NoBucketSchoolingFishEntity implements Sh
 		List<Entity> entitiesAround = this.getWorld().getOtherEntities(null, this.getBoundingBox().expand(5), EntityPredicates.VALID_LIVING_ENTITY);
 
 		for (Entity entity : entitiesAround) {
-			if (entity instanceof LivingEntity mob && !(mob instanceof FishEntity) && !mob.hasStatusEffect(StatusEffects.POISON)) {
+			if (entity instanceof LivingEntity mob && !(mob instanceof FishEntity) && !mob.hasStatusEffect(StatusEffects.POISON) && !mob.hasStatusEffect(StatusEffects.REGENERATION)) {
 				mob.addStatusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 20*5, 0));
 			}
 		}

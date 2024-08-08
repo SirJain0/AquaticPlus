@@ -12,9 +12,7 @@ import net.minecraft.util.Identifier;
 import sirjain.aquaticplus.AquaticPlus;
 import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
-import sirjain.aquaticplus.item.combat.AuroraStaffItem;
-import sirjain.aquaticplus.item.combat.FrostingSpectreItem;
-import sirjain.aquaticplus.item.combat.VermillionGloomStaffItem;
+import sirjain.aquaticplus.item.combat.*;
 import sirjain.aquaticplus.item.projectile.*;
 import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
@@ -34,6 +32,10 @@ public class AquaticPlusItems {
 	public static Item AURORA_STAFF;
 	public static Item VERMILLION_GLOOM_STAFF;
 	public static Item MIDNIGHT_PIKE;
+	public static Item CRIMSON_SEA_SWORD;
+	public static Item AQUA_SEA_SWORD;
+	public static Item CRIMSON_SEA_TRIDENT;
+	public static Item AQUA_SEA_TRIDENT;
 	public static Item CYAN_CRAB_CLAW;
 	public static Item ORANGE_CRAB_CLAW;
 	public static Item PINK_CRAB_CLAW;
@@ -57,6 +59,8 @@ public class AquaticPlusItems {
 	public static Item NEON_LEAF;
 	public static Item ISOPOD_SHELL;
 	public static Item YETI_CRAB_SHELL;
+	public static Item CRIMSON_SEAHORSE_SPIKE;
+	public static Item AQUA_SEAHORSE_SPIKE;
 
 	public static Item VIPERFISH;
 	public static Item PARROTFISH;
@@ -109,6 +113,7 @@ public class AquaticPlusItems {
 	public static Item STONEFISH_SPAWN_EGG;
 	public static Item SLIMY_SHRIMP_SPAWN_EGG;
 	public static Item IVY_SEAHORSE_SPAWN_EGG;
+	public static Item MYTHICAL_SEAHORSE_SPAWN_EGG;
 	public static Item VERMILLION_JELLY_SPAWN_EGG;
 	public static Item PHANTOM_JELLYFISH_SUMMONER;
 
@@ -135,7 +140,6 @@ public class AquaticPlusItems {
 
 	public static void registerBasicItems() {
 		FROSTED_BALL = registerBasicItem("frosted_ball", new Item.Settings().maxCount(1).maxCount(16));
-		AURORA = registerCustomItem("aurora", new AuroraItem(new Item.Settings().maxCount(1).maxCount(16)));
 		FROST_SHARDS = registerBasicItem("frost_shards");
 		STONE_ESSENCE = registerBasicItem("stone_essence");
 		STONE_CORRODER = registerBasicItem("stone_corroder");
@@ -152,6 +156,8 @@ public class AquaticPlusItems {
 		NEON_LEAF = registerBasicItem("neon_leaf");
 		ISOPOD_SHELL = registerBasicItem("isopod_shell");
 		YETI_CRAB_SHELL = registerBasicItem("yeti_crab_shell");
+		CRIMSON_SEAHORSE_SPIKE = registerBasicItem("crimson_seahorse_spike");
+		AQUA_SEAHORSE_SPIKE = registerBasicItem("aqua_seahorse_spike");
 	}
 
 	public static void registerAdvancedItems() {
@@ -166,9 +172,14 @@ public class AquaticPlusItems {
 		SEA_BANE_ANTIVENOM = registerCustomItem("sea_bane_antivenom", new AntivenomItem(AquaticPlusStatusEffects.SEA_BANE));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(200)));
+		AURORA = registerCustomItem("aurora", new AuroraItem(new Item.Settings().maxCount(1).maxCount(16)));
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
 		VERMILLION_GLOOM_STAFF = registerCustomItem("vermillion_gloom_staff", new VermillionGloomStaffItem());
 		MIDNIGHT_PIKE = registerCustomItem("midnight_pike", new MidnightPikeItem());
+		CRIMSON_SEA_SWORD = registerCustomItem("crimson_sea_sword", new CrimsonSeaSwordItem());
+		AQUA_SEA_SWORD = registerCustomItem("aqua_sea_sword", new AquaSeaSwordItem());
+		CRIMSON_SEA_TRIDENT = registerCustomItem("crimson_sea_trident", new CrimsonSeaTridentItem());
+		AQUA_SEA_TRIDENT = registerCustomItem("aqua_sea_trident", new AquaSeaTridentItem());
 		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem());
 		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem());
 		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem());
@@ -229,6 +240,7 @@ public class AquaticPlusItems {
 		STONEFISH_SPAWN_EGG = registerSpawnEggItem("stonefish", AquaticPlusEntities.STONEFISH_ENTITY, 0x575959, 0x555151);
 		SLIMY_SHRIMP_SPAWN_EGG = registerSpawnEggItem("slimy_shrimp", AquaticPlusEntities.SLIMY_SHRIMP_ENTITY, 0xbabfcb, 0xdb8d68);
 		IVY_SEAHORSE_SPAWN_EGG = registerSpawnEggItem("ivy_seahorse", AquaticPlusEntities.IVY_SEAHORSE_ENTITY, 0x674f32, 0x459b4f);
+		MYTHICAL_SEAHORSE_SPAWN_EGG = registerSpawnEggItem("mythical_seahorse", AquaticPlusEntities.MYTHICAL_SEAHORSE_ENTITY, 0xcd5858, 0xe3965b);
 		VERMILLION_JELLY_SPAWN_EGG = registerSpawnEggItem("vermillion_jelly", AquaticPlusEntities.VERMILLION_JELLY_ENTITY, 0x83546c, 0x454245);
 		PHANTOM_JELLYFISH_SUMMONER = registerCustomItem("phantom_jellyfish_summoner", new PhantomJellyfishSummonerItem());
 	}
