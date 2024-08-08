@@ -76,6 +76,7 @@
 	"item.aquaticplus.sea_bane_antidote": "Sea Bane Antidote",
 	"item.aquaticplus.maxilla_mortis_tooth": "Maxilla Mortis Tooth",
 	"item.aquaticplus.viper_tooth": "Viper Tooth",
+	"item.aquaticplus.gulper_tooth": "Gulper Tooth",
 	"item.aquaticplus.sunfish_tail": "Sunfish Tail",
 	"item.aquaticplus.lionfish_spike": "Lionfish Spike",
 	"item.aquaticplus.crimson_seahorse_spike": "Crimson Seahorse Spike",
@@ -101,6 +102,7 @@
 	"item.aquaticplus.aurora_staff": "Aurora Staff",
 	"item.aquaticplus.vermillion_gloom_staff": "Vermillion Gloom Staff",
 	"item.aquaticplus.midnight_pike": "Midnight Pike",
+	"item.aquaticplus.gulper_dagger": "Gulper Dagger",
 	"item.aquaticplus.crimson_sea_sword": "Crimson Sea Sword",
 	"item.aquaticplus.aqua_sea_sword": "Aqua Sea Sword",
 	"item.aquaticplus.crimson_sea_trident": "Crimson Sea Trident",
@@ -225,5 +227,9 @@
 	"aquaticplus.land_drowning_aquatic_star.tooltip": "Tinker with enemy lungs...",
 	"aquaticplus.sea_bane_aquatic_star.tooltip": "Use our poison against them...",
 	"aquaticplus.numbing_aquatic_star.tooltip": "Make your enemies drop their own weapons",
-	"aquaticplus.frosting_spectre.tooltip": "Packs a cold punch"
+	"aquaticplus.frosting_spectre.tooltip": "Packs a cold punch",
+	"aquaticplus.aqua_sea_trident.tooltip": "An inversion of the lungs on legs...",
+	"aquaticplus.crimson_sea_trident.tooltip": "Distributed fire on legs...",
+	"aquaticplus.weapons.main_hand.tooltip": "When in Main Hand:",
+	"aquaticplus.sea_sword.damage.tooltip": "7 Attack Damage"
 }
