@@ -10,6 +10,7 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.AquaticPlusUtil;
 
 public abstract class SeaTridentEntity extends PersistentProjectileEntity {
 	public SeaTridentEntity(EntityType<? extends PersistentProjectileEntity> entityType, World world) {
@@ -51,4 +52,9 @@ public abstract class SeaTridentEntity extends PersistentProjectileEntity {
 	}
 
 	abstract public ParticleEffect getParticle();
+
+	@Override
+	protected float getDragInWater() {
+		return 1;
+	}
 }
