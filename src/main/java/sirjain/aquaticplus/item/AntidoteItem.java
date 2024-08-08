@@ -15,10 +15,10 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 
-public class AntivenomItem extends Item {
+public class AntidoteItem extends Item {
 	private final StatusEffect effect;
 
-	public AntivenomItem(StatusEffect effect) {
+	public AntidoteItem(StatusEffect effect) {
 		super(new Item.Settings().maxCount(16));
 		this.effect = effect;
 	}

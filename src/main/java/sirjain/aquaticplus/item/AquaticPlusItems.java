@@ -24,9 +24,9 @@ public class AquaticPlusItems {
 	public static Item NUMBING_AQUATIC_STAR;
 	public static Item LAND_DROWNING_AQUATIC_STAR;
 	public static Item SEA_BANE_AQUATIC_STAR;
-	public static Item LAND_DROWNING_ANTIVENOM;
-	public static Item NUMBING_ANTIVENOM;
-	public static Item SEA_BANE_ANTIVENOM;
+	public static Item LAND_DROWNING_ANTIDOTE;
+	public static Item NUMBING_ANTIDOTE;
+	public static Item SEA_BANE_ANTIDOTE;
 	public static Item DEOXIDIZING_MATERIAL;
 	public static Item FROSTING_SPECTRE;
 	public static Item AURORA_STAFF;
@@ -45,7 +45,7 @@ public class AquaticPlusItems {
 	public static Item FROST_SHARDS;
 	public static Item STONE_ESSENCE;
 	public static Item STONE_CORRODER;
-	public static Item ANTIVENOM_ESSENCE;
+	public static Item ANTIDOTE_ESSENCE;
 	public static Item MORTIS_VENOM;
 	public static Item STONEFISH_VENOM;
 	public static Item MAXILLA_MORTIS_TOOTH;
@@ -143,7 +143,7 @@ public class AquaticPlusItems {
 		FROST_SHARDS = registerBasicItem("frost_shards");
 		STONE_ESSENCE = registerBasicItem("stone_essence");
 		STONE_CORRODER = registerBasicItem("stone_corroder");
-		ANTIVENOM_ESSENCE = registerBasicItem("antivenom_essence");
+		ANTIDOTE_ESSENCE = registerBasicItem("antidote_essence");
 		MORTIS_VENOM = registerBasicItem("mortis_venom");
 		STONEFISH_VENOM = registerBasicItem("stonefish_venom");
 		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth");
@@ -167,9 +167,9 @@ public class AquaticPlusItems {
 		NUMBING_AQUATIC_STAR = registerCustomItem("numbing_aquatic_star", new NumbingAquaticStarItem());
 		LAND_DROWNING_AQUATIC_STAR = registerCustomItem("land_drowning_aquatic_star", new LandDrowningAquaticStarItem());
 		SEA_BANE_AQUATIC_STAR = registerCustomItem("sea_bane_aquatic_star", new SeaBaneAquaticStarItem());
-		LAND_DROWNING_ANTIVENOM = registerCustomItem("land_drowning_antivenom", new AntivenomItem(AquaticPlusStatusEffects.LAND_DROWNING));
-		NUMBING_ANTIVENOM = registerCustomItem("numbing_antivenom", new AntivenomItem(AquaticPlusStatusEffects.NUMBING));
-		SEA_BANE_ANTIVENOM = registerCustomItem("sea_bane_antivenom", new AntivenomItem(AquaticPlusStatusEffects.SEA_BANE));
+		LAND_DROWNING_ANTIDOTE = registerCustomItem("land_drowning_antidote", new AntidoteItem(AquaticPlusStatusEffects.LAND_DROWNING));
+		NUMBING_ANTIDOTE = registerCustomItem("numbing_antidote", new AntidoteItem(AquaticPlusStatusEffects.NUMBING));
+		SEA_BANE_ANTIDOTE = registerCustomItem("sea_bane_antidote", new AntidoteItem(AquaticPlusStatusEffects.SEA_BANE));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(200)));
 		AURORA = registerCustomItem("aurora", new AuroraItem(new Item.Settings().maxCount(1).maxCount(16)));

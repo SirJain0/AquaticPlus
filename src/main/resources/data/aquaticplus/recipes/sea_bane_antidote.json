@@ -10,11 +10,11 @@
 			"item": "aquaticplus:lionfish_spike"
 		},
 		"a": {
-			"item": "aquaticplus:antivenom_essence"
+			"item": "aquaticplus:antidote_essence"
 		}
 	},
 	"result": {
-		"item": "aquaticplus:sea_bane_antivenom",
+		"item": "aquaticplus:sea_bane_antidote",
 		"count": 3
 	}
 }

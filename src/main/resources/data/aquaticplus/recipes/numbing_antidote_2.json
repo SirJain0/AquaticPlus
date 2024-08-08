@@ -7,14 +7,14 @@
 	],
 	"key": {
 		"v": {
-			"item": "aquaticplus:mortis_venom"
+			"item": "aquaticplus:stonefish_venom"
 		},
 		"a": {
-			"item": "aquaticplus:antivenom_essence"
+			"item": "aquaticplus:antidote_essence"
 		}
 	},
 	"result": {
-		"item": "aquaticplus:numbing_antivenom",
+		"item": "aquaticplus:numbing_antidote",
 		"count": 3
 	}
 }
