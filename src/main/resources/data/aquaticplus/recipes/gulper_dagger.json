@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"c",
+		"c",
+		"s"
+	],
+	"key": {
+		"s": {
+			"item": "minecraft:stick"
+		},
+		"c": {
+			"item": "aquaticplus:gulper_tooth"
+		}
+	},
+	"result": {
+		"item": "aquaticplus:gulper_dagger"
+	}
+}

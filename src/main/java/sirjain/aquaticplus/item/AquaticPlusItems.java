@@ -51,6 +51,7 @@ public class AquaticPlusItems {
 	public static Item STONEFISH_VENOM;
 	public static Item MAXILLA_MORTIS_TOOTH;
 	public static Item VIPER_TOOTH;
+	public static Item GULPER_TOOTH;
 	public static Item SUNFISH_TAIL;
 	public static Item LIONFISH_SPIKE;
 	public static Item GHOSTLY_MEMBRANE;
@@ -149,6 +150,7 @@ public class AquaticPlusItems {
 		STONEFISH_VENOM = registerBasicItem("stonefish_venom");
 		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth");
 		VIPER_TOOTH = registerBasicItem("viper_tooth");
+		GULPER_TOOTH = registerBasicItem("gulper_tooth");
 		SUNFISH_TAIL = registerBasicItem("sunfish_tail");
 		GHOSTLY_MEMBRANE = registerBasicItem("ghostly_membrane");
 		PINK_JELLY = registerBasicItem("pink_jelly");
