@@ -44,10 +44,12 @@ public class LionfishEntity extends NoBucketSchoolingFishEntity implements Anger
 	protected void initGoals() {
 		super.initGoals();
 
-		this.goalSelector.add(1, new MeleeAttackGoal(this, 1.0, true));
+		this.goalSelector.add(8, new MeleeAttackGoal(this, 1.0, true));
 		this.targetSelector.add(1, new UniversalAngerGoal(this, true));
-		this.targetSelector.add(3, new ActiveTargetGoal<>(this, ParrotfishEntity.class, true));
-		this.targetSelector.add(3, new ActiveTargetGoal<>(this, CodEntity.class, true));
+		this.targetSelector.add(8, new ActiveTargetGoal<>(this, ParrotfishEntity.class, true));
+		this.targetSelector.add(8, new ActiveTargetGoal<>(this, CodEntity.class, true));
+		this.targetSelector.add(8, new ActiveTargetGoal<>(this, SardineEntity.class, true));
+		this.targetSelector.add(8, new ActiveTargetGoal<>(this, MinnowEntity.class, true));
 		this.targetSelector.add(2, (new RevengeGoal(this)).setGroupRevenge());
 		this.targetSelector.add(1, new ActiveTargetGoal<>(this, LivingEntity.class, 10, true, false, this::shouldAngerAt));
 	}

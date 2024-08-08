@@ -1,7 +1,10 @@
 package sirjain.aquaticplus.entity.entities;
 
 import net.minecraft.entity.*;
+import net.minecraft.entity.ai.goal.ActiveTargetGoal;
+import net.minecraft.entity.ai.goal.AttackGoal;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
+import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.data.DataTracker;
@@ -32,8 +35,13 @@ public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 	@Override
 	protected void initGoals() {
 		super.initGoals();
+
 		this.goalSelector.add(0, new EscapeDangerGoal(this, 3));
 		this.goalSelector.add(0, new HurtAttackerGoal(this));
+		this.goalSelector.add(8, new MeleeAttackGoal(this, 1.4f, true));
+
+		this.targetSelector.add(8, new ActiveTargetGoal<>(this, SardineEntity.class, true));
+		this.targetSelector.add(8, new ActiveTargetGoal<>(this, MinnowEntity.class, true));
 	}
 
 	@Override
@@ -101,6 +109,7 @@ public class PinkSunfishEntity extends NoBucketSchoolingFishEntity {
 		return FishEntity
 			.createFishAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 14)
+			.add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 3)
 			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 2.5f);
 	}
 }
