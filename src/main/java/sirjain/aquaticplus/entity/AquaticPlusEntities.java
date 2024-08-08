@@ -71,6 +71,7 @@ public class AquaticPlusEntities<T extends Entity> {
 	public static EntityType<PlasmaEntity> PLASMA_ENTITY;
 	public static EntityType<SeahorseSpikeEntity> SEAHORSE_SPIKE_ENTITY;
 	public static EntityType<AquaSeaTridentEntity> AQUA_SEA_TRIDENT_ENTITY;
+	public static EntityType<CrimsonSeaTridentEntity> CRIMSON_SEA_TRIDENT_ENTITY;
 
 	public static void registerEntityTypes() {
 		JOHNSON_ENTITY = registerEntityType("johnson", ShadowSardelEasterEggEntity::new, 0.5f, 0.5f);
@@ -123,6 +124,7 @@ public class AquaticPlusEntities<T extends Entity> {
 		PLASMA_ENTITY = registerProjectileType("plasma", PlasmaEntity::new);
 		SEAHORSE_SPIKE_ENTITY = registerProjectileType("seahorse_spike", SeahorseSpikeEntity::new);
 		AQUA_SEA_TRIDENT_ENTITY = registerProjectileType("aqua_sea_trident", AquaSeaTridentEntity::new);
+		CRIMSON_SEA_TRIDENT_ENTITY = registerProjectileType("crimson_sea_trident", CrimsonSeaTridentEntity::new);
 	}
 
 	public static <T extends Entity> EntityType<T> registerEntityType(String path, EntityType.EntityFactory<T> factory, float hitboxWidth, float hitboxHeight) {
