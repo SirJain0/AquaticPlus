@@ -226,5 +226,7 @@
 	"aquaticplus.land_drowning_aquatic_star.tooltip": "Tinker with enemy lungs...",
 	"aquaticplus.sea_bane_aquatic_star.tooltip": "Use our poison against them...",
 	"aquaticplus.numbing_aquatic_star.tooltip": "Make your enemies drop their own weapons",
-	"aquaticplus.frosting_spectre.tooltip": "Packs a cold punch"
+	"aquaticplus.frosting_spectre.tooltip": "Packs a cold punch",
+	"aquaticplus.weapons.main_hand.tooltip": "When in Main Hand:",
+	"aquaticplus.sea_sword.damage.tooltip": "7 Attack Damage"
 }

@@ -46,7 +46,7 @@ public abstract class SeaTridentEntity extends PersistentProjectileEntity {
 
 		if (!this.isNoClip()) {
 			Vec3d vel = this.getVelocity();
-			this.setVelocity(vel.x, vel.y - 0.001, vel.z);
+			this.setVelocity(vel.x, vel.y - 0.0001, vel.z);
 		}
 	}
 
