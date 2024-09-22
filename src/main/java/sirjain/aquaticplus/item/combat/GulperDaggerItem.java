@@ -23,9 +23,11 @@ public class GulperDaggerItem extends SwordItem {
 			List<Entity> entities = world.getOtherEntities(target, target.getBoundingBox().expand(3), EntityPredicates.VALID_LIVING_ENTITY);
 
 			for (Entity entityAround : entities) {
-				if (entityAround == attacker) return false;
+				if (entityAround == attacker) continue;
 				entityAround.damage(entityAround.getDamageSources().magic(), 3);
 			}
+
+			return true;
 		}
 
 		return super.postHit(stack, target, attacker);

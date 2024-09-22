@@ -21,7 +21,7 @@ TODO for entities:
 - Check all hitboxes and shadow radiuses
  */
 
-public class AquaticPlusEntities<T extends Entity> {
+public class AquaticPlusEntities {
 	public static EntityType<ShadowSardelEasterEggEntity> JOHNSON_ENTITY;
 	public static EntityType<ShadowSardelEasterEggEntity> MINDINATOR_ENTITY;
 	public static EntityType<SpiritedFishEntity> SPIRITED_FISH_ENTITY;
@@ -152,7 +152,7 @@ public class AquaticPlusEntities<T extends Entity> {
 		return Registry.register(
 			Registries.ENTITY_TYPE,
 			new Identifier(AquaticPlus.MOD_ID, path),
-			FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, factory)
+			FabricEntityTypeBuilder.create(SpawnGroup.MISC, factory)
 				.dimensions(EntityDimensions.fixed(0.25f, 0.25f))
 				.trackRangeBlocks(25)
 				.trackedUpdateRate(20)
