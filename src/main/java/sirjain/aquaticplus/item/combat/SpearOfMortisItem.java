@@ -22,7 +22,7 @@ public class SpearOfMortisItem extends SeaTridentItem {
 
 	@Override
 	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-		tooltip.add(Text.translatable("aquaticplus.spear_of_mortis.tooltip").formatted(Formatting.BLUE));
+		tooltip.add(Text.translatable("aquaticplus.spear_of_mortis.tooltip").formatted(Formatting.DARK_AQUA));
 		super.appendTooltip(stack, world, tooltip, context);
 	}
 }
