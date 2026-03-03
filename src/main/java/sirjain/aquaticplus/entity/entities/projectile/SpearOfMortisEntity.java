@@ -43,6 +43,6 @@ public class SpearOfMortisEntity extends SeaTridentEntity {
 
 	@Override
 	public ParticleEffect getParticle() {
-		return ParticleTypes.END_ROD;
+		return ParticleTypes.BUBBLE;
 	}
 }
