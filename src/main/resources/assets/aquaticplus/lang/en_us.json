@@ -107,6 +107,7 @@
 	"item.aquaticplus.aqua_sea_sword": "Aqua Sea Sword",
 	"item.aquaticplus.crimson_sea_trident": "Crimson Sea Trident",
 	"item.aquaticplus.aqua_sea_trident": "Aqua Sea Trident",
+	"item.aquaticplus.spear_of_mortis": "Spear Of Mortis",
 	"item.aquaticplus.cyan_crab_claw": "Cyan Crab Claw",
 	"item.aquaticplus.orange_crab_claw": "Orange Crab Claw",
 	"item.aquaticplus.pink_crab_claw": "Pink Crab Claw",
@@ -230,6 +231,7 @@
 	"aquaticplus.frosting_spectre.tooltip": "Packs a cold punch",
 	"aquaticplus.aqua_sea_trident.tooltip": "An inversion of the lungs on legs...",
 	"aquaticplus.crimson_sea_trident.tooltip": "Distributed fire on legs...",
+	"aquaticplus.spear_of_mortis.tooltip": "Feel their hands melt away...",
 	"aquaticplus.weapons.main_hand.tooltip": "When in Main Hand:",
 	"aquaticplus.sea_sword.damage.tooltip": "7 Attack Damage"
 }

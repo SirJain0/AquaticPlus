@@ -11,6 +11,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import sirjain.aquaticplus.entity.entities.template.SeaTridentEntity;
 
+// TODO: Make faster when traveling
 public abstract class SeaTridentItem extends Item {
 	public SeaTridentItem() {
 		super(new Item.Settings().maxCount(1));
