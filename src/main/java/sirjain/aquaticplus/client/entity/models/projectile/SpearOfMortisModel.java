@@ -8,11 +8,15 @@ import sirjain.aquaticplus.entity.entities.projectile.SpearOfMortisEntity;
 
 public class SpearOfMortisModel<T extends SpearOfMortisEntity> extends SinglePartEntityModel<T> {
 	private final ModelPart root;
-	private final ModelPart spearOfMortis;
+	private final ModelPart spear;
+	private final ModelPart head;
+	private final ModelPart handle;
 
 	public SpearOfMortisModel(ModelPart root) {
 		this.root = root;
-		this.spearOfMortis = root.getChild("sea_trident");
+		this.spear = root.getChild("spear");
+		this.head = root.getChild("head");
+		this.handle = root.getChild("handle");
 	}
 
 	public static TexturedModelData getTexturedModelData() {
@@ -36,13 +40,13 @@ public class SpearOfMortisModel<T extends SpearOfMortisEntity> extends SinglePar
 
 	@Override
 	public ModelPart getPart() {
-		return spearOfMortis;
+		return spear;
 	}
 
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-		spearOfMortis.render(matrices, vertices, light, overlay, red, green, blue, alpha);
+		spear.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}
 

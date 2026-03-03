@@ -8,15 +8,12 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.predicate.entity.EntityPredicates;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import sirjain.aquaticplus.entity.entities.template.SeaTridentEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
-
-import java.util.List;
 
 public class SpearOfMortisEntity extends SeaTridentEntity {
 	public SpearOfMortisEntity(EntityType<? extends SeaTridentEntity> entityType, World world) {

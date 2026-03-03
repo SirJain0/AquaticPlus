@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"  a",
+		" / ",
+		"/  "
+	],
+	"key": {
+		"a": {
+			"item": "aquaticplus:maxilla_mortis_tooth"
+		},
+		"/": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "aquaticplus:spear_of_mortis",
+		"count": 1
+	}
+}
