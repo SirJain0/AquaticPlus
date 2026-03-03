@@ -151,7 +151,6 @@ public class AquaticPlusItems {
 		MAXILLA_MORTIS_TOOTH = registerBasicItem("maxilla_mortis_tooth");
 		VIPER_TOOTH = registerBasicItem("viper_tooth");
 		GULPER_TOOTH = registerBasicItem("gulper_tooth");
-		SUNFISH_TAIL = registerBasicItem("sunfish_tail");
 		GHOSTLY_MEMBRANE = registerBasicItem("ghostly_membrane");
 		PINK_JELLY = registerBasicItem("pink_jelly");
 		YELLOW_JELLY = registerBasicItem("yellow_jelly");
@@ -174,6 +173,7 @@ public class AquaticPlusItems {
 		NUMBING_ANTIDOTE = registerCustomItem("numbing_antidote", new AntidoteItem(AquaticPlusStatusEffects.NUMBING));
 		SEA_BANE_ANTIDOTE = registerCustomItem("sea_bane_antidote", new AntidoteItem(AquaticPlusStatusEffects.SEA_BANE));
 		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
+		SUNFISH_TAIL = registerCustomItem("sunfish_tail", new SunfishTailItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(200)));
 		AURORA = registerCustomItem("aurora", new AuroraItem(new Item.Settings().maxCount(1).maxCount(16)));
 		AURORA_STAFF = registerCustomItem("aurora_staff", new AuroraStaffItem());
