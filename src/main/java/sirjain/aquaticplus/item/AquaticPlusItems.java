@@ -192,7 +192,6 @@ public class AquaticPlusItems {
 		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem());
 		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem());
 		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem());
-		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem());
 		VIPER_SHIELD = registerCustomItem("viper_shield", new ShieldItem(new Item.Settings().maxDamage(400)));
 		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem());
 		DEBUG_SWORD = registerCustomItem("debug_sword", new SwordItem(ToolMaterials.DIAMOND, 10000, 1, new Item.Settings()));
