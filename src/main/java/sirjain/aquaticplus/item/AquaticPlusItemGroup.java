@@ -126,6 +126,8 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
 					entries.add(AquaticPlusItems.STONIFIER);
 					entries.add(AquaticPlusItems.DESTONIFIER);
+					entries.add(AquaticPlusItems.SPEAR_OF_MORTIS);
+
 					entries.add(AquaticPlusItems.FROSTING_SPECTRE);
 					entries.add(AquaticPlusItems.AURORA_STAFF);
 					entries.add(AquaticPlusItems.VERMILLION_GLOOM_STAFF);
@@ -136,7 +138,6 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.AQUA_SEA_SWORD);
 					entries.add(AquaticPlusItems.CRIMSON_SEA_TRIDENT);
 					entries.add(AquaticPlusItems.AQUA_SEA_TRIDENT);
-					entries.add(AquaticPlusItems.SPEAR_OF_MORTIS);
 					entries.add(AquaticPlusItems.CYAN_CRAB_CLAW);
 					entries.add(AquaticPlusItems.ORANGE_CRAB_CLAW);
 					entries.add(AquaticPlusItems.PINK_CRAB_CLAW);
