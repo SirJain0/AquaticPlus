@@ -198,7 +198,16 @@ public class AquaticPlusUtil {
 
 	// Registers some item models
 	public static void registerModModels() {
+		// Pterois Bow
 		registerBow(AquaticPlusItems.PTEROIS_BOW);
+
+		// Viper Shield
+		ModelPredicateProviderRegistry.register(
+			AquaticPlusItems.VIPER_SHIELD, new Identifier("blocking"),
+			(stack, world, entity, seed) -> entity != null
+				&& entity.isUsingItem()
+				&& entity.getActiveItem() == stack ? 1.0f : 0.0f
+		);
 	}
 
 	// Registers all the mod's (non-client) content
