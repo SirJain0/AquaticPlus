@@ -23,22 +23,14 @@ public class IvyBerriesItem extends Item {
 			serverPlayerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
 		}
 
-		if (canDecrementStack(user)) {
-			stack.decrement(1);
-		}
-
 		if (!world.isClient) {
 			if (world.random.nextInt(12) == 0) {
 				user.addStatusEffect(new StatusEffectInstance(StatusEffects.POISON, 20*3, 0));
-			} else if (world.random.nextInt(5) == 0) {
+			} else if (world.random.nextInt(5) == 0 && user.hasStatusEffect(StatusEffects.POISON)) {
 				user.removeStatusEffect(StatusEffects.POISON);
 			}
 		}
 
-		return stack;
-	}
-
-	public boolean canDecrementStack(LivingEntity user) {
-		return user instanceof PlayerEntity player && !player.getAbilities().creativeMode;
+		return super.finishUsing(stack, world, user);
 	}
 }
