@@ -1,0 +1,20 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"s/ ",
+		"s /",
+		"s/ "
+	],
+	"key": {
+		"s": {
+			"item": "minecraft:string"
+		},
+		"/": {
+			"item": "aquaticplus:lionfish_spike"
+		}
+	},
+	"result": {
+		"item": "aquaticplus:pterois_bow",
+		"count": 1
+	}
+}

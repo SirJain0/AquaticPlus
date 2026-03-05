@@ -1,15 +1,18 @@
 package sirjain.aquaticplus;
 
+import net.minecraft.client.item.ModelPredicateProviderRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.projectile.thrown.ThrownEntity;
+import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleEffect;
 import net.minecraft.particle.ParticleType;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
@@ -180,7 +183,25 @@ public class AquaticPlusUtil {
 		}
 	}
 
-	// Registers all of the mod's (non-client) content
+	// Registers a custom bow, called in the Client file
+	private static void registerBow(Item bow) {
+		ModelPredicateProviderRegistry.register(bow, new Identifier("pull"), (stack, world, entity, seed) -> {
+			if (entity == null) return 0.0f;
+			if (entity.getActiveItem() != stack) return 0.0f;
+
+			return (float)(stack.getMaxUseTime() - entity.getItemUseTimeLeft()) / 20.0f;
+		});
+
+		ModelPredicateProviderRegistry.register(bow, new Identifier("pulling"),
+			(stack, world, entity, seed) -> entity != null && entity.isUsingItem() && entity.getActiveItem() == stack ? 1.0f : 0.0f);
+	}
+
+	// Registers some item models
+	public static void registerModModels() {
+		registerBow(AquaticPlusItems.PTEROIS_BOW);
+	}
+
+	// Registers all the mod's (non-client) content
 	public static void registerContent() {
 		AquaticPlusEntities.registerEntityTypes();
 		AquaticPlusUtil.registerEntityLists();

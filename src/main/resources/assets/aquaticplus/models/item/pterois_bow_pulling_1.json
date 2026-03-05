@@ -1,0 +1,6 @@
+{
+	"parent": "aquaticplus:item/pterois_bow",
+	"textures": {
+		"layer0": "aquaticplus:item/misc/pterois_bow_pulling_1"
+	}
+}
