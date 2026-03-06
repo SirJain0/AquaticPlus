@@ -23,6 +23,7 @@ import sirjain.aquaticplus.item.AquaticPlusFoodItems;
 import sirjain.aquaticplus.item.AquaticPlusItemGroup;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 import sirjain.aquaticplus.particle.AquaticPlusParticles;
+import sirjain.aquaticplus.sounds.AquaticPlusSounds;
 import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
 
@@ -212,6 +213,7 @@ public class AquaticPlusUtil {
 
 	// Registers all the mod's (non-client) content
 	public static void registerContent() {
+		AquaticPlusSounds.registerSounds();
 		AquaticPlusEntities.registerEntityTypes();
 		AquaticPlusUtil.registerEntityLists();
 		AquaticPlusEntities.registerAttributes();
