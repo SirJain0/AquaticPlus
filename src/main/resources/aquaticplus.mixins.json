@@ -3,12 +3,12 @@
 	"package": "sirjain.aquaticplus.mixins",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
+		"PlayerEntityMixin"
 	],
 	"client": [
 		"ItemRendererAccessor",
 		"ItemRendererMixin",
-		"ModelLoaderMixin",
-		"PlayerEntityMixin"
+		"ModelLoaderMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

@@ -13,8 +13,9 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-// Helps with the custom shield
-// Thanks Kaupenjoe
+
+// With the help of Mekanism-Fabric
+// under MIT License: https://github.com/Mekanism-Fabric/Mekanism/blob/main/LICENSE
 @Mixin(PlayerEntity.class)
 public abstract class PlayerEntityMixin extends LivingEntity {
 	protected PlayerEntityMixin(EntityType<? extends LivingEntity> entityType, World world) {
@@ -30,8 +31,9 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 	)
 
 	protected boolean damageShield(ItemStack itemStack, Item item) {
-		if (itemStack.getItem() instanceof ShieldItem && item == Items.SHIELD)
+		if (itemStack.getItem() instanceof ShieldItem && item == Items.SHIELD) {
 			return true;
+		}
 
 		return itemStack.isOf(item);
 	}
@@ -47,7 +49,10 @@ public abstract class PlayerEntityMixin extends LivingEntity {
 	public void disableShield(ItemCooldownManager itemCooldownManager, Item item, int duration) {
 		Item activeItem = this.activeItemStack.getItem();
 
-		if (activeItem instanceof ShieldItem && item == Items.SHIELD) itemCooldownManager.set(activeItem, duration);
-		else itemCooldownManager.set(item, duration);
+		if (activeItem instanceof ShieldItem && item == Items.SHIELD) {
+			itemCooldownManager.set(activeItem, duration);
+		} else {
+			itemCooldownManager.set(item, duration);
+		}
 	}
 }
