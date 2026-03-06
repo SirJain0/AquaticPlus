@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"ttt",
+		"tst",
+		"ttt"
+	],
+	"key": {
+		"t": {
+			"item": "aquaticplus:viper_tooth"
+		},
+		"s": {
+			"item": "minecraft:shield"
+		}
+	},
+	"result": {
+		"item": "aquaticplus:viper_shield"
+	}
+}
