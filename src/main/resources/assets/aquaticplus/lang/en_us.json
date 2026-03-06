@@ -235,5 +235,7 @@
 	"aquaticplus.crimson_sea_trident.tooltip": "Distributed fire on legs...",
 	"aquaticplus.spear_of_mortis.tooltip": "Feel their hands melt away...",
 	"aquaticplus.weapons.main_hand.tooltip": "When in Main Hand:",
-	"aquaticplus.sea_sword.damage.tooltip": "7 Attack Damage"
+	"aquaticplus.sea_sword.damage.tooltip": "7 Attack Damage",
+
+	"sounds.aquaticplus.fish_flop": "Fish Flops"
 }

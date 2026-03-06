@@ -12,6 +12,7 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.sounds.AquaticPlusSounds;
 
 public abstract class APFishEntity extends FishEntity {
 	public APFishEntity(EntityType<? extends FishEntity> entityType, World world) {
@@ -46,7 +47,7 @@ public abstract class APFishEntity extends FishEntity {
 	// Flop sound for all fish for the mod
 	@Override
 	protected SoundEvent getFlopSound() {
-		return SoundEvents.ENTITY_COD_FLOP;
+		return AquaticPlusSounds.FISH_FLOP;
 	}
 
 	// Overriden in later classes

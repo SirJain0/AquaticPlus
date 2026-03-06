@@ -1,0 +1,8 @@
+{
+	"fish_flop": {
+		"subtitle": "sounds.aquaticplus.fish_flop",
+		"sounds": [
+			"minecraft:entity.cod.flop"
+		]
+	}
+}
