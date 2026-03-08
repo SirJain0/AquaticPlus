@@ -2,19 +2,19 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		" # ",
-		"#E#",
-		" # "
+		"#/#",
+		" / "
 	],
 	"key": {
 		"#": {
 			"item": "aquaticplus:frost_shards"
 		},
-		"E": {
-			"item": "minecraft:snowball"
+		"/": {
+			"item": "minecraft:stick"
 		}
 	},
 	"result": {
-		"item": "aquaticplus:frosted_ball",
+		"item": "aquaticplus:frosting_spectre",
 		"count": 1
 	}
 }
