@@ -29,7 +29,7 @@
 			"entries": [
 				{
 					"type": "minecraft:item",
-					"name": "aquaticplus:antivenom_essence",
+					"name": "aquaticplus:antidote_essence",
 					"functions": [
 						{
 							"function": "minecraft:set_count",
