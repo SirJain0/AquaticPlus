@@ -26,10 +26,11 @@ public class SeaBaneStatusEffect extends StatusEffect {
 	}
 
 	public void handleDamage(int resetTime, LivingEntity entity) {
-		if (entity.getHealth() == 1) return;
+		if (!entity.isUndead() && entity.getHealth() == 1) return;
 
 		if (tickTimeout > resetTime) {
-			entity.damage(entity.getDamageSources().magic(), 1);
+			int damageAmount = entity.isUndead() ? 3 : 1;
+			entity.damage(entity.getDamageSources().magic(), damageAmount);
 			tickTimeout = 0;
 		} else {
 			tickTimeout++;
