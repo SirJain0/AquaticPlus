@@ -5,6 +5,8 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.mob.HostileEntity;
+import net.minecraft.entity.mob.ZombieEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -15,6 +17,8 @@ public class GhostlyGelBlock extends Block {
 	}
 
 	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
-		entity.slowMovement(state, new Vec3d(0.3, 0.1, 0.3));
+		if (entity instanceof HostileEntity) {
+			entity.slowMovement(state, new Vec3d(0.3, 0.1, 0.3));
+		}
 	}
 }
