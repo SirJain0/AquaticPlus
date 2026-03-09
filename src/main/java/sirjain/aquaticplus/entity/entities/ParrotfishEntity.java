@@ -11,6 +11,7 @@ import sirjain.aquaticplus.entity.ai.MoveToAndBreakBlockGoal;
 import sirjain.aquaticplus.entity.entities.template.APSchoolingFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 
+// TODO: Refine logic
 public class ParrotfishEntity extends APSchoolingFishEntity {
 	public ParrotfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
