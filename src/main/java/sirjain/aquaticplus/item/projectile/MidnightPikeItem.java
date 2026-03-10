@@ -21,9 +21,9 @@ public class MidnightPikeItem extends SwordItem {
 		Random rand = target.getRandom();
 
 		if (rand.nextInt(7) == 0) addEffect(target, AquaticPlusStatusEffects.SEA_BANE, 20*8, 1);
-		else if (rand.nextInt(7) == 0) addEffect(target, AquaticPlusStatusEffects.LAND_DROWNING, 20*7, 0);
-		else if (rand.nextInt(10) == 0) addEffect(target, StatusEffects.WITHER, 20*6, 0);
-		else if (rand.nextInt(5) == 0) addEffect(target, StatusEffects.NAUSEA, 20*8, 0);
+		if (rand.nextInt(7) == 0) addEffect(target, AquaticPlusStatusEffects.LAND_DROWNING, 20*7, 0);
+		if (rand.nextInt(10) == 0) addEffect(target, StatusEffects.WITHER, 20*10, 0);
+		if (rand.nextInt(5) == 0) addEffect(target, StatusEffects.NAUSEA, 20*8, 0);
 
 		return super.postHit(stack, target, attacker);
 	}
