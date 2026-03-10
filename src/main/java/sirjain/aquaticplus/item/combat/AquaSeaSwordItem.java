@@ -47,7 +47,7 @@ public class AquaSeaSwordItem extends SeaSwordItem {
 	}
 
 	@Override
-	public @Nullable ItemStack getAmmoItem() {
+	public @Nullable ItemStack getProjectileItem() {
 		return AquaticPlusItems.AQUA_SEAHORSE_SPIKE.getDefaultStack();
 	}
 

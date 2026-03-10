@@ -46,7 +46,7 @@ public class FrostingSpectreItem extends ShootingStaffItem {
 	}
 
 	@Override
-	public ItemStack getAmmoItem() {
+	public ItemStack getProjectileItem() {
 		return new ItemStack(AquaticPlusItems.FROSTED_BALL);
 	}
 
