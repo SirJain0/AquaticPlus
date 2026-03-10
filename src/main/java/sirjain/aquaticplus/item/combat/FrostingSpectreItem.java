@@ -76,6 +76,7 @@ public class FrostingSpectreItem extends ShootingStaffItem {
 		);
 
 		sendInAir(2, target);
+		target.damage(target.getDamageSources().mobAttack(attacker), 3);
 
 		if (attacker instanceof PlayerEntity player && !player.getAbilities().creativeMode) {
 			Hand hand = player.getActiveHand();
