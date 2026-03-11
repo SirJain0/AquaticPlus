@@ -47,10 +47,11 @@ public class PlasmaEntity extends ThrownEntity {
 		Entity entity = entityHitResult.getEntity();
 
 		if (entity instanceof LivingEntity target && !this.getWorld().isClient) {
-			int fireTicks = this.isShotAsBeam() ? 8 : 4;
+			int fireDuration = this.isShotAsBeam() ? 8 : 4;
+			int damageAmount = this.isShotAsBeam() ? 8 : 5;
 
-			target.damage(target.getDamageSources().mobProjectile(this, (LivingEntity) this.getOwner()), 7);
-			target.setOnFireFor(fireTicks);
+			target.damage(target.getDamageSources().mobProjectile(this, (LivingEntity) this.getOwner()), damageAmount);
+			target.setOnFireFor(fireDuration);
 
 			if (target.getRandom().nextInt(4) == 0)
 				target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 4*20, 1));
