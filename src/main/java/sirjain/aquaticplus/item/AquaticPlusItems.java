@@ -184,7 +184,7 @@ public class AquaticPlusItems {
 		VERMILLION_GLOOM_STAFF = registerCustomItem("vermillion_gloom_staff", new VermillionGloomStaffItem());
 		MIDNIGHT_PIKE = registerCustomItem("midnight_pike", new MidnightPikeItem());
 		GULPER_DAGGER = registerCustomItem("gulper_dagger", new GulperDaggerItem());
-		PTEROIS_BOW = registerCustomItem("pterois_bow", new BowItem(new Item.Settings().maxDamage(250)));
+		PTEROIS_BOW = registerCustomItem("pterois_bow", new BowItem(new Item.Settings().maxDamage(400)));
 		CRIMSON_SEA_SWORD = registerCustomItem("crimson_sea_sword", new CrimsonSeaSwordItem());
 		AQUA_SEA_SWORD = registerCustomItem("aqua_sea_sword", new AquaSeaSwordItem());
 		CRIMSON_SEA_TRIDENT = registerCustomItem("crimson_sea_trident", new CrimsonSeaTridentItem());

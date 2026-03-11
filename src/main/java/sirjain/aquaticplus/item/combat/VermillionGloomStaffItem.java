@@ -27,9 +27,8 @@ public class VermillionGloomStaffItem extends Item {
 				target.setOnFireFor(3);
 			}
 
-			if (isWearingMetalArmor(attacker)) {
-				target.damage(target.getDamageSources().mobAttack(attacker), 3);
-			}
+			target.damage(target.getDamageSources().mobAttack(attacker), 3);
+			target.removeStatusEffect(StatusEffects.WATER_BREATHING)
 
 			if (attacker.getRandom().nextInt(4) == 0) {
 				attacker.heal(2);
@@ -45,18 +44,7 @@ public class VermillionGloomStaffItem extends Item {
 
 		return super.postHit(stack, target, attacker);
 	}
-
-	public boolean isWearingMetalArmor(LivingEntity wearer) {
-		ArrayList<ItemStack> armorItems = Lists.newArrayList(wearer.getArmorItems());
-
-		ArmorMaterial gold = ArmorMaterials.GOLD;
-		ArmorMaterial iron = ArmorMaterials.IRON;
-		ArmorMaterial chain = ArmorMaterials.CHAIN;
-		ArmorMaterial diamond = ArmorMaterials.DIAMOND;
-
-		return armorItems.stream().filter(stack -> stack.getItem() instanceof ArmorItem armor && (armor.getMaterial() == gold || armor.getMaterial() == iron || armor.getMaterial() == chain || armor.getMaterial() == diamond)).count() == 4;
-	}
-
+	
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 		if (!world.isClient) {
