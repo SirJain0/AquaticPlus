@@ -45,10 +45,13 @@ public class MythicalSeahorseEntity extends NoBucketSchoolingFishEntity implemen
 		this.targetSelector.add(0, new RevengeGoal(this));
 	}
 
+	// Hard-coded loot table
 	@Override
 	protected void dropInventory() {
 		if (this.getVariant().id == 0) this.dropItem(AquaticPlusItems.CRIMSON_SEAHORSE_SPIKE);
 		else if (this.getVariant().id == 1) this.dropItem(AquaticPlusItems.AQUA_SEAHORSE_SPIKE);
+
+		this.dropItem(AquaticPlusItems.ANTIDOTE_ESSENCE);
 
 		super.dropInventory();
 	}
