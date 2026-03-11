@@ -21,19 +21,28 @@ public class VermillionGloomStaffItem extends Item {
 	@Override
 	public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 		if (!target.getWorld().isClient) {
+			// Wither Effect
 			target.addStatusEffect(new StatusEffectInstance(StatusEffects.WITHER, 8*20, 0));
 
+			// Damage 3hp
+			target.damage(target.getDamageSources().mobAttack(attacker), 3);
+
+			// 1/4 chance of fire
 			if (target.getRandom().nextInt(3) == 0) {
 				target.setOnFireFor(3);
 			}
 
-			target.damage(target.getDamageSources().mobAttack(attacker), 3);
-			target.removeStatusEffect(StatusEffects.WATER_BREATHING)
-
-			if (attacker.getRandom().nextInt(4) == 0) {
-				attacker.heal(2);
+			// Removing water breathing effect
+			if (target.hasStatusEffect(StatusEffects.WATER_BREATHING)) {
+				target.removeStatusEffect(StatusEffects.WATER_BREATHING);
 			}
 
+			// 1/5 chance of healing
+			if (attacker.getRandom().nextInt(4) == 0) {
+				attacker.heal(4);
+			}
+
+			// Durability
 			if (attacker instanceof PlayerEntity player && !player.getAbilities().creativeMode) {
 				Hand hand = player.getActiveHand();
 				player.getStackInHand(hand).damage(1, player, p -> p.sendToolBreakStatus(hand));
@@ -44,7 +53,7 @@ public class VermillionGloomStaffItem extends Item {
 
 		return super.postHit(stack, target, attacker);
 	}
-	
+
 	@Override
 	public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
 		if (!world.isClient) {
