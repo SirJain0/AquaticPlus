@@ -185,7 +185,7 @@ public class AquaticPlusItems {
 		VERMILLION_GLOOM_STAFF = registerCustomItem("vermillion_gloom_staff", new VermillionGloomStaffItem());
 		MIDNIGHT_PIKE = registerCustomItem("midnight_pike", new MidnightPikeItem());
 		GULPER_DAGGER = registerCustomItem("gulper_dagger", new GulperDaggerItem());
-		PTEROIS_BOW = registerCustomItem("pterois_bow", new BowItem(new Item.Settings().maxDamage(400)));
+		PTEROIS_BOW = registerCustomItem("pterois_bow", new PteroisBowItem(new Item.Settings().maxDamage(400)));
 		CRIMSON_SEA_SWORD = registerCustomItem("crimson_sea_sword", new CrimsonSeaSwordItem());
 		AQUA_SEA_SWORD = registerCustomItem("aqua_sea_sword", new AquaSeaSwordItem());
 		CRIMSON_SEA_TRIDENT = registerCustomItem("crimson_sea_trident", new CrimsonSeaTridentItem());
@@ -194,7 +194,7 @@ public class AquaticPlusItems {
 		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem());
 		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem());
 		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem());
-		VIPER_SHIELD = registerCustomItem("viper_shield", new ShieldItem(new FabricItemSettings().maxDamage(400)));
+		VIPER_SHIELD = registerCustomItem("viper_shield", new ViperShieldItem(new FabricItemSettings().maxDamage(400)));
 		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem());
 		DEBUG_SWORD = registerCustomItem("debug_sword", new SwordItem(ToolMaterials.DIAMOND, 10000, 1, new Item.Settings()));
 	}

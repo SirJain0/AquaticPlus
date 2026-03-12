@@ -78,6 +78,7 @@ public class AquaSeaSwordItem extends SeaSwordItem {
 
 	@Override
 	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+		tooltip.add(Text.translatable("aquaticplus.aqua_sea_sword.tooltip").formatted(Formatting.AQUA));
 		super.appendTooltip(stack, world, tooltip, context);
 		tooltip.add(Text.translatable("aquaticplus.weapons.main_hand.tooltip").formatted(Formatting.GRAY));
 		tooltip.add(Text.translatable("aquaticplus.sea_sword.damage.tooltip").formatted(Formatting.DARK_GREEN));

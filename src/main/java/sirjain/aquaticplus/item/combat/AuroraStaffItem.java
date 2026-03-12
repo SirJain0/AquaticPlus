@@ -1,5 +1,6 @@
 package sirjain.aquaticplus.item.combat;
 
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
@@ -7,7 +8,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -15,6 +18,8 @@ import sirjain.aquaticplus.entity.entities.VolanAuroraEntity;
 import sirjain.aquaticplus.entity.entities.projectile.AuroraEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 import sirjain.aquaticplus.item.abstract_item.ShootingStaffItem;
+
+import java.util.List;
 
 public class AuroraStaffItem extends ShootingStaffItem {
 	public AuroraStaffItem() {
@@ -77,5 +82,11 @@ public class AuroraStaffItem extends ShootingStaffItem {
 	@Override
 	public int durabilityDecrement() {
 		return 1;
+	}
+
+	@Override
+	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+		tooltip.add(Text.translatable("aquaticplus.aurora_staff.tooltip").formatted(Formatting.LIGHT_PURPLE));
+		super.appendTooltip(stack, world, tooltip, context);
 	}
 }

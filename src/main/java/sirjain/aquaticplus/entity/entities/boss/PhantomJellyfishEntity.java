@@ -103,8 +103,7 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 
 		// TODO: Make the text translatable
 		if (attacker instanceof PlayerEntity player) {
-			String deathMessage = player.getEntityName() + " has slain the water-burning Phantom Jellyfish!";
-			player.sendMessage(Text.literal(deathMessage).formatted(Formatting.RED));
+			player.sendMessage(Text.translatable("aquaticplus.phantom_jellyfish.death.message"));
 		}
 
 		if (!this.getWorld().isClient) {

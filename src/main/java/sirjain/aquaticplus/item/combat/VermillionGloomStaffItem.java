@@ -1,17 +1,22 @@
 package sirjain.aquaticplus.item.combat;
 
 import com.google.common.collect.Lists;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.*;
+import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.AquaticPlusUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class VermillionGloomStaffItem extends Item {
 	public VermillionGloomStaffItem() {
@@ -79,5 +84,11 @@ public class VermillionGloomStaffItem extends Item {
 		}
 
 		return super.use(world, user, hand);
+	}
+
+	@Override
+	public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+		tooltip.add(Text.translatable("aquaticplus.vermillion_gloom_staff.tooltip").formatted(Formatting.RED));
+		super.appendTooltip(stack, world, tooltip, context);
 	}
 }

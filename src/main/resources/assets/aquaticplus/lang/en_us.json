@@ -229,16 +229,25 @@
 
 	"aquaticplus.stonifier.tooltip": "Turn blocks into stone",
 	"aquaticplus.destonifier.tooltip": "Break a stone block instantly",
+	"aquaticplus.aurora_staff.tooltip": "Harness the guardian hatred...",
 	"aquaticplus.aquatic_star.tooltip": "Harness power and speed...",
+	"aquaticplus.vermillion_gloom_staff.tooltip": "The power of the Phantom Jellyfish is in your hands...",
+	"aquaticplus.crimson_sea_sword.tooltip": "A 2-in-1 from the finest spikes...",
+	"aquaticplus.aqua_sea_sword.tooltip": "A 2-in-1 from the finest spikes...",
 	"aquaticplus.land_drowning_aquatic_star.tooltip": "Tinker with enemy lungs...",
 	"aquaticplus.sea_bane_aquatic_star.tooltip": "Use our poison against them...",
 	"aquaticplus.numbing_aquatic_star.tooltip": "Make your enemies drop their own weapons",
 	"aquaticplus.frosting_spectre.tooltip": "Packs a cold punch",
-	"aquaticplus.aqua_sea_trident.tooltip": "An inversion of the lungs on legs...",
-	"aquaticplus.crimson_sea_trident.tooltip": "Distributed fire on legs...",
+	"aquaticplus.midnight_pike.tooltip": "Toy with magic to stun your enemy...",
+	"aquaticplus.aqua_sea_trident.tooltip": "Suffocation encapsulated in range...",
+	"aquaticplus.gulper_dagger.tooltip": "Bystanders aren't safe...",
+	"aquaticplus.pterois_bow.tooltip": "A bow crafted from the finest spikes...",
+	"aquaticplus.viper_shield.tooltip": "A shield fortified with vicious teeth...",
+	"aquaticplus.crimson_sea_trident.tooltip": "Flames encapsulated in range...",
 	"aquaticplus.spear_of_mortis.tooltip": "Feel their hands melt away...",
 	"aquaticplus.weapons.main_hand.tooltip": "When in Main Hand:",
 	"aquaticplus.sea_sword.damage.tooltip": "7 Attack Damage",
+	"aquaticplus.phantom_jellyfish.death.message": "The Phantom Jellyfish has been executed.",
 
 	"sounds.aquaticplus.fish_flop": "Fish flops"
 }
