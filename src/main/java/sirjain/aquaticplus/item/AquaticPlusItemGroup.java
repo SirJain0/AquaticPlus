@@ -124,6 +124,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.ISOPOD_SHELL);
 					entries.add(AquaticPlusItems.YETI_CRAB_SHELL);
 					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
+					entries.add(AquaticPlusItems.AIRLEECH_POUCH);
 					entries.add(AquaticPlusItems.STONIFIER);
 					entries.add(AquaticPlusItems.DESTONIFIER);
 					entries.add(AquaticPlusItems.SPEAR_OF_MORTIS);

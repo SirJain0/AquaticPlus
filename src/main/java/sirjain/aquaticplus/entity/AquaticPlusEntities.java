@@ -67,6 +67,7 @@ public class AquaticPlusEntities {
 	public static EntityType<LandDrowningAquaticStarEntity> LAND_DROWNING_AQUATIC_STAR_ENTITY;
 	public static EntityType<SeaBaneAquaticStarEntity> SEA_BANE_AQUATIC_STAR_ENTITY;
 	public static EntityType<FrostedSnowballEntity> FROSTED_SNOWBALL_ENTITY;
+	public static EntityType<AirleechPouchEntity> AIRLEECH_POUCH_ENTITY;
 	public static EntityType<AuroraEntity> AURORA_ENTITY;
 	public static EntityType<PlasmaEntity> PLASMA_ENTITY;
 	public static EntityType<SeahorseSpikeEntity> SEAHORSE_SPIKE_ENTITY;
@@ -121,6 +122,7 @@ public class AquaticPlusEntities {
 		LAND_DROWNING_AQUATIC_STAR_ENTITY = registerProjectileType("land_drowning_aquatic_star", LandDrowningAquaticStarEntity::new);
 		SEA_BANE_AQUATIC_STAR_ENTITY = registerProjectileType("sea_bane_aquatic_star", SeaBaneAquaticStarEntity::new);
 		FROSTED_SNOWBALL_ENTITY = registerProjectileType("frosted_snowball", FrostedSnowballEntity::new);
+		AIRLEECH_POUCH_ENTITY = registerProjectileType("airleech_pouch", AirleechPouchEntity::new);
 		AURORA_ENTITY = registerProjectileType("aurora", AuroraEntity::new);
 		PLASMA_ENTITY = registerProjectileType("plasma", PlasmaEntity::new);
 		SEAHORSE_SPIKE_ENTITY = registerProjectileType("seahorse_spike", SeahorseSpikeEntity::new);

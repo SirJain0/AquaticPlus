@@ -57,6 +57,7 @@ public class AquaticPlusEntityRenderers {
 		EntityRendererRegistry.register(AquaticPlusEntities.LAND_DROWNING_AQUATIC_STAR_ENTITY, ctx -> new FlatSpinningProjectileRenderer(ctx, 1, false));
 		EntityRendererRegistry.register(AquaticPlusEntities.SEA_BANE_AQUATIC_STAR_ENTITY, ctx -> new FlatSpinningProjectileRenderer(ctx, 1, false));
 		EntityRendererRegistry.register(AquaticPlusEntities.FROSTED_SNOWBALL_ENTITY, FlyingItemEntityRenderer::new);
+		EntityRendererRegistry.register(AquaticPlusEntities.AIRLEECH_POUCH_ENTITY, AirleechPouchRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.AURORA_ENTITY, FlyingItemEntityRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.PLASMA_ENTITY, PlasmaRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.SEAHORSE_SPIKE_ENTITY, ctx -> new FlatSpinningProjectileRenderer(ctx, 4f, false));
