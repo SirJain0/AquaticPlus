@@ -2,14 +2,14 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		" # ",
-		"S/S",
+		"C/C",
 		" / "
 	],
 	"key": {
 		"#": {
 			"item": "aquaticplus:stone_essence"
 		},
-		"S": {
+		"C": {
 			"item": "minecraft:cobblestone"
 		},
 		"/": {
