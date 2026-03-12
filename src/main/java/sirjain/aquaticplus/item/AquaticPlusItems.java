@@ -135,6 +135,7 @@ public class AquaticPlusItems {
 	public static Item SHRIMP_BUCKET;
 
 	public static Item GHOSTLY_GEL_ITEM;
+	public static Item AIRLEECH_PLANT_ITEM;
 
 	public static void registerItems() {
 		registerSpawnEggs();
@@ -272,6 +273,7 @@ public class AquaticPlusItems {
 
 	public static void registerBlockItems() {
 		GHOSTLY_GEL_ITEM = registerBlockItem("ghostly_gel", AquaticPlusBlocks.GHOSTLY_GEL_BLOCK);
+		AIRLEECH_PLANT_ITEM = registerBlockItem("airleech_plant", AquaticPlusBlocks.AIRLEECH_PLANT_BLOCK);
 	}
 
 	// Helper registry methods

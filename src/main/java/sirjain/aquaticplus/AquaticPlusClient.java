@@ -12,6 +12,7 @@ public class AquaticPlusClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		BlockRenderLayerMap.INSTANCE.putBlock(AquaticPlusBlocks.GHOSTLY_GEL_BLOCK, RenderLayer.getTranslucent());
+		BlockRenderLayerMap.INSTANCE.putBlock(AquaticPlusBlocks.AIRLEECH_PLANT_BLOCK, RenderLayer.getCutout());
 
 		ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> new ModelIdentifier(AquaticPlus.MOD_ID, "cyan_crab_claw_model", "inventory"));
 		ModelLoadingRegistry.INSTANCE.registerModelProvider((manager, out) -> new ModelIdentifier(AquaticPlus.MOD_ID, "pink_crab_claw_model", "inventory"));

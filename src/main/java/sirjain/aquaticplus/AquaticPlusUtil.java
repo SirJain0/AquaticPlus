@@ -1,6 +1,9 @@
 package sirjain.aquaticplus;
 
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.minecraft.block.Block;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -204,6 +207,7 @@ public class AquaticPlusUtil {
 			}
 		}
 	}
+
 	// Summons particles when something hits off an entity
 	public static void summonParticlesOffCollision(ParticleEffect particle, World world, int numParticles, LivingEntity target) {
 		if (world.isClient) {
