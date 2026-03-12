@@ -39,6 +39,7 @@ public class AirleechPouchEntity extends APProjectileEntity {
 
 		if (hitEntity instanceof LivingEntity target) {
 			target.addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.LAND_DROWNING, 20*4, 0));
+			target.damage(target.getDamageSources().thrown(this, this.getOwner()), 0);
 		}
 
 		this.discard();
