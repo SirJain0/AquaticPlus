@@ -16,7 +16,6 @@ import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 import java.util.Arrays;
 import java.util.List;
 
-// TODO: Refactor this system
 public class AquaticPlusPotions {
 	public static Potion NUMBING_POTION, NUMBING_LONG_POTION, NUMBING_STRONG_POTION;
 	public static Potion LAND_DROWNING_POTION, LAND_DROWNING_LONG_POTION, LAND_DROWNING_STRONG_POTION;
@@ -82,8 +81,9 @@ public class AquaticPlusPotions {
 		FabricBrewingRecipeRegistry.registerPotionRecipe(NUMBING_LONG_POTION, Ingredient.ofItems(Items.GLOWSTONE), NUMBING_STRONG_POTION);
 	}
 
-	// TODO: Add recipe for Land drowning potion when the plant gets added
 	public static void registerLandDrowningPotions() {
+		FabricBrewingRecipeRegistry.registerPotionRecipe(Potions.WATER, Ingredient.ofItems(AquaticPlusItems.AIRLEECH_POUCH), LAND_DROWNING_POTION);
+
 		FabricBrewingRecipeRegistry.registerPotionRecipe(LAND_DROWNING_POTION, Ingredient.ofItems(Items.REDSTONE), LAND_DROWNING_LONG_POTION);
 		FabricBrewingRecipeRegistry.registerPotionRecipe(LAND_DROWNING_LONG_POTION, Ingredient.ofItems(Items.GLOWSTONE), LAND_DROWNING_STRONG_POTION);
 	}

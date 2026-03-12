@@ -9,9 +9,11 @@ import sirjain.aquaticplus.AquaticPlus;
 
 public class AquaticPlusBlocks {
 	public static Block GHOSTLY_GEL_BLOCK;
+	public static Block AIRLEECH_PLANT_BLOCK;
 
 	public static void registerBlocks() {
 		GHOSTLY_GEL_BLOCK = registerAdvancedBlock("ghostly_gel", new GhostlyGelBlock());
+		AIRLEECH_PLANT_BLOCK = registerAdvancedBlock("airleech_plant", new AirleechPlantBlock());
 	}
 
 	public static Block registerAdvancedBlock(String identifier, Block block) {

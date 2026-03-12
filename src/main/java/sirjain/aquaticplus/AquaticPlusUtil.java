@@ -1,6 +1,9 @@
 package sirjain.aquaticplus;
 
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.minecraft.block.Block;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -8,11 +11,10 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.projectile.thrown.ThrownEntity;
 import net.minecraft.item.Item;
 import net.minecraft.particle.ParticleEffect;
-import net.minecraft.particle.ParticleType;
-import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.blocks.AquaticPlusBlocks;
@@ -181,6 +183,50 @@ public class AquaticPlusUtil {
 
 		if (world.isClient && entity.getWorld().getRandom().nextInt(interval) == 0 && alwaysSpawns) {
 			world.addParticle(particle, entity.getX(), entity.getRandomBodyY(), entity.getZ(), velX, velY, velZ);
+		}
+	}
+
+	// Summons particles when something hits off an entity
+	public static void summonParticlesOffCollision(ParticleEffect particle, World world, int numParticles, Vec3d vec) {
+		if (world.isClient) {
+			for (int x = 0; x < numParticles; x++) {
+				int xRand = world.random.nextInt(2);
+				int yRand = world.random.nextInt(4);
+				int zRand = world.random.nextInt(2);
+				int negativeDecider = world.random.nextInt(1);
+
+				world.addParticle(
+					particle,
+					vec.getX(),
+					vec.getY(),
+					vec.getZ(),
+					negativeDecider == 0 ? xRand / 10f : -(xRand / 10f),
+					yRand / 10f,
+					negativeDecider == 0 ? zRand / 10f : -(zRand / 10f)
+				);
+			}
+		}
+	}
+
+	// Summons particles when something hits off an entity
+	public static void summonParticlesOffCollision(ParticleEffect particle, World world, int numParticles, LivingEntity target) {
+		if (world.isClient) {
+			for (int x = 0; x < numParticles; x++) {
+				int xRand = world.random.nextInt(2);
+				int yRand = world.random.nextInt(4);
+				int zRand = world.random.nextInt(2);
+				int negativeDecider = world.random.nextInt(1);
+
+				world.addParticle(
+					particle,
+					target.getX(),
+					target.getRandomBodyY(),
+					target.getZ(),
+					negativeDecider == 0 ? xRand / 10f : -(xRand / 10f),
+					yRand / 10f,
+					negativeDecider == 0 ? zRand / 10f : -(zRand / 10f)
+				);
+			}
 		}
 	}
 

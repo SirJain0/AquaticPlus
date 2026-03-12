@@ -5,6 +5,7 @@ import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.util.Identifier;
 import sirjain.aquaticplus.AquaticPlus;
 import sirjain.aquaticplus.client.entity.models.*;
+import sirjain.aquaticplus.client.entity.models.projectile.AirleechPouchModel;
 import sirjain.aquaticplus.client.entity.models.projectile.PlasmaModel;
 import sirjain.aquaticplus.client.entity.models.projectile.SeaTridentModel;
 import sirjain.aquaticplus.client.entity.models.projectile.SpearOfMortisModel;
@@ -53,6 +54,7 @@ public class AquaticPlusEntityLayers {
 	public static EntityModelLayer PHANTOM_JELLYFISH_LAYER;
 
 	public static EntityModelLayer PLASMA_LAYER;
+	public static EntityModelLayer AIRLEECH_POUCH_LAYER;
 	public static EntityModelLayer SEA_TRIDENT_LAYER;
 	public static EntityModelLayer SPEAR_OF_MORTIS_LAYER;
 
@@ -99,6 +101,7 @@ public class AquaticPlusEntityLayers {
 
 		// Projectiles
 		PLASMA_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "plasma"), "root");
+		AIRLEECH_POUCH_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "airleech_pouch"), "root");
 		SEA_TRIDENT_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "sea_trident"), "root");
 		SPEAR_OF_MORTIS_LAYER = new EntityModelLayer(new Identifier(AquaticPlus.MOD_ID, "spear_of_mortis"), "root");
 	}
@@ -146,6 +149,7 @@ public class AquaticPlusEntityLayers {
 
 		// Projectiles
 		EntityModelLayerRegistry.registerModelLayer(PLASMA_LAYER, PlasmaModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(AIRLEECH_POUCH_LAYER, AirleechPouchModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SEA_TRIDENT_LAYER, SeaTridentModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SPEAR_OF_MORTIS_LAYER, SpearOfMortisModel::getTexturedModelData);
 	}
