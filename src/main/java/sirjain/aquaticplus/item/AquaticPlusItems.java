@@ -28,7 +28,6 @@ public class AquaticPlusItems {
 	public static Item LAND_DROWNING_ANTIDOTE;
 	public static Item NUMBING_ANTIDOTE;
 	public static Item SEA_BANE_ANTIDOTE;
-	public static Item DEOXIDIZING_MATERIAL;
 	public static Item AIRLEECH_POUCH;
 	public static Item FROSTING_SPECTRE;
 	public static Item AURORA_STAFF;
@@ -178,7 +177,6 @@ public class AquaticPlusItems {
 		LAND_DROWNING_ANTIDOTE = registerCustomItem("land_drowning_antidote", new AntidoteItem(AquaticPlusStatusEffects.LAND_DROWNING));
 		NUMBING_ANTIDOTE = registerCustomItem("numbing_antidote", new AntidoteItem(AquaticPlusStatusEffects.NUMBING));
 		SEA_BANE_ANTIDOTE = registerCustomItem("sea_bane_antidote", new AntidoteItem(AquaticPlusStatusEffects.SEA_BANE));
-		DEOXIDIZING_MATERIAL = registerCustomItem("deoxidizing_material", new DeoxidizingMaterialItem(new Item.Settings()));
 		AIRLEECH_POUCH = registerCustomItem("airleech_pouch", new AirleechPouchItem(new Item.Settings()));
 		SUNFISH_TAIL = registerCustomItem("sunfish_tail", new SunfishTailItem(new Item.Settings()));
 		FROSTING_SPECTRE = registerCustomItem("frosting_spectre", new FrostingSpectreItem(new Item.Settings().maxDamage(200)));

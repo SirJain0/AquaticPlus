@@ -97,7 +97,6 @@
 	"item.aquaticplus.sea_bane_aquatic_star": "Sea Bane Aquatic Star",
 	"item.aquaticplus.frosted_ball": "Frosted Ball",
 	"item.aquaticplus.aurora": "Aurora",
-	"item.aquaticplus.deoxidizing_material": "Deoxidizing Material",
 	"item.aquaticplus.airleech_pouch": "Airleech Pouch",
 	"item.aquaticplus.frosting_spectre": "Frosting Spectre",
 	"item.aquaticplus.aurora_staff": "Aurora Staff",
@@ -230,7 +229,6 @@
 
 	"aquaticplus.stonifier.tooltip": "Turn blocks into stone",
 	"aquaticplus.destonifier.tooltip": "Break a stone block instantly",
-	"aquaticplus.deoxidizing_material.tooltip": "Time in reverse",
 	"aquaticplus.aquatic_star.tooltip": "Harness power and speed...",
 	"aquaticplus.land_drowning_aquatic_star.tooltip": "Tinker with enemy lungs...",
 	"aquaticplus.sea_bane_aquatic_star.tooltip": "Use our poison against them...",

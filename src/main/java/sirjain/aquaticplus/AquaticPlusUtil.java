@@ -1,9 +1,6 @@
 package sirjain.aquaticplus;
 
-import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.minecraft.block.Block;
 import net.minecraft.client.item.ModelPredicateProviderRegistry;
-import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -32,7 +29,6 @@ import sirjain.aquaticplus.status_effect.potion.AquaticPlusPotions;
 import java.util.Arrays;
 import java.util.List;
 
-// TODO: Populate this with random helper methods and fields in mod code
 public class AquaticPlusUtil {
 	// Makes the entity go the same speed underwater as in air
 	public static final double UNDERWATER_VELOCITY_MULTIPLIER = 1 / 0.8;

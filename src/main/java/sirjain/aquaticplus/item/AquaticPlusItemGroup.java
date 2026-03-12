@@ -123,7 +123,6 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.NEON_LEAF);
 					entries.add(AquaticPlusItems.ISOPOD_SHELL);
 					entries.add(AquaticPlusItems.YETI_CRAB_SHELL);
-					entries.add(AquaticPlusItems.DEOXIDIZING_MATERIAL);
 					entries.add(AquaticPlusItems.AIRLEECH_PLANT_ITEM);
 					entries.add(AquaticPlusItems.AIRLEECH_POUCH);
 					entries.add(AquaticPlusItems.STONIFIER);
