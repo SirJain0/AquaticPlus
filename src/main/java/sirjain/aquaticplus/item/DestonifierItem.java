@@ -6,6 +6,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
@@ -26,6 +27,7 @@ public class DestonifierItem extends Item {
 		BlockPos breakPos = context.getBlockPos();
 		PlayerEntity user = context.getPlayer();
 
+		// TODO: Possible to make this work for every stone block?
 		if (world.getBlockState(breakPos) == Blocks.STONE.getDefaultState())
 			world.breakBlock(breakPos, false);
 

@@ -1,0 +1,26 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" # ",
+		"S/C",
+		" / "
+	],
+	"key": {
+		"#": {
+			"item": "aquaticplus:stone_corroder"
+		},
+		"C": {
+			"item": "minecraft:cobblestone"
+		},
+		"S": {
+			"item": "minecraft:stone"
+		},
+		"/": {
+			"item": "minecraft:stick"
+		}
+	},
+	"result": {
+		"item": "aquaticplus:destonifier",
+		"count": 1
+	}
+}

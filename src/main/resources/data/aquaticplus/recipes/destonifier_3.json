@@ -2,15 +2,18 @@
 	"type": "minecraft:crafting_shaped",
 	"pattern": [
 		" # ",
-		"S/S",
+		"C/S",
 		" / "
 	],
 	"key": {
 		"#": {
 			"item": "aquaticplus:stone_corroder"
 		},
-		"S": {
+		"C": {
 			"item": "minecraft:cobblestone"
+		},
+		"S": {
+			"item": "minecraft:stone"
 		},
 		"/": {
 			"item": "minecraft:stick"
