@@ -3,12 +3,14 @@ package sirjain.aquaticplus.entity.entities.projectile;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleTypes;
 import net.minecraft.util.hit.EntityHitResult;
+import net.minecraft.util.hit.HitResult;
 import net.minecraft.world.World;
+import sirjain.aquaticplus.AquaticPlusUtil;
 import sirjain.aquaticplus.entity.AquaticPlusEntities;
 import sirjain.aquaticplus.entity.entities.template.APProjectileEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
@@ -38,7 +40,7 @@ public class AirleechPouchEntity extends APProjectileEntity {
 		Entity hitEntity = entityHitResult.getEntity();
 
 		if (hitEntity instanceof LivingEntity target) {
-			target.addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.LAND_DROWNING, 20*4, 0));
+			target.addStatusEffect(new StatusEffectInstance(AquaticPlusStatusEffects.LAND_DROWNING, 20*3, 0));
 			target.damage(target.getDamageSources().thrown(this, this.getOwner()), 0);
 		}
 
@@ -46,5 +48,16 @@ public class AirleechPouchEntity extends APProjectileEntity {
 		this.kill();
 
 		super.onEntityHit(entityHitResult);
+	}
+
+	@Override
+	protected void onCollision(HitResult hitResult) {
+		// TODO: This isn't working. Make some bubble particles come off the collision
+		AquaticPlusUtil.summonParticlesOffCollision(ParticleTypes.BUBBLE, this.getWorld(), 5, hitResult.getPos());
+
+		this.discard();
+		this.kill();
+
+		super.onCollision(hitResult);
 	}
 }
