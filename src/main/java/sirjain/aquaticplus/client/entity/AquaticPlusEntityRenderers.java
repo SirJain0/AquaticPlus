@@ -12,6 +12,7 @@ public class AquaticPlusEntityRenderers {
 
 		EntityRendererRegistry.register(AquaticPlusEntities.JOHNSON_ENTITY, JohnsonRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.MINDINATOR_ENTITY, MindinatorRenderer::new);
+		EntityRendererRegistry.register(AquaticPlusEntities.CRISTINATOR_ENTITY, CristinatorRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.SPIRITED_FISH_ENTITY, SpiritedFishRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.MAXILLA_MORTIS_ENTITY, MaxillaMortisRenderer::new);
 		EntityRendererRegistry.register(AquaticPlusEntities.PARROTFISH_ENTITY, ParrotfishRenderer::new);

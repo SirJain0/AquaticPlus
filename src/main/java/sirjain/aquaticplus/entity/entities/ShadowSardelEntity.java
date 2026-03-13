@@ -53,6 +53,12 @@ public class ShadowSardelEntity extends APSchoolingFishEntity {
 				handleVariant(AquaticPlusEntities.MINDINATOR_ENTITY);
 				variantSpawned = true;
 			}
+
+			// Check: name is 'Cristinator'
+			else if (Text.literal("Cristinator").equals(name) && !variantSpawned) {
+				handleVariant(AquaticPlusEntities.CRISTINATOR_ENTITY);
+				variantSpawned = true;
+			}
 		}
 	}
 

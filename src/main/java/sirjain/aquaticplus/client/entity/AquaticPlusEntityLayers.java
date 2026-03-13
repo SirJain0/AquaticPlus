@@ -15,6 +15,7 @@ import sirjain.aquaticplus.entity.entities.MythicalSeahorseEntity;
 public class AquaticPlusEntityLayers {
 	public static EntityModelLayer JOHNSON_LAYER;
 	public static EntityModelLayer MINDINATOR_LAYER;
+	public static EntityModelLayer CRISTINATOR_LAYER;
 	public static EntityModelLayer SPIRITED_FISH_LAYER;
 	public static EntityModelLayer MAXILLA_MORTIS_LAYER;
 	public static EntityModelLayer PARROTFISH_LAYER;
@@ -61,6 +62,7 @@ public class AquaticPlusEntityLayers {
 	public static void registerEntityLayers() {
 		JOHNSON_LAYER = registerEntityLayer("johnson");
 		MINDINATOR_LAYER = registerEntityLayer("mindinator");
+		CRISTINATOR_LAYER = registerEntityLayer("cristinator");
 		SPIRITED_FISH_LAYER = registerEntityLayer("spirited_fish");
 		MAXILLA_MORTIS_LAYER = registerEntityLayer("maxilla_mortis");
 		PARROTFISH_LAYER = registerEntityLayer("parrotfish");
@@ -109,6 +111,7 @@ public class AquaticPlusEntityLayers {
 	public static void registerEntityModels() {
 		EntityModelLayerRegistry.registerModelLayer(JOHNSON_LAYER, JohnsonModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MINDINATOR_LAYER, MindinatorModel::getTexturedModelData);
+		EntityModelLayerRegistry.registerModelLayer(CRISTINATOR_LAYER, CristinatorModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(SPIRITED_FISH_LAYER, SpiritedFishModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(MAXILLA_MORTIS_LAYER, MaxillaMortisModel::getTexturedModelData);
 		EntityModelLayerRegistry.registerModelLayer(PARROTFISH_LAYER, ParrotfishModel::getTexturedModelData);

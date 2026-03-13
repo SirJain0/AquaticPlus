@@ -24,6 +24,7 @@ TODO for entities:
 public class AquaticPlusEntities {
 	public static EntityType<ShadowSardelEasterEggEntity> JOHNSON_ENTITY;
 	public static EntityType<ShadowSardelEasterEggEntity> MINDINATOR_ENTITY;
+	public static EntityType<ShadowSardelEasterEggEntity> CRISTINATOR_ENTITY;
 	public static EntityType<SpiritedFishEntity> SPIRITED_FISH_ENTITY;
 	public static EntityType<MaxillaMortisEntity> MAXILLA_MORTIS_ENTITY;
 	public static EntityType<ParrotfishEntity> PARROTFISH_ENTITY;
@@ -78,6 +79,7 @@ public class AquaticPlusEntities {
 	public static void registerEntityTypes() {
 		JOHNSON_ENTITY = registerEntityType("johnson", ShadowSardelEasterEggEntity::new, 0.5f, 0.5f);
 		MINDINATOR_ENTITY = registerEntityType("mindinator", ShadowSardelEasterEggEntity::new, 0.5f, 0.5f);
+		CRISTINATOR_ENTITY = registerEntityType("cristinator", ShadowSardelEasterEggEntity::new, 0.5f, 0.5f);
 		SPIRITED_FISH_ENTITY = registerEntityType("spirited_fish", SpiritedFishEntity::new, 0.5f, 0.5f);
 		MAXILLA_MORTIS_ENTITY = registerEntityType("maxilla_mortis", MaxillaMortisEntity::new, 0.7f, 0.8f);
 		PARROTFISH_ENTITY = registerEntityType("parrotfish", ParrotfishEntity::new, 0.5f, 0.5f);
@@ -167,6 +169,7 @@ public class AquaticPlusEntities {
 	public static void registerAttributes() {
 		FabricDefaultAttributeRegistry.register(JOHNSON_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
 		FabricDefaultAttributeRegistry.register(MINDINATOR_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
+		FabricDefaultAttributeRegistry.register(CRISTINATOR_ENTITY, ShadowSardelEasterEggEntity.createEasterEggAttributes());
 		FabricDefaultAttributeRegistry.register(SPIRITED_FISH_ENTITY, SpiritedFishEntity.createSpiritedFishAttributes());
 		FabricDefaultAttributeRegistry.register(MAXILLA_MORTIS_ENTITY, MaxillaMortisEntity.createMaxillaMortisAttributes());
 		FabricDefaultAttributeRegistry.register(PARROTFISH_ENTITY, ParrotfishEntity.createParrotfishAttributes());
