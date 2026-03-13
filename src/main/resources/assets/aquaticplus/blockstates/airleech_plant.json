@@ -1,19 +1,5 @@
 {
 	"variants": {
-		"facing=east": {
-			"model": "aquaticplus:block/airleech_plant",
-			"y": 270
-		},
-		"facing=north": {
-			"model": "aquaticplus:block/airleech_plant",
-			"y": 180
-		},
-		"facing=south": {
-			"model": "aquaticplus:block/airleech_plant"
-		},
-		"facing=west": {
-			"model": "aquaticplus:block/airleech_plant",
-			"y": 90
-		}
+		"": {"model": "aquaticplus:block/airleech_plant"}
 	}
 }
