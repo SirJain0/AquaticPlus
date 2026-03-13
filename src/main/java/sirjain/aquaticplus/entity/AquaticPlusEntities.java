@@ -17,8 +17,7 @@ import sirjain.aquaticplus.entity.entities.projectile.*;
 import sirjain.aquaticplus.entity.entities.template.AbstractCrabEntity;
 
 /*
-TODO for entities:
-- Check all hitboxes and shadow radiuses
+TODO for entities: Check all hitboxes and shadow radiuses
  */
 
 public class AquaticPlusEntities {
