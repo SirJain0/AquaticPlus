@@ -38,7 +38,6 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 
 	private final SaddledComponent saddledComponent;
 	private boolean isAccelerating;
-//	public Box box;
 
 	public SwordfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
@@ -203,6 +202,7 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 		if (!this.isSitting()) super.tickMovement();
 	}
 
+	// TODO: The goal is to make them charge towards their target, and when they touch their target (with their spike), it hurts. Might need reworking...
 	@Override
 	protected void mobTick() {
 		BlockPos pos = this.getBlockPos();

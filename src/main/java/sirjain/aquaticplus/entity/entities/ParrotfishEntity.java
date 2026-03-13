@@ -11,7 +11,6 @@ import sirjain.aquaticplus.entity.ai.MoveToAndBreakBlockGoal;
 import sirjain.aquaticplus.entity.entities.template.APSchoolingFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 
-// TODO: Refine logic
 public class ParrotfishEntity extends APSchoolingFishEntity {
 	public ParrotfishEntity(EntityType<? extends SchoolingFishEntity> entityType, World world) {
 		super(entityType, world);
@@ -20,6 +19,8 @@ public class ParrotfishEntity extends APSchoolingFishEntity {
 	@Override
 	protected void initGoals() {
 		super.initGoals();
+
+		// TODO: Refine logic - the goal is the parrotfish swims to a dead coral/stone block and then 'eats'/breaks it
 		this.goalSelector.add(1, new MoveToAndBreakBlockGoal(this, 1.3f, 10, 1));
 	}
 

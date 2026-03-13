@@ -11,7 +11,6 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import sirjain.aquaticplus.entity.entities.template.SeaTridentEntity;
 
-// TODO: Make faster when traveling
 public abstract class SeaTridentItem extends Item {
 	public SeaTridentItem() {
 		super(new Item.Settings().maxCount(1));
@@ -24,7 +23,7 @@ public abstract class SeaTridentItem extends Item {
 		if (world.isClient) return TypedActionResult.pass(stackInHand);
 
 		SeaTridentEntity trident = getEntity(world, user);
-		trident.setVelocity(user, user.getPitch(), user.getYaw(), 0, 1, 0);
+		trident.setVelocity(user, user.getPitch(), user.getYaw(), 0, 1.2f, 0);
 		world.spawnEntity(trident);
 
 		if (!user.getAbilities().creativeMode) {
@@ -32,8 +31,7 @@ public abstract class SeaTridentItem extends Item {
 			user.getItemCooldownManager().set(this, 5);
 		}
 
-		// TODO: Change to custom sound
-		world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 1F);
+		world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ITEM_TRIDENT_THROW, SoundCategory.NEUTRAL, 0.5F, 1F);
 		user.incrementStat(Stats.USED.getOrCreateStat(this));
 
 		return TypedActionResult.success(stackInHand);

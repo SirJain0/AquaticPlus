@@ -24,7 +24,7 @@ public abstract class AbstractAquaticStarItem extends Item {
 
 		AbstractAquaticStarEntity star = getEntity(world, user);
 		star.setItem(stackInHand);
-		star.setVelocity(user, user.getPitch(), user.getYaw(), 0, 0.75F, 0);
+		star.setVelocity(user, user.getPitch(), user.getYaw(), 0, 1.5F, 0);
 		world.spawnEntity(star);
 
 		if (!user.getAbilities().creativeMode) {
@@ -32,7 +32,6 @@ public abstract class AbstractAquaticStarItem extends Item {
 			user.getItemCooldownManager().set(this, 5);
 		}
 
-		// TODO: Change to custom sound
 		world.playSound(null, user.getX(), user.getY(), user.getZ(), SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.NEUTRAL, 0.5F, 1F);
 		user.incrementStat(Stats.USED.getOrCreateStat(this));
 

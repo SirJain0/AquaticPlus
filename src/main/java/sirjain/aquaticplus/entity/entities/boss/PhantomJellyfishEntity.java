@@ -101,7 +101,6 @@ public class PhantomJellyfishEntity extends APFishEntity implements SmartBrainOw
 	public void onDeath(DamageSource damageSource) {
 		Entity attacker = damageSource.getAttacker();
 
-		// TODO: Make the text translatable
 		if (attacker instanceof PlayerEntity player) {
 			player.sendMessage(Text.translatable("aquaticplus.phantom_jellyfish.death.message"));
 		}
