@@ -48,7 +48,7 @@ public class IvySeahorseModel extends EntityModel<IvySeahorseEntity> {
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-		matrices.translate(0, 1.3f, 0);
+		matrices.translate(0, 1.9f, 0);
 		ivySeahorse.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}

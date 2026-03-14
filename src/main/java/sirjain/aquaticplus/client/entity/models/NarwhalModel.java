@@ -59,7 +59,7 @@ public class NarwhalModel extends EntityModel<NarwhalEntity> {
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-		matrices.translate(0, 1.3f, 0);
+		matrices.translate(0, 1.4f, 0);
 		root.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}

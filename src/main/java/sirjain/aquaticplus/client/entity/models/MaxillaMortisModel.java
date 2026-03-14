@@ -69,9 +69,9 @@ public class MaxillaMortisModel extends EntityModel<MaxillaMortisEntity> {
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
-		main.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.scale(1.3f, 1.3f, 1.3f);
-		matrices.translate(0, 4, 0);
+		matrices.translate(0, -0.2f, 1);
+		main.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}
 }

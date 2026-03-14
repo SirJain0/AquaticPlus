@@ -59,6 +59,7 @@ public class MindinatorModel extends EntityModel<ShadowSardelEasterEggEntity> {
 	@Override
 	public void render(MatrixStack matrices, VertexConsumer vertices, int light, int overlay, float red, float green, float blue, float alpha) {
 		matrices.push();
+		matrices.translate(0, 1.2f, 0);
 		main.render(matrices, vertices, light, overlay, red, green, blue, alpha);
 		matrices.pop();
 	}

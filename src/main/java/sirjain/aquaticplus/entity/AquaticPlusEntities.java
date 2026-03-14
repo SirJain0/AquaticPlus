@@ -16,10 +16,6 @@ import sirjain.aquaticplus.entity.entities.boss.PhantomJellyfishEntity;
 import sirjain.aquaticplus.entity.entities.projectile.*;
 import sirjain.aquaticplus.entity.entities.template.AbstractCrabEntity;
 
-/*
-TODO for entities: Check all hitboxes and shadow radiuses
- */
-
 public class AquaticPlusEntities {
 	public static EntityType<ShadowSardelEasterEggEntity> JOHNSON_ENTITY;
 	public static EntityType<ShadowSardelEasterEggEntity> MINDINATOR_ENTITY;
@@ -77,44 +73,44 @@ public class AquaticPlusEntities {
 
 	public static void registerEntityTypes() {
 		JOHNSON_ENTITY = registerEntityType("johnson", ShadowSardelEasterEggEntity::new, 0.5f, 0.5f);
-		MINDINATOR_ENTITY = registerEntityType("mindinator", ShadowSardelEasterEggEntity::new, 0.5f, 0.5f);
+		MINDINATOR_ENTITY = registerEntityType("mindinator", ShadowSardelEasterEggEntity::new, 0.6f, 0.5f);
 		CRISTINATOR_ENTITY = registerEntityType("cristinator", ShadowSardelEasterEggEntity::new, 0.5f, 0.5f);
 		SPIRITED_FISH_ENTITY = registerEntityType("spirited_fish", SpiritedFishEntity::new, 0.5f, 0.5f);
-		MAXILLA_MORTIS_ENTITY = registerEntityType("maxilla_mortis", MaxillaMortisEntity::new, 0.7f, 0.8f);
-		PARROTFISH_ENTITY = registerEntityType("parrotfish", ParrotfishEntity::new, 0.5f, 0.5f);
-		KELP_EEL_ENTITY = registerEntityType("kelp_eel", KelpEelEntity::new, 0.6f, 0.6f);
+		MAXILLA_MORTIS_ENTITY = registerEntityType("maxilla_mortis", MaxillaMortisEntity::new, 1.2f, 0.8f);
+		PARROTFISH_ENTITY = registerEntityType("parrotfish", ParrotfishEntity::new, 0.7f, 0.5f);
+		KELP_EEL_ENTITY = registerEntityType("kelp_eel", KelpEelEntity::new, 0.7f, 0.6f);
 		SHADOW_SARDEL_ENTITY = registerEntityType("shadow_sardel", ShadowSardelEntity::new, 0.5f, 0.5f);
 		BONEFISH_ENTITY = registerEntityType("bonefish", BonefishEntity::new, 0.5f, 0.5f);
 		LONG_BONEFISH_ENTITY = registerEntityType("long_bonefish", LongBonefishEntity::new, 0.5f, 0.5f);
-		OCULI_MAGNI_ENTITY = registerEntityType("oculi_magni", OculiMagniEntity::new, 0.5f, 0.5f);
-		VIPERFISH_ENTITY = registerEntityType("viperfish", ViperfishEntity::new, 0.6f, 0.6f);
+		OCULI_MAGNI_ENTITY = registerEntityType("oculi_magni", OculiMagniEntity::new, 0.7f, 0.5f);
+		VIPERFISH_ENTITY = registerEntityType("viperfish", ViperfishEntity::new, 0.7f, 0.6f);
 		MANTA_RAY_ENTITY = registerEntityType("manta_ray", MantaRayEntity::new, 1.1f, 0.9f);
-		DUMBO_BLOB_ENTITY = registerEntityType("dumbo_blob", DumboBlobEntity::new, 0.4f, 0.4f);
-		PINK_SUNFISH_ENTITY = registerEntityType("pink_sunfish", PinkSunfishEntity::new, 0.3f, 0.6f);
-		LANTERNFISH_ENTITY = registerEntityType("lanternfish", LanternfishEntity::new, 0.4f, 0.4f);
-		BLUEFIN_TUNA_ENTITY = registerEntityType("bluefin_tuna", BluefinTunaEntity::new, 0.4f, 0.4f);
-		GULPER_EEL_ENTITY = registerEntityType("gulper_eel", GulperEelEntity::new, 0.5f, 0.5f);
-		HALIBUT_ENTITY = registerEntityType("halibut", HalibutEntity::new, 0.4f, 0.4f);
+		DUMBO_BLOB_ENTITY = registerEntityType("dumbo_blob", DumboBlobEntity::new, 0.5f, 0.5f);
+		PINK_SUNFISH_ENTITY = registerEntityType("pink_sunfish", PinkSunfishEntity::new, 1f, 1.2f);
+		LANTERNFISH_ENTITY = registerEntityType("lanternfish", LanternfishEntity::new, 0.6f, 0.4f);
+		BLUEFIN_TUNA_ENTITY = registerEntityType("bluefin_tuna", BluefinTunaEntity::new, 0.6f, 0.7f);
+		GULPER_EEL_ENTITY = registerEntityType("gulper_eel", GulperEelEntity::new, 0.8f, 0.5f);
+		HALIBUT_ENTITY = registerEntityType("halibut", HalibutEntity::new, 0.6f, 0.6f);
 		SARDINE_ENTITY = registerEntityType("sardine", SardineEntity::new, 0.4f, 0.4f);
-		MINNOW_ENTITY = registerEntityType("minnow", MinnowEntity::new, 0.4f, 0.4f);
-		LIONFISH_ENTITY = registerEntityType("lionfish", LionfishEntity::new, 0.4f, 0.4f);
+		MINNOW_ENTITY = registerEntityType("minnow", MinnowEntity::new, 0.6f, 0.6f);
+		LIONFISH_ENTITY = registerEntityType("lionfish", LionfishEntity::new, 0.5f, 0.5f);
 		FROSTED_SPLASHER_ENTITY = registerEntityType("frosted_splasher", FrostedSplasherEntity::new, 0.6f, 0.5f);
-		JELLYFISH_ENTITY = registerEntityType("jellyfish", JellyfishEntity::new, 0.4f, 0.4f);
-		NARWHAL_ENTITY = registerEntityType("narwhal", NarwhalEntity::new, 0.6f, 0.6f);
-		SWORDFISH_ENTITY = registerEntityType("swordfish", SwordfishEntity::new, 0.6f, 0.6f);
-		NEON_CRAB_ENTITY = registerEntityType("neon_crab_entity", NeonCrabEntity::new, 0.4f, 0.3f);
-		ALLIGATOR_GAR_ENTITY = registerEntityType("alligator_gar", AlligatorGarEntity::new, 0.5f, 0.5f);
-		SEA_PEN_ENTITY = registerEntityType("sea_pen", SeaPenEntity::new, 0.5f, 0.5f);
-		VOLAN_AURORA_ENTITY = registerFireImmuneEntityType("volan_aurora", VolanAuroraEntity::new, 0.6f, 0.5f);
-		PIKE_ENTITY = registerEntityType("pike", PikeEntity::new, 0.5f, 0.5f);
-		RIBBON_EEL_ENTITY = registerEntityType("ribbon_eel", RibbonEelEntity::new, 0.4f, 0.4f);
-		DEEP_SEA_ISOPOD_ENTITY = registerEntityType("deep_sea_isopod", DeepSeaIsopodEntity::new, 0.4f, 0.4f);
-		YETI_CRAB_ENTITY = registerFireImmuneEntityType("yeti_crab", YetiCrabEntity::new, 0.5f, 0.5f);
-		STONEFISH_ENTITY = registerEntityType("stonefish", StonefishEntity::new, 0.6f, 0.6f);
-		SLIMY_SHRIMP_ENTITY = registerEntityType("slimy_shrimp", SlimyShrimpEntity::new, 0.3f, 0.3f);
+		JELLYFISH_ENTITY = registerEntityType("jellyfish", JellyfishEntity::new, 1.2f, 0.9f);
+		NARWHAL_ENTITY = registerEntityType("narwhal", NarwhalEntity::new, 0.8f, 0.7f);
+		SWORDFISH_ENTITY = registerEntityType("swordfish", SwordfishEntity::new, 0.7f, 0.7f);
+		NEON_CRAB_ENTITY = registerEntityType("neon_crab_entity", NeonCrabEntity::new, 0.7f, 0.55f);
+		ALLIGATOR_GAR_ENTITY = registerEntityType("alligator_gar", AlligatorGarEntity::new, 0.7f, 0.5f);
+		SEA_PEN_ENTITY = registerEntityType("sea_pen", SeaPenEntity::new, 0.5f, 0.7f);
+		VOLAN_AURORA_ENTITY = registerFireImmuneEntityType("volan_aurora", VolanAuroraEntity::new, 0.7f, 0.6f);
+		PIKE_ENTITY = registerEntityType("pike", PikeEntity::new, 0.7f, 0.6f);
+		RIBBON_EEL_ENTITY = registerEntityType("ribbon_eel", RibbonEelEntity::new, 0.6f, 0.6f);
+		DEEP_SEA_ISOPOD_ENTITY = registerEntityType("deep_sea_isopod", DeepSeaIsopodEntity::new, 1f, 0.8f);
+		YETI_CRAB_ENTITY = registerFireImmuneEntityType("yeti_crab", YetiCrabEntity::new, 0.6f, 0.6f);
+		STONEFISH_ENTITY = registerEntityType("stonefish", StonefishEntity::new, 1.1f, 0.7f);
+		SLIMY_SHRIMP_ENTITY = registerEntityType("slimy_shrimp", SlimyShrimpEntity::new, 0.5f, 0.5f);
 		IVY_SEAHORSE_ENTITY = registerEntityType("ivy_seahorse", IvySeahorseEntity::new, 0.6f, 0.6f);
 		MYTHICAL_SEAHORSE_ENTITY = registerEntityType("mythical_seahorse", MythicalSeahorseEntity::new, 0.8f, 0.8f);
-		VERMILLION_JELLY_ENTITY = registerFireImmuneEntityType("vermillion_jelly", VermillionJellyEntity::new, 0.5f, 0.5f);
+		VERMILLION_JELLY_ENTITY = registerFireImmuneEntityType("vermillion_jelly", VermillionJellyEntity::new, 0.7f, 0.7f);
 		PHANTOM_JELLYFISH_ENTITY = registerFireImmuneEntityType("phantom_jellyfish", PhantomJellyfishEntity::new, 3, 3);
 
 		// Projectiles
