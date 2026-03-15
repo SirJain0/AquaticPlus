@@ -147,11 +147,15 @@ public class AquaticPlusUtil {
 			AquaticPlusEntities.FROSTED_SPLASHER_ENTITY,
 			AquaticPlusEntities.JELLYFISH_ENTITY,
 			AquaticPlusEntities.NARWHAL_ENTITY,
+			AquaticPlusEntities.SWORDFISH_ENTITY,
 			AquaticPlusEntities.ALLIGATOR_GAR_ENTITY,
 			AquaticPlusEntities.VOLAN_AURORA_ENTITY,
 			AquaticPlusEntities.PIKE_ENTITY,
 			AquaticPlusEntities.RIBBON_EEL_ENTITY,
 			AquaticPlusEntities.STONEFISH_ENTITY,
+			AquaticPlusEntities.SLIMY_SHRIMP_ENTITY,
+			AquaticPlusEntities.IVY_SEAHORSE_ENTITY,
+			AquaticPlusEntities.MYTHICAL_SEAHORSE_ENTITY,
 			AquaticPlusEntities.VERMILLION_JELLY_ENTITY,
 			AquaticPlusEntities.PHANTOM_JELLYFISH_ENTITY
 		);
@@ -191,7 +195,7 @@ public class AquaticPlusUtil {
 				int zRand = world.random.nextInt(2);
 				int negativeDecider = world.random.nextInt(1);
 
-				world.addParticle(
+				world.addImportantParticle(
 					particle,
 					vec.getX(),
 					vec.getY(),
@@ -201,6 +205,18 @@ public class AquaticPlusUtil {
 					negativeDecider == 0 ? zRand / 10f : -(zRand / 10f)
 				);
 			}
+		} else if (world instanceof net.minecraft.server.world.ServerWorld serverWorld) {
+			serverWorld.spawnParticles(
+				particle,
+				vec.getX(),
+				vec.getY(),
+				vec.getZ(),
+				numParticles,
+				0.2,
+				0.2,
+				0.2,
+				0.1
+			);
 		}
 	}
 

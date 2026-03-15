@@ -27,8 +27,7 @@ public class DestonifierItem extends Item {
 		BlockPos breakPos = context.getBlockPos();
 		PlayerEntity user = context.getPlayer();
 
-		// TODO: Possible to make this work for every stone block?
-		if (world.getBlockState(breakPos) == Blocks.STONE.getDefaultState())
+		if (world.getBlockState(breakPos).isIn(BlockTags.STONE_ORE_REPLACEABLES))
 			world.breakBlock(breakPos, false);
 
 		if (user != null && !user.getAbilities().creativeMode) {

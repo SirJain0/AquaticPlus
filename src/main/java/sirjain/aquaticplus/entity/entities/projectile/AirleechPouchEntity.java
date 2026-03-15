@@ -1,5 +1,6 @@
 package sirjain.aquaticplus.entity.entities.projectile;
 
+import net.minecraft.block.*;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -44,19 +45,17 @@ public class AirleechPouchEntity extends APProjectileEntity {
 			target.damage(target.getDamageSources().thrown(this, this.getOwner()), 0);
 		}
 
-		this.discard();
-		this.kill();
-
 		super.onEntityHit(entityHitResult);
 	}
 
+    @Override
+    protected void onBlockCollision(BlockState state) {
+        super.onBlockCollision(state);
+    }
+
 	@Override
 	protected void onCollision(HitResult hitResult) {
-		// TODO: This isn't working. Make some bubble particles come off the collision
-		AquaticPlusUtil.summonParticlesOffCollision(ParticleTypes.BUBBLE, this.getWorld(), 5, hitResult.getPos());
-
-		this.discard();
-		this.kill();
+		AquaticPlusUtil.summonParticlesOffCollision(ParticleTypes.BUBBLE, this.getWorld(), 15, hitResult.getPos());
 
 		super.onCollision(hitResult);
 	}

@@ -20,7 +20,6 @@ public class ParrotfishEntity extends APSchoolingFishEntity {
 	protected void initGoals() {
 		super.initGoals();
 
-		// TODO: Refine logic - the goal is the parrotfish swims to a dead coral/stone block and then 'eats'/breaks it
 		this.goalSelector.add(1, new MoveToAndBreakBlockGoal(this, 1.3f, 10, 1));
 	}
 

@@ -18,18 +18,15 @@ import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
-import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.util.math.*;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
+import sirjain.aquaticplus.entity.ai.SwordfishChargeGoal;
 import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 import sirjain.aquaticplus.item.AquaticPlusItems;
 
-import java.util.List;
 
 public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Saddleable, Mount {
 	private static final TrackedData<Boolean> SADDLED = DataTracker.registerData(SwordfishEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
@@ -47,6 +44,7 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 	@Override
 	protected void initGoals() {
 		super.initGoals();
+		this.goalSelector.add(1, new SwordfishChargeGoal(this, 1.8, 6.0f, 1.5));
 		this.goalSelector.add(4, new EscapeDangerGoal(this, 1.45));
 		this.goalSelector.add(2, new TemptGoal(
 			this, 0.7f,
@@ -202,27 +200,6 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 		if (!this.isSitting()) super.tickMovement();
 	}
 
-	// TODO: The goal is to make them charge towards their target, and when they touch their target (with their spike), it hurts. Might need reworking...
-	@Override
-	protected void mobTick() {
-		BlockPos pos = this.getBlockPos();
-
-		// TODO: Make this the right coordinates
-		Box box = new Box(new BlockPos(pos.getX() + 2, pos.getY(), pos.getZ())).expand(1).stretch(0.3f, 0, 0);
-		List<Entity> targetEntities = this.getWorld().getOtherEntities(this, box);
-
-		// TODO: Get them to hurt
-		for (var entity : targetEntities) {
-			if (this.isAccelerating()) {
-				entity.damage(entity.getDamageSources().mobAttack(this), 3);
-//				System.out.println("hurt entity");
-			}
-
-//			System.out.println("targeted entity");
-		}
-
-		super.mobTick();
-	}
 
 	@Override
 	public boolean canBeSaddled() {
