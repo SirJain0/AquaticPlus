@@ -3,6 +3,7 @@ package sirjain.aquaticplus.entity.entities;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.EscapeDangerGoal;
+import net.minecraft.entity.ai.goal.RevengeGoal;
 import net.minecraft.entity.ai.goal.TemptGoal;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
@@ -44,6 +45,7 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 	@Override
 	protected void initGoals() {
 		super.initGoals();
+
 		this.goalSelector.add(1, new SwordfishChargeGoal(this, 1.8, 6.0f, 1.5));
 		this.goalSelector.add(4, new EscapeDangerGoal(this, 1.45));
 		this.goalSelector.add(2, new TemptGoal(
@@ -51,6 +53,8 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 			Ingredient.ofItems(AquaticPlusItems.PINK_JELLY, AquaticPlusItems.WHITE_JELLY, AquaticPlusItems.YELLOW_JELLY),
 			false
 		));
+
+//		this.targetSelector.add(0, new RevengeGoal(this));
 	}
 
 	@Nullable
