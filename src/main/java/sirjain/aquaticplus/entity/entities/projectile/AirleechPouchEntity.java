@@ -48,10 +48,10 @@ public class AirleechPouchEntity extends APProjectileEntity {
 		super.onEntityHit(entityHitResult);
 	}
 
-    @Override
-    protected void onBlockCollision(BlockState state) {
-        super.onBlockCollision(state);
-    }
+	@Override
+	protected void onBlockCollision(BlockState state) {
+		super.onBlockCollision(state);
+	}
 
 	@Override
 	protected void onCollision(HitResult hitResult) {
