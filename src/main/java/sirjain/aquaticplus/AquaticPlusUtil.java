@@ -125,6 +125,7 @@ public class AquaticPlusUtil {
 		SWIMMING_ENTITIES = Arrays.asList(
 			AquaticPlusEntities.JOHNSON_ENTITY,
 			AquaticPlusEntities.MINDINATOR_ENTITY,
+			AquaticPlusEntities.CRISTINATOR_ENTITY,
 			AquaticPlusEntities.SPIRITED_FISH_ENTITY,
 			AquaticPlusEntities.MAXILLA_MORTIS_ENTITY,
 			AquaticPlusEntities.PARROTFISH_ENTITY,
