@@ -7,6 +7,7 @@ import sirjain.aquaticplus.entity.entities.SwordfishEntity;
 
 import java.util.EnumSet;
 
+// TODO: Finish this logic
 public class SwordfishChargeGoal extends Goal {
 	private final SwordfishEntity swordfish;
 	private final double chargeSpeed;

@@ -21,9 +21,10 @@ import net.minecraft.world.WorldAccess;
 import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.status_effect.AquaticPlusStatusEffects;
 
+// Make these spawn naturally wherever you want in waterbodies - ocean floors, or underwater caves etc etc
 public class AirleechPlantBlock extends PlantBlock implements FluidFillable {
 	public AirleechPlantBlock() {
-		super(FabricBlockSettings.copyOf(Blocks.WITHER_ROSE).noCollision().notSolid());
+		super(FabricBlockSettings.copyOf(Blocks.WITHER_ROSE).noCollision().notSolid().luminance(5));
 	}
 
 	public void onEntityCollision(BlockState state, World world, BlockPos pos, Entity entity) {
