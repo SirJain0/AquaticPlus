@@ -3,7 +3,8 @@
 	"package": "sirjain.aquaticplus.mixins",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [
-		"PlayerEntityMixin"
+		"PlayerEntityMixin",
+		"SpawnGroupMixin"
 	],
 	"client": [
 		"ItemRendererAccessor",
