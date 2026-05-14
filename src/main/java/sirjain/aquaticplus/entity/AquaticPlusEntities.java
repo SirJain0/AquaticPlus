@@ -10,7 +10,7 @@ import net.minecraft.entity.passive.FishEntity;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import sirjain.aquaticplus.AquaticPlus;
+import sirjain.aquaticplus.*;
 import sirjain.aquaticplus.entity.entities.*;
 import sirjain.aquaticplus.entity.entities.boss.PhantomJellyfishEntity;
 import sirjain.aquaticplus.entity.entities.projectile.*;
@@ -132,7 +132,7 @@ public class AquaticPlusEntities {
 		return Registry.register(
 			Registries.ENTITY_TYPE,
 			new Identifier(AquaticPlus.MOD_ID, path),
-			FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, factory)
+			FabricEntityTypeBuilder.create(AQPSpawnGroup.AQUATIC_PLUS, factory)
 				.dimensions(EntityDimensions.fixed(hitboxWidth, hitboxHeight))
 				.build()
 		);
@@ -142,7 +142,7 @@ public class AquaticPlusEntities {
 		return Registry.register(
 			Registries.ENTITY_TYPE,
 			new Identifier(AquaticPlus.MOD_ID, path),
-			FabricEntityTypeBuilder.create(SpawnGroup.WATER_CREATURE, factory)
+			FabricEntityTypeBuilder.create(AQPSpawnGroup.AQUATIC_PLUS, factory)
 				.dimensions(EntityDimensions.fixed(hitboxWidth, hitboxHeight))
 				.fireImmune()
 				.build()
