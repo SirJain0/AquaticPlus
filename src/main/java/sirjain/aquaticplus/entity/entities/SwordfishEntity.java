@@ -45,7 +45,7 @@ public class SwordfishEntity extends NoBucketSchoolingFishEntity implements Sadd
 	protected void initGoals() {
 		super.initGoals();
 
-		this.goalSelector.add(1, new SwordfishChargeGoal(this, 1.8, 6.0f, 1.5));
+//		this.goalSelector.add(1, new SwordfishChargeGoal(this, 1.8, 6.0f, 1.5));
 		this.goalSelector.add(4, new EscapeDangerGoal(this, 1.45));
 		this.goalSelector.add(2, new TemptGoal(
 			this, 0.7f,

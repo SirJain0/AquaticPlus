@@ -10,7 +10,6 @@ import net.minecraft.world.Heightmap;
 import net.minecraft.world.biome.BiomeKeys;
 import sirjain.aquaticplus.*;
 
-// TODO: Custom spawn group with higher cap to make the waterbodies filled with life
 public class AquaticPlusEntitySpawns {
 	public static void initEntitySpawns() {
 		initLocations();
