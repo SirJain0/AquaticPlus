@@ -37,7 +37,7 @@ public class SpawnGroupMixin {
     )
     private static void aqpNewSpawnGroup(CallbackInfo ci) {
         List<SpawnGroup> newSpawnGroups = new ArrayList<>(Arrays.asList(field_6301));
-        AQPSpawnGroup.AQUATIC_PLUS = newSpawnGroup("aquatic_plus", newSpawnGroups.size(), "aquatic_plus", 570, true, false, 128);
+        AQPSpawnGroup.AQUATIC_PLUS = newSpawnGroup("aquatic_plus", newSpawnGroups.size(), "aquatic_plus", 300, true, false, 128);
         newSpawnGroups.add(AQPSpawnGroup.AQUATIC_PLUS);
         field_6301 = newSpawnGroups.toArray(new SpawnGroup[0]);
     }
