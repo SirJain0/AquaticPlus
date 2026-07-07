@@ -1,6 +1,5 @@
 package sirjain.aquaticplus.item;
 
-import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.mob.MobEntity;
@@ -43,7 +42,7 @@ public class AquaticPlusItems {
 	public static Item CYAN_CRAB_CLAW;
 	public static Item ORANGE_CRAB_CLAW;
 	public static Item PINK_CRAB_CLAW;
-	public static Item VIPER_SHIELD;
+	public static Item VIPER_BLADE;
 
 	public static Item FROSTED_BALL;
 	public static Item AURORA;
@@ -194,7 +193,7 @@ public class AquaticPlusItems {
 		CYAN_CRAB_CLAW = registerCustomItem("cyan_crab_claw", new CrabClawItem());
 		PINK_CRAB_CLAW = registerCustomItem("pink_crab_claw", new CrabClawItem());
 		ORANGE_CRAB_CLAW = registerCustomItem("orange_crab_claw", new CrabClawItem());
-		VIPER_SHIELD = registerCustomItem("viper_shield", new ViperShieldItem(new FabricItemSettings().maxDamage(400)));
+		VIPER_BLADE = registerCustomItem("viper_blade", new ViperBladeItem());
 		LIONFISH_SPIKE = registerCustomItem("lionfish_spike", new LionfishSpikeItem());
 		DEBUG_SWORD = registerCustomItem("debug_sword", new SwordItem(ToolMaterials.DIAMOND, 10000, 1, new Item.Settings()));
 	}

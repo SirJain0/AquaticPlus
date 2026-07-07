@@ -263,7 +263,7 @@ public class AquaticPlusUtil {
 
 		// Viper Shield
 		ModelPredicateProviderRegistry.register(
-			AquaticPlusItems.VIPER_SHIELD, new Identifier("blocking"),
+			AquaticPlusItems.VIPER_BLADE, new Identifier("blocking"),
 			(stack, world, entity, seed) -> entity != null
 				&& entity.isUsingItem()
 				&& entity.getActiveItem() == stack ? 1.0f : 0.0f

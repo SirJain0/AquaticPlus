@@ -134,6 +134,7 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.VERMILLION_GLOOM_STAFF);
 					entries.add(AquaticPlusItems.MIDNIGHT_PIKE);
 					entries.add(AquaticPlusItems.GULPER_DAGGER);
+					entries.add(AquaticPlusItems.VIPER_BLADE);
 					entries.add(AquaticPlusItems.CRIMSON_SEA_SWORD);
 					entries.add(AquaticPlusItems.AQUA_SEA_SWORD);
 					entries.add(AquaticPlusItems.CRIMSON_SEA_TRIDENT);
@@ -142,7 +143,6 @@ public class AquaticPlusItemGroup {
 					entries.add(AquaticPlusItems.ORANGE_CRAB_CLAW);
 					entries.add(AquaticPlusItems.PINK_CRAB_CLAW);
 					entries.add(AquaticPlusItems.PTEROIS_BOW);
-					entries.add(AquaticPlusItems.VIPER_SHIELD);
 
 					entries.add(AquaticPlusItems.GHOSTLY_GEL_ITEM);
 
