@@ -5,6 +5,7 @@ import net.minecraft.entity.MovementType;
 import net.minecraft.entity.attribute.AttributeContainer;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectCategory;
+import net.minecraft.entity.player.PlayerEntity;
 
 public class SunfishGraceStatusEffect extends StatusEffect {
 	public SunfishGraceStatusEffect(StatusEffectCategory category, int color) {
@@ -13,7 +14,7 @@ public class SunfishGraceStatusEffect extends StatusEffect {
 
 	@Override
 	public void applyUpdateEffect(LivingEntity entity, int amplifier) {
-		if (entity.isInsideWaterOrBubbleColumn() && entity.isLogicalSideForUpdatingMovement() && !entity.isSneaking())
+		if (entity instanceof PlayerEntity && entity.isInsideWaterOrBubbleColumn() && entity.isLogicalSideForUpdatingMovement() && !entity.isSneaking())
 			entity.move(MovementType.SELF, entity.getRotationVector().multiply(0.16f + (amplifier / 50f)));
 	}
 

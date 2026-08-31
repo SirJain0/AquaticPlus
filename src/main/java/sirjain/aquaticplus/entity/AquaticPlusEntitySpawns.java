@@ -26,9 +26,9 @@ public class AquaticPlusEntitySpawns {
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FROZEN_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.COLD_OCEAN, BiomeKeys.DEEP_COLD_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.OCEAN, BiomeKeys.SWAMP, BiomeKeys.MANGROVE_SWAMP, BiomeKeys.DEEP_FROZEN_OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.LONG_BONEFISH_ENTITY, 65, 2, 4);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.FROZEN_RIVER), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.LONG_BONEFISH_ENTITY, 60, 2, 3);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.OCEAN, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.LUKEWARM_OCEAN, BiomeKeys.RIVER, BiomeKeys.DEEP_OCEAN, BiomeKeys.FROZEN_OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.SLIMY_SHRIMP_ENTITY, 72, 4, 7);
-		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.FROZEN_RIVER, BiomeKeys.OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.SEA_PEN_ENTITY, 90, 5, 8);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.WARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.FROZEN_RIVER, BiomeKeys.OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.SEA_PEN_ENTITY, 75, 5, 8);
 
-		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.OCEAN, BiomeKeys.WARM_OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.PARROTFISH_ENTITY, 68, 4, 6);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.OCEAN, BiomeKeys.WARM_OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.PARROTFISH_ENTITY, 40, 2, 4);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.WARM_OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.JELLYFISH_ENTITY, 68, 4, 7);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.LUKEWARM_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.JELLYFISH_ENTITY, 60, 3, 5);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.WARM_OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.LIONFISH_ENTITY, 64, 3, 5);
@@ -42,7 +42,7 @@ public class AquaticPlusEntitySpawns {
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FROZEN_RIVER), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.SHADOW_SARDEL_ENTITY, 55, 2, 4);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FROZEN_OCEAN, BiomeKeys.COLD_OCEAN, BiomeKeys.DEEP_COLD_OCEAN, BiomeKeys.OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.LANTERNFISH_ENTITY, 60, 2, 4);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.OCEAN, BiomeKeys.WARM_OCEAN, BiomeKeys.LUKEWARM_OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.MANTA_RAY_ENTITY, 50, 2, 4);
-		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.OCEAN, BiomeKeys.WARM_OCEAN, BiomeKeys.LUKEWARM_OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.NEON_CRAB_ENTITY, 55, 2, 4);
+		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.RIVER, BiomeKeys.OCEAN, BiomeKeys.WARM_OCEAN, BiomeKeys.LUKEWARM_OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.NEON_CRAB_ENTITY, 40, 2, 4);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.FROZEN_RIVER), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.NEON_CRAB_ENTITY, 62, 2, 4);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.COLD_OCEAN, BiomeKeys.DEEP_COLD_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.IVY_SEAHORSE_ENTITY, 50, 3, 6);
 		BiomeModifications.addSpawn(BiomeSelectors.includeByKey(BiomeKeys.COLD_OCEAN, BiomeKeys.DEEP_COLD_OCEAN, BiomeKeys.DEEP_OCEAN, BiomeKeys.DEEP_LUKEWARM_OCEAN), AQPSpawnGroup.AQUATIC_PLUS, AquaticPlusEntities.MYTHICAL_SEAHORSE_ENTITY, 20, 1, 2);

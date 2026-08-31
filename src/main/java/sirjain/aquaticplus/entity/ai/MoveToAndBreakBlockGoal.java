@@ -12,9 +12,6 @@ import java.util.List;
 
 public class MoveToAndBreakBlockGoal extends MoveToTargetPosGoal {
 	private static final List<BlockState> PREFERRED_BLOCKS = Arrays.asList(
-		Blocks.STONE.getDefaultState(),
-		Blocks.GRAVEL.getDefaultState(),
-
 		Blocks.DEAD_TUBE_CORAL_BLOCK.getDefaultState(),
 		Blocks.DEAD_BRAIN_CORAL_BLOCK.getDefaultState(),
 		Blocks.DEAD_BUBBLE_CORAL_BLOCK.getDefaultState(),

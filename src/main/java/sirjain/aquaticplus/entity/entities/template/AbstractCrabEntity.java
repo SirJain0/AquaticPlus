@@ -25,6 +25,6 @@ abstract public class AbstractCrabEntity extends WaterCreatureEntity {
 		return WaterCreatureEntity
 			.createMobAttributes()
 			.add(EntityAttributes.GENERIC_MAX_HEALTH, 7)
-			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 3);
+			.add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 1.2f);
 	}
 }
