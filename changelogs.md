@@ -1,3 +1,7 @@
+# 1.0.4
+
+- Fix crash with trying to bucket the Slimy Shrimp
+
 # 1.0.3
 
 - Reduce spawn weight of Neon Crab and Parrotfish

@@ -42,7 +42,7 @@ public class SlimyShrimpEntity extends APSchoolingFishEntity implements Shearabl
 
 	@Override
 	public ItemStack getBucketItem() {
-		return null;
+		return AquaticPlusItems.SHRIMP_BUCKET.getDefaultStack();
 	}
 
 	@Override
