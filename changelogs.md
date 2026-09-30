@@ -1,3 +1,6 @@
+# 1.0.5
+- Prevent player from trying to bucket Vermillion Jelly
+
 # 1.0.4
 
 - Fix crash with trying to bucket the Slimy Shrimp

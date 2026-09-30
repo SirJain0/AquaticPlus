@@ -20,8 +20,9 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 import sirjain.aquaticplus.AquaticPlusUtil;
 import sirjain.aquaticplus.entity.entities.template.APSchoolingFishEntity;
+import sirjain.aquaticplus.entity.entities.template.NoBucketSchoolingFishEntity;
 
-public class VermillionJellyEntity extends APSchoolingFishEntity implements RangedAttackMob {
+public class VermillionJellyEntity extends NoBucketSchoolingFishEntity implements RangedAttackMob {
 	public final AnimationState swimAnimationState = new AnimationState();
 	public int idleAnimationTimeout = 0;
 
@@ -38,11 +39,6 @@ public class VermillionJellyEntity extends APSchoolingFishEntity implements Rang
 		this.goalSelector.add(0, new ProjectileAttackGoal(this, 1, 40, 15));
 
 		this.targetSelector.add(0, new RevengeGoal(this));
-	}
-
-	@Override
-	public ItemStack getBucketItem() {
-		return null;
 	}
 
 	@Nullable
